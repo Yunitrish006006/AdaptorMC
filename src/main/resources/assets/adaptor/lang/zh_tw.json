@@ -1,4 +1,7 @@
 {
+  "block.adaptor.flour_block": "麵粉塊",
+  "block.adaptor.raw_salt_block": "鹽礦",
+  "block.adaptor.salt_block": "鹽塊",
   "item.adaptor.flour": "麵粉",
   "item.adaptor.salt": "鹽",
   "itemgroup.adaptor_group": "調適者模組"

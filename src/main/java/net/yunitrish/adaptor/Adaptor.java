@@ -2,6 +2,7 @@ package net.yunitrish.adaptor;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.item.ModItemGroups;
 import net.yunitrish.adaptor.item.ModItems;
 import org.slf4j.Logger;
@@ -15,5 +16,6 @@ public class Adaptor implements ModInitializer {
 	public void onInitialize() {
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
 	}
 }

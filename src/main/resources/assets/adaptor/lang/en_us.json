@@ -1,5 +1,8 @@
 {
   "item.adaptor.salt": "Salt",
   "item.adaptor.flour": "Flour",
+  "block.adaptor.salt_block": "Block of salt",
+  "block.adaptor.raw_salt_block": "Block of Raw salt",
+  "block.adaptor.flour_block": "Block of flour",
   "itemgroup.adaptor_group": "Adaptor Group"
 }
