@@ -1,8 +1,15 @@
 {
   "item.adaptor.salt": "Salt",
+  "item.adaptor.metal_detector": "Metal Detector",
   "item.adaptor.flour": "Flour",
   "block.adaptor.salt_block": "Block of salt",
-  "block.adaptor.raw_salt_block": "Block of Raw salt",
+  "block.adaptor.salt_ore": "Salt ore",
+  "block.adaptor.deepslate_salt_ore": "Deepslate Salt ore",
+  "block.adaptor.nether_salt_ore": "Nether Salt ore",
+  "block.adaptor.end_stone_salt_ore": "End Stone Salt ore",
   "block.adaptor.flour_block": "Block of flour",
+
+  "block.adaptor.sound_block": "Sound Block",
+
   "itemgroup.adaptor_group": "Adaptor Group"
 }

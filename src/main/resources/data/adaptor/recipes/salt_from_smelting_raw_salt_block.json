@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 40,
+  "experience": 0.3,
+  "group": "salt",
+  "ingredient": {
+    "item": "adaptor:raw_salt_block"
+  },
+  "result": "adaptor:salt"
+}

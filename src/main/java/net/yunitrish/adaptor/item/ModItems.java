@@ -9,11 +9,14 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.Adaptor;
+import net.yunitrish.adaptor.item.custom.MetalDetectionItem;
 
 public class ModItems {
 
     public static final Item Salt = registerItem("salt",new Item(new FabricItemSettings()));
     public static final Item Flour = registerItem("flour",new Item(new FabricItemSettings()));
+
+    public static final  Item METAL_DETECTOR = registerItem("metal_detector",new MetalDetectionItem(new FabricItemSettings().maxDamage(64)));
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries) {
         entries.add(Salt);

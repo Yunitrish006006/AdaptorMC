@@ -1,8 +1,13 @@
 {
+  "block.adaptor.deepslate_salt_ore": "深板岩鹽礦",
+  "block.adaptor.end_stone_salt_ore": "終界石鹽礦",
   "block.adaptor.flour_block": "麵粉塊",
-  "block.adaptor.raw_salt_block": "鹽礦",
+  "block.adaptor.nether_salt_ore": "地獄鹽礦",
   "block.adaptor.salt_block": "鹽塊",
+  "block.adaptor.salt_ore": "鹽礦",
+  "block.adaptor.sound_block": "發音塊",
   "item.adaptor.flour": "麵粉",
+  "item.adaptor.metal_detector": "礦物探測器",
   "item.adaptor.salt": "鹽",
   "itemgroup.adaptor_group": "調適者模組"
 }

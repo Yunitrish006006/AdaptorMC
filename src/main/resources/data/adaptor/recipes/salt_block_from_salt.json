@@ -1,0 +1,17 @@
+{
+  "type" : "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "adaptor:salt"
+    }
+  },
+  "result": {
+    "item": "adaptor:salt_block"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type" : "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "adaptor:salt_block"
+    }
+  ],
+  "result": {
+    "item": "adaptor:salt",
+    "count": 9
+  }
+}

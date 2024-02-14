@@ -16,8 +16,13 @@ public class ModItemGroups {
         entries.add(ModItems.Flour);
         entries.add(ModItems.Salt);
         entries.add(ModBlocks.SALT_BLOCK);
-        entries.add(ModBlocks.RAW_SALT_BLOCK);
+        entries.add(ModBlocks.SALT_ORE);
+        entries.add(ModBlocks.DEEPSLATE_SALT_ORE);
+        entries.add(ModBlocks.NETHER_SALT_ORE);
+        entries.add(ModBlocks.END_STONE_SALT_ORE);
         entries.add(ModBlocks.FLOUR_BLOCK);
+        entries.add(ModItems.METAL_DETECTOR);
+        entries.add(ModBlocks.SOUND_BLOCK);
     })).build());
 
     public static void registerItemGroups() {
