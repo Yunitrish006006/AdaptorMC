@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-15T18:46:10.782231	Adaptor/Model Definitions
+// 1.20.4	2024-02-15T22:51:04.3297038	Adaptor/Model Definitions
 626c2eecf9445262cabbf433233362d62a345d1a assets\adaptor\models\item\dirt_button.json
 2a1fd12b8a831e1dbfcaafa0e4e508724ace6297 assets\adaptor\models\item\dough.json
 bd81ab28cbd7ca2e7b41186dc4bf4f354a9da1d1 assets\adaptor\models\block\dirt_door_top_right_open.json
@@ -19,8 +19,8 @@ d308e3e785bc6e25756acd94cdcf62d5f7aba8c2 assets\adaptor\models\block\dirt_door_t
 5ac512d80ff3c117a8f72209e28fe0b2550d7455 assets\adaptor\models\item\salt.json
 2fd66f67fe30fc7cedcaccc420c5422eab5457ae assets\adaptor\models\block\dirt_fence_gate_wall_open.json
 b4185555bcaf5589414cc3a5d21db29150708255 assets\adaptor\blockstates\dirt_trapdoor.json
-7baa831eeae6b4e3e340195a646eec308468c8d4 assets\adaptor\models\block\dirt_stairs.json
 745961a0af5e7c4f0096c6a141ba7f28028f0243 assets\adaptor\models\block\dirt_door_bottom_right_open.json
+7baa831eeae6b4e3e340195a646eec308468c8d4 assets\adaptor\models\block\dirt_stairs.json
 bc49540d62c6bb7e74b671746b4fd241252d2d03 assets\adaptor\models\block\dirt_button_inventory.json
 3bae044628a196bdef668d7b27668e044c5f73cc assets\adaptor\models\block\dirt_fence_gate_open.json
 952fd01cd196fcc3fdfb88947eed9320b8285719 assets\adaptor\models\block\dirt_door_top_left_open.json

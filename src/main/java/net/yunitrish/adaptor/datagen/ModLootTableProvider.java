@@ -23,7 +23,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
-        addDrop(ModBlocks.SALT_BLOCK);
+        addDrop(ModBlocks.SALT_BLOCK, customOreDrops(ModBlocks.SALT_BLOCK,ModItems.SALT,0f,9f));
         addDrop(ModBlocks.SOUND_BLOCK);
 
         addDrop(ModBlocks.SALT_ORE,customOreDrops(ModBlocks.SALT_ORE, ModItems.SALT,2f,5f));
@@ -45,12 +45,16 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
     public LootTable.Builder customOreDrops(Block drop, Item item, float least, float most) {
         return BlockLootTableGenerator
-                .dropsWithSilkTouch(drop, (LootPoolEntry.Builder)this.applyExplosionDecay(drop,
-                        ((LeafEntry.Builder)
-                                ItemEntry.builder(item)
-                                        .apply(SetCountLootFunction
-                                                .builder(UniformLootNumberProvider
-                                                        .create(least, most))))
-                                .apply(ApplyBonusLootFunction.oreDrops(Enchantments.FORTUNE))));
+                .dropsWithSilkTouch(
+                        drop,
+                        (LootPoolEntry.Builder)this.applyExplosionDecay(
+                                drop,
+                                (
+                                        (LeafEntry.Builder) ItemEntry.builder(item)
+                                                .apply(SetCountLootFunction
+                                                .builder(
+                                                        UniformLootNumberProvider
+                                                                .create(least, most))))
+                                        .apply(ApplyBonusLootFunction.oreDrops(Enchantments.FORTUNE))));
     }
 }

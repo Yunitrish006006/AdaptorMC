@@ -50,14 +50,14 @@ public class ModBlocks {
     static WoodType dirt = new WoodType("dirt",DIRT,
             BlockSoundGroup.ROOTED_DIRT,
             BlockSoundGroup.ROOTED_DIRT,
-            SoundEvents.BLOCK_FENCE_GATE_CLOSE,
-            SoundEvents.BLOCK_FENCE_GATE_OPEN
+            SoundEvents.BLOCK_ROOTED_DIRT_PLACE,
+            SoundEvents.BLOCK_ROOTED_DIRT_BREAK
             );
     public static final Block DIRT_FENCE_GATE = registerBlock("dirt_fence_gate",new FenceGateBlock(dirt, FabricBlockSettings.copyOf(Blocks.DIRT)));
     public static final Block DIRT_WALL = registerBlock("dirt_wall",new WallBlock(FabricBlockSettings.copyOf(Blocks.DIRT)));
 
-    public static final Block DIRT_DOOR = registerBlock("dirt_door",new DoorBlock(DIRT, FabricBlockSettings.copyOf(Blocks.DIRT)));
-    public static final Block DIRT_TRAPDOOR = registerBlock("dirt_trapdoor",new TrapdoorBlock(DIRT, FabricBlockSettings.copyOf(Blocks.DIRT)));
+    public static final Block DIRT_DOOR = registerBlock("dirt_door",new DoorBlock(DIRT, AbstractBlock.Settings.create().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block DIRT_TRAPDOOR = registerBlock("dirt_trapdoor",new TrapdoorBlock(DIRT, AbstractBlock.Settings.create().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
 
 
     private static Block registerBlock(String name, Block block) {

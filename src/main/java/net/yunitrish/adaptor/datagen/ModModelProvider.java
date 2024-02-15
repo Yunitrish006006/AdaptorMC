@@ -35,8 +35,6 @@ public class ModModelProvider extends FabricModelProvider {
         dirtPool.fenceGate(ModBlocks.DIRT_FENCE_GATE);
         dirtPool.wall(ModBlocks.DIRT_WALL);
 
-
-
         blockStateModelGenerator.registerDoor(ModBlocks.DIRT_DOOR);
         blockStateModelGenerator.registerTrapdoor(ModBlocks.DIRT_TRAPDOOR);
     }
