@@ -2,6 +2,7 @@ package net.yunitrish.adaptor;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.item.ModItemGroups;
 import net.yunitrish.adaptor.item.ModItems;
@@ -17,5 +18,7 @@ public class Adaptor implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+
+		FuelRegistry.INSTANCE.add(ModItems.BAMBOO_COAL,120);
 	}
 }

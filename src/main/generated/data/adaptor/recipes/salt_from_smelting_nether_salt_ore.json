@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 300,
+  "experience": 0.1,
+  "group": "salt",
+  "ingredient": {
+    "item": "adaptor:nether_salt_ore"
+  },
+  "result": "adaptor:salt"
+}

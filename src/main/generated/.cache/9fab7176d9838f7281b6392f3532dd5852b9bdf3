@@ -1,0 +1,8 @@
+// 1.20.4	2024-02-15T18:46:10.7872318	Adaptor/Tags for minecraft:block
+addb8fbcf5fc00e0d779b28239ed4425081e90dc data\fabric\tags\blocks\needs_tool_level_4.json
+a4ee929a4cdf4d3b27791ab4ccdcc309f02a2675 data\minecraft\tags\blocks\walls.json
+c9a17e79e3f546e50497a87da3c6e4957c6fe392 data\minecraft\tags\blocks\needs_stone_tool.json
+2b3202c9ad209f924a6eeb35c0856a822e7f7e59 data\adaptor\tags\blocks\metal_detector_detectable_blocks.json
+dda5a5050b17a517729beff14242c7456f54f6fd data\minecraft\tags\blocks\fences.json
+6754844859c599a8d2da3ea5977d9332a8f7e648 data\minecraft\tags\blocks\mineable\pickaxe.json
+322dda1c2b711bc895fb69c847d4aca0b95357a1 data\minecraft\tags\blocks\fence_gates.json

@@ -13,14 +13,18 @@ import net.yunitrish.adaptor.item.custom.MetalDetectionItem;
 
 public class ModItems {
 
-    public static final Item Salt = registerItem("salt",new Item(new FabricItemSettings()));
-    public static final Item Flour = registerItem("flour",new Item(new FabricItemSettings()));
+    public static final Item SALT = registerItem("salt",new Item(new FabricItemSettings()));
+    public static final Item FLOUR = registerItem("flour",new Item(new FabricItemSettings()));
+    public static final Item DOUGH =  registerItem("dough", new Item(new FabricItemSettings().food(ModFoodComponents.DOUGH)));
 
     public static final  Item METAL_DETECTOR = registerItem("metal_detector",new MetalDetectionItem(new FabricItemSettings().maxDamage(64)));
 
+    public static final Item BAMBOO_COAL =  registerItem("bamboo_coal", new Item(new FabricItemSettings()));
+
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries) {
-        entries.add(Salt);
-        entries.add(Flour);
+        entries.add(SALT);
+        entries.add(FLOUR);
+        entries.add(DOUGH);
     }
 
     private static Item registerItem(String name, Item item) {

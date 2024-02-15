@@ -1,13 +1,26 @@
 {
   "block.adaptor.deepslate_salt_ore": "深板岩鹽礦",
+  "block.adaptor.dirt_button": "土製按鈕",
+  "block.adaptor.dirt_door": "土門",
+  "block.adaptor.dirt_fence": "土柵欄",
+  "block.adaptor.dirt_fence_gate": "土柵欄門",
+  "block.adaptor.dirt_pressure_plate": "土製壓力版",
+  "block.adaptor.dirt_slab": "土半磚",
+  "block.adaptor.dirt_stairs": "土樓梯",
+  "block.adaptor.dirt_trapdoor": "土陷阱門",
+  "block.adaptor.dirt_wall": "土牆",
   "block.adaptor.end_stone_salt_ore": "終界石鹽礦",
   "block.adaptor.flour_block": "麵粉塊",
   "block.adaptor.nether_salt_ore": "地獄鹽礦",
   "block.adaptor.salt_block": "鹽塊",
   "block.adaptor.salt_ore": "鹽礦",
   "block.adaptor.sound_block": "發音塊",
+  "item.adaptor.bamboo_coal": "竹炭",
+  "item.adaptor.dough": "麵糰",
   "item.adaptor.flour": "麵粉",
   "item.adaptor.metal_detector": "礦物探測器",
   "item.adaptor.salt": "鹽",
-  "itemgroup.adaptor_group": "調適者模組"
+  "itemgroup.adaptor_group": "調適者模組",
+  "tooltip.adaptor.metal_detector.tooltip": "尋寶好物!",
+  "tooltip.adaptor.sound_block.tooltip": "點擊右鍵發出聲音"
 }
