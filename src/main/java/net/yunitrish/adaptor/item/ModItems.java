@@ -9,6 +9,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.Adaptor;
 import net.yunitrish.adaptor.item.custom.MetalDetectionItem;
+import net.yunitrish.adaptor.item.custom.ModArmorItem;
 
 public class ModItems {
 
@@ -34,10 +35,10 @@ public class ModItems {
     public static final  Item COPPER_HOE = registerItem("copper_hoe",new HoeItem(ModToolMaterial.Copper,1,2f,new FabricItemSettings()));
 
 
-    public static final  Item COPPER_HELMET = registerItem("copper_helmet",new ArmorItem(ModArmorMaterials.COPPER,ArmorItem.Type.HELMET,new FabricItemSettings()));
-    public static final  Item COPPER_CHESTPLATE = registerItem("copper_chestplate",new ArmorItem(ModArmorMaterials.COPPER,ArmorItem.Type.CHESTPLATE,new FabricItemSettings()));
-    public static final  Item COPPER_LEGGINGS = registerItem("copper_leggings",new ArmorItem(ModArmorMaterials.COPPER,ArmorItem.Type.LEGGINGS,new FabricItemSettings()));
-    public static final  Item COPPER_BOOTS = registerItem("copper_boots",new ArmorItem(ModArmorMaterials.COPPER,ArmorItem.Type.BOOTS,new FabricItemSettings()));
+    public static final  Item COPPER_HELMET = registerItem("copper_helmet",new ModArmorItem(ModArmorMaterials.COPPER,ArmorItem.Type.HELMET,new FabricItemSettings()));
+    public static final  Item COPPER_CHESTPLATE = registerItem("copper_chestplate",new ModArmorItem(ModArmorMaterials.COPPER,ArmorItem.Type.CHESTPLATE,new FabricItemSettings()));
+    public static final  Item COPPER_LEGGINGS = registerItem("copper_leggings",new ModArmorItem(ModArmorMaterials.COPPER,ArmorItem.Type.LEGGINGS,new FabricItemSettings()));
+    public static final  Item COPPER_BOOTS = registerItem("copper_boots",new ModArmorItem(ModArmorMaterials.COPPER,ArmorItem.Type.BOOTS,new FabricItemSettings()));
 
 
     private static void addItemsToIngredientTabItemGroup(FabricItemGroupEntries entries) {
