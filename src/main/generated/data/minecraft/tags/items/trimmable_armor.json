@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "adaptor:copper_helmet",
+    "adaptor:copper_chestplate",
+    "adaptor:copper_leggings",
+    "adaptor:copper_boots"
+  ]
+}

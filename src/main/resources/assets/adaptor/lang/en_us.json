@@ -1,10 +1,25 @@
 {
   "item.adaptor.salt": "Salt",
-  "item.adaptor.metal_detector": "Metal Detector",
   "item.adaptor.flour": "Flour",
   "item.adaptor.dough": "Dough",
+
   "item.adaptor.bamboo_coal": "Bamboo Coal",
+
+  "item.adaptor.metal_detector": "Metal Detector",
   "tooltip.adaptor.metal_detector.tooltip": "Find valuables underground",
+
+  "item.adaptor.iron_hammer": "Iron Hammer",
+
+  "item.adaptor.copper_axe": "Copper Axe",
+  "item.adaptor.copper_hoe": "Copper Hoe",
+  "item.adaptor.copper_pickaxe": "Copper Pickaxe",
+  "item.adaptor.copper_shovel": "Copper Shovel",
+  "item.adaptor.copper_sword": "Copper Sword",
+
+  "item.adaptor.copper_helmet": "Copper Helmet",
+  "item.adaptor.copper_chestplate": "Copper Chestplate",
+  "item.adaptor.copper_leggings": "Copper Leggings",
+  "item.adaptor.copper_boots": "Copper Boots",
 
   "block.adaptor.salt_block": "Block of salt",
   "block.adaptor.salt_ore": "Salt ore",
@@ -12,7 +27,6 @@
   "block.adaptor.nether_salt_ore": "Nether Salt ore",
   "block.adaptor.end_stone_salt_ore": "End Stone Salt ore",
   "block.adaptor.flour_block": "Block of flour",
-
 
   "block.adaptor.dirt_stairs": "Dirt Stairs",
   "block.adaptor.dirt_slab": "Dirt Slab",

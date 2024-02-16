@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-15T22:51:04.331704	Adaptor/Tags for minecraft:block
+// 1.20.4	2024-02-16T16:47:12.4914607	Adaptor/Tags for minecraft:block
 addb8fbcf5fc00e0d779b28239ed4425081e90dc data\fabric\tags\blocks\needs_tool_level_4.json
 a4ee929a4cdf4d3b27791ab4ccdcc309f02a2675 data\minecraft\tags\blocks\walls.json
 c9a17e79e3f546e50497a87da3c6e4957c6fe392 data\minecraft\tags\blocks\needs_stone_tool.json

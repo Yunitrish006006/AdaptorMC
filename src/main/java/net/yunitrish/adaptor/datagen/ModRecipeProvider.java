@@ -28,27 +28,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         super(output);
     }
 
-    @Override
-    public void generate(RecipeExporter exporter) {
-        offerSmelting(exporter,SALT_SMELTS, RecipeCategory.MISC,ModItems.SALT,0.1f,300,"salt");
-        offerBlasting(exporter,SALT_SMELTS, RecipeCategory.MISC,ModItems.SALT,0.1f,200,"salt");
-
-        offerReversibleCompactingRecipes(exporter,
-                RecipeCategory.BUILDING_BLOCKS, ModItems.SALT,
-                RecipeCategory.DECORATIONS,ModBlocks.SALT_BLOCK);
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.METAL_DETECTOR)
-                .pattern("S  ")
-                .pattern("IS ")
-                .pattern("R S")
-                .input('S', Items.STICK)
-                .input('I',Items.IRON_INGOT)
-                .input('R',Items.REDSTONE)
-                .criterion(hasItem(Items.REDSTONE),conditionsFromItem(Items.REDSTONE))
-                .offerTo(exporter,new Identifier(getRecipeName(ModItems.METAL_DETECTOR)));
-
-
-
+    private void createBuildSeries(RecipeExporter exporter) {
         createDoorRecipe(ModBlocks.DIRT_DOOR, Ingredient.ofItems(Blocks.DIRT))
                 .criterion(hasItem(Items.DIRT),conditionsFromItem(Items.DIRT))
                 .offerTo(exporter,new Identifier(getRecipeName(ModBlocks.DIRT_DOOR)));
@@ -78,12 +58,80 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter,new Identifier(getRecipeName(ModBlocks.DIRT_FENCE_GATE)));
 
         offerShapelessRecipe(exporter,ModBlocks.DIRT_BUTTON, Blocks.DIRT,"dirt_button",1);
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,ModBlocks.DIRT_WALL)
                 .pattern("DDD")
                 .pattern("DDD")
                 .input('D', Blocks.DIRT)
                 .criterion(hasItem(Items.DIRT),conditionsFromItem(Items.DIRT))
                 .offerTo(exporter,new Identifier(getRecipeName(ModBlocks.DIRT_WALL)));
+    }
+
+    private void createCopperTools(RecipeExporter exporter) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_AXE)
+                .pattern("CC")
+                .pattern("CS")
+                .pattern(" S")
+                .input('S', Items.STICK)
+                .input('C',Items.COPPER_INGOT)
+                .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
+                .offerTo(exporter,new Identifier(getRecipeName(ModItems.COPPER_AXE)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_HOE)
+                .pattern("CC")
+                .pattern(" S")
+                .pattern(" S")
+                .input('S', Items.STICK)
+                .input('C',Items.COPPER_INGOT)
+                .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
+                .offerTo(exporter,new Identifier(getRecipeName(ModItems.COPPER_HOE)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_PICKAXE)
+                .pattern("CCC")
+                .pattern(" S ")
+                .pattern(" S ")
+                .input('S', Items.STICK)
+                .input('C',Items.COPPER_INGOT)
+                .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
+                .offerTo(exporter,new Identifier(getRecipeName(ModItems.COPPER_PICKAXE)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_SHOVEL)
+                .pattern("C")
+                .pattern("S")
+                .pattern("S")
+                .input('S', Items.STICK)
+                .input('C',Items.COPPER_INGOT)
+                .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
+                .offerTo(exporter,new Identifier(getRecipeName(ModItems.COPPER_SHOVEL)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_SWORD)
+                .pattern("C")
+                .pattern("C")
+                .pattern("S")
+                .input('S', Items.STICK)
+                .input('C',Items.COPPER_INGOT)
+                .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
+                .offerTo(exporter,new Identifier(getRecipeName(ModItems.COPPER_SWORD)));
+    }
+
+    @Override
+    public void generate(RecipeExporter exporter) {
+        offerSmelting(exporter,SALT_SMELTS, RecipeCategory.MISC,ModItems.SALT,0.1f,300,"salt");
+        offerBlasting(exporter,SALT_SMELTS, RecipeCategory.MISC,ModItems.SALT,0.1f,200,"salt");
+
+        offerReversibleCompactingRecipes(exporter,
+                RecipeCategory.BUILDING_BLOCKS, ModItems.SALT,
+                RecipeCategory.DECORATIONS,ModBlocks.SALT_BLOCK);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.METAL_DETECTOR)
+                .pattern("S  ")
+                .pattern("IS ")
+                .pattern("R S")
+                .input('S', Items.STICK)
+                .input('I',Items.IRON_INGOT)
+                .input('R',Items.REDSTONE)
+                .criterion(hasItem(Items.REDSTONE),conditionsFromItem(Items.REDSTONE))
+                .offerTo(exporter,new Identifier(getRecipeName(ModItems.METAL_DETECTOR)));
+
+        createBuildSeries(exporter);
+
+        createCopperTools(exporter);
 
     }
 }

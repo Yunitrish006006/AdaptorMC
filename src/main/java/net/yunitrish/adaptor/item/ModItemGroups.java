@@ -16,7 +16,20 @@ public class ModItemGroups {
         entries.add(ModItems.FLOUR);
         entries.add(ModItems.DOUGH);
         entries.add(ModItems.SALT);
+
         entries.add(ModItems.METAL_DETECTOR);
+        entries.add(ModItems.IRON_HAMMER);
+
+        entries.add(ModItems.COPPER_AXE);
+        entries.add(ModItems.COPPER_HOE);
+        entries.add(ModItems.COPPER_PICKAXE);
+        entries.add(ModItems.COPPER_SHOVEL);
+        entries.add(ModItems.COPPER_SWORD);
+
+        entries.add(ModItems.COPPER_HELMET);
+        entries.add(ModItems.COPPER_CHESTPLATE);
+        entries.add(ModItems.COPPER_LEGGINGS);
+        entries.add(ModItems.COPPER_BOOTS);
 
         entries.add(ModItems.BAMBOO_COAL);
 

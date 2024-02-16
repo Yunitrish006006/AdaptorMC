@@ -2,12 +2,11 @@ package net.yunitrish.adaptor.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
-import net.minecraft.util.Identifier;
+import net.minecraft.item.ArmorItem;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.item.ModItems;
 
@@ -48,5 +47,17 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.FLOUR, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.METAL_DETECTOR, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.COPPER_AXE,Models.HANDHELD);
+        itemModelGenerator.register(ModItems.COPPER_HOE,Models.HANDHELD);
+        itemModelGenerator.register(ModItems.COPPER_PICKAXE,Models.HANDHELD);
+        itemModelGenerator.register(ModItems.COPPER_SHOVEL,Models.HANDHELD);
+        itemModelGenerator.register(ModItems.COPPER_SWORD,Models.HANDHELD);
+
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.COPPER_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.COPPER_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.COPPER_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.COPPER_BOOTS);
+
     }
 }
