@@ -8,6 +8,7 @@ import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.item.ArmorItem;
 import net.yunitrish.adaptor.block.ModBlocks;
+import net.yunitrish.adaptor.block.custom.SoyBeanCropBlock;
 import net.yunitrish.adaptor.item.ModItems;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -36,6 +37,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerDoor(ModBlocks.DIRT_DOOR);
         blockStateModelGenerator.registerTrapdoor(ModBlocks.DIRT_TRAPDOOR);
+
+        blockStateModelGenerator.registerCrop(ModBlocks.SOYBEAN_CROP, SoyBeanCropBlock.AGE,0,1,2,3,4,5);
     }
 
     @Override

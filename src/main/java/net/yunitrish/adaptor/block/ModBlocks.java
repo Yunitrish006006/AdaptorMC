@@ -15,6 +15,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.yunitrish.adaptor.Adaptor;
 import net.yunitrish.adaptor.block.custom.SoundBlock;
+import net.yunitrish.adaptor.block.custom.SoyBeanCropBlock;
 
 public class ModBlocks {
 
@@ -58,6 +59,24 @@ public class ModBlocks {
 
     public static final Block DIRT_DOOR = registerBlock("dirt_door",new DoorBlock(DIRT, AbstractBlock.Settings.create().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block DIRT_TRAPDOOR = registerBlock("dirt_trapdoor",new TrapdoorBlock(DIRT, AbstractBlock.Settings.create().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+
+
+    public static final Block SOYBEAN_CROP = Registry.register(
+            Registries.BLOCK,
+            new Identifier(Adaptor.MOD_ID,"soybean_crop"),
+            new SoyBeanCropBlock(
+                    AbstractBlock.Settings.create()
+                            .mapColor(MapColor.DARK_GREEN)
+                            .noCollision()
+                            .ticksRandomly()
+                            .breakInstantly()
+                            .sounds(BlockSoundGroup.CROP)
+                            .pistonBehavior(PistonBehavior.DESTROY)
+//                            .dynamicBounds()
+            )
+            );
+
+
 
 
     private static Block registerBlock(String name, Block block) {

@@ -7,13 +7,16 @@ import net.minecraft.data.server.loottable.BlockLootTableGenerator;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.loot.LootTable;
+import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LeafEntry;
 import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.predicate.StatePredicate;
 import net.yunitrish.adaptor.block.ModBlocks;
+import net.yunitrish.adaptor.block.custom.SoyBeanCropBlock;
 import net.yunitrish.adaptor.item.ModItems;
 
 public class ModLootTableProvider extends FabricBlockLootTableProvider {
@@ -40,6 +43,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.DIRT_PRESSURE_PLATE);
         addDrop(ModBlocks.DIRT_DOOR,doorDrops(ModBlocks.DIRT_DOOR));
         addDrop(ModBlocks.DIRT_SLAB,slabDrops(ModBlocks.DIRT_SLAB));
+
+        BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(ModBlocks.SOYBEAN_CROP)
+                .properties(StatePredicate.Builder.create().exactMatch(SoyBeanCropBlock.AGE,5));
+        addDrop(ModBlocks.SOYBEAN_CROP, cropDrops(ModBlocks.SOYBEAN_CROP,ModItems.SOYBEAN,ModItems.SOYBEAN,builder));
 
     }
 

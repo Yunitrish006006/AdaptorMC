@@ -17,8 +17,8 @@ public class Adaptor implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItemGroups.registerItemGroups();
-		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+		ModItems.registerModItems();
 		ModLootTableModifiers.modifyLootTables();
 		FuelRegistry.INSTANCE.add(ModItems.BAMBOO_COAL,120);
 	}

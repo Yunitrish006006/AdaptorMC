@@ -17,6 +17,8 @@ public class ModItemGroups {
         entries.add(ModItems.DOUGH);
         entries.add(ModItems.SALT);
 
+        entries.add(ModItems.SOYBEAN);
+
         entries.add(ModItems.METAL_DETECTOR);
         entries.add(ModItems.IRON_HAMMER);
 

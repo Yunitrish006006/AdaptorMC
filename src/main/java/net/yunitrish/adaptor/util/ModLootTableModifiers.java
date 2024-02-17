@@ -18,7 +18,7 @@ public class ModLootTableModifiers {
     public static final Identifier CREEPER_ID = new Identifier("minecraft","entities/creeper");
 
     public static void modifyLootTables() {
-        LootTableEvents.MODIFY.register(((resourceManager, lootManager, id, tableBuilder, source) -> {
+        LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
             if(JUNGLE_TEMPLE_ID.equals(id)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
@@ -41,11 +41,11 @@ public class ModLootTableModifiers {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.05f))
-                        .with(ItemEntry.builder(Items.POTATO))
+                        .with(ItemEntry.builder(ModItems.SOYBEAN))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0f,3f)
                         ).build());
                 tableBuilder.pool(poolBuilder.build());
             }
-        }));
+        });
     }
 }
