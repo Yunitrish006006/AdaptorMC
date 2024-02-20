@@ -18,6 +18,8 @@ public class ModItemGroups {
         entries.add(ModItems.SALT);
 
         entries.add(ModItems.SOYBEAN);
+        entries.add(ModItems.CORN);
+        entries.add(ModItems.CORN_SEEDS);
 
         entries.add(ModItems.METAL_DETECTOR);
         entries.add(ModItems.IRON_HAMMER);

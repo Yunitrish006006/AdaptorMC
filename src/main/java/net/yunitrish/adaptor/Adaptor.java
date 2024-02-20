@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.item.ModItemGroups;
 import net.yunitrish.adaptor.item.ModItems;
+import net.yunitrish.adaptor.util.ModEvents;
 import net.yunitrish.adaptor.util.ModLootTableModifiers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,7 @@ public class Adaptor implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
+		ModEvents.registerEvents();
 		ModLootTableModifiers.modifyLootTables();
 		FuelRegistry.INSTANCE.add(ModItems.BAMBOO_COAL,120);
 	}

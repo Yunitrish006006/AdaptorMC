@@ -20,6 +20,9 @@ public class ModItems {
 
     public static final Item SOYBEAN = registerItem("soybean",new AliasedBlockItem(ModBlocks.SOYBEAN_CROP,new FabricItemSettings().food(ModFoodComponents.SOYBEAN)));
 
+    public static final Item CORN = registerItem("corn",new Item(new FabricItemSettings().food(ModFoodComponents.CORN)));
+    public static final Item CORN_SEEDS = registerItem("corn_seeds",new AliasedBlockItem(ModBlocks.CORN_CROP,new FabricItemSettings()));
+
     public static final  Item METAL_DETECTOR = registerItem("metal_detector",new MetalDetectionItem(new FabricItemSettings().maxDamage(64)));
 
     public static final Item BAMBOO_COAL =  registerItem("bamboo_coal", new Item(new FabricItemSettings()));
@@ -49,6 +52,7 @@ public class ModItems {
         entries.add(FLOUR);
         entries.add(DOUGH);
         entries.add(SOYBEAN);
+        entries.add(CORN);
     }
 
     private static Item registerItem(String name, Item item) {

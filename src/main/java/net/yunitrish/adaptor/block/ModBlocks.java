@@ -14,6 +14,7 @@ import net.minecraft.util.ColorCode;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.yunitrish.adaptor.Adaptor;
+import net.yunitrish.adaptor.block.custom.CornCropBlock;
 import net.yunitrish.adaptor.block.custom.SoundBlock;
 import net.yunitrish.adaptor.block.custom.SoyBeanCropBlock;
 
@@ -72,9 +73,23 @@ public class ModBlocks {
                             .breakInstantly()
                             .sounds(BlockSoundGroup.CROP)
                             .pistonBehavior(PistonBehavior.DESTROY)
-//                            .dynamicBounds()
             )
             );
+
+    public static final Block CORN_CROP = Registry.register(
+            Registries.BLOCK,
+            new Identifier(Adaptor.MOD_ID,"corn_crop"),
+            new CornCropBlock(
+                    AbstractBlock.Settings.create()
+                            .mapColor(MapColor.DARK_GREEN)
+                            .noCollision()
+                            .ticksRandomly()
+                            .breakInstantly()
+                            .sounds(BlockSoundGroup.CROP)
+                            .pistonBehavior(PistonBehavior.DESTROY)
+            )
+            );
+
 
 
 

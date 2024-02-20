@@ -44,9 +44,31 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.DIRT_DOOR,doorDrops(ModBlocks.DIRT_DOOR));
         addDrop(ModBlocks.DIRT_SLAB,slabDrops(ModBlocks.DIRT_SLAB));
 
-        BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(ModBlocks.SOYBEAN_CROP)
-                .properties(StatePredicate.Builder.create().exactMatch(SoyBeanCropBlock.AGE,5));
-        addDrop(ModBlocks.SOYBEAN_CROP, cropDrops(ModBlocks.SOYBEAN_CROP,ModItems.SOYBEAN,ModItems.SOYBEAN,builder));
+
+        addDrop(ModBlocks.SOYBEAN_CROP,
+                cropDrops(
+                        ModBlocks.SOYBEAN_CROP,
+                        ModItems.SOYBEAN,
+                        ModItems.SOYBEAN,
+                        BlockStatePropertyLootCondition
+                                .builder(ModBlocks.SOYBEAN_CROP)
+                                .properties(StatePredicate.Builder.create().exactMatch(SoyBeanCropBlock.AGE,5))
+                ));
+        addDrop(ModBlocks.CORN_CROP,
+                cropDrops(
+                        ModBlocks.CORN_CROP,
+                        ModItems.CORN,
+                        ModItems.CORN_SEEDS,
+                        BlockStatePropertyLootCondition
+                                .builder(ModBlocks.CORN_CROP)
+                                .properties(
+                                        StatePredicate.Builder.create().exactMatch(SoyBeanCropBlock.AGE,7))
+                                .or(
+                                        BlockStatePropertyLootCondition
+                                        .builder(ModBlocks.CORN_CROP)
+                                        .properties(StatePredicate.Builder.create().exactMatch(SoyBeanCropBlock.AGE,8)))
+                ));
+
 
     }
 

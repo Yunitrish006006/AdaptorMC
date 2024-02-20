@@ -38,13 +38,18 @@ public class ModLootTableModifiers {
                 tableBuilder.pool(poolBuilder.build());
             }
             if(GRASS_ID.equals(id)) {
-                LootPool.Builder poolBuilder = LootPool.builder()
+                tableBuilder.pool(LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.05f))
+                        .conditionally(RandomChanceLootCondition.builder(0.07f))
                         .with(ItemEntry.builder(ModItems.SOYBEAN))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0f,3f)
-                        ).build());
-                tableBuilder.pool(poolBuilder.build());
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0f,5f)
+                        ).build()));
+                tableBuilder.pool(LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.02f))
+                        .with(ItemEntry.builder(ModItems.CORN_SEEDS))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0f,2f)
+                        ).build()));
             }
         });
     }

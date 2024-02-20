@@ -3,8 +3,7 @@ package net.yunitrish.adaptor.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
@@ -110,6 +109,25 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter,new Identifier(getRecipeName(ModItems.COPPER_SWORD)));
     }
 
+    private void createBreads(RecipeExporter exporter) {
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC,ModItems.FLOUR)
+                .input(Items.WHEAT)
+                .input(Items.WHEAT)
+                .input(Items.WHEAT)
+                .criterion(hasItem(Items.WHEAT),conditionsFromItem(Items.WHEAT))
+                .offerTo(exporter,new Identifier(getRecipeName(ModItems.FLOUR)));
+
+        for(int i=1;i<9;i++) {
+            ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD,ModItems.DOUGH,i)
+                    .input(ModItems.FLOUR,i)
+                    .input(Items.WATER_BUCKET)
+                    .criterion(hasItem(ModItems.FLOUR),conditionsFromItem(ModItems.FLOUR))
+                    .offerTo(exporter,new Identifier(i+"_flour_"+getRecipeName(ModItems.DOUGH)+"_with_bucket"));
+        }
+
+        offerSmelting(exporter,List.of(ModItems.DOUGH), RecipeCategory.FOOD,Items.BREAD,2f,200,"bread");
+    }
+
     @Override
     public void generate(RecipeExporter exporter) {
         offerSmelting(exporter,SALT_SMELTS, RecipeCategory.MISC,ModItems.SALT,0.1f,300,"salt");
@@ -129,9 +147,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.REDSTONE),conditionsFromItem(Items.REDSTONE))
                 .offerTo(exporter,new Identifier(getRecipeName(ModItems.METAL_DETECTOR)));
 
+        createBreads(exporter);
+
         createBuildSeries(exporter);
 
         createCopperTools(exporter);
-
     }
 }
