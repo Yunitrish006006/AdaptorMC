@@ -1,11 +1,12 @@
-// 1.20.4	2024-02-20T12:47:19.0549968	Adaptor/Block Loot Tables
+// 1.20.4	2024-03-03T21:59:50.9892977	Adaptor/Block Loot Tables
 32b218b9848d741426852ee1fbe5eccc9e4b998c data\adaptor\loot_tables\blocks\dirt_button.json
 331f5cd55842452e0a2dd739e5dd849107ed36d0 data\adaptor\loot_tables\blocks\dirt_trapdoor.json
-e822dd53e2f12fabd414cbd7a93e0a5eabf4a393 data\adaptor\loot_tables\blocks\nether_salt_ore.json
 911e032455836ad9b7f8a63ce0de95f8e025a7bb data\adaptor\loot_tables\blocks\dirt_slab.json
+e822dd53e2f12fabd414cbd7a93e0a5eabf4a393 data\adaptor\loot_tables\blocks\nether_salt_ore.json
 197ae426e6bd1ce124893b1f2c181441892252b8 data\adaptor\loot_tables\blocks\corn_crop.json
 f14ad28a0cd18349c4b073e899d64c67cfbb793f data\adaptor\loot_tables\blocks\dirt_wall.json
 84ea2bee5e9a5da464e49c3993295728c4ddfff6 data\adaptor\loot_tables\blocks\salt_ore.json
+35eec5ed0fe4eae37258c3112b393a36e420accd data\adaptor\loot_tables\blocks\potted_dahlia.json
 fb7bf4c546f5050715ba54995ba9d8ad1e366195 data\adaptor\loot_tables\blocks\soybean_crop.json
 02e808e7834a1b1e152e116791644de49e8b37cc data\adaptor\loot_tables\blocks\dirt_pressure_plate.json
 47e10537ff537109974cc985405407188c87ec00 data\adaptor\loot_tables\blocks\dirt_door.json
@@ -15,4 +16,5 @@ b30691c0083435eab8f38f76a81cfbace1535f1d data\adaptor\loot_tables\blocks\dirt_st
 82197aa4bfd991c024cc9f7eda3eea3173fae410 data\adaptor\loot_tables\blocks\dirt_fence.json
 8984c681b6228fb97503dc041cb2710a091acec4 data\adaptor\loot_tables\blocks\salt_block.json
 17b86547f011eaefc956f036301debdefd38c223 data\adaptor\loot_tables\blocks\deepslate_salt_ore.json
+3a9295fba82266ef637178d08c76ce49634fd302 data\adaptor\loot_tables\blocks\dahlia.json
 9fe7b135d4bd7899dc0ebdc2f484c953861a80a5 data\adaptor\loot_tables\blocks\dirt_fence_gate.json

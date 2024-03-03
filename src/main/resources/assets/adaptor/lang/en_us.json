@@ -1,4 +1,5 @@
 {
+  "item.adaptor.test_message": "test message",
   "item.adaptor.salt": "Salt",
   "item.adaptor.flour": "Flour",
   "item.adaptor.dough": "Dough",
@@ -42,10 +43,15 @@
   "block.adaptor.dirt_trapdoor": "Dirt Trapdoor",
 
 
+  "block.adaptor.dahlia": "Dahlia",
+
+
 
 
   "block.adaptor.sound_block": "Sound Block",
 
   "itemgroup.adaptor_group": "Adaptor Group",
-  "tooltip.adaptor.sound_block.tooltip": "play sound by clicking right-click"
+  "tooltip.adaptor.sound_block.tooltip": "play sound by clicking right-click",
+
+  "enchantment.adaptor.leach": "Leach"
 }

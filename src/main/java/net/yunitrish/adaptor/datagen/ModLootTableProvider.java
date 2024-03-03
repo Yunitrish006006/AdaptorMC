@@ -67,9 +67,11 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                                         BlockStatePropertyLootCondition
                                         .builder(ModBlocks.CORN_CROP)
                                         .properties(StatePredicate.Builder.create().exactMatch(SoyBeanCropBlock.AGE,8)))
-                ));
+                )
+        );
 
-
+        addDrop(ModBlocks.DAHLIA);
+        addPottedPlantDrops(ModBlocks.POTTED_DAHLIA);
     }
 
     public LootTable.Builder customOreDrops(Block drop, Item item, float least, float most) {

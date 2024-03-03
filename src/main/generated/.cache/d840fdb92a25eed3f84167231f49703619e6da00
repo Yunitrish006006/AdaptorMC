@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-20T12:47:19.053004	Adaptor/Recipes
+// 1.20.4	2024-03-03T21:59:50.9882914	Adaptor/Recipes
 6588e170a33bcfc16aebe5288076f4cfe9d325b6 data\adaptor\advancements\recipes\food\1_flour_dough_with_bucket.json
 1bb5831b22b82d661e7fed6457aebd713e9998e8 data\adaptor\recipes\8_flour_dough_with_bucket.json
 faf12ce52820641ce3c95b79e909956281ac614d data\adaptor\recipes\salt_from_smelting_nether_salt_ore.json
@@ -34,8 +34,8 @@ de56d91fa390cc493919ec171815d4a7871d13df data\adaptor\recipes\flour.json
 602f270af0b13f561a1e05f767d4ddc3a2ec55bb data\adaptor\advancements\recipes\redstone\dirt_door.json
 60aecee9991a50f98afd9227e3533065a87ccf2d data\adaptor\advancements\recipes\tools\copper_hoe.json
 69d80aad43eaabbe988dad2287f4d052e01f4671 data\adaptor\advancements\recipes\misc\salt_from_smelting_salt_ore.json
-cb71ba9f4e9aa7885023b183df82062c6d334f10 data\adaptor\recipes\salt_block.json
 a8a21d4f9849c06846c20989d83137c60407fec8 data\adaptor\recipes\salt_from_smelting_salt_ore.json
+cb71ba9f4e9aa7885023b183df82062c6d334f10 data\adaptor\recipes\salt_block.json
 6fe73c3f16fa46274718cb4bb3513a92fd508e22 data\adaptor\advancements\recipes\food\6_flour_dough_with_bucket.json
 8831a3e24d7fdd33da026158e99870082e3b5d36 data\adaptor\advancements\recipes\building_blocks\dirt_pressure_plate.json
 942b5c92d25b8c81ffd970cf3fb55dfb165e5173 data\adaptor\advancements\recipes\misc\salt_from_blasting_nether_salt_ore.json
@@ -65,7 +65,7 @@ a6017e2afd5b359f494bc0e24d84c9c4d3de4d0d data\adaptor\recipes\4_flour_dough_with
 e06dfc7918041c5a9dc4420d5aabfbac021689e8 data\adaptor\advancements\recipes\food\2_flour_dough_with_bucket.json
 24ae09e930a26450b3ffe6eb55ac7c158b1cf316 data\adaptor\recipes\bread_from_smelting_dough.json
 e31974eb1ea6f75862d7cdd5530d6bda6d9bc064 data\adaptor\advancements\recipes\redstone\dirt_fence_gate.json
-3e83a9695f1678c488a9902f359caadc50d31d5c data\adaptor\recipes\salt_from_smelting_end_stone_salt_ore.json
 6c2d474f1f5acb1a249d6b8a50a26aa2206138c9 data\adaptor\advancements\recipes\misc\salt_from_smelting_nether_salt_ore.json
+3e83a9695f1678c488a9902f359caadc50d31d5c data\adaptor\recipes\salt_from_smelting_end_stone_salt_ore.json
 16fd68165c12bbb36547937eb92452f99db7899a data\adaptor\advancements\recipes\food\7_flour_dough_with_bucket.json
 b79af93497cf84ef3e75479231f46e0d8cf17864 data\adaptor\recipes\dirt_slab.json

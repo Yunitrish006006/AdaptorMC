@@ -1,4 +1,5 @@
 {
+  "block.adaptor.dahlia": "妲璃花",
   "block.adaptor.deepslate_salt_ore": "深板岩鹽礦",
   "block.adaptor.dirt_button": "土製按鈕",
   "block.adaptor.dirt_door": "土門",
@@ -15,6 +16,7 @@
   "block.adaptor.salt_block": "鹽塊",
   "block.adaptor.salt_ore": "鹽礦",
   "block.adaptor.sound_block": "發音塊",
+  "enchantment.adaptor.leach": "吸血",
   "item.adaptor.bamboo_coal": "竹炭",
   "item.adaptor.copper_axe": "銅斧",
   "item.adaptor.copper_boots": "銅靴",
@@ -33,6 +35,7 @@
   "item.adaptor.metal_detector": "礦物探測器",
   "item.adaptor.salt": "鹽",
   "item.adaptor.soybean": "黃豆",
+  "item.adaptor.test_message": "測試訊息",
   "itemgroup.adaptor_group": "調適者模組",
   "tooltip.adaptor.metal_detector.tooltip": "尋寶好物!",
   "tooltip.adaptor.sound_block.tooltip": "點擊右鍵發出聲音"

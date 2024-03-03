@@ -54,6 +54,8 @@ public class ModItemGroups {
         entries.add(ModBlocks.DIRT_WALL);
 
         entries.add(ModBlocks.SOUND_BLOCK);
+
+        entries.add(ModBlocks.DAHLIA);
     })).build());
 
     public static void registerItemGroups() {
