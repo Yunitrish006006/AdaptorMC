@@ -3,6 +3,7 @@ package net.yunitrish.adaptor;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
+import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.enchantment.ModEnchantments;
@@ -20,6 +21,7 @@ public class Adaptor implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+
 		ModItemGroups.registerItemGroups();
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
@@ -29,5 +31,6 @@ public class Adaptor implements ModInitializer {
 		FuelRegistry.INSTANCE.add(ModItems.BAMBOO_COAL,120);
 
 		AttackEntityCallback.EVENT.register(new EntityDamagedHandler());
+
 	}
 }

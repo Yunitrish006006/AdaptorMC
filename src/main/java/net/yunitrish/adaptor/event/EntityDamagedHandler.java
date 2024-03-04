@@ -24,16 +24,16 @@ public class EntityDamagedHandler implements AttackEntityCallback {
         if (!world.isClient) {
             if (entity instanceof Attackable) {
                 if (player.getInventory().getMainHandStack().getItem() instanceof SwordItem tool) {
-                    double playerDamage = player.getAttributes().getBaseValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-                    double weaponDamage = tool.getAttackDamage();
-                    MarkerEntity indicator = new MarkerEntity(EntityType.MARKER,world);
-                    indicator.setPos(entity.getX(),entity.getY(),entity.getZ());
-                    indicator.setCustomNameVisible(true);
-                    indicator.setCustomName(Text.literal(String.valueOf((playerDamage+weaponDamage))));
-                    indicator.setInvisible(false);
-                    indicator.setGlowing(true);
-                    player.sendMessage(Text.literal(indicator.toString()));
-                    world.spawnEntity(indicator);
+//                    double playerDamage = player.getAttributes().getBaseValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+//                    double weaponDamage = tool.getAttackDamage();
+//                    MarkerEntity indicator = new MarkerEntity(EntityType.MARKER,world);
+//                    indicator.setPos(entity.getX(),entity.getY(),entity.getZ());
+//                    indicator.setCustomNameVisible(true);
+//                    indicator.setCustomName(Text.literal(String.valueOf((playerDamage+weaponDamage))));
+//                    indicator.setInvisible(false);
+//                    indicator.setGlowing(true);
+//                    player.sendMessage(Text.literal(indicator.toString()));
+//                    world.spawnEntity(indicator);
                 }
             }
         }
