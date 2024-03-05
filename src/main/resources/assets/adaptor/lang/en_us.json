@@ -53,5 +53,7 @@
   "itemgroup.adaptor_group": "Adaptor Group",
   "tooltip.adaptor.sound_block.tooltip": "play sound by clicking right-click",
 
-  "enchantment.adaptor.leach": "Leach"
+  "enchantment.adaptor.leach": "Leach",
+  "entity.minecraft.villager.chef": "Chef",
+  "entity.minecraft.villager.scavenger": "Scavenger"
 }
