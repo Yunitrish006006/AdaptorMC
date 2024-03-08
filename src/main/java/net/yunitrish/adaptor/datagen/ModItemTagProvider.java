@@ -21,5 +21,13 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.COPPER_LEGGINGS,
                 ModItems.COPPER_BOOTS
         );
+        getOrCreateTagBuilder(ItemTags.MUSIC_DISCS).add(
+                ModItems.BAR_BRAWL_MUSIC_DISC,
+                ModItems.SAKURA_VALLEY_MUSIC_DISC
+        );
+        getOrCreateTagBuilder(ItemTags.CREEPER_DROP_MUSIC_DISCS).add(
+                ModItems.BAR_BRAWL_MUSIC_DISC,
+                ModItems.SAKURA_VALLEY_MUSIC_DISC
+        );
     }
 }

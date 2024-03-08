@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "adaptor:block/end_stone_salt_ore"
+  }
+}

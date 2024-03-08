@@ -56,6 +56,9 @@ public class ModItemGroups {
         entries.add(ModBlocks.SOUND_BLOCK);
 
         entries.add(ModBlocks.DAHLIA);
+
+        entries.add(ModItems.SAKURA_VALLEY_MUSIC_DISC);
+        entries.add(ModItems.BAR_BRAWL_MUSIC_DISC);
     })).build());
 
     public static void registerItemGroups() {

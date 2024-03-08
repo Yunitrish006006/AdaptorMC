@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "salt",
+  "ingredient": {
+    "item": "adaptor:end_stone_salt_ore"
+  },
+  "result": "adaptor:salt"
+}

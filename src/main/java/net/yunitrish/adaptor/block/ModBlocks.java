@@ -18,6 +18,7 @@ import net.yunitrish.adaptor.AdaptorMain;
 import net.yunitrish.adaptor.block.custom.CornCropBlock;
 import net.yunitrish.adaptor.block.custom.SoundBlock;
 import net.yunitrish.adaptor.block.custom.SoyBeanCropBlock;
+import net.yunitrish.adaptor.sound.ModSounds;
 
 public class ModBlocks {
     /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -27,7 +28,7 @@ public class ModBlocks {
     public static final Block NETHER_SALT_ORE = registerBlock("nether_salt_ore",new ExperienceDroppingBlock(UniformIntProvider.create(0,2),FabricBlockSettings.copyOf(Blocks.NETHERRACK).strength(1.5f).sounds(BlockSoundGroup.SAND)));
     public static final Block END_STONE_SALT_ORE = registerBlock("end_stone_salt_ore",new ExperienceDroppingBlock(UniformIntProvider.create(0,2),FabricBlockSettings.copyOf(Blocks.END_STONE).sounds(BlockSoundGroup.SAND).strength(4f)));
     /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
-    public static final Block SOUND_BLOCK = registerBlock("sound_block",new SoundBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+    public static final Block SOUND_BLOCK = registerBlock("sound_block",new SoundBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).sounds(ModSounds.SOUND_BLOCK_SOUNDS)));
     /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
     public static BlockSetType DIRT = new BlockSetType(
             "dirt",true,true,false,

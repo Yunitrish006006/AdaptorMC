@@ -38,6 +38,7 @@ import net.yunitrish.adaptor.enchantment.ModEnchantments;
 import net.yunitrish.adaptor.event.EntityDamagedHandler;
 import net.yunitrish.adaptor.item.ModItemGroups;
 import net.yunitrish.adaptor.item.ModItems;
+import net.yunitrish.adaptor.sound.ModSounds;
 import net.yunitrish.adaptor.util.ModEvents;
 import net.yunitrish.adaptor.util.ModLootTableModifiers;
 import org.apache.logging.log4j.LogManager;
@@ -59,6 +60,7 @@ public class AdaptorMain implements ModInitializer {
 		ModItems.registerModItems();
 		ModCustomTrades.registerCustomTrades();
 		ModEvents.registerEvents();
+		ModSounds.registerSounds();
 		ModVillagers.registerVillagers();
 		ModEnchantments.registerModEnchantments();
 		ModLootTableModifiers.modifyLootTables();

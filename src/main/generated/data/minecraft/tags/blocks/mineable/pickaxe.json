@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "adaptor:salt_ore",
+    "adaptor:deepslate_salt_ore",
+    "adaptor:end_stone_salt_ore",
+    "adaptor:nether_salt_ore",
+    "adaptor:sound_block"
+  ]
+}

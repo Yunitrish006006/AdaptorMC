@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "adaptor:chefpoi",
+      "required": false
+    },
+    {
+      "id": "adaptor:scavengerpoi",
+      "required": false
+    }
+  ]
+}

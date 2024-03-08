@@ -1,0 +1,54 @@
+{
+  "metal_detector_found_ore": {
+    "subtitle": "sounds.adaptor.metal_detector_found_ore",
+    "sounds": [
+      "adaptor:metal_detector_found_ore"
+    ]
+  },
+  "sound_block_step": {
+    "subtitle": "sounds.adaptor.sound_block_step",
+    "sounds": [
+      "adaptor:sound_block_step"
+    ]
+  },
+  "sound_block_break": {
+    "subtitle": "sounds.adaptor.sound_block_break",
+    "sounds": [
+      "adaptor:sound_block_break"
+    ]
+  },
+  "sound_block_place": {
+    "subtitle": "sounds.adaptor.sound_block_place",
+    "sounds": [
+      "adaptor:sound_block_place"
+    ]
+  },
+  "sound_block_fall": {
+    "subtitle": "sounds.adaptor.sound_block_fall",
+    "sounds": [
+      "adaptor:sound_block_fall"
+    ]
+  },
+  "sound_block_hit": {
+    "subtitle": "sounds.adaptor.sound_block_hit",
+    "sounds": [
+      "adaptor:sound_block_hit"
+    ]
+  },
+  "bar_brawl": {
+    "sounds": [
+      {
+        "name": "adaptor:bar_brawl",
+        "stream": true
+      }
+    ]
+  },
+  "sakura_valley": {
+    "sounds": [
+      {
+        "name": "adaptor:sakura_valley",
+        "stream": true
+      }
+    ]
+  }
+}

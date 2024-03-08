@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "adaptor:flour"
+    },
+    {
+      "item": "adaptor:flour"
+    },
+    {
+      "item": "adaptor:flour"
+    },
+    {
+      "item": "adaptor:flour"
+    },
+    {
+      "item": "adaptor:flour"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "count": 5,
+    "item": "adaptor:dough"
+  }
+}

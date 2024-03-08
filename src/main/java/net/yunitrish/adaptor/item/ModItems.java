@@ -11,6 +11,7 @@ import net.yunitrish.adaptor.AdaptorMain;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.item.custom.MetalDetectionItem;
 import net.yunitrish.adaptor.item.custom.ModArmorItem;
+import net.yunitrish.adaptor.sound.ModSounds;
 
 public class ModItems {
 
@@ -32,8 +33,10 @@ public class ModItems {
                     .maxCount(1)
                     .maxDamage(512)
     ));
-
-
+    /*-------------------------------------------------------------------------*/
+    public static final Item BAR_BRAWL_MUSIC_DISC = registerItem("bar_brawl_music_disc",new MusicDiscItem(3, ModSounds.BAR_BRAWL,new FabricItemSettings().maxCount(1),122));
+    public static final Item SAKURA_VALLEY_MUSIC_DISC = registerItem("sakura_valley_music_disc",new MusicDiscItem(3, ModSounds.SAKURA_VALLEY,new FabricItemSettings().maxCount(1),119));
+    /*-------------------------------------------------------------------------*/
     public static final  Item COPPER_PICKAXE = registerItem("copper_pickaxe",new PickaxeItem(ModToolMaterial.Copper,1,2f,new FabricItemSettings()));
     public static final  Item COPPER_AXE = registerItem("copper_axe",new AxeItem(ModToolMaterial.Copper,5,1.3f,new FabricItemSettings()));
     public static final  Item COPPER_SHOVEL = registerItem("copper_shovel",new ShovelItem(ModToolMaterial.Copper,1,2f,new FabricItemSettings()));

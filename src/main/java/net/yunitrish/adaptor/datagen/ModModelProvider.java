@@ -67,5 +67,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor((ArmorItem) ModItems.COPPER_LEGGINGS);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.COPPER_BOOTS);
 
+        itemModelGenerator.register(ModItems.BAR_BRAWL_MUSIC_DISC, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SAKURA_VALLEY_MUSIC_DISC, Models.GENERATED);
     }
 }
