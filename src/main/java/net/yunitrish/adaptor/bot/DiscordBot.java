@@ -9,7 +9,8 @@ import net.dv8tion.jda.api.exceptions.InvalidTokenException;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
-import net.yunitrish.adaptor.Adaptor;
+import net.yunitrish.adaptor.AdaptorMain;
+import net.yunitrish.adaptor.bot.callbacks.DiscordChatCallback;
 
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -28,13 +29,13 @@ public class DiscordBot extends ListenerAdapter {
                 .addEventListeners(this);
         connection = Optional.of(builder.build());
         connection.get().awaitReady();
-        Adaptor.LOGGER.info("Bot Connected");
+        AdaptorMain.LOGGER.info("Bot Connected");
     }
 
     public void disconnect() {
         withConnection(c -> {
             c.shutdownNow();
-            Adaptor.LOGGER.info("Disconnected");
+            AdaptorMain.LOGGER.info("Disconnected");
         });
         connection = Optional.empty();
     }

@@ -14,7 +14,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ColorCode;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
-import net.yunitrish.adaptor.Adaptor;
+import net.yunitrish.adaptor.AdaptorMain;
 import net.yunitrish.adaptor.block.custom.CornCropBlock;
 import net.yunitrish.adaptor.block.custom.SoundBlock;
 import net.yunitrish.adaptor.block.custom.SoyBeanCropBlock;
@@ -60,7 +60,7 @@ public class ModBlocks {
     /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
     public static final Block SOYBEAN_CROP = Registry.register(
             Registries.BLOCK,
-            new Identifier(Adaptor.MOD_ID,"soybean_crop"),
+            new Identifier(AdaptorMain.MOD_ID,"soybean_crop"),
             new SoyBeanCropBlock(
                     AbstractBlock.Settings.create()
                             .mapColor(MapColor.DARK_GREEN)
@@ -74,7 +74,7 @@ public class ModBlocks {
 
     public static final Block CORN_CROP = Registry.register(
             Registries.BLOCK,
-            new Identifier(Adaptor.MOD_ID,"corn_crop"),
+            new Identifier(AdaptorMain.MOD_ID,"corn_crop"),
             new CornCropBlock(
                     AbstractBlock.Settings.create()
                             .mapColor(MapColor.DARK_GREEN)
@@ -106,14 +106,14 @@ public class ModBlocks {
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
-        return Registry.register(Registries.BLOCK,new Identifier(Adaptor.MOD_ID,name),block);
+        return Registry.register(Registries.BLOCK,new Identifier(AdaptorMain.MOD_ID,name),block);
     }
 
     private static Item registerBlockItem(String name, Block block) {
-        return Registry.register(Registries.ITEM, new Identifier(Adaptor.MOD_ID,name),new BlockItem(block, new FabricItemSettings()));
+        return Registry.register(Registries.ITEM, new Identifier(AdaptorMain.MOD_ID,name),new BlockItem(block, new FabricItemSettings()));
     }
 
     public static void registerModBlocks (){
-        Adaptor.LOGGER.info("Registering blocks for " + Adaptor.MOD_ID);
+        AdaptorMain.LOGGER.info("Registering blocks for " + AdaptorMain.MOD_ID);
     }
 }

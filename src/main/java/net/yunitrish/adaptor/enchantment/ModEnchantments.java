@@ -6,17 +6,17 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.yunitrish.adaptor.Adaptor;
+import net.yunitrish.adaptor.AdaptorMain;
 
 public class ModEnchantments {
 
     public static Enchantment LEACH = register("leach", new LeachEnchantment(Enchantment.Rarity.RARE, EnchantmentTarget.WEAPON, EquipmentSlot.MAINHAND));
 
     private static Enchantment register(String name, Enchantment enchantment) {
-        return Registry.register(Registries.ENCHANTMENT,new Identifier(Adaptor.MOD_ID,name),enchantment);
+        return Registry.register(Registries.ENCHANTMENT,new Identifier(AdaptorMain.MOD_ID,name),enchantment);
     }
 
     public static void registerModEnchantments() {
-        System.out.println("Registering enchantments for " + Adaptor.MOD_ID);
+        System.out.println("Registering enchantments for " + AdaptorMain.MOD_ID);
     }
 }

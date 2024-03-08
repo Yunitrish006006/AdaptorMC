@@ -7,12 +7,12 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.yunitrish.adaptor.Adaptor;
+import net.yunitrish.adaptor.AdaptorMain;
 import net.yunitrish.adaptor.block.ModBlocks;
 
 public class ModItemGroups {
 
-    public static final ItemGroup AdaptorGroup = Registry.register(Registries.ITEM_GROUP,new Identifier(Adaptor.MOD_ID, "adaptor_group"), FabricItemGroup.builder().displayName(Text.translatable("itemgroup.adaptor_group")).icon(()-> new ItemStack(ModItems.SALT)).entries(((displayContext, entries) -> {
+    public static final ItemGroup AdaptorGroup = Registry.register(Registries.ITEM_GROUP,new Identifier(AdaptorMain.MOD_ID, "adaptor_group"), FabricItemGroup.builder().displayName(Text.translatable("itemgroup.adaptor_group")).icon(()-> new ItemStack(ModItems.SALT)).entries(((displayContext, entries) -> {
         entries.add(ModItems.FLOUR);
         entries.add(ModItems.DOUGH);
         entries.add(ModItems.SALT);
@@ -59,6 +59,6 @@ public class ModItemGroups {
     })).build());
 
     public static void registerItemGroups() {
-        Adaptor.LOGGER.info("Registering Item Groups for " + Adaptor.MOD_ID);
+        AdaptorMain.LOGGER.info("Registering Item Groups for " + AdaptorMain.MOD_ID);
     }
 }

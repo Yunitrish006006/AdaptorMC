@@ -5,6 +5,8 @@ import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.builder.RequiredArgumentBuilder;
 import net.dv8tion.jda.api.entities.Message;
+import net.yunitrish.adaptor.bot.commands.PlayersCommand;
+import net.yunitrish.adaptor.bot.commands.RconCommand;
 
 public class DiscordCommandManager {
 

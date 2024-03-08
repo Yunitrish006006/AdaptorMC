@@ -12,7 +12,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.poi.PointOfInterestType;
-import net.yunitrish.adaptor.Adaptor;
+import net.yunitrish.adaptor.AdaptorMain;
 import net.yunitrish.adaptor.block.ModBlocks;
 
 public class ModVillagers {
@@ -29,7 +29,7 @@ public class ModVillagers {
     private static VillagerProfession registerProfession(String name, RegistryKey<PointOfInterestType> type) {
         return Registry.register(
                 Registries.VILLAGER_PROFESSION,
-                new Identifier(Adaptor.MOD_ID,name),
+                new Identifier(AdaptorMain.MOD_ID,name),
                 new VillagerProfession(name,
                         entry -> entry.matchesKey(type),
                         entry -> entry.matchesKey(type),
@@ -41,14 +41,14 @@ public class ModVillagers {
     }
 
     private static PointOfInterestType registerPoi(String name, Block block) {
-        return PointOfInterestHelper.register(new Identifier(Adaptor.MOD_ID,name),1,1,block);
+        return PointOfInterestHelper.register(new Identifier(AdaptorMain.MOD_ID,name),1,1,block);
     }
 
     private static RegistryKey<PointOfInterestType> poiKey(String name) {
-        return  RegistryKey.of(RegistryKeys.POINT_OF_INTEREST_TYPE,new Identifier(Adaptor.MOD_ID,name));
+        return  RegistryKey.of(RegistryKeys.POINT_OF_INTEREST_TYPE,new Identifier(AdaptorMain.MOD_ID,name));
     }
 
     public static void registerVillagers() {
-        Adaptor.LOGGER.info("Registering Villagers "+Adaptor.MOD_ID);
+        AdaptorMain.LOGGER.info("Registering Villagers "+ AdaptorMain.MOD_ID);
     }
 }

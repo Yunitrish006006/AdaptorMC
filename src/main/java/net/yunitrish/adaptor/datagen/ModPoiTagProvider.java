@@ -6,7 +6,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.PointOfInterestTypeTags;
 import net.minecraft.util.Identifier;
-import net.yunitrish.adaptor.Adaptor;
+import net.yunitrish.adaptor.AdaptorMain;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -18,8 +18,8 @@ public class ModPoiTagProvider extends TagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup lookup) {
         this.getOrCreateTagBuilder(PointOfInterestTypeTags.ACQUIRABLE_JOB_SITE)
-                .addOptional(new Identifier(Adaptor.MOD_ID,"chefpoi"));
+                .addOptional(new Identifier(AdaptorMain.MOD_ID,"chefpoi"));
         this.getOrCreateTagBuilder(PointOfInterestTypeTags.ACQUIRABLE_JOB_SITE)
-                .addOptional(new Identifier(Adaptor.MOD_ID,"scavengerpoi"));
+                .addOptional(new Identifier(AdaptorMain.MOD_ID,"scavengerpoi"));
     }
 }

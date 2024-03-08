@@ -7,7 +7,7 @@ import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.yunitrish.adaptor.Adaptor;
+import net.yunitrish.adaptor.AdaptorMain;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.item.custom.MetalDetectionItem;
 import net.yunitrish.adaptor.item.custom.ModArmorItem;
@@ -56,11 +56,11 @@ public class ModItems {
     }
 
     private static Item registerItem(String name, Item item) {
-        return Registry.register(Registries.ITEM, new Identifier(Adaptor.MOD_ID,name),item);
+        return Registry.register(Registries.ITEM, new Identifier(AdaptorMain.MOD_ID,name),item);
     }
 
     public static void registerModItems() {
-        Adaptor.LOGGER.info("Registering Mod Items for " + Adaptor.MOD_ID);
+        AdaptorMain.LOGGER.info("Registering Mod Items for " + AdaptorMain.MOD_ID);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::modIngredientTabItemGroup);
     }
 }

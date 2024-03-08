@@ -6,7 +6,7 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.yunitrish.adaptor.Adaptor;
+import net.yunitrish.adaptor.AdaptorMain;
 
 import java.util.function.Supplier;
 
@@ -63,7 +63,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
 
     @Override
     public String getName() {
-        return Adaptor.MOD_ID+":"+this.name;
+        return AdaptorMain.MOD_ID+":"+this.name;
     }
 
     @Override

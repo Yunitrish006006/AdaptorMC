@@ -3,12 +3,12 @@
 	"id": "adaptor",
 	"version": "${version}",
 	"name": "Adaptor",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A mod that contains server discord bot, survive extensions",
 	"authors": [
 		"Yunitrish"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
+		"homepage": "https://github.com/Yunitrish006006/Adaptor-1.20.4/issues",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "MIT",
@@ -16,10 +16,13 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.yunitrish.adaptor.Adaptor"
+			"net.yunitrish.adaptor.AdaptorMain"
 		],
 		"client": [
 			"net.yunitrish.adaptor.AdaptorClient"
+		],
+		"//server": [
+			"net.yunitrish.adaptor.AdaptorServer"
 		],
 		"fabric-datagen": [
 			"net.yunitrish.adaptor.AdaptorDataGenerator"
