@@ -9,6 +9,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.AdaptorMain;
 import net.yunitrish.adaptor.block.ModBlocks;
+import net.yunitrish.adaptor.entity.ModEntities;
 import net.yunitrish.adaptor.item.custom.MetalDetectionItem;
 import net.yunitrish.adaptor.item.custom.ModArmorItem;
 import net.yunitrish.adaptor.sound.ModSounds;
@@ -48,6 +49,8 @@ public class ModItems {
     public static final  Item COPPER_CHESTPLATE = registerItem("copper_chestplate",new ModArmorItem(ModArmorMaterials.COPPER,ArmorItem.Type.CHESTPLATE,new FabricItemSettings()));
     public static final  Item COPPER_LEGGINGS = registerItem("copper_leggings",new ModArmorItem(ModArmorMaterials.COPPER,ArmorItem.Type.LEGGINGS,new FabricItemSettings()));
     public static final  Item COPPER_BOOTS = registerItem("copper_boots",new ModArmorItem(ModArmorMaterials.COPPER,ArmorItem.Type.BOOTS,new FabricItemSettings()));
+
+    public static final Item PORCUPINE_SPAWN_EGG = registerItem("porcupine_spawn_egg",new SpawnEggItem(ModEntities.PORCUPINE, 0xf1f1f1f1,0xd1d1d1d1,new FabricItemSettings()));
 
 
     private static void modIngredientTabItemGroup(FabricItemGroupEntries entries) {

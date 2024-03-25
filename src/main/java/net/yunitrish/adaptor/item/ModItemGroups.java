@@ -53,7 +53,10 @@ public class ModItemGroups {
         entries.add(ModBlocks.DIRT_TRAPDOOR);
         entries.add(ModBlocks.DIRT_WALL);
 
+        entries.add(ModItems.PORCUPINE_SPAWN_EGG);
+
         entries.add(ModBlocks.SOUND_BLOCK);
+        entries.add(ModBlocks.GEM_POLISHING_STATION);
 
         entries.add(ModBlocks.DAHLIA);
 

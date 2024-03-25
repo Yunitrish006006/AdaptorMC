@@ -49,9 +49,11 @@
 
 
   "block.adaptor.sound_block": "Sound Block",
+  "block.adaptor.gem_polishing_station": "Gem Polishing Station",
 
   "itemgroup.adaptor_group": "Adaptor Group",
   "tooltip.adaptor.sound_block.tooltip": "play sound by clicking right-click",
+  "gui.adaptor.gem_polishing_table": "Gem Polishing Table",
 
   "enchantment.adaptor.leach": "Leach",
   "entity.minecraft.villager.chef": "Chef",

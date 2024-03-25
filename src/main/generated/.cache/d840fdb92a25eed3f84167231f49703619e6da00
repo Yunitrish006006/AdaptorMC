@@ -1,4 +1,4 @@
-// 1.20.4	2024-03-08T23:31:16.925952	Adaptor/Recipes
+// 1.20.4	2024-03-25T10:50:13.4125672	Adaptor/Recipes
 6588e170a33bcfc16aebe5288076f4cfe9d325b6 data\adaptor\advancements\recipes\food\1_flour_dough_with_bucket.json
 1bb5831b22b82d661e7fed6457aebd713e9998e8 data\adaptor\recipes\8_flour_dough_with_bucket.json
 faf12ce52820641ce3c95b79e909956281ac614d data\adaptor\recipes\salt_from_smelting_nether_salt_ore.json
@@ -45,8 +45,8 @@ ea02aa4abb356a698683d288502434d49c0df021 data\adaptor\recipes\3_flour_dough_with
 98cef352b3848a8768d0f423b276b5347e9c7087 data\adaptor\recipes\salt_from_smelting_deepslate_salt_ore.json
 74ddd84ac8c2ecd8f37c761eb9f1e15d67dca433 data\adaptor\advancements\recipes\food\5_flour_dough_with_bucket.json
 cf730a277ce2270d699e70f5b52928f19c390d88 data\adaptor\advancements\recipes\building_blocks\dirt_stairs.json
-0fb878ba12411de69445510fcf077a5a35355983 data\adaptor\recipes\1_flour_dough_with_bucket.json
 8cf9bc4ffc03ef4efeca0722f13489e5bfcbd1c4 data\adaptor\advancements\recipes\misc\salt_from_blasting_salt_ore.json
+0fb878ba12411de69445510fcf077a5a35355983 data\adaptor\recipes\1_flour_dough_with_bucket.json
 f0650d810d120fa3702429c6d6600904dda14ae2 data\adaptor\recipes\2_flour_dough_with_bucket.json
 6e88fb4d106a640a3b820b50c9f2dcbb8d81f283 data\adaptor\advancements\recipes\food\4_flour_dough_with_bucket.json
 c64246d145149d614c6125a7a1c43e84f0dc439d data\adaptor\recipes\salt_from_blasting_nether_salt_ore.json

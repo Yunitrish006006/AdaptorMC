@@ -16,6 +16,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.yunitrish.adaptor.AdaptorMain;
 import net.yunitrish.adaptor.block.custom.CornCropBlock;
+import net.yunitrish.adaptor.block.custom.GemPolishingStationBlock;
 import net.yunitrish.adaptor.block.custom.SoundBlock;
 import net.yunitrish.adaptor.block.custom.SoyBeanCropBlock;
 import net.yunitrish.adaptor.sound.ModSounds;
@@ -101,7 +102,7 @@ public class ModBlocks {
 
     public static final Block POTTED_DAHLIA = registerBlock("potted_dahlia",new FlowerPotBlock(DAHLIA, FabricBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque().noCollision()));
 
-
+    public static final Block GEM_POLISHING_STATION = registerBlock("gem_polishing_station",new GemPolishingStationBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
 
 
 
