@@ -25,6 +25,11 @@ public class ModItems {
     public static final Item CORN = registerItem("corn",new Item(new FabricItemSettings().food(ModFoodComponents.CORN)));
     public static final Item CORN_SEEDS = registerItem("corn_seeds",new AliasedBlockItem(ModBlocks.CORN_CROP,new FabricItemSettings()));
 
+
+    public static final Item MARIJUANA = registerItem("marijuana",new Item(new FabricItemSettings().food(ModFoodComponents.MARIJUANA)));
+    public static final Item MARIJUANA_LEAF = registerItem("marijuana_leaf",new Item(new FabricItemSettings()));
+    public static final Item MARIJUANA_SEEDS = registerItem("marijuana_seeds",new AliasedBlockItem(ModBlocks.MARIJUANA_PLANT,new FabricItemSettings()));
+
     public static final  Item METAL_DETECTOR = registerItem("metal_detector",new MetalDetectionItem(new FabricItemSettings().maxDamage(64)));
 
     public static final Item BAMBOO_COAL =  registerItem("bamboo_coal", new Item(new FabricItemSettings()));

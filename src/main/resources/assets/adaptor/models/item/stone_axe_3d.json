@@ -1,6 +1,5 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "item",
 	"textures": {
 		"0": "minecraft:block/oak_log",
 		"1": "minecraft:block/cobblestone",

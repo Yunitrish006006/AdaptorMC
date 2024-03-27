@@ -50,6 +50,12 @@ public class ModLootTableModifiers {
                         .with(ItemEntry.builder(ModItems.CORN_SEEDS))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0f,2f)
                         ).build()));
+                tableBuilder.pool(LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.04f))
+                        .with(ItemEntry.builder(ModItems.MARIJUANA_SEEDS))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0f,2f)
+                        ).build()));
             }
         });
     }

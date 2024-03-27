@@ -11,10 +11,12 @@ import net.yunitrish.adaptor.entity.custom.PorcupineEntity;
 public class PorcupineModel<T extends PorcupineEntity> extends SinglePartEntityModel<T> {
 	private final ModelPart porcupine;
 	private final ModelPart head;
+
 	public PorcupineModel(ModelPart root) {
 		this.porcupine = root.getChild("porcupine");
-        this.head = porcupine.getChild("body").getChild("torso").getChild("head");
-    }
+		this.head = porcupine.getChild("body").getChild("torso").getChild("head");
+	}
+
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
@@ -30,14 +32,14 @@ public class PorcupineModel<T extends PorcupineEntity> extends SinglePartEntityM
 
 		ModelPartData cube_r2 = tail.addChild("cube_r2", ModelPartBuilder.create().uv(11, 25).cuboid(-6.0F, 0.001F, -1.0F, 7.0F, 0.0F, 7.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.25F, 0.0F, 0.0F, 0.6109F, 0.0F));
 
-		ModelPartData head = torso.addChild("head", ModelPartBuilder.create(), ModelTransform.of(0.0F, -1.0F, -4.0F, 0.0F, -0.0436F, 0.0F));
+		ModelPartData head = torso.addChild("head", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, -1.0F, -4.0F));
 
 		ModelPartData skull = head.addChild("skull", ModelPartBuilder.create().uv(0, 13).cuboid(-2.0F, -2.0F, -4.0F, 4.0F, 4.0F, 4.0F, new Dilation(0.0F))
-		.uv(0, 14).cuboid(1.1F, -0.75F, -3.25F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
-		.uv(12, 13).cuboid(1.425F, -0.975F, -3.025F, 1.0F, 1.0F, 1.0F, new Dilation(-0.3F))
-		.uv(0, 14).mirrored().cuboid(-2.1F, -0.75F, -3.25F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F)).mirrored(false)
-		.uv(12, 13).mirrored().cuboid(-2.425F, -0.975F, -3.025F, 1.0F, 1.0F, 1.0F, new Dilation(-0.3F)).mirrored(false)
-		.uv(16, 18).cuboid(-1.0F, -0.25F, -5.0F, 2.0F, 2.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+				.uv(0, 14).cuboid(1.1F, -0.75F, -3.25F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F))
+				.uv(12, 13).cuboid(1.425F, -0.975F, -3.025F, 1.0F, 1.0F, 1.0F, new Dilation(-0.3F))
+				.uv(0, 14).mirrored().cuboid(-2.1F, -0.75F, -3.25F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F)).mirrored(false)
+				.uv(12, 13).mirrored().cuboid(-2.425F, -0.975F, -3.025F, 1.0F, 1.0F, 1.0F, new Dilation(-0.3F)).mirrored(false)
+				.uv(16, 18).cuboid(-1.0F, -0.25F, -5.0F, 2.0F, 2.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
 		ModelPartData hair = skull.addChild("hair", ModelPartBuilder.create().uv(0, 16).cuboid(0.0F, -4.0F, 0.0F, 0.0F, 5.0F, 5.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -1.0F, -4.0F, 0.5236F, 0.0F, 0.0F));
 
@@ -154,6 +156,25 @@ public class PorcupineModel<T extends PorcupineEntity> extends SinglePartEntityM
 		ModelPartData left_back_leg = body.addChild("left_back_leg", ModelPartBuilder.create().uv(0, 0).cuboid(-1.0F, -1.0F, -1.0F, 2.0F, 5.0F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(3.0F, 0.0F, 2.5F));
 		return TexturedModelData.of(modelData, 32, 32);
 	}
+
+	@Override
+	public void setAngles(PorcupineEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.getPart().traverse().forEach(ModelPart::resetTransform);
+		this.setHeadAngles(netHeadYaw, headPitch);
+
+		this.animateMovement(ModAnimations.PORCUPINE_WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
+		this.updateAnimation(entity.idlingAnimationState, ModAnimations.PORCUPINE_IDLE, ageInTicks, 1f);
+		this.updateAnimation(entity.attackAnimationState, ModAnimations.PORCUPINE_ATTACK, ageInTicks, 1f);
+	}
+
+	private void setHeadAngles(float headYaw, float headPitch) {
+		headYaw = MathHelper.clamp(headYaw, -30.0F, 30.0F);
+		headPitch = MathHelper.clamp(headPitch, -25.0F, 45.0F);
+
+		this.head.yaw = headYaw * 0.017453292F;
+		this.head.pitch = headPitch * 0.017453292F;
+	}
+
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
 		porcupine.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
@@ -162,22 +183,5 @@ public class PorcupineModel<T extends PorcupineEntity> extends SinglePartEntityM
 	@Override
 	public ModelPart getPart() {
 		return porcupine;
-	}
-
-	@Override
-	public void setAngles(PorcupineEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-		this.getPart().traverse().forEach(ModelPart::resetTransform);
-		this.setHeadAngles(headYaw, headPitch);
-		this.animateMovement(ModAnimations.PORCUPINE_WALK,limbAngle,limbDistance,2f,2.5f);
-		this.updateAnimation(entity.idlingAnimationState,ModAnimations.PORCUPINE_IDLE,animationProgress,1f);
-		this.updateAnimation(entity.attackAnimationState,ModAnimations.PORCUPINE_ATTACK,animationProgress,1f);
-	}
-
-	private void setHeadAngles(float headYaw, float headPitch) {
-		headYaw = MathHelper.clamp(headYaw, -30.0f,30.0f);
-		headPitch = MathHelper.clamp(headPitch,-25.0f,45.0f);
-
-		this.head.yaw = headYaw + 0.02f;
-		this.head.pitch = headPitch + 0.02f;
 	}
 }

@@ -15,10 +15,7 @@ import net.minecraft.util.ColorCode;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.yunitrish.adaptor.AdaptorMain;
-import net.yunitrish.adaptor.block.custom.CornCropBlock;
-import net.yunitrish.adaptor.block.custom.GemPolishingStationBlock;
-import net.yunitrish.adaptor.block.custom.SoundBlock;
-import net.yunitrish.adaptor.block.custom.SoyBeanCropBlock;
+import net.yunitrish.adaptor.block.custom.*;
 import net.yunitrish.adaptor.sound.ModSounds;
 
 public class ModBlocks {
@@ -60,6 +57,7 @@ public class ModBlocks {
     public static final Block DIRT_DOOR = registerBlock("dirt_door",new DoorBlock(DIRT, AbstractBlock.Settings.create().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block DIRT_TRAPDOOR = registerBlock("dirt_trapdoor",new TrapdoorBlock(DIRT, AbstractBlock.Settings.create().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
     /* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
     public static final Block SOYBEAN_CROP = Registry.register(
             Registries.BLOCK,
             new Identifier(AdaptorMain.MOD_ID,"soybean_crop"),
@@ -87,6 +85,20 @@ public class ModBlocks {
                             .pistonBehavior(PistonBehavior.DESTROY)
             )
             );
+
+    public static final Block MARIJUANA_PLANT = Registry.register(
+            Registries.BLOCK,
+            new Identifier(AdaptorMain.MOD_ID,"marijuana_plant"),
+            new MarijuanaPlantBlock(
+                    AbstractBlock.Settings.create()
+                            .mapColor(MapColor.DARK_GREEN)
+                            .noCollision()
+                            .ticksRandomly()
+                            .breakInstantly()
+                            .sounds(BlockSoundGroup.CROP)
+                            .pistonBehavior(PistonBehavior.DESTROY)
+                    )
+    );
 
     public static final Block DAHLIA = registerBlock(
             "dahlia",

@@ -1,4 +1,4 @@
-package net.yunitrish.adaptor.entity.animation;
+package net.yunitrish.adaptor.entity.client;
 
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;

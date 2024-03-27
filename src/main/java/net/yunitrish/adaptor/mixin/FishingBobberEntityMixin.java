@@ -2,10 +2,7 @@ package net.yunitrish.adaptor.mixin;
 
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.entity.*;
-import net.minecraft.entity.passive.CodEntity;
-import net.minecraft.entity.passive.PufferfishEntity;
-import net.minecraft.entity.passive.SalmonEntity;
-import net.minecraft.entity.passive.TropicalFishEntity;
+import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.FishingBobberEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
@@ -20,6 +17,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
@@ -96,15 +94,19 @@ public abstract class FishingBobberEntityMixin extends ProjectileEntity {
             ObjectArrayList<ItemStack> list = lootTable.generateLoot(lootContextParameterSet);
             for (ItemStack itemStack : list) {
                 if (Registries.ITEM.getId(itemStack.getItem()).equals(new Identifier("minecraft", "cod"))) {
+                    playerEntity.getWorld().spawnEntity(new ExperienceOrbEntity(playerEntity.getWorld(), playerEntity.getX(), playerEntity.getY() + 0.5, playerEntity.getZ() + 0.5, this.random.nextInt(6) + 1));
                     this.getWorld().spawnEntity(getCodEntity(playerEntity));
                 }
                 else if (Registries.ITEM.getId(itemStack.getItem()).equals(new Identifier("minecraft", "salmon"))) {
+                    playerEntity.getWorld().spawnEntity(new ExperienceOrbEntity(playerEntity.getWorld(), playerEntity.getX(), playerEntity.getY() + 0.5, playerEntity.getZ() + 0.5, this.random.nextInt(6) + 1));
                     this.getWorld().spawnEntity(getSalmonEntity(playerEntity));
                 }
                 else if (Registries.ITEM.getId(itemStack.getItem()).equals(new Identifier("minecraft", "tropical_fish"))) {
+                    playerEntity.getWorld().spawnEntity(new ExperienceOrbEntity(playerEntity.getWorld(), playerEntity.getX(), playerEntity.getY() + 0.5, playerEntity.getZ() + 0.5, this.random.nextInt(6) + 1));
                     this.getWorld().spawnEntity(getTropicalFishEntity(playerEntity));
                 }
                 else if (Registries.ITEM.getId(itemStack.getItem()).equals(new Identifier("minecraft", "pufferfish"))) {
+                    playerEntity.getWorld().spawnEntity(new ExperienceOrbEntity(playerEntity.getWorld(), playerEntity.getX(), playerEntity.getY() + 0.5, playerEntity.getZ() + 0.5, this.random.nextInt(6) + 1));
                     this.getWorld().spawnEntity(getPufferfishEntity(playerEntity));
                 }
                 else {

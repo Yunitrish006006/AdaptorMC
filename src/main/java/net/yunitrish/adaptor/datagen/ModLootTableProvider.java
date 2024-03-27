@@ -16,6 +16,7 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 import net.yunitrish.adaptor.block.ModBlocks;
+import net.yunitrish.adaptor.block.custom.MarijuanaPlantBlock;
 import net.yunitrish.adaptor.block.custom.SoyBeanCropBlock;
 import net.yunitrish.adaptor.item.ModItems;
 
@@ -69,6 +70,16 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                                         .properties(StatePredicate.Builder.create().exactMatch(SoyBeanCropBlock.AGE,8)))
                 )
         );
+
+        addDrop(ModBlocks.MARIJUANA_PLANT,
+                cropDrops(
+                        ModBlocks.MARIJUANA_PLANT,
+                        ModItems.MARIJUANA_LEAF,
+                        ModItems.MARIJUANA_SEEDS,
+                        BlockStatePropertyLootCondition
+                                .builder(ModBlocks.MARIJUANA_PLANT)
+                                .properties(StatePredicate.Builder.create().exactMatch(MarijuanaPlantBlock.AGE,5))
+                ));
 
         addDrop(ModBlocks.DAHLIA);
         addPottedPlantDrops(ModBlocks.POTTED_DAHLIA);

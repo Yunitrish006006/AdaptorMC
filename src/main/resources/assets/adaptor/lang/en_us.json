@@ -4,6 +4,9 @@
   "item.adaptor.flour": "Flour",
   "item.adaptor.dough": "Dough",
   "item.adaptor.soybean": "Soybean",
+  "item.adaptor.marijuana": "Marijuana",
+  "item.adaptor.marijuana_leaf": "Marijuana Leaf",
+  "item.adaptor.marijuana_seeds": "Marijuana Seeds",
   "item.adaptor.corn": "Corn",
   "item.adaptor.corn_seeds": "Corn Seeds",
 
@@ -42,11 +45,10 @@
   "block.adaptor.dirt_door": "Dirt Door",
   "block.adaptor.dirt_trapdoor": "Dirt Trapdoor",
 
-
   "block.adaptor.dahlia": "Dahlia",
 
-
-
+  "item.adaptor.porcupine_spawn_egg": "Porcupine Spawn Egg",
+  "entity.adaptor.porcupine": "Porcupine",
 
   "block.adaptor.sound_block": "Sound Block",
   "block.adaptor.gem_polishing_station": "Gem Polishing Station",

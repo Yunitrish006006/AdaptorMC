@@ -34,36 +34,8 @@ public class PorcupineEntity extends AnimalEntity {
     public final AnimationState attackAnimationState = new AnimationState();
     public int attackAnimationCooldown = 0;
 
-    @Override
-    protected void initDataTracker() {
-        this.dataTracker.set(ATTACKING, false);
-    }
-
-    @Override
-    public boolean isAttacking() {
-        return this.dataTracker.get(ATTACKING);
-    }
-
-    public void setAttacking(boolean attacking) {
-        this.dataTracker.set(ATTACKING, attacking);
-    }
-
     public PorcupineEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
-    }
-
-    @Override
-    protected void initGoals() {
-        this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new PorcupineAttackGoal(this,10,true));
-        this.goalSelector.add(1, new AnimalMateGoal(this,1.150));
-        this.goalSelector.add(2, new TemptGoal(this,1.250, Ingredient.ofItems(Items.BEETROOT),false));
-        this.goalSelector.add(3, new FollowParentGoal(this,1.150));
-        this.goalSelector.add(4, new WanderAroundFarGoal(this,10));
-        this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class,4f));
-        this.goalSelector.add(6, new LookAroundGoal(this));
-
-        this.targetSelector.add(1, new RevengeGoal(this));
     }
 
     private void setupAnimationStates() {
@@ -74,51 +46,82 @@ public class PorcupineEntity extends AnimalEntity {
             --this.idleAnimationCooldown;
         }
 
-        if (this.isAttacking() && attackAnimationCooldown <= 0) {
+        if(this.isAttacking() && attackAnimationCooldown <= 0) {
             attackAnimationCooldown = 40;
             attackAnimationState.start(this.age);
-        }
-        else {
+        } else {
             --this.attackAnimationCooldown;
         }
 
-        if (!this.isAttacking()) {
+        if(!this.isAttacking()) {
             attackAnimationState.stop();
         }
     }
 
     @Override
+    protected void updateLimbs(float posDelta) {
+        float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0f, 1.0f) : 0.0f;
+        this.limbAnimator.updateLimbs(f, 0.2f);
+    }
+
+    @Override
     public void tick() {
         super.tick();
-        if (this.getWorld().isClient) {
+        if(this.getWorld().isClient()) {
             setupAnimationStates();
         }
     }
 
     @Override
-    protected void updateLimbs(float posDelta) {
-        float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta+6.0f,1.0f) : 0.0f;
-        this.limbAnimator.updateLimbs(f,0.2f);
+    protected void initGoals() {
+        this.goalSelector.add(0, new SwimGoal(this));
+
+        this.goalSelector.add(1, new PorcupineAttackGoal(this, 1D, true));
+
+        this.goalSelector.add(1, new AnimalMateGoal(this, 1.15D));
+        this.goalSelector.add(2, new TemptGoal(this, 1.25D, Ingredient.ofItems(Items.BEETROOT), false));
+
+        this.goalSelector.add(3, new FollowParentGoal(this, 1.15D));
+
+        this.goalSelector.add(4, new WanderAroundFarGoal(this, 1D));
+        this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 4f));
+        this.goalSelector.add(6, new LookAroundGoal(this));
+
+        this.targetSelector.add(1, new RevengeGoal(this));
     }
 
     public static DefaultAttributeContainer.Builder createPorcupineAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH,25)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.07f)
-                .add(EntityAttributes.GENERIC_ARMOR,0.5f)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,2)
-                ;
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 15)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f)
+                .add(EntityAttributes.GENERIC_ARMOR, 0.5f)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 2);
+    }
+
+    public void setAttacking(boolean attacking) {
+        this.dataTracker.set(ATTACKING, attacking);
+    }
+
+    @Override
+    public boolean isAttacking() {
+        return this.dataTracker.get(ATTACKING);
+    }
+
+    @Override
+    protected void initDataTracker() {
+        super.initDataTracker();
+        this.dataTracker.startTracking(ATTACKING, false);
+    }
+
+    @Override
+    public boolean isBreedingItem(ItemStack stack) {
+        return stack.isOf(Items.BEETROOT);
     }
 
     @Nullable
     @Override
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
         return ModEntities.PORCUPINE.create(world);
-    }
-
-    @Override
-    public boolean isBreedingItem(ItemStack stack) {
-        return stack.isOf(Items.BEETROOT);
     }
 
     @Nullable
@@ -136,6 +139,6 @@ public class PorcupineEntity extends AnimalEntity {
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_CAT_DEATH;
+        return SoundEvents.ENTITY_DOLPHIN_DEATH;
     }
 }

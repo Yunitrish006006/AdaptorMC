@@ -109,6 +109,35 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter,new Identifier(getRecipeName(ModItems.COPPER_SWORD)));
     }
 
+    private void createCopperArmors(RecipeExporter exporter) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_HELMET)
+                .pattern("CCC")
+                .pattern("C C")
+                .input('C',Items.COPPER_INGOT)
+                .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
+                .offerTo(exporter,new Identifier(getRecipeName(ModItems.COPPER_HELMET)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_CHESTPLATE)
+                .pattern("C C")
+                .pattern("CCC")
+                .pattern("CCC")
+                .input('C',Items.COPPER_INGOT)
+                .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
+                .offerTo(exporter,new Identifier(getRecipeName(ModItems.COPPER_CHESTPLATE)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_LEGGINGS)
+                .pattern("CCC")
+                .pattern("C C")
+                .pattern("C C")
+                .input('C',Items.COPPER_INGOT)
+                .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
+                .offerTo(exporter,new Identifier(getRecipeName(ModItems.COPPER_LEGGINGS)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_BOOTS)
+                .pattern("C C")
+                .pattern("C C")
+                .input('C',Items.COPPER_INGOT)
+                .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
+                .offerTo(exporter,new Identifier(getRecipeName(ModItems.COPPER_BOOTS)));
+    }
+
     private void createBreads(RecipeExporter exporter) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC,ModItems.FLOUR)
                 .input(Items.WHEAT)
@@ -137,6 +166,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 RecipeCategory.BUILDING_BLOCKS, ModItems.SALT,
                 RecipeCategory.DECORATIONS,ModBlocks.SALT_BLOCK);
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD,ModItems.MARIJUANA)
+                .input(ModItems.MARIJUANA_LEAF)
+                .input(Items.PAPER)
+                .criterion(hasItem(ModItems.MARIJUANA_LEAF),conditionsFromItem(ModItems.MARIJUANA_LEAF))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MARIJUANA)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.METAL_DETECTOR)
                 .pattern("S  ")
                 .pattern("IS ")
@@ -152,5 +187,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createBuildSeries(exporter);
 
         createCopperTools(exporter);
+
+        createCopperArmors(exporter);
     }
 }

@@ -8,7 +8,7 @@ import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.entity.ModEntities;
-import net.yunitrish.adaptor.entity.animation.ModModelLayers;
+import net.yunitrish.adaptor.entity.client.ModModelLayers;
 import net.yunitrish.adaptor.entity.client.PorcupineModel;
 import net.yunitrish.adaptor.entity.client.PorcupineRenderer;
 import net.yunitrish.adaptor.screen.GemPolishingScreen;
@@ -21,6 +21,7 @@ public class AdaptorClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DIRT_TRAPDOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SOYBEAN_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CORN_CROP, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MARIJUANA_PLANT, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DAHLIA, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_DAHLIA, RenderLayer.getCutout());
 
