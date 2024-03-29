@@ -6,12 +6,15 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.yunitrish.adaptor.block.ModBlocks;
+import net.yunitrish.adaptor.block.entity.ModBlockEntities;
+import net.yunitrish.adaptor.block.entity.renderer.StoneMillBlockEntityRenderer;
 import net.yunitrish.adaptor.entity.ModEntities;
 import net.yunitrish.adaptor.entity.client.ModModelLayers;
 import net.yunitrish.adaptor.entity.client.PorcupineModel;
 import net.yunitrish.adaptor.entity.client.PorcupineRenderer;
-import net.yunitrish.adaptor.screen.GemPolishingScreen;
+import net.yunitrish.adaptor.screen.StoneMillScreen;
 import net.yunitrish.adaptor.screen.ModScreenHandlers;
 
 public class AdaptorClient implements ClientModInitializer {
@@ -25,9 +28,11 @@ public class AdaptorClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DAHLIA, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_DAHLIA, RenderLayer.getCutout());
 
-        HandledScreens.register(ModScreenHandlers.GEM_POLISHING_SCREEN_HANDLER, GemPolishingScreen::new);
+        HandledScreens.register(ModScreenHandlers.STONE_MILL_SCREEN_HANDLER, StoneMillScreen::new);
 
         EntityRendererRegistry.register(ModEntities.PORCUPINE, PorcupineRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PORCUPINE, PorcupineModel::getTexturedModelData);
+
+        BlockEntityRendererFactories.register(ModBlockEntities.STONE_MILL_BLOCK_ENTITY_BLOCK_ENTITY_TYPE, StoneMillBlockEntityRenderer::new);
     }
 }

@@ -8,6 +8,7 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.item.ModItems;
@@ -181,6 +182,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('R',Items.REDSTONE)
                 .criterion(hasItem(Items.REDSTONE),conditionsFromItem(Items.REDSTONE))
                 .offerTo(exporter,new Identifier(getRecipeName(ModItems.METAL_DETECTOR)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,ModBlocks.STONE_MILL)
+                .pattern("S  ")
+                .pattern("BBB")
+                .pattern("BBB")
+                .input('S', Items.STICK)
+                .input('B', ItemTags.STONE_CRAFTING_MATERIALS)
+                .criterion(hasItem(Items.WHEAT),conditionsFromItem(Items.WHEAT))
+                .offerTo(exporter,new Identifier(getRecipeName(ModBlocks.STONE_MILL)));
 
         createBreads(exporter);
 

@@ -1,0 +1,12 @@
+{
+  "type": "adaptor:stone_mill",
+  "ingredients": [
+    {
+      "item": "adaptor:soybean"
+    }
+  ],
+  "output": {
+    "item": "adaptor:flour",
+    "count": 1
+  }
+}

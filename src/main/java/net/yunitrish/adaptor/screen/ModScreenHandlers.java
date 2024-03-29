@@ -8,7 +8,7 @@ import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.AdaptorMain;
 
 public class ModScreenHandlers {
-    public static final ScreenHandlerType<GemPolishingScreenHandler> GEM_POLISHING_SCREEN_HANDLER =
+    public static final ScreenHandlerType<GemPolishingScreenHandler> STONE_MILL_SCREEN_HANDLER =
             Registry.register(Registries.SCREEN_HANDLER, new Identifier(AdaptorMain.MOD_ID, "gem_polishing"),
                     new ExtendedScreenHandlerType<>(GemPolishingScreenHandler::new));
 

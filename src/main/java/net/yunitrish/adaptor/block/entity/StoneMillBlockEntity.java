@@ -6,11 +6,15 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.network.listener.ClientPlayPacketListener;
+import net.minecraft.network.packet.Packet;
+import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -18,11 +22,13 @@ import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.yunitrish.adaptor.item.ModItems;
+import net.yunitrish.adaptor.recipe.StoneMillRecipe;
 import net.yunitrish.adaptor.screen.GemPolishingScreenHandler;
 import org.jetbrains.annotations.Nullable;
 
-public class GemPolishingStationBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory{
+import java.util.Optional;
+
+public class StoneMillBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory{
 
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(2,ItemStack.EMPTY);
 
@@ -33,14 +39,14 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements Exten
     private int progress = 0;
     private int maxProgress = 72;
 
-    public GemPolishingStationBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.GEM_POLISHING_STATION_BLOCK_ENTITY_BLOCK_ENTITY_TYPE, pos, state);
+    public StoneMillBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.STONE_MILL_BLOCK_ENTITY_BLOCK_ENTITY_TYPE, pos, state);
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
                 return switch (index) {
-                    case 0 -> GemPolishingStationBlockEntity.this.progress;
-                    case 1 -> GemPolishingStationBlockEntity.this.maxProgress;
+                    case 0 -> StoneMillBlockEntity.this.progress;
+                    case 1 -> StoneMillBlockEntity.this.maxProgress;
                     default -> 0;
                 };
             }
@@ -48,8 +54,8 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements Exten
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0 -> GemPolishingStationBlockEntity.this.progress = value;
-                    case 1 -> GemPolishingStationBlockEntity.this.maxProgress = value;
+                    case 0 -> StoneMillBlockEntity.this.progress = value;
+                    case 1 -> StoneMillBlockEntity.this.maxProgress = value;
                 }
             }
 
@@ -58,6 +64,17 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements Exten
                 return 2;
             }
         };
+    }
+
+    public ItemStack getRenderStack() {
+        if (this.getStack(OUTPUT_SLOT).isEmpty()) return this.getStack(INPUT_SLOT);
+        else return this.getStack(OUTPUT_SLOT);
+    }
+
+    @Override
+    public void markDirty() {
+        world.updateListeners(pos, getCachedState(), getCachedState(), 3);
+        super.markDirty();
     }
 
     @Override
@@ -123,10 +140,11 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements Exten
     }
 
     private void craftItem() {
-        this.removeStack(INPUT_SLOT, 1);
-        ItemStack result = new ItemStack(ModItems.FLOUR);
+        Optional<RecipeEntry<StoneMillRecipe>> recipe = getCurrentRecipe();
 
-        this.setStack(OUTPUT_SLOT, new ItemStack(result.getItem(), getStack(OUTPUT_SLOT).getCount() + result.getCount()));
+        this.removeStack(INPUT_SLOT, 1);
+
+        this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().value().getResult(null).getItem(), getStack(OUTPUT_SLOT).getCount() + recipe.get().value().getResult(null).getCount()));
     }
 
     private boolean hasCraftingFinished() {
@@ -138,10 +156,17 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements Exten
     }
 
     private boolean hasRecipe() {
-        ItemStack result = new ItemStack(ModItems.FLOUR);
-        boolean hasInput = getStack(INPUT_SLOT).getItem() == Items.WHEAT;
+        Optional<RecipeEntry<StoneMillRecipe>> recipe = getCurrentRecipe();
 
-        return hasInput && canInsertAmountIntoOutputSlot(result) && canInsertItemIntoOutputSlot(result.getItem());
+        return recipe.isPresent() && canInsertAmountIntoOutputSlot(recipe.get().value().getResult(null)) && canInsertItemIntoOutputSlot(recipe.get().value().getResult(null).getItem());
+    }
+
+    private Optional<RecipeEntry<StoneMillRecipe>> getCurrentRecipe() {
+        SimpleInventory inventory = new SimpleInventory(this.size());
+        for (int i=0;i<this.size();i++) {
+            inventory.setStack(i,this.getStack(i));
+        }
+        return getWorld().getRecipeManager().getFirstMatch(StoneMillRecipe.Type.INSTANCE, inventory, getWorld());
     }
 
     private boolean canInsertItemIntoOutputSlot(Item item) {
@@ -154,5 +179,16 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements Exten
 
     private boolean isOutputSlotEmptyOrReceivable() {
         return this.getStack(OUTPUT_SLOT).isEmpty() || this.getStack(OUTPUT_SLOT).getCount() < this.getStack(OUTPUT_SLOT).getMaxCount();
+    }
+
+    @Nullable
+    @Override
+    public Packet<ClientPlayPacketListener> toUpdatePacket() {
+        return BlockEntityUpdateS2CPacket.create(this);
+    }
+
+    @Override
+    public NbtCompound toInitialChunkDataNbt() {
+        return createNbt();
     }
 }

@@ -17,15 +17,15 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class GemPolishingRecipe implements Recipe<SimpleInventory> {
+public class StoneMillRecipe implements Recipe<SimpleInventory> {
 
     public static final Serializer INSTANCE = new Serializer();
-    public static final String ID = "gem_polishing";
+    public static final String ID = "stone_mill";
 
     private final ItemStack output;
     private final List<Ingredient> recipeItems;
 
-    public GemPolishingRecipe(List<Ingredient> recipeItems, ItemStack output) {
+    public StoneMillRecipe(List<Ingredient> recipeItems, ItemStack output) {
         this.output = output;
         this.recipeItems = recipeItems;
     }
@@ -68,20 +68,20 @@ public class GemPolishingRecipe implements Recipe<SimpleInventory> {
         return Type.INSTANCE;
     }
 
-    public static class Type implements  RecipeType<GemPolishingRecipe> {
+    public static class Type implements  RecipeType<StoneMillRecipe> {
         public static final Type INSTANCE = new Type();
-        public static final String ID = GemPolishingRecipe.ID;
+        public static final String ID = StoneMillRecipe.ID;
     }
 
-    public static class Serializer implements RecipeSerializer<GemPolishingRecipe> {
+    public static class Serializer implements RecipeSerializer<StoneMillRecipe> {
 
         public static final Serializer INSTANCE = new Serializer();
-        public static final String ID = GemPolishingRecipe.ID;
+        public static final String ID = StoneMillRecipe.ID;
 
-        public static final Codec<GemPolishingRecipe> CODEC = RecordCodecBuilder.create(in -> in.group(
-                validateAmount(Ingredient.DISALLOW_EMPTY_CODEC, 9).fieldOf("ingredients").forGetter(GemPolishingRecipe::getIngredients),
+        public static final Codec<StoneMillRecipe> CODEC = RecordCodecBuilder.create(in -> in.group(
+                validateAmount(Ingredient.DISALLOW_EMPTY_CODEC, 9).fieldOf("ingredients").forGetter(StoneMillRecipe::getIngredients),
                 ItemStack.RECIPE_RESULT_CODEC.fieldOf("output").forGetter(r -> r.output)
-        ).apply(in, GemPolishingRecipe::new));
+        ).apply(in, StoneMillRecipe::new));
 
         private static Codec<List<Ingredient>> validateAmount(Codec<Ingredient> delegate, int max) {
             return Codecs.validate(Codecs.validate(
@@ -90,23 +90,23 @@ public class GemPolishingRecipe implements Recipe<SimpleInventory> {
         }
 
         @Override
-        public Codec<GemPolishingRecipe> codec() {
+        public Codec<StoneMillRecipe> codec() {
             return CODEC;
         }
 
         @Override
-        public GemPolishingRecipe read(PacketByteBuf buf) {
+        public StoneMillRecipe read(PacketByteBuf buf) {
             DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(), Ingredient.EMPTY);
             inputs.replaceAll(ignored -> Ingredient.fromPacket(buf));
             ItemStack output = buf.readItemStack();
-            return new GemPolishingRecipe(inputs, output);
+            return new StoneMillRecipe(inputs, output);
         }
 
         @Override
-        public void write(PacketByteBuf buf, GemPolishingRecipe recipe) {
+        public void write(PacketByteBuf buf, StoneMillRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
 
-            for (Ingredient ingredient : recipe.recipeItems) {
+            for (Ingredient ingredient : recipe.getIngredients()) {
                 ingredient.write(buf);
             }
             buf.writeItemStack(recipe.getResult(null));

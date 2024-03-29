@@ -11,6 +11,7 @@ base {
 }
 
 repositories {
+	maven { url "https://maven.shedaniel.me" }
 }
 
 fabricApi {
@@ -23,6 +24,14 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
+	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:14.0.688"
+	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:14.0.688"
+
+	modApi("me.shedaniel.cloth:cloth-config-fabric:13.0.121") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+
+	modApi "dev.architectury:architectury-fabric:11.1.17"
 }
 
 processResources {

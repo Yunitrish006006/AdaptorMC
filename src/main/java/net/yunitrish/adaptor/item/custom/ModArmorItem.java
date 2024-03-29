@@ -18,7 +18,7 @@ public class ModArmorItem extends ArmorItem {
 
     private static final Map<ArmorMaterial, StatusEffectInstance> MATERIAL_STATUS_EFFECT_INSTANCE_MAP =
             (new ImmutableMap.Builder<ArmorMaterial,StatusEffectInstance>())
-                    .put(ModArmorMaterials.COPPER, new StatusEffectInstance(StatusEffects.WEAKNESS,1,1,false,false,true))
+                    .put(ModArmorMaterials.COPPER, new StatusEffectInstance(StatusEffects.ABSORPTION,1,0,false,false,false))
                     .build();
 
     public ModArmorItem(ArmorMaterial material, Type type, Settings settings) {

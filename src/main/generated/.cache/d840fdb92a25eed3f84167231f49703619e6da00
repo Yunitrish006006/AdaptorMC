@@ -1,5 +1,6 @@
-// 1.20.4	2024-03-27T23:35:09.4081102	Adaptor/Recipes
+// 1.20.4	2024-03-30T00:36:45.0804321	Adaptor/Recipes
 e9e0bb12d2867191d11efef4f9978b882b956921 data\adaptor\recipes\marijuana.json
+311f5452245429876503125e0b9c8dedceaa6255 data\adaptor\advancements\recipes\building_blocks\gem_polishing_station.json
 6588e170a33bcfc16aebe5288076f4cfe9d325b6 data\adaptor\advancements\recipes\food\1_flour_dough_with_bucket.json
 1bb5831b22b82d661e7fed6457aebd713e9998e8 data\adaptor\recipes\8_flour_dough_with_bucket.json
 faf12ce52820641ce3c95b79e909956281ac614d data\adaptor\recipes\salt_from_smelting_nether_salt_ore.json
@@ -24,6 +25,7 @@ defd8ccadcb67640aa9610d3121d5311b183ae04 data\adaptor\recipes\salt_from_blasting
 357a07da666fe1f928f572923eb423619384d45d data\adaptor\advancements\recipes\misc\salt_from_smelting_deepslate_salt_ore.json
 159cc63d0c2d45493aa1f49385d4d4719c0404ad data\adaptor\recipes\7_flour_dough_with_bucket.json
 e19bef9267946622e2d493a11b32bc6632ac8fc9 data\adaptor\recipes\copper_chestplate.json
+3b22fc265ef46d696655ead04557ef1a379f2cab data\adaptor\recipes\gem_polishing_station.json
 fdf495226b73044a840eb863a5504d824c7654e0 data\adaptor\advancements\recipes\misc\dirt_button_from_dirt.json
 0dd4a196f0d22770209b0e45cfe63e853ac2b35c data\adaptor\recipes\5_flour_dough_with_bucket.json
 7c0bf8ebcca2e4355ee4a98e898b0bc817c11f04 data\adaptor\advancements\recipes\food\3_flour_dough_with_bucket.json

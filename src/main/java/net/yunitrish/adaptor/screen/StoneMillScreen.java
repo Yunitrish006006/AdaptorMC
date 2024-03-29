@@ -9,10 +9,10 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.AdaptorMain;
 
-public class GemPolishingScreen extends HandledScreen<GemPolishingScreenHandler> {
+public class StoneMillScreen extends HandledScreen<GemPolishingScreenHandler> {
     private static final Identifier TEXTURE = new Identifier(AdaptorMain.MOD_ID, "textures/gui/gem_polishing_station_gui.png");
 
-    public GemPolishingScreen(GemPolishingScreenHandler handler, PlayerInventory inventory, Text title) {
+    public StoneMillScreen(GemPolishingScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 

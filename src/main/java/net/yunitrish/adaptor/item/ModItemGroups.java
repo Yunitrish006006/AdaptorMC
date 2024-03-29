@@ -58,7 +58,7 @@ public class ModItemGroups {
         entries.add(ModItems.PORCUPINE_SPAWN_EGG);
 
         entries.add(ModBlocks.SOUND_BLOCK);
-        entries.add(ModBlocks.GEM_POLISHING_STATION);
+        entries.add(ModBlocks.STONE_MILL);
 
         entries.add(ModBlocks.DAHLIA);
 

@@ -56,6 +56,7 @@
   "itemgroup.adaptor_group": "Adaptor Group",
   "tooltip.adaptor.sound_block.tooltip": "play sound by clicking right-click",
   "gui.adaptor.gem_polishing_table": "Gem Polishing Table",
+  "gui.adaptor.stone_mill": "Stone Mill",
 
   "enchantment.adaptor.leach": "Leach",
   "entity.minecraft.villager.chef": "Chef",

@@ -15,7 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.yunitrish.adaptor.block.entity.GemPolishingStationBlockEntity;
+import net.yunitrish.adaptor.block.entity.StoneMillBlockEntity;
 import net.yunitrish.adaptor.block.entity.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
@@ -47,15 +47,15 @@ public class GemPolishingStationBlock extends BlockWithEntity implements BlockEn
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new GemPolishingStationBlockEntity(pos, state);
+        return new StoneMillBlockEntity(pos, state);
     }
 
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof GemPolishingStationBlockEntity) {
-                ItemScatterer.spawn(world,pos,(GemPolishingStationBlockEntity)blockEntity);
+            if (blockEntity instanceof StoneMillBlockEntity) {
+                ItemScatterer.spawn(world,pos,(StoneMillBlockEntity)blockEntity);
                 world.updateComparators(pos,this);
             }
         }
@@ -65,7 +65,7 @@ public class GemPolishingStationBlock extends BlockWithEntity implements BlockEn
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
-            NamedScreenHandlerFactory screenHandlerFactory = (GemPolishingStationBlockEntity) world.getBlockEntity(pos);
+            NamedScreenHandlerFactory screenHandlerFactory = (StoneMillBlockEntity) world.getBlockEntity(pos);
             if (screenHandlerFactory != null) {
                 player.openHandledScreen(screenHandlerFactory);
             }
@@ -76,7 +76,7 @@ public class GemPolishingStationBlock extends BlockWithEntity implements BlockEn
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, ModBlockEntities.GEM_POLISHING_STATION_BLOCK_ENTITY_BLOCK_ENTITY_TYPE,
+        return validateTicker(type, ModBlockEntities.STONE_MILL_BLOCK_ENTITY_BLOCK_ENTITY_TYPE,
                 (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 }
