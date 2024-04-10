@@ -10,7 +10,8 @@ import net.yunitrish.adaptor.AdaptorMain;
 
 public class ModEnchantments {
 
-    public static Enchantment LEACH = register("leach", new LeachEnchantment(Enchantment.Rarity.RARE, EnchantmentTarget.WEAPON, EquipmentSlot.MAINHAND));
+    public static Enchantment LEACH = register("leach", new LeachEnchantment(Enchantment.Rarity.UNCOMMON, EnchantmentTarget.WEAPON, EquipmentSlot.MAINHAND));
+    public static Enchantment Manic = register("manic", new ManicEnchantment(Enchantment.Rarity.UNCOMMON, EnchantmentTarget.WEAPON, EquipmentSlot.MAINHAND));
 
     private static Enchantment register(String name, Enchantment enchantment) {
         return Registry.register(Registries.ENCHANTMENT,new Identifier(AdaptorMain.MOD_ID,name),enchantment);

@@ -17,13 +17,6 @@ import java.util.List;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
 
-    private static final List<ItemConvertible> SALT_SMELTS = List.of(
-            ModBlocks.SALT_ORE,
-            ModBlocks.DEEPSLATE_SALT_ORE,
-            ModBlocks.END_STONE_SALT_ORE,
-            ModBlocks.NETHER_SALT_ORE
-    );
-
     public ModRecipeProvider(FabricDataOutput output) {
         super(output);
     }
@@ -156,16 +149,26 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         }
 
         offerSmelting(exporter,List.of(ModItems.DOUGH), RecipeCategory.FOOD,Items.BREAD,2f,200,"bread");
+//        offerFoodCookingRecipe(exporter, );
+    }
+
+    private void saltRecipes(RecipeExporter exporter) {
+        final List<ItemConvertible> SALT_SMELTS = List.of(
+                ModBlocks.SALT_ORE,
+                ModBlocks.DEEPSLATE_SALT_ORE,
+                ModBlocks.END_STONE_SALT_ORE,
+                ModBlocks.NETHER_SALT_ORE
+        );
+        offerReversibleCompactingRecipes(exporter,
+                RecipeCategory.BUILDING_BLOCKS, ModItems.SALT,
+                RecipeCategory.DECORATIONS,ModBlocks.SALT_BLOCK);
+        offerSmelting(exporter,SALT_SMELTS, RecipeCategory.MISC,ModItems.SALT,0.1f,300,"salt");
+        offerBlasting(exporter,SALT_SMELTS, RecipeCategory.MISC,ModItems.SALT,0.1f,200,"salt");
     }
 
     @Override
     public void generate(RecipeExporter exporter) {
-        offerSmelting(exporter,SALT_SMELTS, RecipeCategory.MISC,ModItems.SALT,0.1f,300,"salt");
-        offerBlasting(exporter,SALT_SMELTS, RecipeCategory.MISC,ModItems.SALT,0.1f,200,"salt");
-
-        offerReversibleCompactingRecipes(exporter,
-                RecipeCategory.BUILDING_BLOCKS, ModItems.SALT,
-                RecipeCategory.DECORATIONS,ModBlocks.SALT_BLOCK);
+        saltRecipes(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD,ModItems.MARIJUANA)
                 .input(ModItems.MARIJUANA_LEAF)
@@ -186,7 +189,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("S  ")
                 .pattern("BBB")
                 .pattern("BBB")
-                .input('S', Items.STICK)
+                .input('S', ItemTags.FENCES)
                 .input('B', ItemTags.STONE_CRAFTING_MATERIALS)
                 .criterion(hasItem(Items.WHEAT),conditionsFromItem(Items.WHEAT))
                 .offerTo(exporter,new Identifier(getRecipeName(ModBlocks.STONE_MILL)));

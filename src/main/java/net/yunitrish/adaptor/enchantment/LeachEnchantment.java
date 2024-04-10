@@ -23,7 +23,7 @@ public class LeachEnchantment extends Enchantment {
             if (user.getMainHandStack().getItem() instanceof SwordItem tool) {
                 float total = (float) ((user.getAttributes().getBaseValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)+tool.getAttackDamage())*level*0.2);
                 user.heal(total);
-                world.spawnParticles(ParticleTypes.DRIPPING_LAVA,target.getX(),target.getY()+0.4,target.getZ(),Math.round(total*4),1,1,1,0.2);
+                world.spawnParticles(ParticleTypes.SOUL,target.getX(),target.getY()+0.4,target.getZ(),Math.round(total*4),1,1,1,0.2);
             }
         }
         super.onTargetDamaged(user, target, level);

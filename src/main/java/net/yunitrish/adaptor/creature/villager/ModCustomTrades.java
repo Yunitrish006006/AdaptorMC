@@ -77,12 +77,35 @@ public class ModCustomTrades {
                     ));
                 }
         );
-        ItemStack item = new ItemStack(Items.IRON_SWORD);
-        item.addEnchantment(ModEnchantments.LEACH,1);
+
+        TradeOfferHelper.registerVillagerOffers(
+                ModVillagers.SCAVENGER,
+                2,
+                factories -> {
+
+                    factories.add(((entity, random) -> {
+                        ItemStack item = new ItemStack(Items.ENCHANTED_BOOK);
+                        int book_level = random.nextBetween(1,4);
+                        item.addEnchantment(ModEnchantments.Manic,book_level);
+                        return new TradeOffer(
+                                new ItemStack(Items.GOLD_INGOT, random.nextBetween(book_level*3,book_level*5) + random.nextBetween(6,10)),
+                                item,
+                                2,
+                                30,
+                                0.04f
+
+                        );
+                    }));
+                }
+        );
+
+
         TradeOfferHelper.registerVillagerOffers(
                 VillagerProfession.WEAPONSMITH,
                 1,
                 factories -> {
+                    ItemStack item = new ItemStack(Items.IRON_SWORD);
+                    item.addEnchantment(ModEnchantments.LEACH,1);
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(Items.EMERALD,8),
                             item,
