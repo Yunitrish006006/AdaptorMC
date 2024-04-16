@@ -1,16 +1,21 @@
 package net.yunitrish.adaptor.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.AdaptorMain;
 import net.yunitrish.adaptor.block.ModBlocks;
 
 public class ModItemGroups {
+
+    public static final TagKey<Block> HAMMER_MINEABLE = TagKey.of(RegistryKeys.BLOCK, new Identifier("adaptor", "mineable/hemmer"));
 
     public static final ItemGroup AdaptorGroup = Registry.register(Registries.ITEM_GROUP,new Identifier(AdaptorMain.MOD_ID, "adaptor_group"), FabricItemGroup.builder().displayName(Text.translatable("itemgroup.adaptor_group")).icon(()-> new ItemStack(ModItems.SALT)).entries(((displayContext, entries) -> {
         entries.add(ModItems.FLOUR);

@@ -7,6 +7,8 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageTypes;
+import net.minecraft.item.AxeItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
@@ -22,10 +24,10 @@ public class ManicEnchantment extends Enchantment {
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
         if (!user.getWorld().isClient) {
             ServerWorld world = (ServerWorld) user.getWorld();
-            if (user.getMainHandStack().getItem() instanceof SwordItem tool) {
+            if (user.getMainHandStack().getItem() instanceof SwordItem) {
                 float percentage = (user.getMaxHealth() - user.getHealth())/user.getMaxHealth();
                 float total = percentage * level;
-                DamageSource source = user.getDamageSources().create(DamageTypes.PLAYER_ATTACK,user);
+                DamageSource source = user.getDamageSources().create(DamageTypes.MAGIC,user);
                 target.damage(source, total);
                 user.damage(source, total*0.15f);
                 world.spawnParticles(ParticleTypes.SOUL,target.getX(),target.getY()+0.4,target.getZ(),Math.round(total*4),0.2,0.2,0.2,0.2);
@@ -42,5 +44,10 @@ public class ManicEnchantment extends Enchantment {
     @Override
     public int getMaxLevel() {
         return 4;
+    }
+
+    @Override
+    public boolean isAcceptableItem(ItemStack stack) {
+        return stack.getItem() instanceof SwordItem || stack.getItem() instanceof AxeItem;
     }
 }

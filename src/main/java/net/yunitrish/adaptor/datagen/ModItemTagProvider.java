@@ -29,5 +29,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.BAR_BRAWL_MUSIC_DISC,
                 ModItems.SAKURA_VALLEY_MUSIC_DISC
         );
+        getOrCreateTagBuilder(ItemTags.PICKAXES).add(
+                ModItems.IRON_HAMMER
+        );
+        getOrCreateTagBuilder(ItemTags.AXES).add(
+                ModItems.IRON_HAMMER
+        );
     }
 }

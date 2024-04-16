@@ -1,0 +1,7 @@
+{
+	"parent": "adaptor:item/hoe/hoe_3d",
+	"textures": {
+		"material": "minecraft:block/iron_block",
+		"stick": "minecraft:block/oak_log"
+	}
+}

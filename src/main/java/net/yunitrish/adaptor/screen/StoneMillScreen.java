@@ -9,10 +9,10 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.AdaptorMain;
 
-public class StoneMillScreen extends HandledScreen<GemPolishingScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(AdaptorMain.MOD_ID, "textures/gui/gem_polishing_station_gui.png");
+public class StoneMillScreen extends HandledScreen<StoneMillScreenHandler> {
+    private static final Identifier TEXTURE = new Identifier(AdaptorMain.MOD_ID, "textures/gui/stone_mill_gui.png");
 
-    public StoneMillScreen(GemPolishingScreenHandler handler, PlayerInventory inventory, Text title) {
+    public StoneMillScreen(StoneMillScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 
@@ -26,7 +26,7 @@ public class StoneMillScreen extends HandledScreen<GemPolishingScreenHandler> {
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexProgram);
-        RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
+        RenderSystem.setShaderColor(1f, 1f, 1f, 0.2f);
         RenderSystem.setShaderTexture(0, TEXTURE);
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;

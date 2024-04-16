@@ -1,0 +1,12 @@
+{
+  "type": "adaptor:stone_mill",
+  "ingredients": [
+    {
+      "item": "minecraft:gravel"
+    }
+  ],
+  "output": {
+    "item": "minecraft:sand",
+    "count": 1
+  }
+}

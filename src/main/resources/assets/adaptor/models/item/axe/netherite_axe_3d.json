@@ -1,0 +1,7 @@
+{
+	"parent": "adaptor:item/axe/axe_3d",
+	"textures": {
+		"stick": "minecraft:block/oak_log",
+		"material": "minecraft:block/netherite_block"
+	}
+}

@@ -23,7 +23,7 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.yunitrish.adaptor.recipe.StoneMillRecipe;
-import net.yunitrish.adaptor.screen.GemPolishingScreenHandler;
+import net.yunitrish.adaptor.screen.StoneMillScreenHandler;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
@@ -73,6 +73,7 @@ public class StoneMillBlockEntity extends BlockEntity implements ExtendedScreenH
 
     @Override
     public void markDirty() {
+        if (world == null) return;
         world.updateListeners(pos, getCachedState(), getCachedState(), 3);
         super.markDirty();
     }
@@ -84,7 +85,7 @@ public class StoneMillBlockEntity extends BlockEntity implements ExtendedScreenH
 
     @Override
     public Text getDisplayName() {
-        return Text.translatable("gui.adaptor.gem_polishing_table");
+        return Text.translatable("gui.adaptor.stone_mill");
     }
 
     @Override
@@ -104,7 +105,7 @@ public class StoneMillBlockEntity extends BlockEntity implements ExtendedScreenH
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return new GemPolishingScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
+        return new StoneMillScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
     }
 
     @Override
@@ -144,7 +145,7 @@ public class StoneMillBlockEntity extends BlockEntity implements ExtendedScreenH
 
         this.removeStack(INPUT_SLOT, 1);
 
-        this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().value().getResult(null).getItem(), getStack(OUTPUT_SLOT).getCount() + recipe.get().value().getResult(null).getCount()));
+        recipe.ifPresent(stoneMillRecipeRecipeEntry -> this.setStack(OUTPUT_SLOT, new ItemStack(stoneMillRecipeRecipeEntry.value().getResult(null).getItem(), getStack(OUTPUT_SLOT).getCount() + stoneMillRecipeRecipeEntry.value().getResult(null).getCount())));
     }
 
     private boolean hasCraftingFinished() {
@@ -166,6 +167,7 @@ public class StoneMillBlockEntity extends BlockEntity implements ExtendedScreenH
         for (int i=0;i<this.size();i++) {
             inventory.setStack(i,this.getStack(i));
         }
+        assert getWorld() != null;
         return getWorld().getRecipeManager().getFirstMatch(StoneMillRecipe.Type.INSTANCE, inventory, getWorld());
     }
 

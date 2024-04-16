@@ -10,6 +10,7 @@ import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.AdaptorMain;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.entity.ModEntities;
+import net.yunitrish.adaptor.item.custom.HammerItem;
 import net.yunitrish.adaptor.item.custom.MetalDetectionItem;
 import net.yunitrish.adaptor.item.custom.ModArmorItem;
 import net.yunitrish.adaptor.sound.ModSounds;
@@ -34,11 +35,7 @@ public class ModItems {
 
     public static final Item BAMBOO_COAL =  registerItem("bamboo_coal", new Item(new FabricItemSettings()));
 
-    public static final Item IRON_HAMMER =  registerItem("iron_hammer", new Item(
-            new FabricItemSettings()
-                    .maxCount(1)
-                    .maxDamage(512)
-    ));
+    public static final Item IRON_HAMMER =  registerItem("iron_hammer", new HammerItem(ToolMaterials.IRON,1,2f,new FabricItemSettings()));
     /*-------------------------------------------------------------------------*/
     public static final Item BAR_BRAWL_MUSIC_DISC = registerItem("bar_brawl_music_disc",new MusicDiscItem(3, ModSounds.BAR_BRAWL,new FabricItemSettings().maxCount(1),122));
     public static final Item SAKURA_VALLEY_MUSIC_DISC = registerItem("sakura_valley_music_disc",new MusicDiscItem(3, ModSounds.SAKURA_VALLEY,new FabricItemSettings().maxCount(1),119));

@@ -133,10 +133,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     private void createBreads(RecipeExporter exporter) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC,ModItems.FLOUR)
-                .input(Items.WHEAT)
-                .input(Items.WHEAT)
-                .input(Items.WHEAT)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC,ModItems.FLOUR)
+                .pattern("WWW")
+                .input('W',Items.WHEAT)
                 .criterion(hasItem(Items.WHEAT),conditionsFromItem(Items.WHEAT))
                 .offerTo(exporter,new Identifier(getRecipeName(ModItems.FLOUR)));
 
@@ -145,6 +144,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .input(ModItems.FLOUR,i)
                     .input(Items.WATER_BUCKET)
                     .criterion(hasItem(ModItems.FLOUR),conditionsFromItem(ModItems.FLOUR))
+                    .group("flour_to_dough")
                     .offerTo(exporter,new Identifier(i+"_flour_"+getRecipeName(ModItems.DOUGH)+"_with_bucket"));
         }
 

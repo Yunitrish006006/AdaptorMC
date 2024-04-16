@@ -1,0 +1,7 @@
+{
+	"parent": "adaptor:item/shovel/shovel_3d",
+	"textures": {
+		"material": "minecraft:block/oak_planks",
+		"stick": "minecraft:block/oak_log"
+	}
+}

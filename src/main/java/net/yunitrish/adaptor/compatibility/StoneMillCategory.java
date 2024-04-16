@@ -19,7 +19,7 @@ import java.util.List;
 
 public class StoneMillCategory implements DisplayCategory<BasicDisplay> {
 
-    public static final Identifier TEXTURE = new Identifier(AdaptorMain.MOD_ID, "textures/gui/gem_polishing_station_gui.png");
+    public static final Identifier TEXTURE = new Identifier(AdaptorMain.MOD_ID, "textures/gui/stone_mill_gui.png");
     public static final CategoryIdentifier<StoneMillDisplay> STONE_MILL_DISPLAY_CATEGORY_IDENTIFIER = CategoryIdentifier.of(AdaptorMain.MOD_ID, "stone_mill");
 
     @Override

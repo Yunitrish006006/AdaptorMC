@@ -22,8 +22,15 @@ public abstract class ModelLoaderMixin {
     protected abstract void addModel(ModelIdentifier modelId);
 
     @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/model/ModelLoader;addModel(Lnet/minecraft/client/util/ModelIdentifier;)V", ordinal = 3, shift = At.Shift.AFTER))
-    public void addIronHammer(BlockColors blockColors, Profiler profiler, Map<Identifier, JsonUnbakedModel> jsonUnbakedModels, Map<Identifier, List<ModelLoader.SourceTrackedData>> blockStates, CallbackInfo ci) {
-        this.addModel(new ModelIdentifier(AdaptorMain.MOD_ID, "iron_hammer_3d", "inventory"));
-        this.addModel(new ModelIdentifier(AdaptorMain.MOD_ID, "stone_axe_3d", "inventory"));
+    public void addModels(BlockColors blockColors, Profiler profiler, Map<Identifier, JsonUnbakedModel> jsonUnbakedModels, Map<Identifier, List<ModelLoader.SourceTrackedData>> blockStates, CallbackInfo ci) {
+        this.addModel(new ModelIdentifier(AdaptorMain.MOD_ID, "hammer/"+"iron_"+"hammer_3d", "inventory"));
+        List<String> materials = List.of("","wooden_","stone_","copper_","iron_","golden_","diamond_","netherite_");
+        for (String x : materials) {
+            this.addModel(new ModelIdentifier(AdaptorMain.MOD_ID, "axe/"+x+"axe_3d", "inventory"));
+            this.addModel(new ModelIdentifier(AdaptorMain.MOD_ID, "pickaxe/"+x+"pickaxe_3d", "inventory"));
+            this.addModel(new ModelIdentifier(AdaptorMain.MOD_ID, "sword/"+x+"sword_3d", "inventory"));
+            this.addModel(new ModelIdentifier(AdaptorMain.MOD_ID, "hoe/"+x+"hoe_3d", "inventory"));
+            this.addModel(new ModelIdentifier(AdaptorMain.MOD_ID, "shovel/"+x+"shovel_3d", "inventory"));
+        }
     }
 }
