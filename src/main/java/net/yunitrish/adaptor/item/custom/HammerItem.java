@@ -3,13 +3,13 @@ package net.yunitrish.adaptor.item.custom;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.*;
 import net.minecraft.registry.tag.BlockTags;
-import net.yunitrish.adaptor.item.ModItemGroups;
+import net.yunitrish.adaptor.item.ModItems;
 
 public class HammerItem extends MiningToolItem {
 
 
     public HammerItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
-        super(attackDamage, attackSpeed, material, ModItemGroups.HAMMER_MINEABLE, settings);
+        super(attackDamage, attackSpeed, material, ModItems.HAMMER_MINEABLE, settings);
     }
 
     @Override

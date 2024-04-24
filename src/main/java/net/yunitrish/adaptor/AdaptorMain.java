@@ -13,7 +13,6 @@ import net.yunitrish.adaptor.enchantment.ModEnchantments;
 import net.yunitrish.adaptor.entity.ModEntities;
 import net.yunitrish.adaptor.entity.custom.PorcupineEntity;
 import net.yunitrish.adaptor.event.EntityDamagedHandler;
-import net.yunitrish.adaptor.item.ModItemGroups;
 import net.yunitrish.adaptor.item.ModItems;
 import net.yunitrish.adaptor.mechanic.AutoPlant;
 import net.yunitrish.adaptor.recipe.ModRecipes;
@@ -30,7 +29,6 @@ public class AdaptorMain implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModCommands.register();
-		ModItemGroups.registerItemGroups();
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
 		ModCustomTrades.registerCustomTrades();
