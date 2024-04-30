@@ -11,7 +11,6 @@ base {
 }
 
 repositories {
-	maven { url "https://maven.shedaniel.me" }
 }
 
 fabricApi {
@@ -23,15 +22,6 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:14.0.688"
-	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:14.0.688"
-
-	modApi("me.shedaniel.cloth:cloth-config-fabric:13.0.121") {
-		exclude(group: "net.fabricmc.fabric-api")
-	}
-
-	modApi "dev.architectury:architectury-fabric:11.1.17"
 }
 
 processResources {
@@ -43,25 +33,26 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 17
+	it.options.release = 21
 }
 
 java {
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_17
-	targetCompatibility = JavaVersion.VERSION_17
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
 }
 
 jar {
 	from("LICENSE") {
-		rename { "${it}_${base.archivesName.get()}"}
+		rename { "${it}_${project.base.archivesName.get()}"}
 	}
 }
 
 publishing {
 	publications {
-		mavenJava(MavenPublication) {
+		create("mavenJava", MavenPublication) {
+			artifactId = project.archives_base_name
 			from components.java
 		}
 	}

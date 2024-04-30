@@ -1,7 +1,8 @@
 {
 	"parent": "adaptor:item/hammer/hammer_3d",
 	"textures": {
-		"0": "adaptor:item/iron_hammer_3d",
-		"particle": "adaptor:item/iron_hammer_3d"
+		"stick": "minecraft:block/oak_log",
+		"particle": "minecraft:block/iron_block",
+		"material": "minecraft:block/iron_block"
 	}
 }

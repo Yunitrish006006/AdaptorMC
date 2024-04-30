@@ -4,15 +4,14 @@ import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.screen.ScreenHandlerType;
-import net.minecraft.util.Identifier;
-import net.yunitrish.adaptor.AdaptorMain;
+import net.yunitrish.adaptor.Adaptor;
+import net.yunitrish.adaptor.block.functional.stoneMill.StoneMillData;
 
 public class ModScreenHandlers {
     public static final ScreenHandlerType<StoneMillScreenHandler> STONE_MILL_SCREEN_HANDLER =
-            Registry.register(Registries.SCREEN_HANDLER, new Identifier(AdaptorMain.MOD_ID, "stone_mill"),
-                    new ExtendedScreenHandlerType<>(StoneMillScreenHandler::new));
-
+            Registry.register(Registries.SCREEN_HANDLER, Adaptor.modIdentifier("stone_mill"),
+                    new ExtendedScreenHandlerType<>(StoneMillScreenHandler::new, StoneMillData.PACKET_CODEC));
     public static void registerScreenHandlers() {
-        AdaptorMain.LOGGER.info("Registering Screen Handlers for " + AdaptorMain.MOD_ID);
+        Adaptor.LOGGER.info("Registering Screen Handlers...");
     }
 }

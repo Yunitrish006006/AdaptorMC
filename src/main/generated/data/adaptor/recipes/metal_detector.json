@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "I": {
-      "item": "minecraft:iron_ingot"
+      "item": "minecraft:copper_ingot"
     },
     "R": {
       "item": "minecraft:redstone"
@@ -18,6 +18,7 @@
     "R S"
   ],
   "result": {
-    "item": "adaptor:metal_detector"
+    "count": 1,
+    "id": "adaptor:metal_detector"
   }
 }

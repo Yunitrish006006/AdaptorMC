@@ -1,8 +1,8 @@
 {
 	"texture_size": [64, 64],
 	"textures": {
-		"3": "adaptor:block/stone_mill",
-		"particle": "adaptor:block/stone_mill"
+		"3": "adaptor:block/stone_mill_texture",
+		"particle": "adaptor:block/stone_mill_texture"
 	},
 	"elements": [
 		{

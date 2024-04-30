@@ -7,10 +7,10 @@ import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.yunitrish.adaptor.AdaptorMain;
+import net.yunitrish.adaptor.Adaptor;
 
 public class StoneMillScreen extends HandledScreen<StoneMillScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(AdaptorMain.MOD_ID, "textures/gui/stone_mill_gui.png");
+    private static final Identifier TEXTURE = Adaptor.modIdentifier("textures/gui/stone_mill_gui.png");
 
     public StoneMillScreen(StoneMillScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
@@ -19,14 +19,14 @@ public class StoneMillScreen extends HandledScreen<StoneMillScreenHandler> {
     @Override
     protected void init() {
         super.init();
-        titleY = 1000;
-        playerInventoryTitleY = 1000;
+//        titleY = 1000;
+//        playerInventoryTitleY = 1000;
     }
 
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexProgram);
-        RenderSystem.setShaderColor(1f, 1f, 1f, 0.2f);
+        RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
         RenderSystem.setShaderTexture(0, TEXTURE);
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;

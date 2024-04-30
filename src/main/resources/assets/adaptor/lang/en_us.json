@@ -1,5 +1,7 @@
 {
-  "item.adaptor.test_message": "test message",
+  "advancements.building.ingenuity.title": "Ingenuity",
+  "advancements.building.ingenuity.description": "start ur building journal",
+
   "item.adaptor.salt": "Salt",
   "item.adaptor.flour": "Flour",
   "item.adaptor.dough": "Dough",
@@ -13,9 +15,17 @@
   "item.adaptor.bamboo_coal": "Bamboo Coal",
 
   "item.adaptor.metal_detector": "Metal Detector",
-  "tooltip.adaptor.metal_detector.tooltip": "Find valuables underground",
+  "item.adaptor.metal_detector.found": "Find %s under %d block depth",
+  "item.adaptor.metal_detector.not_found": "Nothing valuable",
+  "item.adaptor.metal_detector.tooltip": "For the use of finding ores!",
 
+  "item.adaptor.wooden_hammer": "Wooden Hammer",
+  "item.adaptor.stone_hammer": "Stone Hammer",
+  "item.adaptor.copper_hammer": "Copper Hammer",
   "item.adaptor.iron_hammer": "Iron Hammer",
+  "item.adaptor.golden_hammer": "Golden Hammer",
+  "item.adaptor.diamond_hammer": "Diamond Hammer",
+  "item.adaptor.netherite_hammer": "Netherite Hammer",
 
   "item.adaptor.copper_axe": "Copper Axe",
   "item.adaptor.copper_hoe": "Copper Hoe",
@@ -27,6 +37,8 @@
   "item.adaptor.copper_chestplate": "Copper Chestplate",
   "item.adaptor.copper_leggings": "Copper Leggings",
   "item.adaptor.copper_boots": "Copper Boots",
+
+  "block.adaptor.gravel_iron_ore": "Gravel Iron Ore",
 
   "block.adaptor.salt_block": "Block of salt",
   "block.adaptor.salt_ore": "Salt ore",

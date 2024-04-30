@@ -4,7 +4,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.util.Hand;
-import net.yunitrish.adaptor.entity.custom.PorcupineEntity;
+import net.yunitrish.adaptor.entity.creature.PorcupineEntity;
 
 public class PorcupineAttackGoal extends MeleeAttackGoal {
     private final PorcupineEntity entity;
@@ -14,7 +14,7 @@ public class PorcupineAttackGoal extends MeleeAttackGoal {
 
     public PorcupineAttackGoal(PathAwareEntity mob, double speed, boolean pauseWhenMobIdle) {
         super(mob, speed, pauseWhenMobIdle);
-        this.entity = (PorcupineEntity) mob;
+        entity = (PorcupineEntity) mob;
     }
 
     @Override

@@ -16,7 +16,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.yunitrish.adaptor.AdaptorMain"
+			"net.yunitrish.adaptor.Adaptor"
 		],
 		"client": [
 			"net.yunitrish.adaptor.AdaptorClient"
@@ -25,9 +25,9 @@
 			"net.yunitrish.adaptor.AdaptorServer"
 		],
 		"fabric-datagen": [
-			"net.yunitrish.adaptor.AdaptorDataGenerator"
+			"net.yunitrish.adaptor.datagen.DataGenerator"
 		],
-		"rei_client": [
+		"//rei_client": [
 			"net.yunitrish.adaptor.compatibility.AdaptorREIClientPlugin"
 		]
 	},
@@ -36,8 +36,8 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.15.10",
-		"minecraft": "~1.20.4",
-		"java": ">=17",
+		"minecraft": "~1.20.5",
+		"java": ">=21",
 		"fabric-api": "*"
 	},
 	"suggests": {

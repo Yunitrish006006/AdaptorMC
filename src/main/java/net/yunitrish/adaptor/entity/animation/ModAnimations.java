@@ -462,3 +462,4 @@ public class ModAnimations {
                             new Keyframe(0f, AnimationHelper.createRotationalVector(5f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR))).build();
 }
+
