@@ -1,0 +1,8 @@
+{
+	"parent": "adaptor:item/hammer/hammer_3d",
+	"textures": {
+		"stick": "minecraft:block/oak_log",
+		"particle": "minecraft:block/copper_block",
+		"material": "minecraft:block/copper_block"
+	}
+}

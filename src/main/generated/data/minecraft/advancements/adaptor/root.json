@@ -1,0 +1,33 @@
+{
+  "criteria": {
+    "ingenuity": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:iron_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "description": {
+      "translate": "advancements.building.ingenuity.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "adaptor:iron_hammer"
+    },
+    "title": {
+      "translate": "advancements.building.ingenuity.title"
+    }
+  },
+  "requirements": [
+    [
+      "ingenuity"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
