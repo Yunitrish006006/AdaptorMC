@@ -11,6 +11,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.Adaptor;
 import net.yunitrish.adaptor.block.ModBlocks;
+import net.yunitrish.adaptor.block.plant.ChestnutSeries;
 import net.yunitrish.adaptor.entity.ModEntities;
 import net.yunitrish.adaptor.sound.ModSounds;
 
@@ -59,6 +60,9 @@ public class ModItems {
 
     public static final Item BAR_BRAWL_MUSIC_DISC = registerItem("bar_brawl_music_disc",new MusicDiscItem(3, ModSounds.BAR_BRAWL,new Item.Settings().maxCount(1),122));
     public static final Item SAKURA_VALLEY_MUSIC_DISC = registerItem("sakura_valley_music_disc",new MusicDiscItem(3, ModSounds.SAKURA_VALLEY,new Item.Settings().maxCount(1),119));
+
+    public static final Item CHESTNUT_SIGN = registerItem("chestnut_sign",new SignItem(new Item.Settings().maxCount(16), ChestnutSeries.STANDING_CHESTNUT_SIGN,ChestnutSeries.WALL_CHESTNUT_SIGN));
+    public static final Item HANGING_CHESTNUT_SIGN = registerItem("chestnut_hanging_sign",new HangingSignItem(ChestnutSeries.CHESTNUT_HANGING_SIGN,ChestnutSeries.CHESTNUT_WALL_HANGING_SIGN,new Item.Settings().maxCount(16)));
 
     public static ItemGroup AdaptorGroup;
     public static void registerModItems() {

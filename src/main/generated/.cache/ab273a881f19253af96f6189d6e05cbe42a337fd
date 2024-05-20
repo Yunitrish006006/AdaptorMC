@@ -1,1 +1,6 @@
-// 1.20.5	2024-04-30T21:57:53.9178189	Adaptor/Tags for minecraft:item
+// 1.20.5	2024-05-04T04:08:49.0907767	Adaptor/Tags for minecraft:item
+a60559cbd825bfa4c1ba30bff06d2ebd94922f8e data\minecraft\tags\items\music_discs.json
+16dd193abed007e7c8025bb484b41ff1c329e2fc data\minecraft\tags\items\planks.json
+a60559cbd825bfa4c1ba30bff06d2ebd94922f8e data\minecraft\tags\items\creeper_drop_music_discs.json
+395911aa20fafb2b90fdec0455b0b66f11550e4d data\minecraft\tags\items\logs_that_burn.json
+bc6398348259a6ec10b70f81ef9b90e05abd14e6 data\minecraft\tags\items\trimmable_armor.json

@@ -2,12 +2,15 @@ package net.yunitrish.adaptor.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
+import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.block.building.DirtSeries;
+import net.yunitrish.adaptor.block.plant.ChestnutSeries;
 import net.yunitrish.adaptor.block.plant.MarijuanaCropBlock;
 import net.yunitrish.adaptor.block.plant.SoyBeanCropBlock;
 import net.yunitrish.adaptor.item.ModItems;
@@ -22,6 +25,7 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAVEL_IRON_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SOUND_BLOCK);
         blockStateModelGenerator.registerCrop(ModBlocks.SOYBEAN_CROP, SoyBeanCropBlock.AGE,0,1,2,3,4,5);
         blockStateModelGenerator.registerCrop(ModBlocks.MARIJUANA_CROP, MarijuanaCropBlock.AGE,0,1,2,3,4,5);
 
@@ -36,7 +40,32 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerDoor(DirtSeries.DIRT_DOOR);
         blockStateModelGenerator.registerTrapdoor(DirtSeries.DIRT_TRAPDOOR);
 
+        registerWoodSeries(
+                blockStateModelGenerator,
+                ChestnutSeries.CHESTNUT_FAMILY,
+                ChestnutSeries.CHESTNUT_LOG,
+                ChestnutSeries.CHESTNUT_WOOD,
+                ChestnutSeries.STRIPPED_CHESTNUT_LOG,
+                ChestnutSeries.STRIPPED_CHESTNUT_WOOD,
+                ChestnutSeries.CHESTNUT_PLANKS,
+                ChestnutSeries.CHESTNUT_LEAVES
+                );
+
         blockStateModelGenerator.registerSimpleState(ModBlocks.STONE_MILL);
+    }
+
+    public static void registerWoodSeries(BlockStateModelGenerator modelGenerator, BlockFamily blockFamily, Block log, Block wood, Block stripped_log, Block stripped_wood, Block planks, Block leaves) {
+        modelGenerator
+                .registerLog(log)
+                .log(log)
+                .wood(wood);
+        modelGenerator
+                .registerLog(stripped_log)
+                .log(stripped_log)
+                .wood(stripped_wood);
+        modelGenerator.registerSimpleCubeAll(leaves);
+        BlockStateModelGenerator.BlockTexturePool woodPool = modelGenerator.registerCubeAllModelTexturePool(planks);
+        woodPool.family(blockFamily);
     }
 
     @Override
@@ -67,6 +96,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GOLDEN_HAMMER,Models.HANDHELD);
         itemModelGenerator.register(ModItems.DIAMOND_HAMMER,Models.HANDHELD);
         itemModelGenerator.register(ModItems.NETHERITE_HAMMER,Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.HANGING_CHESTNUT_SIGN,Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BAR_BRAWL_MUSIC_DISC, Models.GENERATED);
         itemModelGenerator.register(ModItems.SAKURA_VALLEY_MUSIC_DISC, Models.GENERATED);

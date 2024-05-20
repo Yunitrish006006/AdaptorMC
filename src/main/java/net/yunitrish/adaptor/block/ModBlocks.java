@@ -12,6 +12,7 @@ import net.yunitrish.adaptor.Adaptor;
 import net.yunitrish.adaptor.block.building.DirtSeries;
 import net.yunitrish.adaptor.block.functional.SoundBlock;
 import net.yunitrish.adaptor.block.functional.stoneMill.StoneMillBlock;
+import net.yunitrish.adaptor.block.plant.ChestnutSeries;
 import net.yunitrish.adaptor.block.plant.MarijuanaCropBlock;
 import net.yunitrish.adaptor.block.plant.SoyBeanCropBlock;
 import net.yunitrish.adaptor.item.ModItems;
@@ -21,6 +22,7 @@ public class ModBlocks {
     public static void registerModBlocks () {
         Adaptor.LOGGER.info("Registering blocks...");
         DirtSeries.register();
+        ChestnutSeries.register();
     }
     public static Block registerBlock(String name, Block block,boolean inItemGroup) {
         ModItems.registerItem(name, new BlockItem(block, new Item.Settings()),inItemGroup);

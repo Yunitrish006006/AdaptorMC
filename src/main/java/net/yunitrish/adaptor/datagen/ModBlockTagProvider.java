@@ -7,6 +7,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.block.building.DirtSeries;
+import net.yunitrish.adaptor.block.plant.ChestnutSeries;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -33,5 +34,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.FENCES).add(DirtSeries.DIRT_FENCE);
         getOrCreateTagBuilder(BlockTags.FENCE_GATES).add(DirtSeries.DIRT_FENCE_GATE);
         getOrCreateTagBuilder(BlockTags.WALLS).add(DirtSeries.DIRT_WALL);
+        getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
+                .add(
+                        ChestnutSeries.CHESTNUT_LOG,
+                        ChestnutSeries.CHESTNUT_WOOD,
+                        ChestnutSeries.STRIPPED_CHESTNUT_LOG,
+                        ChestnutSeries.STRIPPED_CHESTNUT_WOOD
+                );
     }
 }

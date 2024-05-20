@@ -13,13 +13,13 @@ import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.condition.TableBonusLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LeafEntry;
-import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryWrapper;
 import net.yunitrish.adaptor.block.ModBlocks;
+import net.yunitrish.adaptor.block.plant.ChestnutSeries;
 import net.yunitrish.adaptor.block.plant.MarijuanaCropBlock;
 import net.yunitrish.adaptor.block.plant.SoyBeanCropBlock;
 import net.yunitrish.adaptor.item.ModItems;
@@ -101,5 +101,12 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                                 )
                 )
         );
+        addDrop(ChestnutSeries.CHESTNUT_LOG);
+        addDrop(ChestnutSeries.CHESTNUT_WOOD);
+        addDrop(ChestnutSeries.STRIPPED_CHESTNUT_LOG);
+        addDrop(ChestnutSeries.STRIPPED_CHESTNUT_LOG);
+        addDrop(ChestnutSeries.CHESTNUT_PLANKS);
+
+        addDrop(ChestnutSeries.CHESTNUT_LEAVES,leavesDrops(ChestnutSeries.CHESTNUT_LEAVES,ModBlocks.SOUND_BLOCK,0.0025f));
     }
 }
