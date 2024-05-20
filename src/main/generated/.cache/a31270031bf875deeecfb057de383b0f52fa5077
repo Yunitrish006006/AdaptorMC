@@ -1,4 +1,4 @@
-// 1.20.5	2024-05-04T04:08:49.0847768	Adaptor/Model Definitions
+// 1.20.6	2024-05-20T11:02:56.6814196	Adaptor/Model Definitions
 2a1fd12b8a831e1dbfcaafa0e4e508724ace6297 assets\adaptor\models\item\dough.json
 bd81ab28cbd7ca2e7b41186dc4bf4f354a9da1d1 assets\adaptor\models\block\dirt_door_top_right_open.json
 f54bcbccfa2c8ae59bd56b7590a5e8772f10e12d assets\adaptor\models\block\marijuana_crop_stage4.json
@@ -18,8 +18,8 @@ d77187e6ec71098756f988051600d63c88ef5aa7 assets\adaptor\models\block\dirt_fence_
 ac2754cca5caeae3dafd377097029928f7600952 assets\adaptor\models\block\soybean_crop_stage3.json
 24cb68d28e4f02dadf0510f1790280752312e4fc assets\adaptor\models\item\chestnut_log.json
 79eab5145d4e53c04b6f666c69fd0ed6cc84231b assets\adaptor\models\block\dirt_door_top_right.json
-e4f59bd2dc357f1910dbe2aa4f5a5ea81a11575f assets\adaptor\blockstates\chestnut_leaves.json
 332f9739eb752d0b185f6f20773ba30b85b5149f assets\adaptor\blockstates\dirt_wall.json
+e4f59bd2dc357f1910dbe2aa4f5a5ea81a11575f assets\adaptor\blockstates\chestnut_leaves.json
 d308e3e785bc6e25756acd94cdcf62d5f7aba8c2 assets\adaptor\models\block\dirt_door_top_left.json
 5ac512d80ff3c117a8f72209e28fe0b2550d7455 assets\adaptor\models\item\salt.json
 459f7607fa40667545581b3b758a070df05ac86c assets\adaptor\models\item\marijuana_leaf.json
@@ -30,8 +30,8 @@ b4185555bcaf5589414cc3a5d21db29150708255 assets\adaptor\blockstates\dirt_trapdoo
 7baa831eeae6b4e3e340195a646eec308468c8d4 assets\adaptor\models\block\dirt_stairs.json
 3af3f88e1020c7f402aac2d7d99c29ad9893c506 assets\adaptor\models\block\marijuana_crop_stage2.json
 6303fc3146cf6f6d6d64c9f34f674fe98760a47e assets\adaptor\models\block\marijuana_crop_stage5.json
-952fd01cd196fcc3fdfb88947eed9320b8285719 assets\adaptor\models\block\dirt_door_top_left_open.json
 bc49540d62c6bb7e74b671746b4fd241252d2d03 assets\adaptor\models\block\dirt_button_inventory.json
+952fd01cd196fcc3fdfb88947eed9320b8285719 assets\adaptor\models\block\dirt_door_top_left_open.json
 03d8e2c0770d6123249e6f6f13fc667dc5a9d655 assets\adaptor\models\item\chestnut_leaves.json
 cf0d6315b98ec3e6678d3006020d7e75c52777b0 assets\adaptor\blockstates\dirt_button.json
 a36076d352861b62d800b9edc648711a94221de3 assets\adaptor\blockstates\stripped_chestnut_log.json
@@ -40,8 +40,8 @@ a36076d352861b62d800b9edc648711a94221de3 assets\adaptor\blockstates\stripped_che
 b448c4f0557fc1cd8261391ff654ac2fe187bb53 assets\adaptor\models\item\dirt_stairs.json
 1fca87d7f4e3ba0d77c0ebc141f83667cb799527 assets\adaptor\blockstates\chestnut_log.json
 04b79bcc79d2e5055345656272f2c293b784647a assets\adaptor\models\item\copper_leggings_gold_trim.json
-d366962ea23224fb9420ab174739384e7b0b77e3 assets\adaptor\models\block\stripped_chestnut_log.json
 7c424efd40ddd88bc1bdd13a43aeb64cd99c2150 assets\adaptor\models\block\sound_block.json
+d366962ea23224fb9420ab174739384e7b0b77e3 assets\adaptor\models\block\stripped_chestnut_log.json
 11c252da9987d886959bbbdc572c87aa8cece6ef assets\adaptor\models\item\copper_helmet_gold_trim.json
 4492968a3958958a1b16012be66a5fea2fb32de8 assets\adaptor\models\block\soybean_crop_stage4.json
 9ab77f3d10ffd0b56800b849c6845c173ce3ad88 assets\adaptor\models\item\copper_leggings.json
@@ -147,8 +147,8 @@ bbc8ced544d07d56cec97acccf44f7d9d06865ec assets\adaptor\models\block\chestnut_lo
 64981ebfe48c474fd2dc3c3ecc1deef2fac38061 assets\adaptor\models\item\copper_axe.json
 fddb840ee3b0f596eacd2004fd40b6129d553653 assets\adaptor\models\item\copper_hoe.json
 02e4a999c5c188a4d262b7a539e7e283ecde2047 assets\adaptor\models\item\dirt_trapdoor.json
-3d2adbac2252b866b77ed8256ab1b534619afe0d assets\adaptor\models\item\copper_boots_amethyst_trim.json
 792d8a0a146c1606b7b742e057e6bed536dfab86 assets\adaptor\models\item\chestnut_hanging_sign.json
+3d2adbac2252b866b77ed8256ab1b534619afe0d assets\adaptor\models\item\copper_boots_amethyst_trim.json
 f7f0394fd226b19b0d7c4322dcfad5d3eb10117e assets\adaptor\models\block\dirt_button.json
 423a3bcf7485bfb7dc28f5f84c584b942b4a6a43 assets\adaptor\models\item\copper_boots_lapis_trim.json
 6fd15ce4f2f6e2fefd7a101f3a424b423a813a1b assets\adaptor\models\block\chestnut_log.json
