@@ -27,8 +27,8 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:10.0.0-beta.1"
-	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:10.0.0-beta.1"
+	modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:10.0.0"
+	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:10.0.0"
 }
 
 processResources {

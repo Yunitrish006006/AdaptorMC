@@ -1,5 +1,6 @@
 package net.yunitrish.adaptor.item;
 
+import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
@@ -12,6 +13,7 @@ import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.Adaptor;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.block.plant.ChestnutSeries;
+import net.yunitrish.adaptor.entity.ModBoats;
 import net.yunitrish.adaptor.entity.ModEntities;
 import net.yunitrish.adaptor.sound.ModSounds;
 
@@ -64,6 +66,9 @@ public class ModItems {
     public static final Item CHESTNUT_SIGN = registerItem("chestnut_sign",new SignItem(new Item.Settings().maxCount(16), ChestnutSeries.STANDING_CHESTNUT_SIGN,ChestnutSeries.WALL_CHESTNUT_SIGN));
     public static final Item HANGING_CHESTNUT_SIGN = registerItem("chestnut_hanging_sign",new HangingSignItem(ChestnutSeries.CHESTNUT_HANGING_SIGN,ChestnutSeries.CHESTNUT_WALL_HANGING_SIGN,new Item.Settings().maxCount(16)));
 
+    public static final Item CHESTNUT_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.CHESTNUT_BOAT_ID, ModBoats.CHESTNUT_BOAT_KEY, false);
+    public static final Item CHESTNUT_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.CHESTNUT_CHEST_BOAT_ID, ModBoats.CHESTNUT_BOAT_KEY, true);
+
     public static ItemGroup AdaptorGroup;
     public static void registerModItems() {
         Adaptor.LOGGER.info("Registering Mod Items for " + Adaptor.MOD_ID);
@@ -72,6 +77,8 @@ public class ModItems {
                 .icon(()-> new ItemStack(ModItems.METAL_DETECTOR))
                 .build();
         Registry.register(Registries.ITEM_GROUP,Adaptor.modIdentifier("adaptor_group"),AdaptorGroup);
+        addToItemGroup("adaptor_group",CHESTNUT_BOAT);
+        addToItemGroup("adaptor_group",CHESTNUT_CHEST_BOAT);
     }
 
     public static void addToItemGroup(String groupId, Item item) {

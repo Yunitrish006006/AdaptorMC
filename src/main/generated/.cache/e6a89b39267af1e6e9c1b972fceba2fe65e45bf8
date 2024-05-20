@@ -1,9 +1,9 @@
-// 1.20.6	2024-05-20T11:02:56.6899421	Adaptor/Block Loot Tables
-2b1e0c7af39802e3c72eb9bbc2f37378eaa3d636 data\adaptor\loot_tables\blocks\chestnut_log.json
-fb7bf4c546f5050715ba54995ba9d8ad1e366195 data\adaptor\loot_tables\blocks\soybean_crop.json
-72ec4c4a8592bcaf591e2f359fa948df3531d457 data\adaptor\loot_tables\blocks\chestnut_leaves.json
+// 1.20.6	2024-05-21T01:36:10.8370983	Adaptor/Block Loot Tables
+c267420be5276908fa39e7dcce2ff445a1c3d65a data\adaptor\loot_tables\blocks\marijuana_crop.json
+c73a8a00c0e8d19fc839ec5841a18f0a6e641b39 data\adaptor\loot_tables\blocks\stripped_chestnut_log.json
 877d726213f3bcb6bfb3a55332d9944120cb34c7 data\adaptor\loot_tables\blocks\gravel_iron_ore.json
 b2876bc2d3acbe95ab2f0dab3d2a9fda5c2f6341 data\adaptor\loot_tables\blocks\chestnut_planks.json
-c73a8a00c0e8d19fc839ec5841a18f0a6e641b39 data\adaptor\loot_tables\blocks\stripped_chestnut_log.json
-c267420be5276908fa39e7dcce2ff445a1c3d65a data\adaptor\loot_tables\blocks\marijuana_crop.json
+72ec4c4a8592bcaf591e2f359fa948df3531d457 data\adaptor\loot_tables\blocks\chestnut_leaves.json
 4c53db45889fc6efd96b1f82fa8cfe71c4db2002 data\adaptor\loot_tables\blocks\chestnut_wood.json
+2b1e0c7af39802e3c72eb9bbc2f37378eaa3d636 data\adaptor\loot_tables\blocks\chestnut_log.json
+fb7bf4c546f5050715ba54995ba9d8ad1e366195 data\adaptor\loot_tables\blocks\soybean_crop.json

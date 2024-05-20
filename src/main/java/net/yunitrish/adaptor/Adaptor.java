@@ -8,6 +8,7 @@ import net.yunitrish.adaptor.block.ModBlockEntities;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.command.ModCommands;
 import net.yunitrish.adaptor.enchantment.ModEnchantments;
+import net.yunitrish.adaptor.entity.ModBoats;
 import net.yunitrish.adaptor.entity.ModEntities;
 import net.yunitrish.adaptor.entity.creature.PorcupineEntity;
 import net.yunitrish.adaptor.entity.creature.villager.ModCustomTrades;
@@ -33,6 +34,7 @@ public class Adaptor implements ModInitializer {
 		LOGGER.info("Initializing");
 		ModEvents.registerEvents();
 		ModItems.registerModItems();
+		ModBoats.registerBoats();
 		ModEnchantments.registerModEnchantments();
 		ModBlocks.registerModBlocks();
 		ModBlockEntities.registerBlockEntities();

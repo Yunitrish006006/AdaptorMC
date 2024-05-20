@@ -1,5 +1,7 @@
 package net.yunitrish.adaptor;
 
+import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
+import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -8,6 +10,7 @@ import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.block.plant.ChestnutSeries;
+import net.yunitrish.adaptor.entity.ModBoats;
 import net.yunitrish.adaptor.entity.ModEntities;
 import net.yunitrish.adaptor.entity.client.ModModelLayers;
 import net.yunitrish.adaptor.entity.client.PorcupineModel;
@@ -26,5 +29,7 @@ public class AdaptorClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PORCUPINE, PorcupineModel::getTexturedModelData);
 
         HandledScreens.register(ModScreenHandlers.STONE_MILL_SCREEN_HANDLER, StoneMillScreen::new);
+
+        TerraformBoatClientHelper.registerModelLayers(ModBoats.CHESTNUT_BOAT_ID,false);
     }
 }
