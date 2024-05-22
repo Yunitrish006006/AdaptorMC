@@ -16,6 +16,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.Adaptor;
+import net.yunitrish.adaptor.world.tree.ModSaplingGenerators;
 
 import static net.yunitrish.adaptor.block.ModBlocks.registerBlock;
 
@@ -41,6 +42,7 @@ public class ChestnutSeries {
     public static final Block STRIPPED_CHESTNUT_WOOD = registerBlock("stripped_chestnut_wood",new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD).strength(4f)));
     public static final Block CHESTNUT_PLANKS = registerBlock("chestnut_planks",new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(4f)));
     public static final Block CHESTNUT_LEAVES = registerBlock("chestnut_leaves",new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).strength(4f).nonOpaque()));
+    public static final Block CHESTNUT_SAPLING = registerBlock("chestnut_sapling", new SaplingBlock(ModSaplingGenerators.CHESTNUT,AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
     public static final Identifier CHESTNUT_SIGN_TEXTURE = Adaptor.modIdentifier("entity/signs/chestnut");
     public static final Identifier CHESTNUT_HANGING_SIGN_TEXTURE = Adaptor.modIdentifier("entity/signs/hanging/chestnut");

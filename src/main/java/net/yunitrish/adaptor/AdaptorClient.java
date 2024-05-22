@@ -1,7 +1,6 @@
 package net.yunitrish.adaptor;
 
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
-import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -24,6 +23,7 @@ public class AdaptorClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SOYBEAN_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MARIJUANA_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ChestnutSeries.CHESTNUT_LEAVES, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ChestnutSeries.CHESTNUT_SAPLING, RenderLayer.getCutout());
 
         EntityRendererRegistry.register(ModEntities.PORCUPINE, PorcupineRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PORCUPINE, PorcupineModel::getTexturedModelData);

@@ -117,7 +117,8 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ChestnutSeries.STRIPPED_CHESTNUT_LOG);
         addDrop(ChestnutSeries.STRIPPED_CHESTNUT_LOG);
         addDrop(ChestnutSeries.CHESTNUT_PLANKS);
+        addDrop(ChestnutSeries.CHESTNUT_SAPLING);
 
-        addDrop(ChestnutSeries.CHESTNUT_LEAVES,leavesDrops(ChestnutSeries.CHESTNUT_LEAVES,ModBlocks.SOUND_BLOCK,0.0025f));
+        addDrop(ChestnutSeries.CHESTNUT_LEAVES,leavesDrops(ChestnutSeries.CHESTNUT_LEAVES,ChestnutSeries.CHESTNUT_SAPLING,0.0025f));
     }
 }

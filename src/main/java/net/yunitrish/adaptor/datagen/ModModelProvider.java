@@ -48,13 +48,14 @@ public class ModModelProvider extends FabricModelProvider {
                 ChestnutSeries.STRIPPED_CHESTNUT_LOG,
                 ChestnutSeries.STRIPPED_CHESTNUT_WOOD,
                 ChestnutSeries.CHESTNUT_PLANKS,
-                ChestnutSeries.CHESTNUT_LEAVES
+                ChestnutSeries.CHESTNUT_LEAVES,
+                ChestnutSeries.CHESTNUT_SAPLING
                 );
 
         blockStateModelGenerator.registerSimpleState(ModBlocks.STONE_MILL);
     }
 
-    public static void registerWoodSeries(BlockStateModelGenerator modelGenerator, BlockFamily blockFamily, Block log, Block wood, Block stripped_log, Block stripped_wood, Block planks, Block leaves) {
+    public static void registerWoodSeries(BlockStateModelGenerator modelGenerator, BlockFamily blockFamily, Block log, Block wood, Block stripped_log, Block stripped_wood, Block planks, Block leaves, Block sapling) {
         modelGenerator
                 .registerLog(log)
                 .log(log)
@@ -66,6 +67,7 @@ public class ModModelProvider extends FabricModelProvider {
         modelGenerator.registerSimpleCubeAll(leaves);
         BlockStateModelGenerator.BlockTexturePool woodPool = modelGenerator.registerCubeAllModelTexturePool(planks);
         woodPool.family(blockFamily);
+        modelGenerator.registerTintableCross(sapling, BlockStateModelGenerator.TintType.NOT_TINTED);
     }
 
     @Override

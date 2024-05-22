@@ -12,9 +12,6 @@
   "item.adaptor.corn": "Corn",
   "item.adaptor.corn_seeds": "Corn Seeds",
 
-  "item.adaptor.chestnut_boat": "Chestnut Boat",
-  "item.adaptor.chestnut_chest_boat": "Chestnut Chest Boat",
-
   "item.adaptor.bamboo_coal": "Bamboo Coal",
 
   "item.adaptor.metal_detector": "Metal Detector",
@@ -66,11 +63,15 @@
   "block.adaptor.stripped_chestnut_wood": "Chestnut Wood",
   "block.adaptor.chestnut_planks": "Chestnut Planks",
   "block.adaptor.chestnut_leaves": "Chestnut Leaves",
+  "block.adaptor.chestnut_sapling": "Chestnut Sapling",
 
   "block.adaptor.chestnut_standing_sign": "Chestnut Standing Sign",
   "block.adaptor.chestnut_wall_sign": "Chestnut Wall Sign",
   "block.adaptor.chestnut_hanging_sign": "Chestnut Hanging Sign",
   "block.adaptor.chestnut_wall_hanging_sign": "Chestnut Wall Hanging Sign",
+
+  "item.adaptor.chestnut_boat": "Chestnut Boat",
+  "item.adaptor.chestnut_chest_boat": "Chestnut Chest Boat",
 
   "block.adaptor.dahlia": "Dahlia",
 
