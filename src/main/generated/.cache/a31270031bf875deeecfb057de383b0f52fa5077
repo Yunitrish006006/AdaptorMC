@@ -1,4 +1,4 @@
-// 1.20.6	2024-05-21T01:36:10.8305974	Adaptor/Model Definitions
+// 1.20.6	2024-05-22T10:45:12.1081591	Adaptor/Model Definitions
 11c252da9987d886959bbbdc572c87aa8cece6ef assets\adaptor\models\item\copper_helmet_gold_trim.json
 04efda3cda92aeda84c791deb527aabc2cea5ec5 assets\adaptor\models\item\copper_helmet_diamond_trim.json
 9ab77f3d10ffd0b56800b849c6845c173ce3ad88 assets\adaptor\models\item\copper_leggings.json
@@ -35,8 +35,8 @@ d2741edc84b6f09dd076fd5322f05da68fbd4a05 assets\adaptor\models\item\chestnut_boa
 beb5e7a169b6e1eeb794e79eeb330769ff5f627c assets\adaptor\models\block\dirt_stairs_outer.json
 b463579a78f8d377db6235f0cf6c7bd699d0606f assets\adaptor\models\item\metal_detector.json
 60c9c10b058e92a7d371af5d37ed6db509e6dd14 assets\adaptor\models\block\dirt_trapdoor_open.json
-0d9836907f2b7ebeaad070b8a5f7ef568ea01aae assets\adaptor\models\item\dirt_slab.json
 7a8b01e4c76e93095a99d286667164aba4710923 assets\adaptor\models\item\stone_hammer.json
+0d9836907f2b7ebeaad070b8a5f7ef568ea01aae assets\adaptor\models\item\dirt_slab.json
 9d02a73ff817930096c440075637958cb180da5c assets\adaptor\models\item\copper_helmet.json
 dcc4c98d3d06db44195754514a82bd701d10f82c assets\adaptor\models\item\copper_chestplate_lapis_trim.json
 691a954ba0f9256761e24d5ead8b98bc22f75d10 assets\adaptor\models\item\marijuana.json
@@ -163,7 +163,7 @@ e64df62c4a020f81a810f71a5834b159d54810f0 assets\adaptor\models\item\copper_leggi
 cad31541fd8e8d12fb78fbecc33332a59dd1f709 assets\adaptor\blockstates\chestnut_planks.json
 4e723a454c16708b3fd31eaf639775207289b58e assets\adaptor\models\item\dirt_wall.json
 3d2adbac2252b866b77ed8256ab1b534619afe0d assets\adaptor\models\item\copper_boots_amethyst_trim.json
-df01d40c8b5836ea0edc7ed5a987503e7c25a1cf assets\adaptor\blockstates\stone_mill.json
 40d1d25d06f22377937cba9eaa5b509c3f489fb0 assets\adaptor\blockstates\chestnut_wood.json
+df01d40c8b5836ea0edc7ed5a987503e7c25a1cf assets\adaptor\blockstates\stone_mill.json
 9f483223b73e25bbb2bb14ace5ae7ddbba87c926 assets\adaptor\models\item\copper_pickaxe.json
 b448c4f0557fc1cd8261391ff654ac2fe187bb53 assets\adaptor\models\item\dirt_stairs.json

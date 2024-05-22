@@ -19,6 +19,7 @@ import net.yunitrish.adaptor.item.ModLootTableModifiers;
 import net.yunitrish.adaptor.recipe.ModRecipes;
 import net.yunitrish.adaptor.screen.ModScreenHandlers;
 import net.yunitrish.adaptor.sound.ModSounds;
+import net.yunitrish.adaptor.world.generation.ModWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,5 +47,6 @@ public class Adaptor implements ModInitializer {
 		ModCustomTrades.registerCustomTrades();
 		ModLootTableModifiers.modifyLootTables();
 		FabricDefaultAttributeRegistry.register(ModEntities.PORCUPINE, PorcupineEntity.createPorcupineAttributes());
+		ModWorldGeneration.generateModWorldGeneration();
 	}
 }
