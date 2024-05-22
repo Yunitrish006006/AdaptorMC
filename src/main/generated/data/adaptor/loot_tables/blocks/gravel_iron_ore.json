@@ -72,16 +72,6 @@
               }
             }
           }
-        },
-        {
-          "chances": [
-            0.04,
-            0.08,
-            0.12,
-            0.16
-          ],
-          "condition": "minecraft:table_bonus",
-          "enchantment": "minecraft:fortune"
         }
       ],
       "entries": [
@@ -90,10 +80,10 @@
           "conditions": [
             {
               "chances": [
-                0.02,
-                0.04,
-                0.06,
-                0.1
+                0.2,
+                0.4,
+                0.6,
+                0.9
               ],
               "condition": "minecraft:table_bonus",
               "enchantment": "minecraft:fortune"
@@ -117,6 +107,18 @@
         },
         {
           "type": "minecraft:item",
+          "conditions": [
+            {
+              "chances": [
+                0.04,
+                0.08,
+                0.12,
+                0.16
+              ],
+              "condition": "minecraft:table_bonus",
+              "enchantment": "minecraft:fortune"
+            }
+          ],
           "functions": [
             {
               "add": false,
@@ -132,6 +134,24 @@
             }
           ],
           "name": "minecraft:flint"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "minecraft:gravel"
         }
       ],
       "rolls": 1.0

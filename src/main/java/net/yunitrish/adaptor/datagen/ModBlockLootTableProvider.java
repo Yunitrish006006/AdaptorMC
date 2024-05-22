@@ -3,6 +3,7 @@ package net.yunitrish.adaptor.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.loottable.BlockLootTableGenerator;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
@@ -31,7 +32,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         super(dataOutput, registryLookup);
     }
 
-    public LootTable.Builder gravelOreDrop(Block origin, Item ore) {
+    public LootTable.Builder gravelOreDrop(Block origin, Item ore, Block base) {
         return BlockLootTableGenerator
                 .dropsWithSilkTouch(
                         origin,
@@ -51,7 +52,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                                                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.2f)))
                                                 )
                                         )
-                                                .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, 0.02f, 0.04f, 0.06f, 0.1f))
+                                                .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, 0.2f, 0.4f, 0.6f, 0.9f))
                                 )
                                 .with(this
                                         .applyExplosionDecay(
@@ -60,15 +61,25 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                                                         .builder(Items.FLINT)
                                                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.2f)))
                                         )
+                                        .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, 0.04f, 0.08f, 0.12f, 0.16f))
                                 )
-                                .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, 0.04f, 0.08f, 0.12f, 0.16f))
+                                .with(
+                                        (this
+                                                .applyExplosionDecay(
+                                                        origin,
+                                                        ItemEntry
+                                                                .builder(base)
+                                                                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 1f)))
+                                                )
+                                        )
+                                )
                 );
     }
 
 
     @Override
     public void generate() {
-        addDrop(ModBlocks.GRAVEL_IRON_ORE,gravelOreDrop(ModBlocks.GRAVEL_IRON_ORE, Items.RAW_IRON));
+        addDrop(ModBlocks.GRAVEL_IRON_ORE,gravelOreDrop(ModBlocks.GRAVEL_IRON_ORE, Items.RAW_IRON, Blocks.GRAVEL));
         addDrop(
                 ModBlocks.SOYBEAN_CROP,
                 cropDrops(
