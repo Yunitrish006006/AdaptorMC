@@ -11,10 +11,10 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import net.yunitrish.adaptor.Adaptor;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.block.plant.ChestnutSeries;
+import net.yunitrish.adaptor.world.tree.custom.ChestnutTrunkPlacer;
 
 import java.util.List;
 
@@ -44,7 +44,7 @@ public class ModConfiguredFeatures {
 
         register(context, CHESTNUT_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ChestnutSeries.CHESTNUT_LOG),
-                new StraightTrunkPlacer(5,4,3),
+                new ChestnutTrunkPlacer(5, 4, 3),
                 BlockStateProvider.of(ChestnutSeries.CHESTNUT_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1),2),
                 new TwoLayersFeatureSize(1,0,2)

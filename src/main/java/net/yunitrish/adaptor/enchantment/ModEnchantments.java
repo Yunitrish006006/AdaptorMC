@@ -14,6 +14,6 @@ public class ModEnchantments {
     }
 
     public static void registerModEnchantments() {
-        System.out.println("Registering enchantments...");
+        Adaptor.LOGGER.info("Registering enchantments...");
     }
 }

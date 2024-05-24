@@ -1,7 +1,6 @@
 package net.yunitrish.adaptor;
 
 import net.fabricmc.api.ModInitializer;
-
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.block.ModBlockEntities;
@@ -20,6 +19,7 @@ import net.yunitrish.adaptor.recipe.ModRecipes;
 import net.yunitrish.adaptor.screen.ModScreenHandlers;
 import net.yunitrish.adaptor.sound.ModSounds;
 import net.yunitrish.adaptor.world.generation.ModWorldGeneration;
+import net.yunitrish.adaptor.world.tree.ModTrunkPlacerTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,6 +37,7 @@ public class Adaptor implements ModInitializer {
 		ModItems.registerModItems();
 		ModBoats.registerBoats();
 		ModEnchantments.registerModEnchantments();
+		ModTrunkPlacerTypes.register();
 		ModBlocks.registerModBlocks();
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandlers();

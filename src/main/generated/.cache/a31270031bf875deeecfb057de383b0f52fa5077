@@ -1,4 +1,4 @@
-// 1.20.6	2024-05-22T23:40:53.4871657	Adaptor/Model Definitions
+// 1.20.6	2024-05-24T11:23:36.1943696	Adaptor/Model Definitions
 11c252da9987d886959bbbdc572c87aa8cece6ef assets\adaptor\models\item\copper_helmet_gold_trim.json
 04efda3cda92aeda84c791deb527aabc2cea5ec5 assets\adaptor\models\item\copper_helmet_diamond_trim.json
 ebc14ba153f887c99f6d3ac9e857ccec59ea82ad assets\adaptor\blockstates\chestnut_sapling.json
@@ -36,8 +36,8 @@ d2741edc84b6f09dd076fd5322f05da68fbd4a05 assets\adaptor\models\item\chestnut_boa
 beb5e7a169b6e1eeb794e79eeb330769ff5f627c assets\adaptor\models\block\dirt_stairs_outer.json
 b463579a78f8d377db6235f0cf6c7bd699d0606f assets\adaptor\models\item\metal_detector.json
 60c9c10b058e92a7d371af5d37ed6db509e6dd14 assets\adaptor\models\block\dirt_trapdoor_open.json
-7a8b01e4c76e93095a99d286667164aba4710923 assets\adaptor\models\item\stone_hammer.json
 0d9836907f2b7ebeaad070b8a5f7ef568ea01aae assets\adaptor\models\item\dirt_slab.json
+7a8b01e4c76e93095a99d286667164aba4710923 assets\adaptor\models\item\stone_hammer.json
 9d02a73ff817930096c440075637958cb180da5c assets\adaptor\models\item\copper_helmet.json
 dcc4c98d3d06db44195754514a82bd701d10f82c assets\adaptor\models\item\copper_chestplate_lapis_trim.json
 691a954ba0f9256761e24d5ead8b98bc22f75d10 assets\adaptor\models\item\marijuana.json
@@ -126,8 +126,8 @@ cf0d6315b98ec3e6678d3006020d7e75c52777b0 assets\adaptor\blockstates\dirt_button.
 17042e8dce6bd19985abad99465a3410cbf9981d assets\adaptor\models\block\chestnut_wood.json
 26fab1a03713aa692b8f6231707c2b851ecd0866 assets\adaptor\blockstates\dirt_pressure_plate.json
 9a0a80e4c0bfea3ccf509679eeac1975d388e709 assets\adaptor\models\item\chestnut_planks.json
-050b1d227f62fd6075e9d46c306cf288bec358e3 assets\adaptor\models\item\copper_boots_diamond_trim.json
 73d2f51d053e7c18d9b8c7f0ef83be5a0d2d3d0b assets\adaptor\blockstates\gravel_iron_ore.json
+050b1d227f62fd6075e9d46c306cf288bec358e3 assets\adaptor\models\item\copper_boots_diamond_trim.json
 02e4a999c5c188a4d262b7a539e7e283ecde2047 assets\adaptor\models\item\dirt_trapdoor.json
 b24d789828af4f38383459c1b6cefb2c2085e161 assets\adaptor\models\block\chestnut_sapling.json
 d861ecb3a6218fb93c9778d4a7ed76e60b1dd4db assets\adaptor\models\item\netherite_hammer.json
@@ -156,8 +156,8 @@ bbc8ced544d07d56cec97acccf44f7d9d06865ec assets\adaptor\models\block\chestnut_lo
 2a1fd12b8a831e1dbfcaafa0e4e508724ace6297 assets\adaptor\models\item\dough.json
 8839e92a62bab4796323721877260a8e6f71fd69 assets\adaptor\blockstates\dirt_fence.json
 c2c83dbe02b1871f22225d14a3ef105588a58e09 assets\adaptor\models\block\gravel_iron_ore.json
-e831a6f78a631376be8707d458bb806fc0952920 assets\adaptor\models\item\copper_helmet_emerald_trim.json
 3bae044628a196bdef668d7b27668e044c5f73cc assets\adaptor\models\block\dirt_fence_gate_open.json
+e831a6f78a631376be8707d458bb806fc0952920 assets\adaptor\models\item\copper_helmet_emerald_trim.json
 e64df62c4a020f81a810f71a5834b159d54810f0 assets\adaptor\models\item\copper_leggings_redstone_trim.json
 5a4a24b023973852be05d4f8b7176c2fb536b345 assets\adaptor\models\item\copper_shovel.json
 8098b8080cdc97be57e735f961b7dd2bfd3cc919 assets\adaptor\models\item\marijuana_seeds.json
