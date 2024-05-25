@@ -1,4 +1,4 @@
-// 1.20.6	2024-05-24T11:23:36.1943696	Adaptor/Model Definitions
+// 1.20.6	2024-05-25T22:35:08.1653774	Adaptor/Model Definitions
 11c252da9987d886959bbbdc572c87aa8cece6ef assets\adaptor\models\item\copper_helmet_gold_trim.json
 04efda3cda92aeda84c791deb527aabc2cea5ec5 assets\adaptor\models\item\copper_helmet_diamond_trim.json
 ebc14ba153f887c99f6d3ac9e857ccec59ea82ad assets\adaptor\blockstates\chestnut_sapling.json
@@ -14,8 +14,8 @@ e849f0cf2d2660591399d87f444c5635a2e8cc36 assets\adaptor\models\item\stripped_che
 013598ac16cca3686e3725614c18650bb17b93f9 assets\adaptor\models\item\copper_sword.json
 952fd01cd196fcc3fdfb88947eed9320b8285719 assets\adaptor\models\block\dirt_door_top_left_open.json
 e4f59bd2dc357f1910dbe2aa4f5a5ea81a11575f assets\adaptor\blockstates\chestnut_leaves.json
-64bb558cf01e78e42b28e2ef3c501f71ee830e6a assets\minecraft\models\block\dirt.json
 182b72ecf4346204511d0aa2f872f2ce2b8a4fa0 assets\adaptor\models\item\sound_block.json
+64bb558cf01e78e42b28e2ef3c501f71ee830e6a assets\minecraft\models\block\dirt.json
 64981ebfe48c474fd2dc3c3ecc1deef2fac38061 assets\adaptor\models\item\copper_axe.json
 70a3c04aa0d67b61dd1fbfbac4bb864ae7467401 assets\adaptor\blockstates\marijuana_crop.json
 71570ea93393f05691f889fe5b4158b017066a3e assets\adaptor\models\item\copper_helmet_copper_trim.json

@@ -9,8 +9,9 @@
       }
     },
     "foliage_placer": {
-      "type": "minecraft:blob_foliage_placer",
-      "height": 2,
+      "type": "minecraft:chestnut_foliage_placer",
+      "foliage_height": 1,
+      "leaf_placement_attempts": 20,
       "offset": 1,
       "radius": 2
     },

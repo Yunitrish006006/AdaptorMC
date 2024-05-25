@@ -9,11 +9,11 @@ import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
-import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.yunitrish.adaptor.Adaptor;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.block.plant.ChestnutSeries;
+import net.yunitrish.adaptor.world.tree.custom.ChestnutFoliagePlacer;
 import net.yunitrish.adaptor.world.tree.custom.ChestnutTrunkPlacer;
 
 import java.util.List;
@@ -46,7 +46,7 @@ public class ModConfiguredFeatures {
                 BlockStateProvider.of(ChestnutSeries.CHESTNUT_LOG),
                 new ChestnutTrunkPlacer(5, 4, 3),
                 BlockStateProvider.of(ChestnutSeries.CHESTNUT_LEAVES),
-                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1),2),
+                new ChestnutFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), ConstantIntProvider.create(1), 20),
                 new TwoLayersFeatureSize(1,0,2)
                 ).build()
         );

@@ -11,7 +11,7 @@ public class ModTreeGeneration {
         BiomeModifications.addFeature(
                 BiomeSelectors.includeByKey(
                         BiomeKeys.PLAINS,
-                        BiomeKeys.FOREST
+                        BiomeKeys.DARK_FOREST
                 ),
                 GenerationStep.Feature.VEGETAL_DECORATION,
                 ModPlacedFeatures.CHESTNUT_PLACED_KEY

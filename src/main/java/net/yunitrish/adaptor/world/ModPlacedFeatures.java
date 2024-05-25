@@ -49,7 +49,7 @@ public class ModPlacedFeatures {
                 CHESTNUT_PLACED_KEY,
                 configuredFeatureRegistryLookup.getOrThrow(ModConfiguredFeatures.CHESTNUT_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(2, 1f, 2),
+                        PlacedFeatures.createCountExtraModifier(1, 1f, 0),
                         ChestnutSeries.CHESTNUT_SAPLING
                 )
         );

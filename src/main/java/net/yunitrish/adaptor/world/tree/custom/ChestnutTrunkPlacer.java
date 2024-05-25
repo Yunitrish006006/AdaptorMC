@@ -1,23 +1,24 @@
 package net.yunitrish.adaptor.world.tree.custom;
 
+import com.google.common.collect.Lists;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.PillarBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.foliage.FoliagePlacer;
+import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
 import net.minecraft.world.gen.trunk.TrunkPlacer;
 import net.minecraft.world.gen.trunk.TrunkPlacerType;
 import net.yunitrish.adaptor.world.tree.ModTrunkPlacerTypes;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import java.util.OptionalInt;
 import java.util.function.BiConsumer;
-import java.util.function.Function;
 
 public class ChestnutTrunkPlacer extends TrunkPlacer {
 
@@ -34,29 +35,47 @@ public class ChestnutTrunkPlacer extends TrunkPlacer {
 
     @Override
     public List<FoliagePlacer.TreeNode> generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, int height, BlockPos startPos, TreeFeatureConfig config) {
-        setToDirt(world, replacer, random, startPos.down(), config);
-        int _height = height + random.nextBetween(firstRandomHeight, firstRandomHeight + 2) + random.nextBetween(secondRandomHeight - 1, secondRandomHeight + 1);
-        for (int i = 0; i < _height; i++) {
-            getAndSetState(world, replacer, random, startPos.up(i), config);
-            if (i % 2 == 0 && random.nextBoolean()) {
-                Map<Direction, Direction.Axis> directions = Map.of(
-                        Direction.NORTH, Direction.Axis.Z,
-                        Direction.SOUTH, Direction.Axis.Z,
-                        Direction.WEST, Direction.Axis.X,
-                        Direction.EAST, Direction.Axis.X
-                );
-                for (Map.Entry<Direction, Direction.Axis> d : directions.entrySet()) {
-                    if (random.nextFloat() > 0.25f) {
-                        for (int x = 1; x <= 4; x++) {
-                            if (random.nextFloat() > 0.5f)
-                                replacer.accept(startPos.up(i).offset(d.getKey(), x), (BlockState) Function.identity().apply(config.trunkProvider.get(random, startPos.up(i).offset(d.getKey(), x)).with(PillarBlock.AXIS, d.getValue())));
-                            else
-                                break;
-                        }
-                    }
-                }
+        int n;
+        ForkingTrunkPlacer.setToDirt(world, replacer, random, startPos.down(), config);
+        ArrayList<FoliagePlacer.TreeNode> list = Lists.newArrayList();
+        Direction direction = Direction.Type.HORIZONTAL.random(random);
+        int i = height - random.nextInt(4) - 1;
+        int j = 3 - random.nextInt(3);
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        int k = startPos.getX();
+        int l = startPos.getZ();
+        OptionalInt optionalInt = OptionalInt.empty();
+        for (int m = 0; m < height; ++m) {
+            n = startPos.getY() + m;
+            if (m >= i && j > 0) {
+                k += direction.getOffsetX();
+                l += direction.getOffsetZ();
+                --j;
+            }
+            if (!this.getAndSetState(world, replacer, random, mutable.set(k, n, l), config)) continue;
+            optionalInt = OptionalInt.of(n + 1);
+        }
+        if (optionalInt.isPresent()) {
+            list.add(new FoliagePlacer.TreeNode(new BlockPos(k, optionalInt.getAsInt(), l), 1, false));
+        }
+        k = startPos.getX();
+        l = startPos.getZ();
+        Direction direction2 = Direction.Type.HORIZONTAL.random(random);
+        if (direction2 != direction) {
+            n = i - random.nextInt(2) - 1;
+            int o = 1 + random.nextInt(3);
+            optionalInt = OptionalInt.empty();
+            for (int p = n; p < height && o > 0; ++p, --o) {
+                if (p < 1) continue;
+                int q = startPos.getY() + p;
+                if (!this.getAndSetState(world, replacer, random, mutable.set(k += direction2.getOffsetX(), q, l += direction2.getOffsetZ()), config))
+                    continue;
+                optionalInt = OptionalInt.of(q + 1);
+            }
+            if (optionalInt.isPresent()) {
+                list.add(new FoliagePlacer.TreeNode(new BlockPos(k, optionalInt.getAsInt(), l), 0, false));
             }
         }
-        return List.of(new FoliagePlacer.TreeNode(startPos.up(_height), 0, false));
+        return list;
     }
 }
