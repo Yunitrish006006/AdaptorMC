@@ -80,8 +80,8 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.METAL_DETECTOR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DOUGH, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SOYBEAN, Models.GENERATED);
         itemModelGenerator.register(ModItems.MARIJUANA, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SOYBEAN, Models.GENERATED);
         itemModelGenerator.register(ModItems.FLOUR, Models.GENERATED);
         itemModelGenerator.register(ModItems.SALT, Models.GENERATED);
         itemModelGenerator.register(ModItems.MARIJUANA_LEAF, Models.GENERATED);
