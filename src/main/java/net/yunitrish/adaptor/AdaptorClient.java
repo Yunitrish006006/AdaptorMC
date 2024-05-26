@@ -22,6 +22,7 @@ public class AdaptorClient implements ClientModInitializer {
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SOYBEAN_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MARIJUANA_CROP, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GLASS_SLAB, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ChestnutSeries.CHESTNUT_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ChestnutSeries.CHESTNUT_SAPLING, RenderLayer.getCutout());
 

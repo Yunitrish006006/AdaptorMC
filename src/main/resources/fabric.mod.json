@@ -27,6 +27,9 @@
 		"fabric-datagen": [
 			"net.yunitrish.adaptor.datagen.DataGenerator"
 		],
+		"terrablender": [
+			"net.yunitrish.adaptor.world.biome.ModTerrablenderAPI"
+		],
 		"//rei_client": [
 			"net.yunitrish.adaptor.compatibility.AdaptorREIClientPlugin"
 		]

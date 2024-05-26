@@ -10,6 +10,7 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
+import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.item.ModItems;
 
 import java.util.Map;
@@ -101,5 +102,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('R', Items.REDSTONE)
                 .criterion(hasItem(Items.COPPER_INGOT),VanillaRecipeProvider.conditionsFromItem(Items.COPPER_INGOT))
                 .offerTo(exporter,new Identifier(getRecipeName(ModItems.METAL_DETECTOR)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModItems.METAL_DETECTOR)
+                .pattern("GGG")
+                .pattern("GGG")
+                .input('G', Items.GLASS)
+                .criterion(hasItem(Items.GLASS), VanillaRecipeProvider.conditionsFromItem(Items.GLASS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.GLASS_SLAB)));
     }
 }

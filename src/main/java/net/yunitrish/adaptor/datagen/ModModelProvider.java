@@ -4,7 +4,10 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.client.*;
+import net.minecraft.data.client.BlockStateModelGenerator;
+import net.minecraft.data.client.ItemModelGenerator;
+import net.minecraft.data.client.Model;
+import net.minecraft.data.client.Models;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
@@ -40,6 +43,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerDoor(DirtSeries.DIRT_DOOR);
         blockStateModelGenerator.registerTrapdoor(DirtSeries.DIRT_TRAPDOOR);
 
+        BlockStateModelGenerator.BlockTexturePool glassPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.GLASS);
+        glassPool.slab(ModBlocks.GLASS_SLAB);
+
         registerWoodSeries(
                 blockStateModelGenerator,
                 ChestnutSeries.CHESTNUT_FAMILY,
@@ -74,10 +80,12 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.METAL_DETECTOR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DOUGH, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SOYBEAN, Models.GENERATED);
         itemModelGenerator.register(ModItems.MARIJUANA, Models.GENERATED);
         itemModelGenerator.register(ModItems.FLOUR, Models.GENERATED);
         itemModelGenerator.register(ModItems.SALT, Models.GENERATED);
         itemModelGenerator.register(ModItems.MARIJUANA_LEAF, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MARIJUANA_SEEDS, Models.GENERATED);
         itemModelGenerator.register(ModItems.PORCUPINE_SPAWN_EGG, new Model(Optional.of(new Identifier("item/template_spawn_egg")),Optional.empty()));
 
         itemModelGenerator.register(ModItems.COPPER_AXE,Models.HANDHELD);

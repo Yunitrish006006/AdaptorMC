@@ -74,4 +74,17 @@ public class ModBlocks {
                             .pistonBehavior(PistonBehavior.DESTROY)
             ),false
     );
+    public static Block GLASS_SLAB = registerBlock(
+            "glass_slab",
+            new SlabBlock(
+                    AbstractBlock.Settings.create()
+                            .strength(0.3f)
+                            .sounds(BlockSoundGroup.GLASS)
+                            .nonOpaque()
+                            .allowsSpawning(Blocks::never)
+                            .solidBlock(Blocks::never)
+                            .suffocates(Blocks::never)
+                            .blockVision(Blocks::never)
+            )
+    );
 }
