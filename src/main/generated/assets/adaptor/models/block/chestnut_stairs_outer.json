@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "adaptor:block/chestnut_planks",
+    "side": "adaptor:block/chestnut_planks",
+    "top": "adaptor:block/chestnut_planks"
+  }
+}

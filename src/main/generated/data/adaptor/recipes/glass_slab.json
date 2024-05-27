@@ -7,11 +7,10 @@
     }
   },
   "pattern": [
-    "GGG",
     "GGG"
   ],
   "result": {
-    "count": 1,
-    "id": "adaptor:metal_detector"
+    "count": 6,
+    "id": "adaptor:glass_slab"
   }
 }

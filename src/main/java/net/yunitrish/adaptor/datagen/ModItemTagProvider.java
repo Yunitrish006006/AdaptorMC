@@ -16,6 +16,27 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
+        getOrCreateTagBuilder(ItemTags.AXES)
+                .add(ModItems.COPPER_AXE)
+                .add(ModItems.WOODEN_HAMMER)
+                .add(ModItems.STONE_HAMMER)
+                .add(ModItems.COPPER_HAMMER)
+                .add(ModItems.IRON_HAMMER)
+                .add(ModItems.GOLDEN_HAMMER)
+                .add(ModItems.DIAMOND_HAMMER)
+                .add(ModItems.NETHERITE_HAMMER);
+        getOrCreateTagBuilder(ItemTags.PICKAXES)
+                .add(ModItems.COPPER_PICKAXE)
+                .add(ModItems.WOODEN_HAMMER)
+                .add(ModItems.STONE_HAMMER)
+                .add(ModItems.COPPER_HAMMER)
+                .add(ModItems.IRON_HAMMER)
+                .add(ModItems.GOLDEN_HAMMER)
+                .add(ModItems.DIAMOND_HAMMER)
+                .add(ModItems.NETHERITE_HAMMER);
+        getOrCreateTagBuilder(ItemTags.SHOVELS).add(ModItems.COPPER_SHOVEL);
+        getOrCreateTagBuilder(ItemTags.SWORDS).add(ModItems.COPPER_SWORD);
+        getOrCreateTagBuilder(ItemTags.HOES).add(ModItems.COPPER_HOE);
         getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
                 .add(
                         ModItems.COPPER_HELMET,

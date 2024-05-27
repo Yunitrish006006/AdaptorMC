@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "P": {
+      "item": "adaptor:chestnut_planks"
+    }
+  },
+  "pattern": [
+    "P"
+  ],
+  "result": {
+    "count": 1,
+    "id": "adaptor:chestnut_button"
+  }
+}

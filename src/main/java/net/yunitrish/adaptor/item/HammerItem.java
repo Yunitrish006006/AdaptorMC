@@ -6,6 +6,6 @@ import net.yunitrish.adaptor.datagen.ModTags;
 
 public class HammerItem extends MiningToolItem {
     public HammerItem(ToolMaterial material, Settings settings) {
-        super(material, ModTags.Blocks.ORES, settings);
+        super(material, ModTags.Blocks.HAMMER, settings);
     }
 }

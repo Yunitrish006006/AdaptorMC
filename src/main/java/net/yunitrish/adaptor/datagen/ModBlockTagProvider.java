@@ -29,6 +29,21 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .forceAddTag(BlockTags.EMERALD_ORES)
                 .forceAddTag(BlockTags.DIAMOND_ORES)
                 .add(Blocks.NETHERRACK);
+        getOrCreateTagBuilder(ModTags.Blocks.HAMMER)
+                .forceAddTag(BlockTags.WALLS)
+                .forceAddTag(BlockTags.FENCE_GATES)
+                .forceAddTag(BlockTags.FENCES)
+                .forceAddTag(BlockTags.STONE_BRICKS)
+                .forceAddTag(BlockTags.PLANKS)
+                .forceAddTag(BlockTags.DOORS)
+                .forceAddTag(BlockTags.ALL_HANGING_SIGNS)
+                .forceAddTag(BlockTags.ALL_SIGNS)
+                .forceAddTag(BlockTags.BEDS)
+                .forceAddTag(BlockTags.WALL_SIGNS)
+                .forceAddTag(ModTags.Blocks.ORES)
+                .forceAddTag(BlockTags.BASE_STONE_OVERWORLD)
+                .forceAddTag(BlockTags.BASE_STONE_NETHER)
+        ;
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(ModBlocks.GRAVEL_IRON_ORE);
         getOrCreateTagBuilder(BlockTags.FENCES).add(DirtSeries.DIRT_FENCE);
@@ -41,5 +56,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                         ChestnutSeries.STRIPPED_CHESTNUT_LOG,
                         ChestnutSeries.STRIPPED_CHESTNUT_WOOD
                 );
+        getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).add(ChestnutSeries.CHESTNUT_STAIRS);
+        getOrCreateTagBuilder(BlockTags.WOODEN_SLABS).add(ChestnutSeries.CHESTNUT_SLAB);
+        getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS).add(ChestnutSeries.CHESTNUT_BUTTON);
+        getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES).add(ChestnutSeries.CHESTNUT_PRESSURE_PLATE);
+        getOrCreateTagBuilder(BlockTags.WOODEN_DOORS).add(ChestnutSeries.CHESTNUT_DOOR);
+        getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS).add(ChestnutSeries.CHESTNUT_TRAPDOOR);
+        getOrCreateTagBuilder(BlockTags.WOODEN_FENCES).add(ChestnutSeries.CHESTNUT_FENCE).add(ChestnutSeries.CHESTNUT_FENCE_GATE);
     }
 }

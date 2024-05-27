@@ -8,6 +8,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolItem;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.resource.featuretoggle.FeatureSet;
@@ -35,7 +36,7 @@ public class LeachEnchantment extends Enchantment {
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
         if (!user.getWorld().isClient) {
             ServerWorld world = (ServerWorld) user.getWorld();
-            if (user.getMainHandStack().getItem() instanceof SwordItem tool) {
+            if (user.getMainHandStack().getItem() instanceof ToolItem tool) {
                 float total = (float) ((user.getAttributes().getBaseValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)+tool.getMaterial().getAttackDamage())*level*0.2);
                 user.heal(total);
                 spawnParticleLine(world,target.getEyePos().add(0,-1.3,0),user.getPos().add(0,-0.1,0));
@@ -49,9 +50,6 @@ public class LeachEnchantment extends Enchantment {
     }
 
     public static void spawnParticleLine(ServerWorld world, Vec3d from, Vec3d to) {
-
-
-
         Vec3d start = new Vec3d(from.getX() + 0.5, from.getY() + 0.5, from.getZ() + 0.5);
         Vec3d end = new Vec3d(to.getX() + 0.5, to.getY() + 0.5, to.getZ() + 0.5);
 

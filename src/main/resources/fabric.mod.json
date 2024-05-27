@@ -3,7 +3,7 @@
 	"id": "adaptor",
 	"version": "${version}",
 	"name": "Adaptor",
-	"description": "A mod that contains server discord bot, survive extensions",
+	"description": "survive extensions",
 	"authors": [
 		"Yunitrish"
 	],

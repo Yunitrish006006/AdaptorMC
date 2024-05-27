@@ -2,6 +2,9 @@ package net.yunitrish.adaptor;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
+import net.minecraft.block.Blocks;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.block.ModBlockEntities;
 import net.yunitrish.adaptor.block.ModBlocks;
@@ -51,5 +54,13 @@ public class Adaptor implements ModInitializer {
 		ModLootTableModifiers.modifyLootTables();
 		FabricDefaultAttributeRegistry.register(ModEntities.PORCUPINE, PorcupineEntity.createPorcupineAttributes());
 		ModWorldGeneration.generateModWorldGeneration();
+
+        CustomPortalBuilder.beginPortal()
+                .frameBlock(Blocks.MOSSY_COBBLESTONE)
+                .lightWithFluid(Fluids.WATER)
+                .destDimID(modIdentifier("pre_era_dimension"))
+                .tintColor(0x575c3b)
+                .onlyLightInOverworld()
+                .registerPortal();
 	}
 }

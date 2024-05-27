@@ -82,6 +82,10 @@ public class ModItems {
     }
 
     public static void addToItemGroup(String groupId, Item item) {
-        ItemGroupEvents.modifyEntriesEvent(RegistryKey.of(RegistryKeys.ITEM_GROUP,Adaptor.modIdentifier(groupId))).register(entries -> entries.add(item));
+        try {
+            ItemGroupEvents.modifyEntriesEvent(RegistryKey.of(RegistryKeys.ITEM_GROUP, Adaptor.modIdentifier(groupId))).register(entries -> entries.add(item));
+        } catch (Exception e) {
+            Adaptor.LOGGER.info(e.getMessage());
+        }
     }
 }

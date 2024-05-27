@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "group": "bread",
+  "ingredient": {
+    "item": "adaptor:dough"
+  },
+  "result": {
+    "id": "minecraft:bread"
+  }
+}

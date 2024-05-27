@@ -7,6 +7,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.yunitrish.adaptor.world.ModConfiguredFeatures;
 import net.yunitrish.adaptor.world.ModPlacedFeatures;
 import net.yunitrish.adaptor.world.biome.ModBiomes;
+import net.yunitrish.adaptor.world.dimension.ModDimensions;
 
 public class DataGenerator implements DataGeneratorEntrypoint {
     @Override
@@ -26,5 +27,6 @@ public class DataGenerator implements DataGeneratorEntrypoint {
         registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootStrap);
         registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootStrap);
         registryBuilder.addRegistry(RegistryKeys.BIOME, ModBiomes::bootStrap);
+        registryBuilder.addRegistry(RegistryKeys.DIMENSION_TYPE, ModDimensions::bootStrapType);
     }
 }

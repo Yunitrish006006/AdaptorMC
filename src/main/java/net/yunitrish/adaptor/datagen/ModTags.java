@@ -11,6 +11,7 @@ public class ModTags {
     public static class Blocks {
 
         public static final TagKey<Block> ORES = createTag("ores");
+        public static final TagKey<Block> HAMMER = createTag("hammer");
 
         private static TagKey<Block> createTag(String name) {
             return  TagKey.of(RegistryKeys.BLOCK,new Identifier(Adaptor.MOD_ID,name));

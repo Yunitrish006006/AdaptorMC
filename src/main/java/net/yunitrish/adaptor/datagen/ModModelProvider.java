@@ -25,6 +25,30 @@ public class ModModelProvider extends FabricModelProvider {
         super(output);
     }
 
+    public static void registerWoodSeries(BlockStateModelGenerator modelGenerator, BlockFamily blockFamily, Block log, Block wood, Block stripped_log, Block stripped_wood, Block planks, Block leaves, Block sapling, Block stairs, Block slab, Block button, Block pressurePlate, Block fence, Block fenceGate, Block door, Block trapdoor) {
+        modelGenerator
+                .registerLog(log)
+                .log(log)
+                .wood(wood);
+        modelGenerator
+                .registerLog(stripped_log)
+                .log(stripped_log)
+                .wood(stripped_wood);
+        modelGenerator.registerSimpleCubeAll(leaves);
+        BlockStateModelGenerator.BlockTexturePool woodPool = modelGenerator.registerCubeAllModelTexturePool(planks);
+        woodPool.family(blockFamily);
+        woodPool.stairs(stairs);
+        woodPool.slab(slab);
+        woodPool.button(button);
+        woodPool.pressurePlate(pressurePlate);
+        woodPool.fence(fence);
+        woodPool.fenceGate(fenceGate);
+        modelGenerator.registerDoor(door);
+        modelGenerator.registerTrapdoor(trapdoor);
+        modelGenerator.registerTintableCross(sapling, BlockStateModelGenerator.TintType.NOT_TINTED);
+
+    }
+
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAVEL_IRON_ORE);
@@ -55,25 +79,18 @@ public class ModModelProvider extends FabricModelProvider {
                 ChestnutSeries.STRIPPED_CHESTNUT_WOOD,
                 ChestnutSeries.CHESTNUT_PLANKS,
                 ChestnutSeries.CHESTNUT_LEAVES,
-                ChestnutSeries.CHESTNUT_SAPLING
+                ChestnutSeries.CHESTNUT_SAPLING,
+                ChestnutSeries.CHESTNUT_STAIRS,
+                ChestnutSeries.CHESTNUT_SLAB,
+                ChestnutSeries.CHESTNUT_BUTTON,
+                ChestnutSeries.CHESTNUT_PRESSURE_PLATE,
+                ChestnutSeries.CHESTNUT_FENCE,
+                ChestnutSeries.CHESTNUT_FENCE_GATE,
+                ChestnutSeries.CHESTNUT_DOOR,
+                ChestnutSeries.CHESTNUT_TRAPDOOR
                 );
 
         blockStateModelGenerator.registerSimpleState(ModBlocks.STONE_MILL);
-    }
-
-    public static void registerWoodSeries(BlockStateModelGenerator modelGenerator, BlockFamily blockFamily, Block log, Block wood, Block stripped_log, Block stripped_wood, Block planks, Block leaves, Block sapling) {
-        modelGenerator
-                .registerLog(log)
-                .log(log)
-                .wood(wood);
-        modelGenerator
-                .registerLog(stripped_log)
-                .log(stripped_log)
-                .wood(stripped_wood);
-        modelGenerator.registerSimpleCubeAll(leaves);
-        BlockStateModelGenerator.BlockTexturePool woodPool = modelGenerator.registerCubeAllModelTexturePool(planks);
-        woodPool.family(blockFamily);
-        modelGenerator.registerTintableCross(sapling, BlockStateModelGenerator.TintType.NOT_TINTED);
     }
 
     @Override
@@ -81,11 +98,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.METAL_DETECTOR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DOUGH, Models.GENERATED);
         itemModelGenerator.register(ModItems.MARIJUANA, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SOYBEAN, Models.GENERATED);
         itemModelGenerator.register(ModItems.FLOUR, Models.GENERATED);
         itemModelGenerator.register(ModItems.SALT, Models.GENERATED);
         itemModelGenerator.register(ModItems.MARIJUANA_LEAF, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MARIJUANA_SEEDS, Models.GENERATED);
         itemModelGenerator.register(ModItems.PORCUPINE_SPAWN_EGG, new Model(Optional.of(new Identifier("item/template_spawn_egg")),Optional.empty()));
 
         itemModelGenerator.register(ModItems.COPPER_AXE,Models.HANDHELD);
@@ -114,5 +129,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.CHESTNUT_BOAT, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHESTNUT_CHEST_BOAT, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.SOYBEAN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MARIJUANA_SEEDS, Models.GENERATED);
     }
 }

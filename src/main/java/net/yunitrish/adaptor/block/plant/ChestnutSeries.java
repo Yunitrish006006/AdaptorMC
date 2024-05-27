@@ -14,6 +14,8 @@ import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.Adaptor;
 import net.yunitrish.adaptor.world.tree.ModSaplingGenerators;
@@ -40,7 +42,7 @@ public class ChestnutSeries {
     public static final Block CHESTNUT_WOOD = registerBlock("chestnut_wood",new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).strength(4f)));
     public static final Block STRIPPED_CHESTNUT_LOG = registerBlock("stripped_chestnut_log",new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_LOG).strength(4f)));
     public static final Block STRIPPED_CHESTNUT_WOOD = registerBlock("stripped_chestnut_wood",new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD).strength(4f)));
-    public static final Block CHESTNUT_PLANKS = registerBlock("chestnut_planks",new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(4f)));
+    public static final Block CHESTNUT_PLANKS = registerBlock("chestnut_planks", new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD).burnable()));
     public static final Block CHESTNUT_LEAVES = registerBlock("chestnut_leaves",new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).strength(4f).nonOpaque()));
     public static final Block CHESTNUT_SAPLING = registerBlock("chestnut_sapling", new SaplingBlock(ModSaplingGenerators.CHESTNUT,AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
@@ -61,4 +63,34 @@ public class ChestnutSeries {
             .group("wooden")
             .unlockCriterionName("has_planks")
             .build();
+    public static final Block CHESTNUT_STAIRS = registerBlock("chestnut_stairs", new StairsBlock(CHESTNUT_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(CHESTNUT_PLANKS)));
+    public static final Block CHESTNUT_SLAB = registerBlock("chestnut_slab", new SlabBlock(AbstractBlock.Settings.copy(CHESTNUT_PLANKS)));
+    public static final Block CHESTNUT_FENCE = registerBlock("chestnut_fence", new FenceBlock(AbstractBlock.Settings.copy(CHESTNUT_PLANKS)));
+    public static BlockSetType CHESTNUT = new BlockSetType(
+            "chestnut", true, true, true,
+            BlockSetType.ActivationRule.MOBS,
+            BlockSoundGroup.WOOD,
+            SoundEvents.BLOCK_WOODEN_DOOR_CLOSE,
+            SoundEvents.BLOCK_WOODEN_DOOR_OPEN,
+            SoundEvents.BLOCK_WOODEN_TRAPDOOR_CLOSE,
+            SoundEvents.BLOCK_WOODEN_TRAPDOOR_OPEN,
+            SoundEvents.BLOCK_WOODEN_PRESSURE_PLATE_CLICK_OFF,
+            SoundEvents.BLOCK_WOODEN_PRESSURE_PLATE_CLICK_ON,
+            SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_OFF,
+            SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_ON
+    );
+    public static final Block CHESTNUT_BUTTON = registerBlock("chestnut_button", new ButtonBlock(CHESTNUT, 10, AbstractBlock.Settings.copy(CHESTNUT_PLANKS)));
+    public static final Block CHESTNUT_PRESSURE_PLATE = registerBlock("chestnut_pressure_plate", new PressurePlateBlock(CHESTNUT, AbstractBlock.Settings.copy(CHESTNUT_PLANKS)));
+    public static final Block CHESTNUT_DOOR = registerBlock("chestnut_door", new DoorBlock(CHESTNUT, AbstractBlock.Settings.copy(CHESTNUT_PLANKS)));
+    public static final Block CHESTNUT_TRAPDOOR = registerBlock("chestnut_trapdoor", new TrapdoorBlock(CHESTNUT, AbstractBlock.Settings.copy(CHESTNUT_PLANKS)));
+    static WoodType chestnut = new WoodType(
+            "chestnut",
+            CHESTNUT,
+            BlockSoundGroup.WOOD,
+            BlockSoundGroup.HANGING_SIGN,
+            SoundEvents.BLOCK_FENCE_GATE_CLOSE,
+            SoundEvents.BLOCK_FENCE_GATE_OPEN
+    );
+    public static final Block CHESTNUT_FENCE_GATE = registerBlock("chestnut_fence_gate", new FenceGateBlock(chestnut, AbstractBlock.Settings.copy(CHESTNUT_PLANKS)));
+
 }

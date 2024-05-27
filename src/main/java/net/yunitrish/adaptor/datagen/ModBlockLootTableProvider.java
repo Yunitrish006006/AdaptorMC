@@ -20,6 +20,7 @@ import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryWrapper;
 import net.yunitrish.adaptor.block.ModBlocks;
+import net.yunitrish.adaptor.block.building.DirtSeries;
 import net.yunitrish.adaptor.block.plant.ChestnutSeries;
 import net.yunitrish.adaptor.block.plant.MarijuanaCropBlock;
 import net.yunitrish.adaptor.block.plant.SoyBeanCropBlock;
@@ -112,13 +113,35 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                                 )
                 )
         );
+
+
+        addDrop(DirtSeries.DIRT_STAIRS);
+        addDrop(DirtSeries.DIRT_SLAB, slabDrops(DirtSeries.DIRT_SLAB));
+        addDrop(DirtSeries.DIRT_BUTTON);
+        addDrop(DirtSeries.DIRT_PRESSURE_PLATE);
+        addDrop(DirtSeries.DIRT_FENCE);
+        addDrop(DirtSeries.DIRT_FENCE_GATE);
+        addDrop(DirtSeries.DIRT_WALL);
+        addDrop(DirtSeries.DIRT_DOOR, doorDrops(DirtSeries.DIRT_DOOR));
+        addDrop(DirtSeries.DIRT_TRAPDOOR);
+
         addDrop(ChestnutSeries.CHESTNUT_LOG);
         addDrop(ChestnutSeries.CHESTNUT_WOOD);
         addDrop(ChestnutSeries.STRIPPED_CHESTNUT_LOG);
         addDrop(ChestnutSeries.STRIPPED_CHESTNUT_LOG);
         addDrop(ChestnutSeries.CHESTNUT_PLANKS);
         addDrop(ChestnutSeries.CHESTNUT_SAPLING);
+        addDrop(ChestnutSeries.CHESTNUT_STAIRS);
+        addDrop(ChestnutSeries.CHESTNUT_SLAB, slabDrops(ChestnutSeries.CHESTNUT_SLAB));
+        addDrop(ChestnutSeries.CHESTNUT_BUTTON);
+        addDrop(ChestnutSeries.CHESTNUT_PRESSURE_PLATE);
+        addDrop(ChestnutSeries.CHESTNUT_FENCE);
+        addDrop(ChestnutSeries.CHESTNUT_FENCE_GATE);
+        addDrop(ChestnutSeries.CHESTNUT_DOOR, doorDrops(ChestnutSeries.CHESTNUT_DOOR));
+        addDrop(ChestnutSeries.CHESTNUT_TRAPDOOR);
 
         addDrop(ChestnutSeries.CHESTNUT_LEAVES,leavesDrops(ChestnutSeries.CHESTNUT_LEAVES,ChestnutSeries.CHESTNUT_SAPLING,0.0025f));
+
+        addDrop(ModBlocks.GLASS_SLAB, slabDrops(ModBlocks.GLASS_SLAB));
     }
 }

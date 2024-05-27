@@ -17,6 +17,7 @@ repositories {
 	}
 
 	maven { url = 'https://maven.minecraftforge.net/' }
+    maven { url = "https://maven.kyrptonaught.dev" }
 }
 
 fabricApi {
@@ -34,6 +35,9 @@ dependencies {
 
 	modImplementation "com.github.glitchfiend:TerraBlender-fabric:${project.minecraft_version}-${project.terrablender_version}"
 	include "com.github.glitchfiend:TerraBlender-fabric:${project.minecraft_version}-${project.terrablender_version}"
+
+    modImplementation "net.kyrptonaught:customportalapi:${project.customportalapi_version}-${project.minecraft_version}"
+    include "net.kyrptonaught:customportalapi:${project.customportalapi_version}-${project.minecraft_version}"
 }
 
 processResources {
