@@ -21,7 +21,7 @@
 		"client": [
 			"net.yunitrish.adaptor.AdaptorClient"
 		],
-		"//server": [
+      "server": [
 			"net.yunitrish.adaptor.AdaptorServer"
 		],
 		"fabric-datagen": [

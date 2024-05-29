@@ -43,13 +43,13 @@ public abstract class FishingMixin extends ProjectileEntity {
         super(entityType, world);
     }
 
-    @Unique
+    @Shadow
     @Nullable
     public PlayerEntity getPlayerOwner() {
         return this.getOwner() instanceof PlayerEntity ? (PlayerEntity)this.getOwner() : null;
     }
 
-    @Unique
+    @Shadow
     private boolean removeIfInvalid(PlayerEntity player) {
         ItemStack itemStack = player.getMainHandStack();
         ItemStack itemStack2 = player.getOffHandStack();
@@ -63,7 +63,7 @@ public abstract class FishingMixin extends ProjectileEntity {
     }
 
 
-    @Unique
+    @Shadow
     protected void pullHookedEntity(Entity entity) {
         Entity entity2 = this.getOwner();
         if (entity2 == null) {
@@ -150,60 +150,4 @@ public abstract class FishingMixin extends ProjectileEntity {
         fish.setHealth(0.2f);
         return fish;
     }
-
-//    @Unique
-//    @NotNull
-//    private CodEntity getCodEntity(PlayerEntity playerEntity) {
-//        CodEntity fish = new CodEntity(EntityType.COD,this.getWorld());
-//        double d = playerEntity.getX() - this.getX();
-//        double e = playerEntity.getY() - this.getY();
-//        double f = playerEntity.getZ() - this.getZ();
-//        fish.setHeadYaw(playerEntity.headYaw);
-//        fish.setVelocity(d * 0.12, e * 0.12 + Math.sqrt(Math.sqrt(d * d + e * e + f * f)) * 0.12, f * 0.12);
-//        fish.setPosition(this.getPos());
-//        fish.setHealth(0.2f);
-//        return fish;
-//    }
-//
-//    @Unique
-//    @NotNull
-//    private PufferfishEntity getPufferfishEntity(PlayerEntity playerEntity) {
-//        PufferfishEntity fish = new PufferfishEntity(EntityType.PUFFERFISH,this.getWorld());
-//        double d = playerEntity.getX() - this.getX();
-//        double e = playerEntity.getY() - this.getY();
-//        double f = playerEntity.getZ() - this.getZ();
-//        fish.setHeadYaw(playerEntity.headYaw);
-//        fish.setVelocity(d * 0.12, e * 0.12 + Math.sqrt(Math.sqrt(d * d + e * e + f * f)) * 0.12, f * 0.12);
-//        fish.setPosition(this.getPos());
-//        fish.setHealth(0.2f);
-//        return fish;
-//    }
-//
-//    @Unique
-//    @NotNull
-//    private TropicalFishEntity getTropicalFishEntity(PlayerEntity playerEntity) {
-//        TropicalFishEntity fish = new TropicalFishEntity(EntityType.TROPICAL_FISH,this.getWorld());
-//        double d = playerEntity.getX() - this.getX();
-//        double e = playerEntity.getY() - this.getY();
-//        double f = playerEntity.getZ() - this.getZ();
-//        fish.setHeadYaw(playerEntity.headYaw);
-//        fish.setVelocity(d * 0.12, e * 0.12 + Math.sqrt(Math.sqrt(d * d + e * e + f * f)) * 0.12, f * 0.12);
-//        fish.setPosition(this.getPos());
-//        fish.setHealth(0.2f);
-//        return fish;
-//    }
-//
-//    @Unique
-//    @NotNull
-//    private SalmonEntity getSalmonEntity(PlayerEntity playerEntity) {
-//        SalmonEntity fish = new SalmonEntity(EntityType.SALMON,this.getWorld());
-//        double d = playerEntity.getX() - this.getX();
-//        double e = playerEntity.getY() - this.getY();
-//        double f = playerEntity.getZ() - this.getZ();
-//        fish.setHeadYaw(playerEntity.headYaw);
-//        fish.setVelocity(d * 0.12, e * 0.12 + Math.sqrt(Math.sqrt(d * d + e * e + f * f)) * 0.12, f * 0.12);
-//        fish.setPosition(this.getPos());
-//        fish.setHealth(0.2f);
-//        return fish;
-//    }
 }

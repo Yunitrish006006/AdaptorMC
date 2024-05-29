@@ -49,11 +49,11 @@ public class ModItems {
     public static final Item DIAMOND_HAMMER = registerItem("diamond_hammer", new HammerItem(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(HammerItem.createAttributeModifiers(ToolMaterials.DIAMOND, 1.0f, -2.8f))));
     public static final Item NETHERITE_HAMMER = registerItem("netherite_hammer", new HammerItem(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(HammerItem.createAttributeModifiers(ToolMaterials.NETHERITE, 1.0f, -2.8f))));
 
-    public static final  Item COPPER_PICKAXE = registerItem("copper_pickaxe",new PickaxeItem(ModToolMaterial.COPPER,new Item.Settings()));
-    public static final  Item COPPER_AXE = registerItem("copper_axe",new AxeItem(ModToolMaterial.COPPER,new Item.Settings()));
-    public static final  Item COPPER_SHOVEL = registerItem("copper_shovel",new ShovelItem(ModToolMaterial.COPPER,new Item.Settings()));
-    public static final  Item COPPER_SWORD = registerItem("copper_sword",new SwordItem(ModToolMaterial.COPPER,new Item.Settings()));
-    public static final  Item COPPER_HOE = registerItem("copper_hoe",new HoeItem(ModToolMaterial.COPPER,new Item.Settings()));
+    public static final Item COPPER_SWORD = registerItem("copper_sword", new SwordItem(ModToolMaterial.COPPER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterial.COPPER, 3, -2.4f))));
+    public static final Item COPPER_SHOVEL = registerItem("copper_shovel", new ShovelItem(ModToolMaterial.COPPER, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterial.COPPER, 1.5f, -3.0f))));
+    public static final Item COPPER_AXE = registerItem("copper_axe", new AxeItem(ModToolMaterial.COPPER, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterial.COPPER, 1.0f, -2.8f))));
+    public static final Item COPPER_PICKAXE = registerItem("copper_pickaxe", new PickaxeItem(ModToolMaterial.COPPER, new Item.Settings().attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterial.COPPER, 5.0f, -3.0f))));
+    public static final Item COPPER_HOE = registerItem("copper_hoe", new HoeItem(ModToolMaterial.COPPER, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterial.COPPER, -3.0f, 0.0f))));
 
     public static final Item COPPER_HELMET = registerItem("copper_helmet", new ModArmorItem(ModArmorMaterial.COPPER, ArmorItem.Type.HELMET, new Item.Settings().maxCount(1).maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
     public static final Item COPPER_CHESTPLATE = registerItem("copper_chestplate", new ModArmorItem(ModArmorMaterial.COPPER, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxCount(1).maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
