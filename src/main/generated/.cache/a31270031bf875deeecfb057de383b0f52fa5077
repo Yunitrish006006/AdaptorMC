@@ -1,4 +1,4 @@
-// 1.20.6	2024-05-27T18:44:44.9279063	Adaptor/Model Definitions
+// 1.20.6	2024-05-29T10:05:52.7480266	Adaptor/Model Definitions
 11c252da9987d886959bbbdc572c87aa8cece6ef assets\adaptor\models\item\copper_helmet_gold_trim.json
 04efda3cda92aeda84c791deb527aabc2cea5ec5 assets\adaptor\models\item\copper_helmet_diamond_trim.json
 ebc14ba153f887c99f6d3ac9e857ccec59ea82ad assets\adaptor\blockstates\chestnut_sapling.json
@@ -212,8 +212,8 @@ d65ac6142af5f481f673e9108fb27066a6bfee7c assets\adaptor\models\item\copper_boots
 3018b931d94db8674e8f79a50ac11187dbca33d3 assets\adaptor\models\item\copper_chestplate_gold_trim.json
 bbc8ced544d07d56cec97acccf44f7d9d06865ec assets\adaptor\models\block\chestnut_log_horizontal.json
 2a1fd12b8a831e1dbfcaafa0e4e508724ace6297 assets\adaptor\models\item\dough.json
-e831a6f78a631376be8707d458bb806fc0952920 assets\adaptor\models\item\copper_helmet_emerald_trim.json
 3bae044628a196bdef668d7b27668e044c5f73cc assets\adaptor\models\block\dirt_fence_gate_open.json
+e831a6f78a631376be8707d458bb806fc0952920 assets\adaptor\models\item\copper_helmet_emerald_trim.json
 e64df62c4a020f81a810f71a5834b159d54810f0 assets\adaptor\models\item\copper_leggings_redstone_trim.json
 5a4a24b023973852be05d4f8b7176c2fb536b345 assets\adaptor\models\item\copper_shovel.json
 8098b8080cdc97be57e735f961b7dd2bfd3cc919 assets\adaptor\models\item\marijuana_seeds.json

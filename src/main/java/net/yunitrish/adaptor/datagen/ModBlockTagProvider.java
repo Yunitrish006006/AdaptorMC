@@ -29,7 +29,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .forceAddTag(BlockTags.EMERALD_ORES)
                 .forceAddTag(BlockTags.DIAMOND_ORES)
                 .add(Blocks.NETHERRACK);
-        getOrCreateTagBuilder(ModTags.Blocks.HAMMER)
+        getOrCreateTagBuilder(ModTags.Blocks.HAMMER_EFFICIENT)
                 .forceAddTag(BlockTags.WALLS)
                 .forceAddTag(BlockTags.FENCE_GATES)
                 .forceAddTag(BlockTags.FENCES)
@@ -40,9 +40,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .forceAddTag(BlockTags.ALL_SIGNS)
                 .forceAddTag(BlockTags.BEDS)
                 .forceAddTag(BlockTags.WALL_SIGNS)
-                .forceAddTag(ModTags.Blocks.ORES)
-                .forceAddTag(BlockTags.BASE_STONE_OVERWORLD)
-                .forceAddTag(BlockTags.BASE_STONE_NETHER)
+        ;
+        getOrCreateTagBuilder(ModTags.Blocks.HAMMER)
+                .forceAddTag(BlockTags.PICKAXE_MINEABLE)
+                .forceAddTag(BlockTags.AXE_MINEABLE)
         ;
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(ModBlocks.GRAVEL_IRON_ORE);

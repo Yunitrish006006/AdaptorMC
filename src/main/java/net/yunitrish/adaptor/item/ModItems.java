@@ -41,13 +41,13 @@ public class ModItems {
     public static final Item DOUGH = registerItem("dough", new Item(new Item.Settings().food(ModFoodComponents.DOUGH)));
     public static final Item METAL_DETECTOR = registerItem("metal_detector", new DetectorItem(new Item.Settings()));
 
-    public static final Item WOODEN_HAMMER =  registerItem("wooden_hammer", new HammerItem(ToolMaterials.WOOD,new Item.Settings()));
-    public static final Item STONE_HAMMER =  registerItem("stone_hammer", new HammerItem(ToolMaterials.STONE,new Item.Settings()));
-    public static final Item COPPER_HAMMER =  registerItem("copper_hammer", new HammerItem(ModToolMaterial.COPPER,new Item.Settings()));
-    public static final Item IRON_HAMMER =  registerItem("iron_hammer", new HammerItem(ToolMaterials.IRON,new Item.Settings()));
-    public static final Item GOLDEN_HAMMER =  registerItem("golden_hammer", new HammerItem(ToolMaterials.GOLD,new Item.Settings()));
-    public static final Item DIAMOND_HAMMER =  registerItem("diamond_hammer", new HammerItem(ToolMaterials.DIAMOND,new Item.Settings()));
-    public static final Item NETHERITE_HAMMER =  registerItem("netherite_hammer", new HammerItem(ToolMaterials.NETHERITE,new Item.Settings()));
+    public static final Item WOODEN_HAMMER = registerItem("wooden_hammer", new HammerItem(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(HammerItem.createAttributeModifiers(ToolMaterials.WOOD, 1.0f, -2.8f))));
+    public static final Item STONE_HAMMER = registerItem("stone_hammer", new HammerItem(ToolMaterials.STONE, new Item.Settings().attributeModifiers(HammerItem.createAttributeModifiers(ToolMaterials.STONE, 1.0f, -2.8f))));
+    public static final Item COPPER_HAMMER = registerItem("copper_hammer", new HammerItem(ModToolMaterial.COPPER, new Item.Settings().attributeModifiers(HammerItem.createAttributeModifiers(ModToolMaterial.COPPER, 1.0f, -2.8f))));
+    public static final Item IRON_HAMMER = registerItem("iron_hammer", new HammerItem(ToolMaterials.IRON, new Item.Settings().attributeModifiers(HammerItem.createAttributeModifiers(ToolMaterials.IRON, 1.0f, -2.8f))));
+    public static final Item GOLDEN_HAMMER = registerItem("golden_hammer", new HammerItem(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(HammerItem.createAttributeModifiers(ToolMaterials.GOLD, 1.0f, -2.8f))));
+    public static final Item DIAMOND_HAMMER = registerItem("diamond_hammer", new HammerItem(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(HammerItem.createAttributeModifiers(ToolMaterials.DIAMOND, 1.0f, -2.8f))));
+    public static final Item NETHERITE_HAMMER = registerItem("netherite_hammer", new HammerItem(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(HammerItem.createAttributeModifiers(ToolMaterials.NETHERITE, 1.0f, -2.8f))));
 
     public static final  Item COPPER_PICKAXE = registerItem("copper_pickaxe",new PickaxeItem(ModToolMaterial.COPPER,new Item.Settings()));
     public static final  Item COPPER_AXE = registerItem("copper_axe",new AxeItem(ModToolMaterial.COPPER,new Item.Settings()));
@@ -55,10 +55,10 @@ public class ModItems {
     public static final  Item COPPER_SWORD = registerItem("copper_sword",new SwordItem(ModToolMaterial.COPPER,new Item.Settings()));
     public static final  Item COPPER_HOE = registerItem("copper_hoe",new HoeItem(ModToolMaterial.COPPER,new Item.Settings()));
 
-    public static final  Item COPPER_HELMET = registerItem("copper_helmet",new ModArmorItem(ModArmorMaterial.COPPER,ArmorItem.Type.HELMET,new Item.Settings().maxCount(1)));
-    public static final  Item COPPER_CHESTPLATE = registerItem("copper_chestplate",new ModArmorItem(ModArmorMaterial.COPPER,ArmorItem.Type.CHESTPLATE,new Item.Settings().maxCount(1)));
-    public static final  Item COPPER_LEGGINGS = registerItem("copper_leggings",new ModArmorItem(ModArmorMaterial.COPPER,ArmorItem.Type.LEGGINGS,new Item.Settings().maxCount(1)));
-    public static final  Item COPPER_BOOTS = registerItem("copper_boots",new ModArmorItem(ModArmorMaterial.COPPER,ArmorItem.Type.BOOTS,new Item.Settings().maxCount(1)));
+    public static final Item COPPER_HELMET = registerItem("copper_helmet", new ModArmorItem(ModArmorMaterial.COPPER, ArmorItem.Type.HELMET, new Item.Settings().maxCount(1).maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
+    public static final Item COPPER_CHESTPLATE = registerItem("copper_chestplate", new ModArmorItem(ModArmorMaterial.COPPER, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxCount(1).maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
+    public static final Item COPPER_LEGGINGS = registerItem("copper_leggings", new ModArmorItem(ModArmorMaterial.COPPER, ArmorItem.Type.LEGGINGS, new Item.Settings().maxCount(1).maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
+    public static final Item COPPER_BOOTS = registerItem("copper_boots", new ModArmorItem(ModArmorMaterial.COPPER, ArmorItem.Type.BOOTS, new Item.Settings().maxCount(1).maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
 
     public static final Item BAR_BRAWL_MUSIC_DISC = registerItem("bar_brawl_music_disc",new MusicDiscItem(3, ModSounds.BAR_BRAWL,new Item.Settings().maxCount(1),122));
     public static final Item SAKURA_VALLEY_MUSIC_DISC = registerItem("sakura_valley_music_disc",new MusicDiscItem(3, ModSounds.SAKURA_VALLEY,new Item.Settings().maxCount(1),119));
