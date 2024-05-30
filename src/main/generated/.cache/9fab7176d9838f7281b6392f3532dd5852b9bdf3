@@ -1,6 +1,6 @@
-// 1.20.6	2024-05-29T10:05:52.7558594	Adaptor/Tags for minecraft:block
-53ebc3e95176913572f9321f766cc0ab932b8c79 data\minecraft\tags\blocks\wooden_stairs.json
+// 1.20.6	2024-05-30T13:11:53.4972548	Adaptor/Tags for minecraft:block
 e389ed609674606605b95431a756006186904b93 data\minecraft\tags\blocks\fences.json
+53ebc3e95176913572f9321f766cc0ab932b8c79 data\minecraft\tags\blocks\wooden_stairs.json
 3a98cd98d640c0f2effe07441a1ca0dedc73a8d4 data\minecraft\tags\blocks\wooden_doors.json
 47e6ce6957a77113a50c49638f4ffac162f8a5ad data\adaptor\tags\blocks\hammer_efficient.json
 395911aa20fafb2b90fdec0455b0b66f11550e4d data\minecraft\tags\blocks\logs_that_burn.json
@@ -12,6 +12,6 @@ e389ed609674606605b95431a756006186904b93 data\minecraft\tags\blocks\fences.json
 4285e1e31802c8fc9134bd43b826d0bc34630202 data\minecraft\tags\blocks\walls.json
 6c517f7f6a3d65b75e041466aac0258a02f3d7c1 data\adaptor\tags\blocks\ores.json
 ba7300e55af9d2931cc37684ad308b7245a060fc data\minecraft\tags\blocks\wooden_trapdoors.json
-4a84f3cdfeedeb67e30d79274485b046b2299e23 data\minecraft\tags\blocks\mineable\shovel.json
 4db555806911f1a643f3cb5e8db11e37c621076b data\minecraft\tags\blocks\fence_gates.json
+4a84f3cdfeedeb67e30d79274485b046b2299e23 data\minecraft\tags\blocks\mineable\shovel.json
 a0641e43b6e5a0744dc5008fab231ab7079b0c57 data\minecraft\tags\blocks\wooden_pressure_plates.json

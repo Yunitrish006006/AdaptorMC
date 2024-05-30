@@ -34,6 +34,16 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.GOLDEN_HAMMER)
                 .add(ModItems.DIAMOND_HAMMER)
                 .add(ModItems.NETHERITE_HAMMER);
+        getOrCreateTagBuilder(ModTags.Items.HAMMER)
+                .add(ModItems.WOODEN_HAMMER)
+                .add(ModItems.STONE_HAMMER)
+                .add(ModItems.COPPER_HAMMER)
+                .add(ModItems.IRON_HAMMER)
+                .add(ModItems.GOLDEN_HAMMER)
+                .add(ModItems.DIAMOND_HAMMER)
+                .add(ModItems.NETHERITE_HAMMER);
+        getOrCreateTagBuilder(ModTags.Items.BAKE)
+                .add(ModItems.DOUGH);
         getOrCreateTagBuilder(ItemTags.SHOVELS).add(ModItems.COPPER_SHOVEL);
         getOrCreateTagBuilder(ItemTags.SWORDS).add(ModItems.COPPER_SWORD);
         getOrCreateTagBuilder(ItemTags.HOES).add(ModItems.COPPER_HOE);

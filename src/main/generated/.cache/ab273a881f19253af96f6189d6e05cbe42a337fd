@@ -1,11 +1,13 @@
-// 1.20.6	2024-05-29T10:05:52.758883	Adaptor/Tags for minecraft:item
+// 1.20.6	2024-05-30T13:11:53.5014396	Adaptor/Tags for minecraft:item
 79ffb610ba005f31e5ba6482372f867b83f5b663 data\minecraft\tags\items\axes.json
-a60559cbd825bfa4c1ba30bff06d2ebd94922f8e data\minecraft\tags\items\music_discs.json
 a60559cbd825bfa4c1ba30bff06d2ebd94922f8e data\minecraft\tags\items\creeper_drop_music_discs.json
+d07c27688c80592ced3274c0a902f0c9321042d2 data\adaptor\tags\items\bake.json
 6868a7d75a2d9b3cbb3ddaa77d8616985f86ff2e data\minecraft\tags\items\swords.json
+16dd193abed007e7c8025bb484b41ff1c329e2fc data\minecraft\tags\items\planks.json
+3b596326dfd224555e5d373d5952c8a9523b0148 data\adaptor\tags\items\hammer.json
+a60559cbd825bfa4c1ba30bff06d2ebd94922f8e data\minecraft\tags\items\music_discs.json
 395911aa20fafb2b90fdec0455b0b66f11550e4d data\minecraft\tags\items\logs_that_burn.json
 b58527850629a657d84986eb706ef9bfc7f8bc4c data\minecraft\tags\items\pickaxes.json
 c74cdfa770648eb7036134559eed86cbf27264c7 data\minecraft\tags\items\shovels.json
 bc6398348259a6ec10b70f81ef9b90e05abd14e6 data\minecraft\tags\items\trimmable_armor.json
-16dd193abed007e7c8025bb484b41ff1c329e2fc data\minecraft\tags\items\planks.json
 73977898242834313a394fedcbf1f02c8754f047 data\minecraft\tags\items\hoes.json

@@ -20,6 +20,10 @@ public class ModTags {
     }
 
     public static class Items {
+
+        public static final TagKey<Item> HAMMER = createTag("hammer");
+        public static final TagKey<Item> BAKE = createTag("bake");
+
         private static TagKey<Item> createTag(String name) {
             return  TagKey.of(RegistryKeys.ITEM,new Identifier(Adaptor.MOD_ID,name));
         }
