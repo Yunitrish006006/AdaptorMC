@@ -10,6 +10,7 @@ import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 import net.fabricmc.api.DedicatedServerModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.ServerEntityWorldChangeEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.message.v1.ServerMessageEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.server.MinecraftServer;
@@ -65,6 +66,7 @@ public class AdaptorServer implements DedicatedServerModInitializer {
         } catch (IOException ignored) {
         }
 
+        ServerTickEvents.END_WORLD_TICK.register((world) -> modServer = world.getServer());
         ServerMessageEvents.CHAT_MESSAGE.register((message, source, params) -> sendDiscordMessage("[" + source.getName().getLiteralString() + "] : " + message.getContent().getLiteralString()));
         ServerEntityWorldChangeEvents.AFTER_PLAYER_CHANGE_WORLD.register((player, origin, destination) -> sendDiscordMessage(player.getName().getLiteralString() + "傳送到不知道甚麼地方"));
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> sendDiscordMessage("[" + handler.player.getName().getLiteralString() + "]" + "進入伺服器"));
