@@ -1,6 +1,9 @@
 package net.yunitrish.adaptor.command;
 
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.ItemEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.yunitrish.adaptor.Adaptor;
@@ -28,5 +31,21 @@ public class ModCommands {
                     }
                     return 1;
                 })));
+        CommandRegistrationCallback.EVENT.register(((dispatcher, registryAccess, environment) -> dispatcher.register(literal("drop")
+                .executes(
+                        context -> {
+                            EquipmentSlot[] var4 = EquipmentSlot.values();
+
+                            for (EquipmentSlot equipmentSlot : var4) {
+                                ServerPlayerEntity player = context.getSource().getPlayer();
+                                assert player != null;
+                                ItemStack itemStack = player.getEquippedStack(equipmentSlot);
+                                player.getServerWorld().spawnEntity(new ItemEntity(player.getServerWorld(), player.getX() + 2, player.getY(), player.getZ() + 2, itemStack));
+                                player.sendMessage(Text.literal("slot:" + equipmentSlot.getEntitySlotId() + " item: " + itemStack.getTranslationKey()));
+                                player.getInventory().removeStack(equipmentSlot.getEntitySlotId());
+                            }
+                            return 1;
+                        }
+                ))));
     }
 }

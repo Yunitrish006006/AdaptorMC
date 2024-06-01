@@ -3,7 +3,8 @@ plugins {
 	id 'maven-publish'
 }
 
-version = project.mod_version
+version = project.minecraft_version + "v" + project.mod_version
+
 group = project.maven_group
 
 base {
@@ -38,6 +39,8 @@ dependencies {
 
     modImplementation "net.kyrptonaught:customportalapi:${project.customportalapi_version}-${project.minecraft_version}"
     include "net.kyrptonaught:customportalapi:${project.customportalapi_version}-${project.minecraft_version}"
+
+	implementation "net.dv8tion:JDA:${project.jda_version}"
 }
 
 processResources {
