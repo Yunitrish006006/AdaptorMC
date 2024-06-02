@@ -4,6 +4,7 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 import net.yunitrish.adaptor.AdaptorServer;
+import net.yunitrish.adaptor.common.ModConfig;
 
 public class SlashCommandListener extends ListenerAdapter {
     @Override
@@ -26,6 +27,27 @@ public class SlashCommandListener extends ListenerAdapter {
                     AdaptorServer.modServer.getCommandManager().executeWithPrefix(AdaptorServer.modServer.getCommandSource(), content);
                 }
                 event.reply("[" + content + "] √")
+                        .setEphemeral(true)
+                        .queue();
+            }
+            case "bind" -> {
+                String minecraft_id = event.getOption("minecraft_id", OptionMapping::getAsString);
+                String discord_id = event.getUser().getId();
+                if (ModConfig.getPlayerFromDiscordId(discord_id) != null) {
+                    event.reply("已有綁定帳號 minecraftID: " + ModConfig.getMinecraftId(discord_id))
+                            .setEphemeral(true)
+                            .queue();
+                    return;
+                }
+                if (ModConfig.getPlayerFromMinecraftId(minecraft_id) != null) {
+                    AdaptorServer.data.addBindData(event.getUser().getId(), minecraft_id);
+
+                    event.reply("成功綁定帳號至 minecraftID: " + minecraft_id)
+                            .setEphemeral(true)
+                            .queue();
+                    return;
+                }
+                event.reply("查無此ID: " + minecraft_id)
                         .setEphemeral(true)
                         .queue();
             }

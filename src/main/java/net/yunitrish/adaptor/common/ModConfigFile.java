@@ -33,16 +33,32 @@ public class ModConfigFile {
         }
     }
 
-    public ModConfig read() throws IOException {
-        FileReader reader = new FileReader(file);
-        config = new Gson().fromJson(reader, ModConfig.class);
-        reader.close();
-        return config;
+    public ModConfig read() {
+        try {
+            FileReader reader = new FileReader(file);
+            config = new Gson().fromJson(reader, ModConfig.class);
+            reader.close();
+            return config;
+        } catch (IOException ignored) {
+            return new ModConfig();
+        }
     }
 
-    public void write() throws IOException {
-        FileWriter writer = new FileWriter(file);
-        writer.write(new Gson().toJson(config));
-        writer.close();
+    public void write() {
+        try {
+            FileWriter writer = new FileWriter(file);
+            writer.write(new Gson().toJson(config));
+            writer.close();
+        } catch (IOException ignored) {
+        }
+    }
+
+    public void addBindData(String discordId, String minecraftId) {
+        config.bindData.put(discordId, minecraftId);
+        write();
+    }
+
+    public boolean isBindPlayer(String discordId) {
+        return config.bindData.containsKey(discordId);
     }
 }

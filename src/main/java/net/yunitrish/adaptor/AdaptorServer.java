@@ -2,6 +2,8 @@ package net.yunitrish.adaptor;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
@@ -51,7 +53,7 @@ public class AdaptorServer implements DedicatedServerModInitializer {
 
             CommandListUpdateAction commands = jda.updateCommands();
 
-            commands.addCommands(
+            commands = commands.addCommands(
                     Commands.slash("say", "Makes the bot say what you tell it to")
                             .addOption(STRING, "content", "What the bot should say", true),
                     Commands.slash("leave", "Makes the bot leave the server")
@@ -60,20 +62,31 @@ public class AdaptorServer implements DedicatedServerModInitializer {
                     Commands.slash("command", "Make bot execute command")
                             .setGuildOnly(true)
                             .addOption(STRING, "content", "command to execute", true)
-                            .setDefaultPermissions(DefaultMemberPermissions.DISABLED)
+                            .setDefaultPermissions(DefaultMemberPermissions.DISABLED),
+                    Commands.slash("bind", "Make bot execute command")
+                            .addOption(STRING, "minecraft_id", "你的minecraftId", true)
             );
             commands.queue();
         } catch (IOException ignored) {
+            return;
         }
 
         ServerTickEvents.END_WORLD_TICK.register((world) -> modServer = world.getServer());
         ServerMessageEvents.CHAT_MESSAGE.register((message, source, params) -> sendDiscordMessage("[" + source.getName().getLiteralString() + "] : " + message.getContent().getLiteralString()));
-        ServerEntityWorldChangeEvents.AFTER_PLAYER_CHANGE_WORLD.register((player, origin, destination) -> sendDiscordMessage(player.getName().getLiteralString() + "傳送到不知道甚麼地方"));
+        ServerEntityWorldChangeEvents.AFTER_PLAYER_CHANGE_WORLD.register((player, origin, destination) -> sendDiscordMessage("[" + player.getName().getLiteralString() + "] " + "傳送到不知道甚麼地方"));
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> sendDiscordMessage("[" + handler.player.getName().getLiteralString() + "]" + "進入伺服器"));
         ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> sendDiscordMessage("[" + handler.player.getName().getLiteralString() + "]" + "離開伺服器"));
-        ServerLifecycleEvents.SERVER_STARTING.register(server -> sendDiscordMessage("伺服器啟動中..."));
-        ServerLifecycleEvents.SERVER_STARTED.register(server -> sendDiscordMessage("伺服器啟動完成"));
-        ServerLifecycleEvents.SERVER_STOPPING.register(server -> sendDiscordMessage("伺服器關閉中..."));
-        ServerLifecycleEvents.SERVER_STOPPED.register(server -> sendDiscordMessage("伺服器已離線"));
+        ServerLifecycleEvents.SERVER_STARTING.register(server -> updateStatus(OnlineStatus.IDLE, "伺服器正在啟動..."));
+        ServerLifecycleEvents.SERVER_STARTED.register(server -> updateStatus(OnlineStatus.ONLINE, "伺服器運行中 ✓"));
+        ServerLifecycleEvents.SERVER_STOPPING.register(server -> updateStatus(OnlineStatus.DO_NOT_DISTURB, "伺服器關閉中..."));
+        ServerLifecycleEvents.SERVER_STOPPED.register(server -> {
+            updateStatus(OnlineStatus.DO_NOT_DISTURB, "伺服器已離線");
+            jda.shutdown();
+        });
+    }
+
+    public void updateStatus(OnlineStatus status, String parameter) {
+        jda.getPresence().setStatus(status);
+        jda.getPresence().setActivity(Activity.of(Activity.ActivityType.STREAMING, parameter, "https://github.com/Yunitrish006006/FabricServerMods"));
     }
 }
