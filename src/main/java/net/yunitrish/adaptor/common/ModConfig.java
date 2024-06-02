@@ -25,4 +25,17 @@ public class ModConfig extends JsonElement {
     public static String getMinecraftId(String discordId) {
         return AdaptorServer.data.config.bindData.get(discordId);
     }
+
+    public boolean isMinecraftIdInDataBind(String minecraftId) {
+        return bindData.containsValue(minecraftId);
+    }
+
+    public String getFirstMatchDiscordId(String minecraftId) {
+        for (Map.Entry<String, String> i : bindData.entrySet()) {
+            if (minecraftId.equals(i.getValue())) {
+                return i.getKey();
+            }
+        }
+        return null;
+    }
 }
