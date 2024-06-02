@@ -1,5 +1,6 @@
 package net.yunitrish.adaptor;
 
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -72,7 +73,33 @@ public class AdaptorServer implements DedicatedServerModInitializer {
         }
 
         ServerTickEvents.END_WORLD_TICK.register((world) -> modServer = world.getServer());
-        ServerMessageEvents.CHAT_MESSAGE.register((message, source, params) -> sendDiscordMessage("[" + source.getName().getLiteralString() + "] : " + message.getContent().getLiteralString()));
+        ServerMessageEvents.CHAT_MESSAGE.register((message, source, params) -> {
+            String content = message.getContent().getLiteralString();
+            String minecraftId = source.getName().getLiteralString();
+            if (data.config.isMinecraftIdInDataBind(minecraftId)) {
+                Adaptor.LOGGER.info("1");
+                List<TextChannel> channels = jda.getTextChannelsByName("一般", false);
+                for (TextChannel ch : channels) {
+                    jda.retrieveUserById(data.config.getFirstMatchDiscordId(minecraftId)).queue(
+                            user -> {
+                                if (user == null) {
+                                    sendDiscordMessage("[" + minecraftId + "] : " + content);
+                                } else {
+                                    ch.sendMessageEmbeds(
+                                            new EmbedBuilder()
+                                                    .setAuthor(user.getName() + " : " + content, null, user.getAvatarUrl())
+                                                    .clearFields()
+                                                    .build()
+                                    ).queue();
+                                }
+                            }
+                    );
+                }
+            } else {
+                Adaptor.LOGGER.info("1");
+
+            }
+        });
         ServerEntityWorldChangeEvents.AFTER_PLAYER_CHANGE_WORLD.register((player, origin, destination) -> sendDiscordMessage("[" + player.getName().getLiteralString() + "] " + "傳送到不知道甚麼地方"));
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> sendDiscordMessage("[" + handler.player.getName().getLiteralString() + "]" + "進入伺服器"));
         ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> sendDiscordMessage("[" + handler.player.getName().getLiteralString() + "]" + "離開伺服器"));
