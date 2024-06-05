@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
@@ -12,18 +13,20 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 import net.fabricmc.api.DedicatedServerModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.ServerEntityWorldChangeEvents;
+import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.message.v1.ServerMessageEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.yunitrish.adaptor.common.ModConfigFile;
 import net.yunitrish.adaptor.discord.MessageReceiveListener;
 import net.yunitrish.adaptor.discord.SlashCommandListener;
 
 import java.io.IOException;
 import java.util.EnumSet;
-import java.util.List;
+import java.util.Objects;
 
 import static net.dv8tion.jda.api.interactions.commands.OptionType.STRING;
 
@@ -33,18 +36,47 @@ public class AdaptorServer implements DedicatedServerModInitializer {
     public static MinecraftServer modServer;
     public static JDA jda;
 
-    public static void sendDiscordMessage(String message) {
-        List<TextChannel> channels = jda.getTextChannelsByName("一般", false);
-        for (TextChannel ch : channels) {
-            ch.sendMessage(message).queue();
+    public static void sendEmbedMessage(String message, String minecraftId) {
+        if (data.config.getFirstMatchDiscordId(minecraftId) == null) {
+
+            for (TextChannel channel : jda.getTextChannelsByName("一般", false)) {
+                channel.sendMessageEmbeds(
+                        new EmbedBuilder()
+                                .setAuthor(minecraftId + " " + message, null, null)
+                                .clearFields()
+                                .build()
+                ).queue();
+            }
+        } else {
+            jda.retrieveUserById(data.config.getFirstMatchDiscordId(minecraftId)).queue(
+                    user -> {
+                        MessageEmbed content;
+                        if (user == null) {
+                            content = new EmbedBuilder()
+                                    .setAuthor(minecraftId + " : " + message, null, null)
+                                    .clearFields()
+                                    .build();
+                        } else {
+                            content = new EmbedBuilder()
+                                    .setAuthor(user.getName() + " : " + message, null, user.getAvatarUrl())
+                                    .clearFields()
+                                    .build();
+                        }
+
+                        for (TextChannel channel : jda.getTextChannelsByName("一般", false)) {
+                            channel.sendMessageEmbeds(content).queue();
+                        }
+                    }
+            );
         }
     }
 
     @Override
     public void onInitializeServer() {
-
+        //*
         try {
             data = new ModConfigFile("adaptor.json");
+            if (Objects.equals(data.config.token, "YOUR-TOKEN-HERE")) return;
             jda = JDABuilder.createLight(data.config.token, EnumSet.of(GatewayIntent.GUILD_MESSAGES, GatewayIntent.MESSAGE_CONTENT))
                     .addEventListeners(
                             new MessageReceiveListener(),
@@ -69,40 +101,21 @@ public class AdaptorServer implements DedicatedServerModInitializer {
             );
             commands.queue();
         } catch (IOException ignored) {
-            return;
+            jda = null;
         }
 
         ServerTickEvents.END_WORLD_TICK.register((world) -> modServer = world.getServer());
-        ServerMessageEvents.CHAT_MESSAGE.register((message, source, params) -> {
-            String content = message.getContent().getLiteralString();
-            String minecraftId = source.getName().getLiteralString();
-            if (data.config.isMinecraftIdInDataBind(minecraftId)) {
-                Adaptor.LOGGER.info("1");
-                List<TextChannel> channels = jda.getTextChannelsByName("一般", false);
-                for (TextChannel ch : channels) {
-                    jda.retrieveUserById(data.config.getFirstMatchDiscordId(minecraftId)).queue(
-                            user -> {
-                                if (user == null) {
-                                    sendDiscordMessage("[" + minecraftId + "] : " + content);
-                                } else {
-                                    ch.sendMessageEmbeds(
-                                            new EmbedBuilder()
-                                                    .setAuthor(user.getName() + " : " + content, null, user.getAvatarUrl())
-                                                    .clearFields()
-                                                    .build()
-                                    ).queue();
-                                }
-                            }
-                    );
-                }
-            } else {
-                Adaptor.LOGGER.info("1");
-
+        ServerMessageEvents.CHAT_MESSAGE.register((message, source, params) -> sendEmbedMessage(message.getContent().getLiteralString(), source.getName().getLiteralString()));
+        ServerEntityWorldChangeEvents.AFTER_PLAYER_CHANGE_WORLD.register((player, origin, destination) -> sendEmbedMessage("傳送到不知道哪邊", player.getName().getLiteralString()));
+        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> sendEmbedMessage("進入伺服器", handler.player.getName().getLiteralString()));
+        ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> sendEmbedMessage("離開伺服器", handler.player.getName().getLiteralString()));
+        ServerLivingEntityEvents.AFTER_DEATH.register((entity, damageSource) -> {
+            if (entity.getCustomName() != null) {
+                sendEmbedMessage(damageSource.getDeathMessage(entity).getString().replaceFirst(entity.getCustomName().getString(), ""), entity.getCustomName().getString());
+            } else if (entity instanceof ServerPlayerEntity player) {
+                sendEmbedMessage(damageSource.getDeathMessage(player).getString().replaceFirst(player.getName().getString(), "").trim(), player.getName().getString());
             }
         });
-        ServerEntityWorldChangeEvents.AFTER_PLAYER_CHANGE_WORLD.register((player, origin, destination) -> sendDiscordMessage("[" + player.getName().getLiteralString() + "] " + "傳送到不知道甚麼地方"));
-        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> sendDiscordMessage("[" + handler.player.getName().getLiteralString() + "]" + "進入伺服器"));
-        ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> sendDiscordMessage("[" + handler.player.getName().getLiteralString() + "]" + "離開伺服器"));
         ServerLifecycleEvents.SERVER_STARTING.register(server -> updateStatus(OnlineStatus.IDLE, "伺服器正在啟動..."));
         ServerLifecycleEvents.SERVER_STARTED.register(server -> updateStatus(OnlineStatus.ONLINE, "伺服器運行中 ✓"));
         ServerLifecycleEvents.SERVER_STOPPING.register(server -> updateStatus(OnlineStatus.DO_NOT_DISTURB, "伺服器關閉中..."));
@@ -110,6 +123,7 @@ public class AdaptorServer implements DedicatedServerModInitializer {
             updateStatus(OnlineStatus.DO_NOT_DISTURB, "伺服器已離線");
             jda.shutdown();
         });
+        //*/
     }
 
     public void updateStatus(OnlineStatus status, String parameter) {

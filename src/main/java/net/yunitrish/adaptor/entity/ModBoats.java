@@ -7,7 +7,6 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.Adaptor;
 import net.yunitrish.adaptor.block.plant.ChestnutSeries;
-import net.yunitrish.adaptor.item.ModItems;
 
 public class ModBoats {
     public static final Identifier CHESTNUT_BOAT_ID = Adaptor.modIdentifier("chestnut_boat");
@@ -17,8 +16,8 @@ public class ModBoats {
 
     public static void registerBoats() {
         TerraformBoatType chestnutBoat = new TerraformBoatType.Builder()
-                .item(ModItems.CHESTNUT_BOAT)
-                .chestItem(ModItems.CHESTNUT_CHEST_BOAT)
+                .item(ChestnutSeries.CHESTNUT_BOAT)
+                .chestItem(ChestnutSeries.CHESTNUT_CHEST_BOAT)
                 .planks(ChestnutSeries.CHESTNUT_PLANKS.asItem())
                 .build();
         Registry.register(TerraformBoatTypeRegistry.INSTANCE,CHESTNUT_BOAT_KEY,chestnutBoat);

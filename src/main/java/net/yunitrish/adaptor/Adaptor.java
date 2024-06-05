@@ -9,6 +9,7 @@ import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.block.ModBlockEntities;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.command.ModCommands;
+import net.yunitrish.adaptor.enchantment.EnchantAttributeHandler;
 import net.yunitrish.adaptor.enchantment.ModEnchantments;
 import net.yunitrish.adaptor.entity.ModBoats;
 import net.yunitrish.adaptor.entity.ModEntities;
@@ -39,11 +40,11 @@ public class Adaptor implements ModInitializer {
 		LOGGER.info("Initializing");
 		ModEvents.registerEvents();
 		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
 		ModBoats.registerBoats();
 		ModEnchantments.registerModEnchantments();
 		ModTrunkPlacerTypes.register();
         ModFoliagePlacerTypes.register();
-		ModBlocks.registerModBlocks();
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandlers();
 		ModRecipes.registerRecipes();
@@ -62,5 +63,6 @@ public class Adaptor implements ModInitializer {
                 .tintColor(0x575c3b)
                 .onlyLightInOverworld()
                 .registerPortal();
+		EnchantAttributeHandler.registerEnchantmentAttributes();
 	}
 }

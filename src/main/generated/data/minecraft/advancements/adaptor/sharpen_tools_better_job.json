@@ -1,10 +1,10 @@
 {
   "criteria": {
-    "ingenuity": {
+    "sharpen_tools_better_job": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:iron_ingot"
+            "items": "#adaptor:hammer"
           }
         ]
       },
@@ -14,19 +14,19 @@
   "display": {
     "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
     "description": {
-      "translate": "advancements.building.ingenuity.description"
+      "translate": "advancements.sharpen_tools_better_job.description"
     },
     "icon": {
       "count": 1,
       "id": "adaptor:iron_hammer"
     },
     "title": {
-      "translate": "advancements.building.ingenuity.title"
+      "translate": "advancements.sharpen_tools_better_job.title"
     }
   },
   "requirements": [
     [
-      "ingenuity"
+      "sharpen_tools_better_job"
     ]
   ],
   "sends_telemetry_event": true

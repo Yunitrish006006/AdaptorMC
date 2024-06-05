@@ -1,6 +1,5 @@
 package net.yunitrish.adaptor.item;
 
-
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Items;

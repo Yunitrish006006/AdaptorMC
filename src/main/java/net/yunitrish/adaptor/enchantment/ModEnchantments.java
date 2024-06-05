@@ -8,6 +8,8 @@ import net.yunitrish.adaptor.Adaptor;
 public class ModEnchantments {
     public static Enchantment LEACH = register("leach", new LeachEnchantment());
     public static Enchantment MANIC = register("manic", new ManicEnchantment());
+    public static Enchantment DEXTERITY = register("dexterity", new DexterityEnchantment());
+    public static Enchantment WISDOM = register("wisdom", new WisdomEnchantment());
 
     private static Enchantment register(String name, Enchantment enchantment) {
         return Registry.register(Registries.ENCHANTMENT, Adaptor.modIdentifier(name),enchantment);

@@ -4,7 +4,7 @@
   "group": "hammer",
   "key": {
     "I": {
-      "item": "minecraft:diamond"
+      "tag": "minecraft:planks"
     },
     "S": {
       "item": "minecraft:stick"
@@ -17,6 +17,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "adaptor:diamond_hammer"
+    "id": "adaptor:wooden_hammer"
   }
 }

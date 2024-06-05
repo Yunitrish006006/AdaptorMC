@@ -1,6 +1,17 @@
 {
-  "advancements.building.ingenuity.title": "Ingenuity",
-  "advancements.building.ingenuity.description": "start ur building journal",
+  "advancements.sharpen_tools_better_job.title": "The sharpen of tool, The better of work",
+  "advancements.sharpen_tools_better_job.description": "make a hammer",
+  "advancements.ingenuity.title": "Ingenuity",
+  "advancements.ingenuity.description": "make a iron hammer",
+  "advancements.as_hard_as_dirt.title": "Hide in ground!",
+  "advancements.as_hard_as_dirt.description": "get a dirt block",
+  "advancements.leach.title": "Battle never Ends!!",
+  "advancements.leach.description": "Enchant a weapon with Leach ",
+  "tag.item.adaptor.hemmer": "hammer",
+  "tag.item.adaptor.bake": "bake",
+  "tag.block.adaptor.hammer": "hammer",
+  "tag.block.adaptor.ores": "ores",
+  "tag.block.adaptor.hammer_efficient": "hammer_efficient",
 
   "item.adaptor.salt": "Salt",
   "item.adaptor.flour": "Flour",
@@ -96,6 +107,8 @@
 
   "enchantment.adaptor.leach": "Leach",
   "enchantment.adaptor.manic": "Manic",
+  "enchantment.adaptor.dexterity": "Dexterity",
+  "enchantment.adaptor.wisdom": "Wisdom",
   "entity.minecraft.villager.chef": "Chef",
   "entity.minecraft.villager.scavenger": "Scavenger",
 
