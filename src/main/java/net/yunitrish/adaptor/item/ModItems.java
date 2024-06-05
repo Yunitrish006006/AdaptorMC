@@ -74,7 +74,7 @@ public class ModItems {
         Adaptor.LOGGER.info("Registering Mod Items for " + Adaptor.MOD_ID);
         AdaptorGroup = FabricItemGroup.builder()
                 .displayName(Text.translatable("itemgroup.adaptor_group"))
-                .icon(()-> new ItemStack(ModItems.METAL_DETECTOR))
+                .icon(() -> new ItemStack(ModItems.IRON_HAMMER))
                 .build();
         Registry.register(Registries.ITEM_GROUP,Adaptor.modIdentifier("adaptor_group"),AdaptorGroup);
         addToItemGroup("adaptor_group", ChestnutSeries.CHESTNUT_BOAT);

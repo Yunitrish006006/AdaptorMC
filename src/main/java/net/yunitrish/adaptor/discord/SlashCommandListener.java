@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 import net.yunitrish.adaptor.AdaptorServer;
 import net.yunitrish.adaptor.common.ModConfig;
+import net.yunitrish.adaptor.common.UserData;
 
 public class SlashCommandListener extends ListenerAdapter {
     @Override
@@ -40,16 +41,29 @@ public class SlashCommandListener extends ListenerAdapter {
                     return;
                 }
                 if (ModConfig.getPlayerFromMinecraftId(minecraft_id) != null) {
-                    AdaptorServer.data.addBindData(event.getUser().getId(), minecraft_id);
-
-                    event.reply("成功綁定帳號至 minecraftID: " + minecraft_id)
+                    if (event.getGuild() != null) {
+                        event.getGuild().retrieveMember(event.getUser()).queue((member) -> {
+                            AdaptorServer.data.addBindData(event.getUser().getId(), minecraft_id, member.getNickname());
+                            event.reply("成功綁定帳號至 minecraftID: " + minecraft_id)
+                                    .setEphemeral(true)
+                                    .queue();
+                        });
+                    }
+                } else {
+                    event.reply("查無此ID: " + minecraft_id)
                             .setEphemeral(true)
                             .queue();
-                    return;
                 }
-                event.reply("查無此ID: " + minecraft_id)
-                        .setEphemeral(true)
-                        .queue();
+            }
+            case "name" -> {
+                String name = event.getOption("name", OptionMapping::getAsString);
+                String discord_id = event.getUser().getId();
+                if (ModConfig.getPlayerFromDiscordId(discord_id) != null) {
+                    UserData userData = ModConfig.getUserDataFromDiscordId(discord_id);
+                    userData.customName = name;
+                    AdaptorServer.data.addBindData(discord_id, userData);
+                    event.reply("update ur costume name to " + name).setEphemeral(true).queue();
+                }
             }
             default -> {
             }

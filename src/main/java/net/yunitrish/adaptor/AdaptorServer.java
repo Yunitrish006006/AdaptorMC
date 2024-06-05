@@ -20,12 +20,15 @@ import net.fabricmc.fabric.api.message.v1.ServerMessageEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
+import net.yunitrish.adaptor.common.ModConfig;
 import net.yunitrish.adaptor.common.ModConfigFile;
 import net.yunitrish.adaptor.discord.MessageReceiveListener;
 import net.yunitrish.adaptor.discord.SlashCommandListener;
 
 import java.io.IOException;
 import java.util.EnumSet;
+import java.util.Map;
 import java.util.Objects;
 
 import static net.dv8tion.jda.api.interactions.commands.OptionType.STRING;
@@ -58,7 +61,7 @@ public class AdaptorServer implements DedicatedServerModInitializer {
                                     .build();
                         } else {
                             content = new EmbedBuilder()
-                                    .setAuthor(user.getName() + " : " + message, null, user.getAvatarUrl())
+                                    .setAuthor(ModConfig.getCustomNameFromDiscordId(data.config.getFirstMatchDiscordId(minecraftId)) + " : " + message, null, user.getAvatarUrl())
                                     .clearFields()
                                     .build();
                         }
@@ -73,7 +76,6 @@ public class AdaptorServer implements DedicatedServerModInitializer {
 
     @Override
     public void onInitializeServer() {
-        //*
         try {
             data = new ModConfigFile("adaptor.json");
             if (Objects.equals(data.config.token, "YOUR-TOKEN-HERE")) return;
@@ -97,7 +99,9 @@ public class AdaptorServer implements DedicatedServerModInitializer {
                             .addOption(STRING, "content", "command to execute", true)
                             .setDefaultPermissions(DefaultMemberPermissions.DISABLED),
                     Commands.slash("bind", "Make bot execute command")
-                            .addOption(STRING, "minecraft_id", "你的minecraftId", true)
+                            .addOption(STRING, "minecraft_id", "你的minecraftId", true),
+                    Commands.slash("name", "change your minecraft costume name")
+                            .addOption(STRING, "name", "costume name", true)
             );
             commands.queue();
         } catch (IOException ignored) {
@@ -105,8 +109,14 @@ public class AdaptorServer implements DedicatedServerModInitializer {
         }
 
         ServerTickEvents.END_WORLD_TICK.register((world) -> modServer = world.getServer());
-        ServerMessageEvents.CHAT_MESSAGE.register((message, source, params) -> sendEmbedMessage(message.getContent().getLiteralString(), source.getName().getLiteralString()));
-        ServerEntityWorldChangeEvents.AFTER_PLAYER_CHANGE_WORLD.register((player, origin, destination) -> sendEmbedMessage("傳送到不知道哪邊", player.getName().getLiteralString()));
+        ServerMessageEvents.ALLOW_CHAT_MESSAGE.register((message, sender, params) -> {
+            String customName = ModConfig.getCustomNameFromDiscordId(data.config.getFirstMatchDiscordId(sender.getName().getLiteralString()));
+            for (ServerPlayerEntity player : AdaptorServer.modServer.getPlayerManager().getPlayerList()) {
+                player.sendMessage(Text.of("<" + customName + "> " + message.getSignedContent()));
+            }
+            sendEmbedMessage(message.getContent().getLiteralString(), sender.getName().getLiteralString());
+            return false;
+        });
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> sendEmbedMessage("進入伺服器", handler.player.getName().getLiteralString()));
         ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> sendEmbedMessage("離開伺服器", handler.player.getName().getLiteralString()));
         ServerLivingEntityEvents.AFTER_DEATH.register((entity, damageSource) -> {
@@ -123,7 +133,19 @@ public class AdaptorServer implements DedicatedServerModInitializer {
             updateStatus(OnlineStatus.DO_NOT_DISTURB, "伺服器已離線");
             jda.shutdown();
         });
-        //*/
+        ServerEntityWorldChangeEvents.AFTER_PLAYER_CHANGE_WORLD.register((player, origin, destination) -> {
+
+            Map<String, String> worldDictionary = Map.ofEntries(
+                    Map.entry("minecraft:overworld", "表世界"),
+                    Map.entry("minecraft:the_nether", "地獄"),
+                    Map.entry("minecraft:the_end", "終界"),
+                    Map.entry("adaptor:pre_era_dimension_type", "始世界")
+            );
+
+            String worldName = worldDictionary.get(player.getWorld().getDimensionEntry().getIdAsString());
+
+            sendEmbedMessage("傳送至 " + worldName, player.getName().getLiteralString());
+        });
     }
 
     public void updateStatus(OnlineStatus status, String parameter) {

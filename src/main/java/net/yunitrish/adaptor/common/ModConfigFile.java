@@ -2,6 +2,8 @@ package net.yunitrish.adaptor.common;
 
 import com.google.gson.Gson;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
 import net.yunitrish.adaptor.Adaptor;
 
 import java.io.File;
@@ -54,7 +56,34 @@ public class ModConfigFile {
     }
 
     public void addBindData(String discordId, String minecraftId) {
-        config.bindData.put(discordId, minecraftId);
+        ServerPlayerEntity player = ModConfig.getPlayerFromMinecraftId(minecraftId);
+        UserData userData = new UserData();
+        userData.minecraftId = minecraftId;
+        userData.uuid = player.getUuid().toString();
+        userData.customName = minecraftId;
+        config.bindData.put(discordId, userData);
+        write();
+    }
+
+    public void addBindData(String discordId, String minecraftId, String customName) {
+        ServerPlayerEntity player = ModConfig.getPlayerFromMinecraftId(minecraftId);
+        UserData userData = new UserData();
+        userData.minecraftId = minecraftId;
+        userData.uuid = player.getUuid().toString();
+        userData.customName = customName;
+        config.bindData.put(discordId, userData);
+
+        player.setCustomNameVisible(true);
+        player.setCustomName(Text.of(userData.customName));
+
+        write();
+    }
+
+    public void addBindData(String discordId, UserData userData) {
+        config.bindData.put(discordId, userData);
+        ServerPlayerEntity player = ModConfig.getPlayerFromMinecraftId(userData.minecraftId);
+        player.setCustomNameVisible(true);
+        player.setCustomName(Text.of(userData.customName));
         write();
     }
 
