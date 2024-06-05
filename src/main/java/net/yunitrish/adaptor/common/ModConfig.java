@@ -8,14 +8,26 @@ import java.util.Map;
 
 public class ModConfig extends JsonElement {
     public String token = "YOUR-TOKEN-HERE";
-    public Map<String, String> bindData = Map.of("discordId", "minecraftID");
+    public Map<String, UserData> bindData = Map.of("discordId", new UserData());
 
     public ModConfig() {
     }
 
     public static ServerPlayerEntity getPlayerFromDiscordId(String discordId) {
-        String minecraftId = getMinecraftId(discordId);
-        return AdaptorServer.modServer.getPlayerManager().getPlayer(minecraftId);
+        if (AdaptorServer.data.config.bindData.containsKey(discordId)) {
+            String minecraftId = getMinecraftId(discordId);
+            return AdaptorServer.modServer.getPlayerManager().getPlayer(minecraftId);
+        } else {
+            return null;
+        }
+    }
+
+    public static UserData getUserDataFromDiscordId(String discordId) {
+        return AdaptorServer.data.config.bindData.get(discordId);
+    }
+
+    public static String getCustomNameFromDiscordId(String discordId) {
+        return getUserDataFromDiscordId(discordId).customName;
     }
 
     public static ServerPlayerEntity getPlayerFromMinecraftId(String minecraftId) {
@@ -23,16 +35,12 @@ public class ModConfig extends JsonElement {
     }
 
     public static String getMinecraftId(String discordId) {
-        return AdaptorServer.data.config.bindData.get(discordId);
-    }
-
-    public boolean isMinecraftIdInDataBind(String minecraftId) {
-        return bindData.containsValue(minecraftId);
+        return AdaptorServer.data.config.bindData.get(discordId).minecraftId;
     }
 
     public String getFirstMatchDiscordId(String minecraftId) {
-        for (Map.Entry<String, String> i : bindData.entrySet()) {
-            if (minecraftId.equals(i.getValue())) {
+        for (Map.Entry<String, UserData> i : bindData.entrySet()) {
+            if (i.getValue().minecraftId.equals(minecraftId)) {
                 return i.getKey();
             }
         }
