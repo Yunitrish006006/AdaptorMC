@@ -1,5 +1,6 @@
 package net.yunitrish.adaptor.block.plant;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
@@ -13,8 +14,14 @@ public class SoyBeanCropBlock extends CropBlock {
     public SoyBeanCropBlock(Settings settings) {
         super(settings);
     }
+
+    public static final MapCodec<SoyBeanCropBlock> CODEC = SoyBeanCropBlock.createCodec(SoyBeanCropBlock::new);
     public static final int MAX_AGE = 5;
     public static final IntProperty AGE = Properties.AGE_5;
+
+    public MapCodec<SoyBeanCropBlock> getCodec() {
+        return CODEC;
+    }
 
     @Override
     protected ItemConvertible getSeedsItem() {

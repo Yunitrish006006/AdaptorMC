@@ -122,15 +122,15 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.DIAMOND_HAMMER,Models.HANDHELD);
         itemModelGenerator.register(ModItems.NETHERITE_HAMMER,Models.HANDHELD);
 
-        itemModelGenerator.register(ModItems.HANGING_CHESTNUT_SIGN,Models.GENERATED);
+        itemModelGenerator.register(ChestnutSeries.HANGING_CHESTNUT_SIGN, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BAR_BRAWL_MUSIC_DISC, Models.GENERATED);
         itemModelGenerator.register(ModItems.SAKURA_VALLEY_MUSIC_DISC, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.CHESTNUT_BOAT, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CHESTNUT_CHEST_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ChestnutSeries.CHESTNUT_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ChestnutSeries.CHESTNUT_CHEST_BOAT, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.SOYBEAN, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MARIJUANA_SEEDS, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.SOYBEAN, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.MARIJUANA_SEEDS, Models.GENERATED);
     }
 }

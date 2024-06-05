@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.util.ColorCode;
 import net.yunitrish.adaptor.Adaptor;
 import net.yunitrish.adaptor.block.building.DirtSeries;
 import net.yunitrish.adaptor.block.functional.SoundBlock;
@@ -24,16 +24,16 @@ public class ModBlocks {
         DirtSeries.register();
         ChestnutSeries.register();
     }
-    public static Block registerBlock(String name, Block block,boolean inItemGroup) {
-        ModItems.registerItem(name, new BlockItem(block, new Item.Settings()),inItemGroup);
-        return Registry.register(Registries.BLOCK, Adaptor.modIdentifier(name), block);
-    }
-    public static Block registerBlock(String name, Block block) {
-        return registerBlock(name,block,true);
-    }
 
-    public static final Block SOUND_BLOCK = registerBlock("sound_block",new SoundBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).sounds(ModSounds.SOUND_BLOCK_SOUNDS)));
-
+    public static final Block SOUND_BLOCK = registerBlock(
+            "sound_block",
+            new SoundBlock(
+                    AbstractBlock
+                            .Settings
+                            .copy(Blocks.IRON_BLOCK)
+                            .sounds(ModSounds.SOUND_BLOCK_SOUNDS)
+            )
+    );
     public static final Block STONE_MILL = registerBlock(
             "stone_mill",
             new StoneMillBlock(
@@ -45,8 +45,8 @@ public class ModBlocks {
     );
     public static Block GRAVEL_IRON_ORE = registerBlock(
             "gravel_iron_ore",
-            new ExperienceDroppingBlock(
-                    UniformIntProvider.create(0,2),
+            new ColoredFallingBlock(
+                    new ColorCode(-9356741),
                     AbstractBlock
                             .Settings
                             .copy(Blocks.GRAVEL)
@@ -61,7 +61,7 @@ public class ModBlocks {
                             .breakInstantly()
                             .sounds(BlockSoundGroup.CROP)
                             .pistonBehavior(PistonBehavior.DESTROY)
-            ),false
+            ), false, false
     );
     public static Block MARIJUANA_CROP = registerBlock(
             "marijuana_crop",
@@ -72,8 +72,18 @@ public class ModBlocks {
                             .breakInstantly()
                             .sounds(BlockSoundGroup.CROP)
                             .pistonBehavior(PistonBehavior.DESTROY)
-            ),false
+            ), false, false
     );
+
+    public static Block registerBlock(String name, Block block, boolean registerItem, boolean inItemGroup) {
+        Block temp = Registry.register(Registries.BLOCK, Adaptor.modIdentifier(name), block);
+        if (registerItem) ModItems.registerItem(name, new BlockItem(temp, new Item.Settings()), inItemGroup);
+        return temp;
+    }
+
+    public static Block registerBlock(String name, Block block) {
+        return registerBlock(name, block, true, true);
+    }
     public static Block GLASS_SLAB = registerBlock(
             "glass_slab",
             new SlabBlock(

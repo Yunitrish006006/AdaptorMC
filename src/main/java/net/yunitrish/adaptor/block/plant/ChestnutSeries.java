@@ -1,5 +1,6 @@
 package net.yunitrish.adaptor.block.plant;
 
+import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import com.terraformersmc.terraform.sign.block.TerraformHangingSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformWallHangingSignBlock;
@@ -10,14 +11,15 @@ import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.*;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.Adaptor;
+import net.yunitrish.adaptor.entity.ModBoats;
+import net.yunitrish.adaptor.item.ModItems;
 import net.yunitrish.adaptor.world.tree.ModSaplingGenerators;
 
 import static net.yunitrish.adaptor.block.ModBlocks.registerBlock;
@@ -92,5 +94,9 @@ public class ChestnutSeries {
             SoundEvents.BLOCK_FENCE_GATE_OPEN
     );
     public static final Block CHESTNUT_FENCE_GATE = registerBlock("chestnut_fence_gate", new FenceGateBlock(chestnut, AbstractBlock.Settings.copy(CHESTNUT_PLANKS)));
+    public static final Item CHESTNUT_SIGN = ModItems.registerItem("chestnut_sign", new SignItem(new Item.Settings().maxCount(16), ChestnutSeries.STANDING_CHESTNUT_SIGN, ChestnutSeries.WALL_CHESTNUT_SIGN));
+    public static final Item HANGING_CHESTNUT_SIGN = ModItems.registerItem("chestnut_hanging_sign", new HangingSignItem(ChestnutSeries.CHESTNUT_HANGING_SIGN, ChestnutSeries.CHESTNUT_WALL_HANGING_SIGN, new Item.Settings().maxCount(16)));
+    public static final Item CHESTNUT_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.CHESTNUT_BOAT_ID, ModBoats.CHESTNUT_BOAT_KEY, false);
+    public static final Item CHESTNUT_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.CHESTNUT_CHEST_BOAT_ID, ModBoats.CHESTNUT_BOAT_KEY, true);
 
 }
