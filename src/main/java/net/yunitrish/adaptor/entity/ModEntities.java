@@ -13,7 +13,7 @@ public class ModEntities {
             Adaptor.modIdentifier("porcupine"),
             EntityType
                     .Builder
-                    .create(PorcupineEntity::new,SpawnGroup.CREATURE)
+                    .create(PorcupineEntity::new, SpawnGroup.CREATURE)
                     .dimensions(1f,1f)
                     .build()
     );

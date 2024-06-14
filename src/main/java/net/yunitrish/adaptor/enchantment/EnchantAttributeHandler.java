@@ -14,10 +14,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.network.ServerPlayerEntity;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
 import java.util.Random;
 import java.util.UUID;
+
+import static net.yunitrish.adaptor.common.AdaptorApi.uuidV5;
 
 public class EnchantAttributeHandler {
 
@@ -43,10 +43,13 @@ public class EnchantAttributeHandler {
 
         EnchantAttributeHandler wisdom_enchantment = new EnchantAttributeHandler(ModEnchantments.WISDOM, EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE, uuidV5("wisdom_entity_interaction"), 0.5, 1.4);
 
+        EnchantAttributeHandler titan_enchantment = new EnchantAttributeHandler(ModEnchantments.TITAN, EntityAttributes.GENERIC_SCALE, uuidV5("titan_entity_scale"), 0.1, 1.2);
+
         ServerEntityEvents.EQUIPMENT_CHANGE.register((livingEntity, equipmentSlot, previous, next) -> {
             dexterity_movement_speed.checkAndApply(livingEntity, previous, next);
             dexterity_attack_speed.checkAndApply(livingEntity, previous, next);
             wisdom_enchantment.checkAndApply(livingEntity, previous, next);
+            titan_enchantment.checkAndApply(livingEntity, previous, next);
         });
         ServerTickEvents.START_SERVER_TICK.register(server -> {
             for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
@@ -59,36 +62,6 @@ public class EnchantAttributeHandler {
         });
     }
 
-    public static UUID uuidV5(String name) {
-
-        try {
-            MessageDigest sha1 = MessageDigest.getInstance("SHA-1");
-            sha1.update(name.getBytes(StandardCharsets.UTF_8));
-
-            byte[] data = sha1.digest();
-            data[6] = (byte) (data[6] & 0x0f);
-            data[6] = (byte) (data[6] | 0x50); // set version 5
-            data[8] = (byte) (data[8] & 0x3f);
-            data[8] = (byte) (data[8] | 0x80);
-
-            long msb = 0L;
-            long lsb = 0L;
-
-            for (int i = 0; i <= 7; i++)
-                msb = (msb << 8) | (data[i] & 0xff);
-
-            for (int i = 8; i <= 15; i++)
-                lsb = (lsb << 8) | (data[i] & 0xff);
-
-            long mostSigBits = msb;
-            long leastSigBits = lsb;
-
-            return new UUID(mostSigBits, leastSigBits);
-        } catch (Exception e) {
-            return UUID.fromString("46479116-73a6-54f1-952f-d144ae8bcf23");
-        }
-
-    }
 
     public void checkAndApply(LivingEntity entity, ItemStack previous, ItemStack next) {
         if (hasSpecificEnchantment(previous)) removeEnchantAttribute(entity);

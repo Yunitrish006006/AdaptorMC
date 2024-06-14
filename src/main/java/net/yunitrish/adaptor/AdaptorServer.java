@@ -101,7 +101,9 @@ public class AdaptorServer implements DedicatedServerModInitializer {
                     Commands.slash("bind", "Make bot execute command")
                             .addOption(STRING, "minecraft_id", "你的minecraftId", true),
                     Commands.slash("name", "change your minecraft costume name")
-                            .addOption(STRING, "name", "costume name", true)
+                            .addOption(STRING, "name", "costume name", true),
+                    Commands.slash("config_save", "save all the data of Adaptor mod config file")
+                            .setDefaultPermissions(DefaultMemberPermissions.DISABLED)
             );
             commands.queue();
         } catch (IOException ignored) {

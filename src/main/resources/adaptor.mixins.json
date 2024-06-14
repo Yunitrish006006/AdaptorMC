@@ -5,7 +5,8 @@
   "mixins": [
     "FishingMixin",
     "FoliagePlacerTypeInvoker",
-    "TrunkPlacerTypeInvoker"
+    "TrunkPlacerTypeInvoker",
+    "ZombieMixin"
   ],
   "injectors": {
     "defaultRequire": 1
