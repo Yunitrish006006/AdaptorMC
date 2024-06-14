@@ -46,12 +46,41 @@ public class ModConfigFile {
         }
     }
 
+    public String beautify(String string) {
+        StringBuilder temp = new StringBuilder();
+        int tabCounter = 0;
+        char[] array = string.toCharArray();
+        for (int i = 0; i < array.length; i++) {
+            char it = array[i];
+            if (it == '{') {
+                tabCounter += 1;
+                temp.append(it).append("\n");
+                if (tabCounter > 0) temp.append("\t".repeat(tabCounter));
+            } else if (it == ',') {
+                temp.append(it).append("\n");
+                if (tabCounter > 0) temp.append("\t".repeat(tabCounter));
+            } else {
+                temp.append(it);
+            }
+            if (i + 1 < array.length) {
+                if (array[i + 1] == '}') {
+                    temp.append("\n");
+                    tabCounter -= 1;
+                    if (tabCounter > 0) temp.append("\t".repeat(tabCounter));
+                }
+            }
+        }
+        return temp.toString();
+    }
+
     public void write() {
         try {
             FileWriter writer = new FileWriter(file);
-            writer.write(new Gson().toJson(config));
+            writer.write(beautify(new Gson().toJson(config)));
             writer.close();
         } catch (IOException ignored) {
+            config = new ModConfig();
+            write();
         }
     }
 

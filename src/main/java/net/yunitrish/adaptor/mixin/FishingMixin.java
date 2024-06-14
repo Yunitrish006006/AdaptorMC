@@ -93,10 +93,11 @@ public abstract class FishingMixin extends ProjectileEntity {
             ObjectArrayList<ItemStack> list = lootTable.generateLoot(lootContextParameterSet);
             for (ItemStack itemStack : list) {
 
-                int rn = Math.abs(random.nextBetween(0,(lureLevel+1)*(luckOfTheSeaLevel+1)/3)+1);
+                int rn = Math.abs(random.nextBetween(0, (lureLevel * luckOfTheSeaLevel + 1) / 3) + 1);
                 if (itemStack.isIn(ItemTags.FISHES)) {
                     playerEntity.getWorld().spawnEntity(new ExperienceOrbEntity(playerEntity.getWorld(), playerEntity.getX(), playerEntity.getY() + 0.5, playerEntity.getZ() + 0.5, this.random.nextInt(6) + 1));
                     for (int t=0;t<rn;t++) this.getWorld().spawnEntity(getFishEntity(playerEntity,itemStack));
+                    playerEntity.increaseStat(Stats.FISH_CAUGHT, 1);
                 }
                 else {
                     ItemEntity itemEntity = new ItemEntity(this.getWorld(), this.getX(), this.getY(), this.getZ(), itemStack);
@@ -106,8 +107,6 @@ public abstract class FishingMixin extends ProjectileEntity {
                     itemEntity.setVelocity(d * 0.1, e * 0.1 + Math.sqrt(Math.sqrt(d * d + e * e + f * f)) * 0.08 + 0.05, f * 0.1);
                     this.getWorld().spawnEntity(itemEntity);
                     playerEntity.getWorld().spawnEntity(new ExperienceOrbEntity(playerEntity.getWorld(), playerEntity.getX(), playerEntity.getY() + 0.5, playerEntity.getZ() + 0.5, this.random.nextInt(6) + 1));
-                    if (!itemStack.isIn(ItemTags.FISHES)) continue;
-                    playerEntity.increaseStat(Stats.FISH_CAUGHT, 1);
                 }
             }
             i = 1;

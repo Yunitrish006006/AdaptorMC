@@ -1,4 +1,4 @@
-package net.yunitrish.adaptor.enchantment;
+package net.yunitrish.adaptor.enchantment.enchantments;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EquipmentSlot;

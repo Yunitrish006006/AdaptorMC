@@ -31,6 +31,12 @@ public class SlashCommandListener extends ListenerAdapter {
                         .setEphemeral(true)
                         .queue();
             }
+            case "config_save" -> {
+                AdaptorServer.data.write();
+                event.reply("server config saved √")
+                        .setEphemeral(true)
+                        .queue();
+            }
             case "bind" -> {
                 String minecraft_id = event.getOption("minecraft_id", OptionMapping::getAsString);
                 String discord_id = event.getUser().getId();
