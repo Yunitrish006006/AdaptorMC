@@ -11,6 +11,7 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.yunitrish.adaptor.Adaptor;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -50,9 +51,9 @@ public abstract class ZombieMixin extends HostileEntity {
             EntityAttributeInstance zombieSpeed = getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
             if (zombieScale != null && zombieMaxHealth != null && zombieSpeed != null) {
                 double value = (random.nextDouble() - 0.5) / 2;
-                zombieScale.addPersistentModifier(new EntityAttributeModifier("Random spawn bonus scale", value, EntityAttributeModifier.Operation.ADD_VALUE));
-                zombieMaxHealth.addPersistentModifier(new EntityAttributeModifier("Random spawn bonus max health", value * 24, EntityAttributeModifier.Operation.ADD_VALUE));
-                zombieSpeed.addPersistentModifier(new EntityAttributeModifier("Random spawn bonus speed", value * 0.03, EntityAttributeModifier.Operation.ADD_VALUE));
+                zombieScale.addPersistentModifier(new EntityAttributeModifier(Adaptor.id("random_spawn_bonus_scale"), value, EntityAttributeModifier.Operation.ADD_VALUE));
+                zombieMaxHealth.addPersistentModifier(new EntityAttributeModifier(Adaptor.id("random_spawn_bonus_max_health"), value * 24, EntityAttributeModifier.Operation.ADD_VALUE));
+                zombieSpeed.addPersistentModifier(new EntityAttributeModifier(Adaptor.id("random_spawn_bonus_speed"), value * 0.03, EntityAttributeModifier.Operation.ADD_VALUE));
             }
         }
     }

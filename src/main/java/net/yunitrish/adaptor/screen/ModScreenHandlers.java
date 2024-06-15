@@ -9,7 +9,7 @@ import net.yunitrish.adaptor.block.functional.stoneMill.StoneMillData;
 
 public class ModScreenHandlers {
     public static final ScreenHandlerType<StoneMillScreenHandler> STONE_MILL_SCREEN_HANDLER =
-            Registry.register(Registries.SCREEN_HANDLER, Adaptor.modIdentifier("stone_mill"),
+            Registry.register(Registries.SCREEN_HANDLER, Adaptor.id("stone_mill"),
                     new ExtendedScreenHandlerType<>(StoneMillScreenHandler::new, StoneMillData.PACKET_CODEC));
     public static void registerScreenHandlers() {
         Adaptor.LOGGER.info("Registering Screen Handlers...");

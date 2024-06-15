@@ -2,15 +2,10 @@ package net.yunitrish.adaptor;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
-import net.minecraft.block.Blocks;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.block.ModBlockEntities;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.command.ModCommands;
-import net.yunitrish.adaptor.enchantment.EnchantAttributeHandler;
-import net.yunitrish.adaptor.enchantment.ModEnchantments;
 import net.yunitrish.adaptor.entity.ModBoats;
 import net.yunitrish.adaptor.entity.ModEntities;
 import net.yunitrish.adaptor.entity.creature.PorcupineEntity;
@@ -31,8 +26,9 @@ import org.slf4j.LoggerFactory;
 public class Adaptor implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("adaptor");
 	public static final String MOD_ID = "adaptor";
-	public static Identifier modIdentifier(String name) {
-		return new Identifier(Adaptor.MOD_ID,name);
+
+	public static Identifier id(String name) {
+		return Identifier.of(Adaptor.MOD_ID, name);
 	}
 
 	@Override
@@ -42,7 +38,7 @@ public class Adaptor implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModBoats.registerBoats();
-		ModEnchantments.registerModEnchantments();
+//		ModEnchantments.registerModEnchantments();
 		ModTrunkPlacerTypes.register();
         ModFoliagePlacerTypes.register();
 		ModBlockEntities.registerBlockEntities();
@@ -56,13 +52,13 @@ public class Adaptor implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.PORCUPINE, PorcupineEntity.createPorcupineAttributes());
 		ModWorldGeneration.generateModWorldGeneration();
 
-        CustomPortalBuilder.beginPortal()
-                .frameBlock(Blocks.MOSSY_COBBLESTONE)
-                .lightWithFluid(Fluids.WATER)
-                .destDimID(modIdentifier("pre_era_dimension"))
-                .tintColor(0x575c3b)
-                .onlyLightInOverworld()
-                .registerPortal();
-		EnchantAttributeHandler.registerEnchantmentAttributes();
+//        CustomPortalBuilder.beginPortal()
+//                .frameBlock(Blocks.MOSSY_COBBLESTONE)
+//                .lightWithFluid(Fluids.WATER)
+//                .destDimID(modIdentifier("pre_era_dimension"))
+//                .tintColor(0x575c3b)
+//                .onlyLightInOverworld()
+//                .registerPortal();
+//		EnchantAttributeHandler.registerEnchantmentAttributes();
 	}
 }

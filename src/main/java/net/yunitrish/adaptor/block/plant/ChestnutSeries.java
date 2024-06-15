@@ -1,10 +1,9 @@
 package net.yunitrish.adaptor.block.plant;
 
-import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
-import com.terraformersmc.terraform.sign.block.TerraformHangingSignBlock;
-import com.terraformersmc.terraform.sign.block.TerraformSignBlock;
-import com.terraformersmc.terraform.sign.block.TerraformWallHangingSignBlock;
-import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
+import com.terraformersmc.terraform.sign.api.block.TerraformHangingSignBlock;
+import com.terraformersmc.terraform.sign.api.block.TerraformSignBlock;
+import com.terraformersmc.terraform.sign.api.block.TerraformWallHangingSignBlock;
+import com.terraformersmc.terraform.sign.api.block.TerraformWallSignBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
@@ -18,7 +17,6 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.Adaptor;
-import net.yunitrish.adaptor.entity.ModBoats;
 import net.yunitrish.adaptor.item.ModItems;
 import net.yunitrish.adaptor.world.tree.ModSaplingGenerators;
 
@@ -48,16 +46,16 @@ public class ChestnutSeries {
     public static final Block CHESTNUT_LEAVES = registerBlock("chestnut_leaves",new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).strength(4f).nonOpaque()));
     public static final Block CHESTNUT_SAPLING = registerBlock("chestnut_sapling", new SaplingBlock(ModSaplingGenerators.CHESTNUT,AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
-    public static final Identifier CHESTNUT_SIGN_TEXTURE = Adaptor.modIdentifier("entity/signs/chestnut");
-    public static final Identifier CHESTNUT_HANGING_SIGN_TEXTURE = Adaptor.modIdentifier("entity/signs/hanging/chestnut");
-    public static final Identifier CHESTNUT_HANGING_GUI_SIGN_TEXTURE = Adaptor.modIdentifier("textures/gui/hanging_signs/chestnut");
+    public static final Identifier CHESTNUT_SIGN_TEXTURE = Adaptor.id("entity/signs/chestnut");
+    public static final Identifier CHESTNUT_HANGING_SIGN_TEXTURE = Adaptor.id("entity/signs/hanging/chestnut");
+    public static final Identifier CHESTNUT_HANGING_GUI_SIGN_TEXTURE = Adaptor.id("textures/gui/hanging_signs/chestnut");
 
-    public static final Block STANDING_CHESTNUT_SIGN = Registry.register(Registries.BLOCK,Adaptor.modIdentifier("chestnut_standing_sign"), new TerraformSignBlock(CHESTNUT_SIGN_TEXTURE,AbstractBlock.Settings.copy(Blocks.OAK_SIGN)));
-    public static final Block WALL_CHESTNUT_SIGN = Registry.register(Registries.BLOCK,Adaptor.modIdentifier("chestnut_wall_sign"), new TerraformWallSignBlock(CHESTNUT_SIGN_TEXTURE,AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN)));
+    public static final Block STANDING_CHESTNUT_SIGN = Registry.register(Registries.BLOCK, Adaptor.id("chestnut_standing_sign"), new TerraformSignBlock(CHESTNUT_SIGN_TEXTURE, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)));
+    public static final Block WALL_CHESTNUT_SIGN = Registry.register(Registries.BLOCK, Adaptor.id("chestnut_wall_sign"), new TerraformWallSignBlock(CHESTNUT_SIGN_TEXTURE, AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN)));
 
-    public static final Block CHESTNUT_HANGING_SIGN = Registry.register(Registries.BLOCK,Adaptor.modIdentifier("chestnut_hanging_sign"), new TerraformHangingSignBlock(CHESTNUT_HANGING_SIGN_TEXTURE,CHESTNUT_HANGING_GUI_SIGN_TEXTURE,AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)));
+    public static final Block CHESTNUT_HANGING_SIGN = Registry.register(Registries.BLOCK, Adaptor.id("chestnut_hanging_sign"), new TerraformHangingSignBlock(CHESTNUT_HANGING_SIGN_TEXTURE, CHESTNUT_HANGING_GUI_SIGN_TEXTURE, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)));
 
-    public static final Block CHESTNUT_WALL_HANGING_SIGN = Registry.register(Registries.BLOCK,Adaptor.modIdentifier("chestnut_wall_hanging_sign"), new TerraformWallHangingSignBlock(CHESTNUT_HANGING_SIGN_TEXTURE,CHESTNUT_HANGING_GUI_SIGN_TEXTURE,AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN)));
+    public static final Block CHESTNUT_WALL_HANGING_SIGN = Registry.register(Registries.BLOCK, Adaptor.id("chestnut_wall_hanging_sign"), new TerraformWallHangingSignBlock(CHESTNUT_HANGING_SIGN_TEXTURE, CHESTNUT_HANGING_GUI_SIGN_TEXTURE, AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN)));
 
     public static final BlockFamily CHESTNUT_FAMILY = BlockFamilies
             .register(CHESTNUT_PLANKS)
@@ -96,7 +94,7 @@ public class ChestnutSeries {
     public static final Block CHESTNUT_FENCE_GATE = registerBlock("chestnut_fence_gate", new FenceGateBlock(chestnut, AbstractBlock.Settings.copy(CHESTNUT_PLANKS)));
     public static final Item CHESTNUT_SIGN = ModItems.registerItem("chestnut_sign", new SignItem(new Item.Settings().maxCount(16), ChestnutSeries.STANDING_CHESTNUT_SIGN, ChestnutSeries.WALL_CHESTNUT_SIGN));
     public static final Item HANGING_CHESTNUT_SIGN = ModItems.registerItem("chestnut_hanging_sign", new HangingSignItem(ChestnutSeries.CHESTNUT_HANGING_SIGN, ChestnutSeries.CHESTNUT_WALL_HANGING_SIGN, new Item.Settings().maxCount(16)));
-    public static final Item CHESTNUT_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.CHESTNUT_BOAT_ID, ModBoats.CHESTNUT_BOAT_KEY, false);
-    public static final Item CHESTNUT_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.CHESTNUT_CHEST_BOAT_ID, ModBoats.CHESTNUT_BOAT_KEY, true);
+//    public static final Item CHESTNUT_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.CHESTNUT_BOAT_ID, ModBoats.CHESTNUT_BOAT_KEY, false);
+//    public static final Item CHESTNUT_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.CHESTNUT_CHEST_BOAT_ID, ModBoats.CHESTNUT_BOAT_KEY, true);
 
 }

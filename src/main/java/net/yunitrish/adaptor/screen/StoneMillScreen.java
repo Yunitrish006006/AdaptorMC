@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.Adaptor;
 
 public class StoneMillScreen extends HandledScreen<StoneMillScreenHandler> {
-    private static final Identifier TEXTURE = Adaptor.modIdentifier("textures/gui/stone_mill_gui.png");
+    private static final Identifier TEXTURE = Adaptor.id("textures/gui/stone_mill_gui.png");
 
     public StoneMillScreen(StoneMillScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);

@@ -10,12 +10,11 @@ import net.minecraft.data.client.Model;
 import net.minecraft.data.client.Models;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.block.building.DirtSeries;
 import net.yunitrish.adaptor.block.plant.ChestnutSeries;
-import net.yunitrish.adaptor.block.plant.MarijuanaCropBlock;
-import net.yunitrish.adaptor.block.plant.SoyBeanCropBlock;
 import net.yunitrish.adaptor.item.ModItems;
 
 import java.util.Optional;
@@ -46,15 +45,14 @@ public class ModModelProvider extends FabricModelProvider {
         modelGenerator.registerDoor(door);
         modelGenerator.registerTrapdoor(trapdoor);
         modelGenerator.registerTintableCross(sapling, BlockStateModelGenerator.TintType.NOT_TINTED);
-
     }
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAVEL_IRON_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SOUND_BLOCK);
-        blockStateModelGenerator.registerCrop(ModBlocks.SOYBEAN_CROP, SoyBeanCropBlock.AGE,0,1,2,3,4,5);
-        blockStateModelGenerator.registerCrop(ModBlocks.MARIJUANA_CROP, MarijuanaCropBlock.AGE,0,1,2,3,4,5);
+        blockStateModelGenerator.registerCrop(ModBlocks.SOYBEAN_CROP, Properties.AGE_5, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.registerCrop(ModBlocks.MARIJUANA_CROP, Properties.AGE_5, 0, 1, 2, 3, 4, 5);
 
         BlockStateModelGenerator.BlockTexturePool dirtPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.DIRT);
         dirtPool.stairs(DirtSeries.DIRT_STAIRS);
@@ -101,7 +99,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.FLOUR, Models.GENERATED);
         itemModelGenerator.register(ModItems.SALT, Models.GENERATED);
         itemModelGenerator.register(ModItems.MARIJUANA_LEAF, Models.GENERATED);
-        itemModelGenerator.register(ModItems.PORCUPINE_SPAWN_EGG, new Model(Optional.of(new Identifier("item/template_spawn_egg")),Optional.empty()));
+        itemModelGenerator.register(ModItems.PORCUPINE_SPAWN_EGG, new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
 
         itemModelGenerator.register(ModItems.COPPER_AXE,Models.HANDHELD);
         itemModelGenerator.register(ModItems.COPPER_HOE,Models.HANDHELD);
@@ -127,8 +125,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BAR_BRAWL_MUSIC_DISC, Models.GENERATED);
         itemModelGenerator.register(ModItems.SAKURA_VALLEY_MUSIC_DISC, Models.GENERATED);
 
-        itemModelGenerator.register(ChestnutSeries.CHESTNUT_BOAT, Models.GENERATED);
-        itemModelGenerator.register(ChestnutSeries.CHESTNUT_CHEST_BOAT, Models.GENERATED);
+//        itemModelGenerator.register(ChestnutSeries.CHESTNUT_BOAT, Models.GENERATED);
+//        itemModelGenerator.register(ChestnutSeries.CHESTNUT_CHEST_BOAT, Models.GENERATED);
 
 //        itemModelGenerator.register(ModItems.SOYBEAN, Models.GENERATED);
 //        itemModelGenerator.register(ModItems.MARIJUANA_SEEDS, Models.GENERATED);

@@ -1,7 +1,10 @@
 package net.yunitrish.adaptor.sound;
 
+import net.minecraft.block.jukebox.JukeboxSong;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
@@ -19,6 +22,9 @@ public class ModSounds {
     public static final SoundEvent BAR_BRAWL = registerSoundEvent("bar_brawl");
     public static final SoundEvent SAKURA_VALLEY = registerSoundEvent("sakura_valley");
 
+    public static final RegistryKey<JukeboxSong> BAR_BRAWL_MUSIC = registerJukeboxSong("bar_brawl");
+    public static final RegistryKey<JukeboxSong> SAKURA_VALLEY_MUSIC = registerJukeboxSong("sakura_valley");
+
     public static final BlockSoundGroup SOUND_BLOCK_SOUNDS = new BlockSoundGroup(
             1f,1f,
             ModSounds.SOUND_BLOCK_STEP,
@@ -28,8 +34,12 @@ public class ModSounds {
             ModSounds.SOUND_BLOCK_FALL
             );
 
+    private static RegistryKey<JukeboxSong> registerJukeboxSong(String id) {
+        return RegistryKey.of(RegistryKeys.JUKEBOX_SONG, Adaptor.id(id));
+    }
+
     private static SoundEvent registerSoundEvent(String name) {
-        Identifier id = new Identifier(Adaptor.MOD_ID,name);
+        Identifier id = Adaptor.id(name);
         return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
     }
 

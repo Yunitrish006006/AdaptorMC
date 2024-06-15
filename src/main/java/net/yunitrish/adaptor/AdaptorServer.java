@@ -76,6 +76,10 @@ public class AdaptorServer implements DedicatedServerModInitializer {
 
     @Override
     public void onInitializeServer() {
+        run();
+    }
+
+    public void run() {
         try {
             data = new ModConfigFile("adaptor.json");
             if (Objects.equals(data.config.token, "YOUR-TOKEN-HERE")) return;

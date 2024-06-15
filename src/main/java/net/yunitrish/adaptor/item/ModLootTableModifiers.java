@@ -13,10 +13,9 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 
 public class ModLootTableModifiers {
-
-    public static final Identifier JUNGLE_TEMPLE_ID = new Identifier("minecraft","chests/jungle_temple");
-    public static final Identifier GRASS_ID = new Identifier("minecraft","blocks/short_grass");
-    public static final Identifier CREEPER_ID = new Identifier("minecraft","entities/creeper");
+    public static final Identifier JUNGLE_TEMPLE_ID = Identifier.ofVanilla("chests/jungle_temple");
+    public static final Identifier GRASS_ID = Identifier.ofVanilla("blocks/short_grass");
+    public static final Identifier CREEPER_ID = Identifier.ofVanilla("entities/creeper");
 
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register((id, tableBuilder, source) -> {

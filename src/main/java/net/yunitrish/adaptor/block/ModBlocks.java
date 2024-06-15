@@ -76,7 +76,7 @@ public class ModBlocks {
     );
 
     public static Block registerBlock(String name, Block block, boolean registerItem, boolean inItemGroup) {
-        Block temp = Registry.register(Registries.BLOCK, Adaptor.modIdentifier(name), block);
+        Block temp = Registry.register(Registries.BLOCK, Adaptor.id(name), block);
         if (registerItem) ModItems.registerItem(name, new BlockItem(temp, new Item.Settings()), inItemGroup);
         return temp;
     }

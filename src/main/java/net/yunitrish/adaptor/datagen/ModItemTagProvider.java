@@ -59,11 +59,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ModItems.SAKURA_VALLEY_MUSIC_DISC,
                         ModItems.BAR_BRAWL_MUSIC_DISC
                 );
-        getOrCreateTagBuilder(ItemTags.MUSIC_DISCS)
-                .add(
-                        ModItems.SAKURA_VALLEY_MUSIC_DISC,
-                        ModItems.BAR_BRAWL_MUSIC_DISC
-                );
+//        getOrCreateTagBuilder(ItemTags.MUSIC_DISCS)
+//                .add(
+//                        ModItems.SAKURA_VALLEY_MUSIC_DISC,
+//                        ModItems.BAR_BRAWL_MUSIC_DISC
+//                );
 
         getOrCreateTagBuilder(ItemTags.PLANKS)
                 .add(

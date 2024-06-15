@@ -27,7 +27,7 @@ public class ModVillagers {
     private static VillagerProfession registerProfession(String name, RegistryKey<PointOfInterestType> type) {
         return Registry.register(
                 Registries.VILLAGER_PROFESSION,
-                Adaptor.modIdentifier(name),
+                Adaptor.id(name),
                 new VillagerProfession(name,
                         entry -> entry.matchesKey(type),
                         entry -> entry.matchesKey(type),
@@ -39,11 +39,11 @@ public class ModVillagers {
     }
 
     private static PointOfInterestType registerPoi(String name, Block block) {
-        return PointOfInterestHelper.register(Adaptor.modIdentifier(name),1,1,block);
+        return PointOfInterestHelper.register(Adaptor.id(name), 1, 1, block);
     }
 
     private static RegistryKey<PointOfInterestType> poiKey(String name) {
-        return  RegistryKey.of(RegistryKeys.POINT_OF_INTEREST_TYPE,Adaptor.modIdentifier(name));
+        return RegistryKey.of(RegistryKeys.POINT_OF_INTEREST_TYPE, Adaptor.id(name));
     }
     public static void registerVillagers() {
         Adaptor.LOGGER.info("Registering Villagers...");

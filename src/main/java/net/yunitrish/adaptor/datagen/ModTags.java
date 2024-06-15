@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
-import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.Adaptor;
 
 public class ModTags {
@@ -15,7 +14,7 @@ public class ModTags {
         public static final TagKey<Block> HAMMER_EFFICIENT = createTag("hammer_efficient");
 
         private static TagKey<Block> createTag(String name) {
-            return  TagKey.of(RegistryKeys.BLOCK,new Identifier(Adaptor.MOD_ID,name));
+            return TagKey.of(RegistryKeys.BLOCK, Adaptor.id(name));
         }
     }
 
@@ -25,7 +24,7 @@ public class ModTags {
         public static final TagKey<Item> BAKE = createTag("bake");
 
         private static TagKey<Item> createTag(String name) {
-            return  TagKey.of(RegistryKeys.ITEM,new Identifier(Adaptor.MOD_ID,name));
+            return TagKey.of(RegistryKeys.ITEM, Adaptor.id(name));
         }
     }
 }

@@ -56,7 +56,7 @@ public class ModPlacedFeatures {
     }
 
     public static RegistryKey<PlacedFeature> registryKey(String name) {
-        return RegistryKey.of(RegistryKeys.PLACED_FEATURE, Adaptor.modIdentifier(name));
+        return RegistryKey.of(RegistryKeys.PLACED_FEATURE, Adaptor.id(name));
     }
 
     private static void register (Registerable<PlacedFeature> context, RegistryKey<PlacedFeature> key, RegistryEntry<ConfiguredFeature<?,?>> configureRation, List<PlacementModifier> modifiers) {

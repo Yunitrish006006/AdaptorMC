@@ -10,7 +10,7 @@ import net.yunitrish.adaptor.entity.creature.PorcupineEntity;
 public class ModEntities {
     public static final EntityType<PorcupineEntity> PORCUPINE = Registry.register(
             Registries.ENTITY_TYPE,
-            Adaptor.modIdentifier("porcupine"),
+            Adaptor.id("porcupine"),
             EntityType
                     .Builder
                     .create(PorcupineEntity::new, SpawnGroup.CREATURE)

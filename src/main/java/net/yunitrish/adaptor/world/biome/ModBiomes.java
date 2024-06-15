@@ -1,6 +1,5 @@
 package net.yunitrish.adaptor.world.biome;
 
-import net.minecraft.client.sound.MusicType;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registerable;
@@ -8,6 +7,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.sound.MusicType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
@@ -20,7 +20,7 @@ import net.yunitrish.adaptor.entity.ModEntities;
 import net.yunitrish.adaptor.sound.ModSounds;
 
 public class ModBiomes {
-    public static final RegistryKey<Biome> CHESTNUT_BIOME = RegistryKey.of(RegistryKeys.BIOME, Adaptor.modIdentifier("chestnut_biome"));
+    public static final RegistryKey<Biome> CHESTNUT_BIOME = RegistryKey.of(RegistryKeys.BIOME, Adaptor.id("chestnut_biome"));
 
     public static void bootStrap(Registerable<Biome> context) {
         context.register(CHESTNUT_BIOME, chestnutBiome(context));

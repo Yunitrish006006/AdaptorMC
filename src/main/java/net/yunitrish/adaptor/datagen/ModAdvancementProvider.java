@@ -30,7 +30,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         ModItems.IRON_HAMMER,
                         Text.translatable("advancements.sharpen_tools_better_job.title"),
                         Text.translatable("advancements.sharpen_tools_better_job.description"),
-                        new Identifier("textures/gui/advancements/backgrounds/adventure.png"),
+                        Identifier.of("textures/gui/advancements/backgrounds/adventure.png"),
                         AdvancementFrame.TASK,
                         true,
                         true,
@@ -44,7 +44,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         DirtSeries.DIRT_STAIRS,
                         Text.translatable("advancements.as_hard_as_dirt.title"),
                         Text.translatable("advancements.as_hard_as_dirt.description"),
-                        new Identifier("textures/gui/advancements/backgrounds/adventure.png"),
+                        Identifier.of("textures/gui/advancements/backgrounds/adventure.png"),
                         AdvancementFrame.TASK,
                         true,
                         true,
@@ -52,15 +52,15 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 )
                 .parent(sharpen_tools_better_job)
                 .criterion("as_hard_as_dirt", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create().items(Items.DIRT).build()))
-                .rewards(AdvancementRewards.Builder.recipe(Adaptor.modIdentifier(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_SLAB))))
-                .rewards(AdvancementRewards.Builder.recipe(Adaptor.modIdentifier(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_STAIRS))))
-                .rewards(AdvancementRewards.Builder.recipe(Adaptor.modIdentifier(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_BUTTON))))
-                .rewards(AdvancementRewards.Builder.recipe(Adaptor.modIdentifier(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_PRESSURE_PLATE))))
-                .rewards(AdvancementRewards.Builder.recipe(Adaptor.modIdentifier(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_WALL))))
-                .rewards(AdvancementRewards.Builder.recipe(Adaptor.modIdentifier(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_DOOR))))
-                .rewards(AdvancementRewards.Builder.recipe(Adaptor.modIdentifier(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_TRAPDOOR))))
-                .rewards(AdvancementRewards.Builder.recipe(Adaptor.modIdentifier(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_FENCE))))
-                .rewards(AdvancementRewards.Builder.recipe(Adaptor.modIdentifier(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_FENCE_GATE))))
+                .rewards(AdvancementRewards.Builder.recipe(Adaptor.id(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_SLAB))))
+                .rewards(AdvancementRewards.Builder.recipe(Adaptor.id(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_STAIRS))))
+                .rewards(AdvancementRewards.Builder.recipe(Adaptor.id(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_BUTTON))))
+                .rewards(AdvancementRewards.Builder.recipe(Adaptor.id(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_PRESSURE_PLATE))))
+                .rewards(AdvancementRewards.Builder.recipe(Adaptor.id(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_WALL))))
+                .rewards(AdvancementRewards.Builder.recipe(Adaptor.id(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_DOOR))))
+                .rewards(AdvancementRewards.Builder.recipe(Adaptor.id(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_TRAPDOOR))))
+                .rewards(AdvancementRewards.Builder.recipe(Adaptor.id(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_FENCE))))
+                .rewards(AdvancementRewards.Builder.recipe(Adaptor.id(ModRecipeProvider.getRecipeNameSpace(DirtSeries.DIRT_FENCE_GATE))))
                 .build(consumer, Adaptor.MOD_ID + "/as_hard_as_dirt");
 
         AdvancementEntry ingenuity = Advancement.Builder.create()
@@ -68,7 +68,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         ModItems.IRON_HAMMER,
                         Text.translatable("advancements.ingenuity.title"),
                         Text.translatable("advancements.ingenuity.description"),
-                        new Identifier("textures/gui/advancements/backgrounds/adventure.png"),
+                        Identifier.of("textures/gui/advancements/backgrounds/adventure.png"),
                         AdvancementFrame.TASK,
                         true,
                         true,
@@ -85,7 +85,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
 //                        ModItems.IRON_HAMMER,
 //                        Text.translatable("advancements.leach.title"),
 //                        Text.translatable("advancements.leach.description"),
-//                        new Identifier("textures/gui/advancements/backgrounds/adventure.png"),
+//                        Identifier.of("textures/gui/advancements/backgrounds/adventure.png"),
 //                        AdvancementFrame.TASK,
 //                        true,
 //                        true,

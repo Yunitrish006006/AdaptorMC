@@ -8,10 +8,9 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.yunitrish.adaptor.Adaptor;
 import net.yunitrish.adaptor.block.ModBlocks;
-import net.yunitrish.adaptor.block.plant.ChestnutSeries;
 import net.yunitrish.adaptor.entity.ModEntities;
 import net.yunitrish.adaptor.sound.ModSounds;
 
@@ -23,11 +22,7 @@ public class ModItems {
     public static List<Item> adaptor_group = new ArrayList<>();
 
 
-    public static Item registerItem(String name, Item item, boolean inItemGroup) {
-        Item temp = Registry.register(Registries.ITEM, new Identifier(Adaptor.MOD_ID, name), item);
-        if (inItemGroup) adaptor_group.add(temp);
-        return temp;
-    }
+    public static final Item BAR_BRAWL_MUSIC_DISC = registerItem("bar_brawl_music_disc", new Item(new Item.Settings().maxCount(1).rarity(Rarity.RARE).jukeboxPlayable(ModSounds.BAR_BRAWL_MUSIC)));
     public static Item registerItem(String name, Item item) {
         return registerItem(name, item, true);
     }
@@ -64,21 +59,25 @@ public class ModItems {
     public static final Item COPPER_CHESTPLATE = registerItem("copper_chestplate", new ModArmorItem(ModArmorMaterial.COPPER, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxCount(1).maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
     public static final Item COPPER_LEGGINGS = registerItem("copper_leggings", new ModArmorItem(ModArmorMaterial.COPPER, ArmorItem.Type.LEGGINGS, new Item.Settings().maxCount(1).maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
     public static final Item COPPER_BOOTS = registerItem("copper_boots", new ModArmorItem(ModArmorMaterial.COPPER, ArmorItem.Type.BOOTS, new Item.Settings().maxCount(1).maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
+    public static final Item SAKURA_VALLEY_MUSIC_DISC = registerItem("sakura_valley_music_disc", new Item(new Item.Settings().maxCount(1).rarity(Rarity.RARE).jukeboxPlayable(ModSounds.SAKURA_VALLEY_MUSIC)));
 
-    public static final Item BAR_BRAWL_MUSIC_DISC = registerItem("bar_brawl_music_disc",new MusicDiscItem(3, ModSounds.BAR_BRAWL,new Item.Settings().maxCount(1),122));
-    public static final Item SAKURA_VALLEY_MUSIC_DISC = registerItem("sakura_valley_music_disc",new MusicDiscItem(3, ModSounds.SAKURA_VALLEY,new Item.Settings().maxCount(1),119));
-
+    public static Item registerItem(String name, Item item, boolean inItemGroup) {
+        Item temp = Registry.register(Registries.ITEM, Adaptor.id(name), item);
+        if (inItemGroup) adaptor_group.add(temp);
+        return temp;
+    }
 
     public static ItemGroup AdaptorGroup;
+
     public static void registerModItems() {
         Adaptor.LOGGER.info("Registering Mod Items for " + Adaptor.MOD_ID);
         AdaptorGroup = FabricItemGroup.builder()
                 .displayName(Text.translatable("itemgroup.adaptor_group"))
                 .icon(() -> new ItemStack(ModItems.IRON_HAMMER))
                 .build();
-        Registry.register(Registries.ITEM_GROUP,Adaptor.modIdentifier("adaptor_group"),AdaptorGroup);
-        addToItemGroup("adaptor_group", ChestnutSeries.CHESTNUT_BOAT);
-        addToItemGroup("adaptor_group", ChestnutSeries.CHESTNUT_CHEST_BOAT);
+        Registry.register(Registries.ITEM_GROUP, Adaptor.id("adaptor_group"), AdaptorGroup);
+//        addToItemGroup("adaptor_group", ChestnutSeries.CHESTNUT_BOAT);
+//        addToItemGroup("adaptor_group", ChestnutSeries.CHESTNUT_CHEST_BOAT);
         for (Item item : adaptor_group) {
             addToItemGroup("adaptor_group", item);
         }
@@ -86,7 +85,7 @@ public class ModItems {
 
     public static void addToItemGroup(String groupId, Item item) {
         try {
-            ItemGroupEvents.modifyEntriesEvent(RegistryKey.of(RegistryKeys.ITEM_GROUP, Adaptor.modIdentifier(groupId))).register(entries -> entries.add(item));
+            ItemGroupEvents.modifyEntriesEvent(RegistryKey.of(RegistryKeys.ITEM_GROUP, Adaptor.id(groupId))).register(entries -> entries.add(item));
         } catch (Exception ignored) {
         }
     }

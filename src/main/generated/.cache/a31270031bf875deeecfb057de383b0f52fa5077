@@ -1,4 +1,4 @@
-// 1.20.6	2024-06-05T13:03:03.7696292	Adaptor/Model Definitions
+// 1.21	2024-06-15T17:00:58.3856365	Adaptor/Model Definitions
 11c252da9987d886959bbbdc572c87aa8cece6ef assets\adaptor\models\item\copper_helmet_gold_trim.json
 04efda3cda92aeda84c791deb527aabc2cea5ec5 assets\adaptor\models\item\copper_helmet_diamond_trim.json
 ebc14ba153f887c99f6d3ac9e857ccec59ea82ad assets\adaptor\blockstates\chestnut_sapling.json
@@ -17,9 +17,8 @@ e4f59bd2dc357f1910dbe2aa4f5a5ea81a11575f assets\adaptor\blockstates\chestnut_lea
 332f9739eb752d0b185f6f20773ba30b85b5149f assets\adaptor\blockstates\dirt_wall.json
 d65c692b0e0823c0822946b00608951d0fc80826 assets\adaptor\models\block\dirt_slab_top.json
 626c2eecf9445262cabbf433233362d62a345d1a assets\adaptor\models\item\dirt_button.json
-60f53c35e8799f3ad3a402c275d779730840ae18 assets\adaptor\models\block\chestnut_button.json
 6007c1380b4f55db320381b6100b04c5fa69285c assets\adaptor\models\item\chestnut_wood.json
-d2741edc84b6f09dd076fd5322f05da68fbd4a05 assets\adaptor\models\item\chestnut_boat.json
+60f53c35e8799f3ad3a402c275d779730840ae18 assets\adaptor\models\block\chestnut_button.json
 fe727e2ea23cedc1a725f36eb7ca8f66f667f414 assets\adaptor\blockstates\chestnut_button.json
 dcc4c98d3d06db44195754514a82bd701d10f82c assets\adaptor\models\item\copper_chestplate_lapis_trim.json
 78675f4c597e71bed644df3f37c71ee63bbdebf3 assets\adaptor\models\block\soybean_crop_stage5.json
@@ -131,7 +130,6 @@ b463579a78f8d377db6235f0cf6c7bd699d0606f assets\adaptor\models\item\metal_detect
 7a8b01e4c76e93095a99d286667164aba4710923 assets\adaptor\models\item\stone_hammer.json
 9d02a73ff817930096c440075637958cb180da5c assets\adaptor\models\item\copper_helmet.json
 691a954ba0f9256761e24d5ead8b98bc22f75d10 assets\adaptor\models\item\marijuana.json
-f00e97df7bc58224befdfa10ff982240c85af99e assets\adaptor\models\item\chestnut_chest_boat.json
 b4185555bcaf5589414cc3a5d21db29150708255 assets\adaptor\blockstates\dirt_trapdoor.json
 0e8f2d0021aa4b2be15d4b57ee997017448ff22f assets\adaptor\models\item\chestnut_fence_gate.json
 5952da34aec22c415d90a8f26df3d2b4003b2bcb assets\adaptor\models\block\chestnut_fence_gate_wall.json

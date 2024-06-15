@@ -35,10 +35,14 @@ public abstract class FishingMixin extends ProjectileEntity {
     private Entity hookedEntity;
     @Shadow
     private int hookCountdown;
+
     @Final
     @Shadow
-    private int luckOfTheSeaLevel;
-    @Shadow @Final private int lureLevel;
+    private int luckBonus;
+    @Final
+    @Shadow
+    private int waitTimeReductionTicks;
+
     public FishingMixin(EntityType<? extends ProjectileEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -84,16 +88,17 @@ public abstract class FishingMixin extends ProjectileEntity {
         int i = 0;
         if (this.hookedEntity != null) {
             this.pullHookedEntity(this.hookedEntity);
+//            Criteria.FISHING_ROD_HOOKED.trigger((ServerPlayerEntity)playerEntity, usedItem, this, Collections.emptyList());
             this.getWorld().sendEntityStatus(this, EntityStatuses.PULL_HOOKED_ENTITY);
             i = this.hookedEntity instanceof ItemEntity ? 3 : 5;
         } else if (this.hookCountdown > 0) {
-            LootContextParameterSet lootContextParameterSet = new LootContextParameterSet.Builder((ServerWorld)this.getWorld()).add(LootContextParameters.ORIGIN, this.getPos()).add(LootContextParameters.TOOL, usedItem).add(LootContextParameters.THIS_ENTITY, this).luck((float)this.luckOfTheSeaLevel + playerEntity.getLuck()).build(LootContextTypes.FISHING);
-            if (this.getWorld().getServer() == null ) return;
+            LootContextParameterSet lootContextParameterSet = new LootContextParameterSet.Builder((ServerWorld) this.getWorld()).add(LootContextParameters.ORIGIN, this.getPos()).add(LootContextParameters.TOOL, usedItem).add(LootContextParameters.THIS_ENTITY, this).luck((float) this.luckBonus + playerEntity.getLuck()).build(LootContextTypes.FISHING);
             LootTable lootTable = this.getWorld().getServer().getReloadableRegistries().getLootTable(LootTables.FISHING_GAMEPLAY);
             ObjectArrayList<ItemStack> list = lootTable.generateLoot(lootContextParameterSet);
+//            Criteria.FISHING_ROD_HOOKED.trigger((ServerPlayerEntity)playerEntity, usedItem, this, list);
             for (ItemStack itemStack : list) {
 
-                int rn = Math.abs(random.nextBetween(0, (lureLevel * luckOfTheSeaLevel + 1) / 3) + 1);
+                int rn = Math.abs(random.nextBetween(0, (luckBonus * waitTimeReductionTicks + 1) / 3) + 1);
                 if (itemStack.isIn(ItemTags.FISHES)) {
                     playerEntity.getWorld().spawnEntity(new ExperienceOrbEntity(playerEntity.getWorld(), playerEntity.getX(), playerEntity.getY() + 0.5, playerEntity.getZ() + 0.5, this.random.nextInt(6) + 1));
                     for (int t=0;t<rn;t++) this.getWorld().spawnEntity(getFishEntity(playerEntity,itemStack));
@@ -101,12 +106,19 @@ public abstract class FishingMixin extends ProjectileEntity {
                 }
                 else {
                     ItemEntity itemEntity = new ItemEntity(this.getWorld(), this.getX(), this.getY(), this.getZ(), itemStack);
+
+//                    Vec3d v = playerEntity.getPos().add(this.getPos().negate());
+//                    v.lengthSquared();
+
                     double d = playerEntity.getX() - this.getX();
                     double e = playerEntity.getY() - this.getY();
                     double f = playerEntity.getZ() - this.getZ();
-                    itemEntity.setVelocity(d * 0.1, e * 0.1 + Math.sqrt(Math.sqrt(d * d + e * e + f * f)) * 0.08 + 0.05, f * 0.1);
+                    double g = 0.1;
+                    itemEntity.setVelocity(d * 0.1, e * 0.1 + Math.sqrt(Math.sqrt(d * d + e * e + f * f)) * 0.08, f * 0.1);
                     this.getWorld().spawnEntity(itemEntity);
                     playerEntity.getWorld().spawnEntity(new ExperienceOrbEntity(playerEntity.getWorld(), playerEntity.getX(), playerEntity.getY() + 0.5, playerEntity.getZ() + 0.5, this.random.nextInt(6) + 1));
+                    if (!itemStack.isIn(ItemTags.FISHES)) continue;
+                    playerEntity.increaseStat(Stats.FISH_CAUGHT, 1);
                 }
             }
             i = 1;

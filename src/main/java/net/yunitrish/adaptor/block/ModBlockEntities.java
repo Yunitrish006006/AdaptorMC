@@ -10,7 +10,7 @@ public class ModBlockEntities {
     public static final BlockEntityType<StoneMillBlockEntity> STONE_MILL_BLOCK_ENTITY_BLOCK_ENTITY_TYPE = Registry
             .register(
                     Registries.BLOCK_ENTITY_TYPE,
-                    Adaptor.modIdentifier("stone_mill_be"),
+                    Adaptor.id("stone_mill_be"),
                     BlockEntityType.Builder.create(StoneMillBlockEntity::new,ModBlocks.STONE_MILL).build()
             );
 

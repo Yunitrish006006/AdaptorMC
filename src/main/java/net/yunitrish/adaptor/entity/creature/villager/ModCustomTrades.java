@@ -8,7 +8,6 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradedItem;
 import net.minecraft.village.VillagerProfession;
-import net.yunitrish.adaptor.enchantment.ModEnchantments;
 import net.yunitrish.adaptor.item.ModItems;
 
 import java.util.Optional;
@@ -16,7 +15,7 @@ import java.util.Optional;
 public class ModCustomTrades {
 
     public static ItemStack randomCountItemStack(Item item, int min, int max) {
-        return new ItemStack(item);
+        return new ItemStack(item, Random.create().nextBetween(min, max));
     }
     public static TradedItem randomCountTradeItem(Item item, int min, int max) {
         return new TradedItem(item,Random.create().nextBetween(min,max));
@@ -26,15 +25,13 @@ public class ModCustomTrades {
         TradeOfferHelper.registerVillagerOffers(
                 VillagerProfession.FARMER,
                 1,
-                factories -> {
-                    factories.add((entity, random) -> new TradeOffer(
-                            randomCountTradeItem(ModItems.SOYBEAN,7,19),
-                            new ItemStack(Items.EMERALD),
-                            6,
-                            5,
-                            0.05f
-                    ));
-                }
+                factories -> factories.add((entity, random) -> new TradeOffer(
+                        randomCountTradeItem(ModItems.SOYBEAN, 7, 19),
+                        new ItemStack(Items.EMERALD),
+                        6,
+                        5,
+                        0.05f
+                ))
         );
         TradeOfferHelper.registerVillagerOffers(
                 ModVillagers.CHEF,
@@ -89,22 +86,19 @@ public class ModCustomTrades {
         TradeOfferHelper.registerVillagerOffers(
                 ModVillagers.SCAVENGER,
                 2,
-                factories -> {
+                factories -> factories.add(((entity, random) -> {
+                    ItemStack item = new ItemStack(Items.ENCHANTED_BOOK);
+                    int book_level = random.nextBetween(1, 4);
+//                        item.addEnchantment(ModEnchantments.MANIC,book_level);
+                    return new TradeOffer(
+                            new TradedItem(Items.GOLD_INGOT, random.nextBetween(book_level * 3, book_level * 5) + random.nextBetween(6, 10)),
+                            item,
+                            2,
+                            30,
+                            0.04f
 
-                    factories.add(((entity, random) -> {
-                        ItemStack item = new ItemStack(Items.ENCHANTED_BOOK);
-                        int book_level = random.nextBetween(1,4);
-                        item.addEnchantment(ModEnchantments.MANIC,book_level);
-                        return new TradeOffer(
-                                new TradedItem(Items.GOLD_INGOT, random.nextBetween(book_level*3,book_level*5) + random.nextBetween(6,10)),
-                                item,
-                                2,
-                                30,
-                                0.04f
-
-                        );
-                    }));
-                }
+                    );
+                }))
         );
 
 
@@ -113,7 +107,7 @@ public class ModCustomTrades {
                 1,
                 factories -> {
                     ItemStack item = new ItemStack(Items.IRON_SWORD);
-                    item.addEnchantment(ModEnchantments.LEACH,1);
+//                    item.addEnchantment(ModEnchantments.LEACH,1);
                     factories.add((entity, random) -> new TradeOffer(
                             new TradedItem(new ItemStack(Items.EMERALD).getItem(),8),
                             item,

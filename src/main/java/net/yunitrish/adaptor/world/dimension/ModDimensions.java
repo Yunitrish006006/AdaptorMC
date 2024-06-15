@@ -15,9 +15,9 @@ import java.util.OptionalLong;
 
 //https://misode.github.io/dimension/
 public class ModDimensions {
-    public static final RegistryKey<DimensionOptions> PRE_ERA_KEY = RegistryKey.of(RegistryKeys.DIMENSION, Adaptor.modIdentifier("pre_era_dimension"));
-    public static final RegistryKey<World> PRE_ERA_LEVEL_KEY = RegistryKey.of(RegistryKeys.WORLD, Adaptor.modIdentifier("pre_era_dimension"));
-    public static final RegistryKey<DimensionType> PRE_ERA_DIMENSION_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE, Adaptor.modIdentifier("pre_era_dimension_type"));
+    public static final RegistryKey<DimensionOptions> PRE_ERA_KEY = RegistryKey.of(RegistryKeys.DIMENSION, Adaptor.id("pre_era_dimension"));
+    public static final RegistryKey<World> PRE_ERA_LEVEL_KEY = RegistryKey.of(RegistryKeys.WORLD, Adaptor.id("pre_era_dimension"));
+    public static final RegistryKey<DimensionType> PRE_ERA_DIMENSION_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE, Adaptor.id("pre_era_dimension_type"));
 
     public static void bootStrapType(Registerable<DimensionType> context) {
         context.register(PRE_ERA_DIMENSION_TYPE, new DimensionType(

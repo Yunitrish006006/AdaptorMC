@@ -43,7 +43,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('S', Items.STICK)
                 .input('C',Items.COPPER_INGOT)
                 .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
-                .offerTo(exporter,new Identifier(getRecipeName(ModItems.COPPER_AXE)));
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.COPPER_AXE)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_HOE)
                 .pattern("CC")
                 .pattern(" S")
@@ -51,7 +51,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('S', Items.STICK)
                 .input('C',Items.COPPER_INGOT)
                 .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
-                .offerTo(exporter,new Identifier(getRecipeName(ModItems.COPPER_HOE)));
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.COPPER_HOE)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_PICKAXE)
                 .pattern("CCC")
                 .pattern(" S ")
@@ -59,7 +59,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('S', Items.STICK)
                 .input('C',Items.COPPER_INGOT)
                 .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
-                .offerTo(exporter,new Identifier(getRecipeName(ModItems.COPPER_PICKAXE)));
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.COPPER_PICKAXE)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_SHOVEL)
                 .pattern("C")
                 .pattern("S")
@@ -67,7 +67,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('S', Items.STICK)
                 .input('C',Items.COPPER_INGOT)
                 .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
-                .offerTo(exporter,new Identifier(getRecipeName(ModItems.COPPER_SHOVEL)));
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.COPPER_SHOVEL)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_SWORD)
                 .pattern("C")
                 .pattern("C")
@@ -75,41 +75,41 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('S', Items.STICK)
                 .input('C',Items.COPPER_INGOT)
                 .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
-                .offerTo(exporter,new Identifier(getRecipeName(ModItems.COPPER_SWORD)));
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.COPPER_SWORD)));
     }
 
     private void woodBuildingProducts(RecipeExporter exporter, Block log, Block planks, Block slab, Block stair, Block button, Block pressurePlate, Block door, Block trapdoor, Block fence, Block fenceGate) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, planks, 4)
                 .input(log)
                 .criterion(hasItem(log), conditionsFromItem(log))
-                .offerTo(exporter, new Identifier(getRecipeName(planks)));
+                .offerTo(exporter, Identifier.of(getRecipeName(planks)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, door, 2)
                 .pattern("PP")
                 .pattern("PP")
                 .pattern("PP")
                 .input('P', planks)
                 .criterion(hasItem(planks), conditionsFromItem(planks))
-                .offerTo(exporter, new Identifier(getRecipeName(door)));
+                .offerTo(exporter, Identifier.of(getRecipeName(door)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, fence, 3)
                 .pattern("PSP")
                 .pattern("PSP")
                 .input('P', planks)
                 .input('S', Items.STICK)
                 .criterion(hasItem(planks), conditionsFromItem(planks))
-                .offerTo(exporter, new Identifier(getRecipeName(fence)));
+                .offerTo(exporter, Identifier.of(getRecipeName(fence)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, trapdoor, 2)
                 .pattern("PPP")
                 .pattern("PPP")
                 .input('P', planks)
                 .criterion(hasItem(planks), conditionsFromItem(planks))
-                .offerTo(exporter, new Identifier(getRecipeName(trapdoor)));
+                .offerTo(exporter, Identifier.of(getRecipeName(trapdoor)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, fenceGate, 2)
                 .pattern("SPS")
                 .pattern("SPS")
                 .input('P', planks)
                 .input('S', Items.STICK)
                 .criterion(hasItem(planks), conditionsFromItem(planks))
-                .offerTo(exporter, new Identifier(getRecipeName(fenceGate)));
+                .offerTo(exporter, Identifier.of(getRecipeName(fenceGate)));
         buildingProducts(exporter, planks, slab, stair, button, pressurePlate);
 
     }
@@ -120,7 +120,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("PPP")
                 .input('P', element)
                 .criterion(hasItem(element), conditionsFromItem(element))
-                .offerTo(exporter, new Identifier(getRecipeName(wall)));
+                .offerTo(exporter, Identifier.of(getRecipeName(wall)));
         buildingProducts(exporter, element, slab, stair, button, pressurePlate);
     }
 
@@ -148,7 +148,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .input('I', value)
                     .group("hammer")
                     .criterion("has_" + value.getName(), conditionsFromTag(value))
-                    .offerTo(exporter, new Identifier(getRecipeName(key)));
+                    .offerTo(exporter, Identifier.of(getRecipeName(key)));
         }
 
         for (Map.Entry<Item, Item> entry : materialAndTool.entrySet()) {
@@ -162,7 +162,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .input('I', value)
                     .group("hammer")
                     .criterion(hasItem(value), conditionsFromItem(value))
-                    .offerTo(exporter, new Identifier(getRecipeName(key)));
+                    .offerTo(exporter, Identifier.of(getRecipeName(key)));
         }
     }
 
@@ -173,34 +173,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('P', element)
                 .input('S', Items.STICK)
                 .criterion(hasItem(element), conditionsFromItem(element))
-                .offerTo(exporter, Adaptor.modIdentifier(getRecipeName(wall)));
+                .offerTo(exporter, Adaptor.id(getRecipeName(wall)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, trapdoor, 2)
                 .pattern("PPP")
                 .pattern("PPP")
                 .input('P', element)
                 .criterion(hasItem(element), conditionsFromItem(element))
-                .offerTo(exporter, Adaptor.modIdentifier(getRecipeName(trapdoor)));
+                .offerTo(exporter, Adaptor.id(getRecipeName(trapdoor)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, door, 2)
                 .pattern("PP")
                 .pattern("PP")
                 .pattern("PP")
                 .input('P', element)
                 .criterion(hasItem(element), conditionsFromItem(element))
-                .offerTo(exporter, Adaptor.modIdentifier(getRecipeName(door)));
+                .offerTo(exporter, Adaptor.id(getRecipeName(door)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, fence, 2)
                 .pattern("PSP")
                 .pattern("PSP")
                 .input('P', element)
                 .input('S', Items.STICK)
                 .criterion(hasItem(element), conditionsFromItem(element))
-                .offerTo(exporter, Adaptor.modIdentifier(getRecipeName(fence)));
+                .offerTo(exporter, Adaptor.id(getRecipeName(fence)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, fenceGate, 2)
                 .pattern("SPS")
                 .pattern("SPS")
                 .input('P', element)
                 .input('S', Items.STICK)
                 .criterion(hasItem(element), conditionsFromItem(element))
-                .offerTo(exporter, Adaptor.modIdentifier(getRecipeName(fenceGate)));
+                .offerTo(exporter, Adaptor.id(getRecipeName(fenceGate)));
         buildingProducts(exporter, element, slab, stair, button, pressurePlate);
     }
 
@@ -210,7 +210,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Items.WHEAT)
                 .input(Items.WHEAT)
                 .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.FLOUR)));
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.FLOUR)));
 
         for (int i = 1; i < 9; i++) {
             ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.DOUGH, i)
@@ -218,7 +218,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .input(Items.WATER_BUCKET)
                     .criterion(hasItem(ModItems.FLOUR), conditionsFromItem(ModItems.FLOUR))
                     .group("flour_to_dough")
-                    .offerTo(exporter, new Identifier(i + "_flour_" + getRecipeName(ModItems.DOUGH) + "_with_bucket"));
+                    .offerTo(exporter, Identifier.of(i + "_flour_" + getRecipeName(ModItems.DOUGH) + "_with_bucket"));
         }
 
         offerSmelting(exporter, List.of(ModItems.DOUGH), RecipeCategory.FOOD, Items.BREAD, 2f, 200, "bread");
@@ -236,12 +236,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('I',Items.COPPER_INGOT)
                 .input('R', Items.REDSTONE)
                 .criterion(hasItem(Items.COPPER_INGOT),VanillaRecipeProvider.conditionsFromItem(Items.COPPER_INGOT))
-                .offerTo(exporter,new Identifier(getRecipeName(ModItems.METAL_DETECTOR)));
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.METAL_DETECTOR)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLASS_SLAB, 6)
                 .pattern("GGG")
                 .input('G', Items.GLASS)
                 .criterion(hasItem(Items.GLASS), VanillaRecipeProvider.conditionsFromItem(Items.GLASS))
-                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.GLASS_SLAB)));
+                .offerTo(exporter, Identifier.of(getRecipeName(ModBlocks.GLASS_SLAB)));
         dirtBuildingProducts(exporter, Blocks.DIRT, DirtSeries.DIRT_SLAB, DirtSeries.DIRT_STAIRS, DirtSeries.DIRT_BUTTON, DirtSeries.DIRT_PRESSURE_PLATE, DirtSeries.DIRT_WALL, DirtSeries.DIRT_DOOR, DirtSeries.DIRT_TRAPDOOR, DirtSeries.DIRT_FENCE, DirtSeries.DIRT_FENCE_GATE);
         woodBuildingProducts(exporter, ChestnutSeries.CHESTNUT_LOG, ChestnutSeries.CHESTNUT_PLANKS, ChestnutSeries.CHESTNUT_SLAB, ChestnutSeries.CHESTNUT_STAIRS, ChestnutSeries.CHESTNUT_BUTTON, ChestnutSeries.CHESTNUT_PRESSURE_PLATE, ChestnutSeries.CHESTNUT_DOOR, ChestnutSeries.CHESTNUT_TRAPDOOR, ChestnutSeries.CHESTNUT_FENCE, ChestnutSeries.CHESTNUT_FENCE_GATE);
         createBreads(exporter);
@@ -252,23 +252,23 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("PPP")
                 .input('P', element)
                 .criterion(hasItem(element), conditionsFromItem(element))
-                .offerTo(exporter, Adaptor.modIdentifier(getRecipeName(slab)));
+                .offerTo(exporter, Adaptor.id(getRecipeName(slab)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, stair, 4)
                 .pattern("P  ")
                 .pattern("PP ")
                 .pattern("PPP")
                 .input('P', element)
                 .criterion(hasItem(element), conditionsFromItem(element))
-                .offerTo(exporter, Adaptor.modIdentifier(getRecipeName(stair)));
+                .offerTo(exporter, Adaptor.id(getRecipeName(stair)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, button)
                 .pattern("P")
                 .input('P', element)
                 .criterion(hasItem(element), conditionsFromItem(element))
-                .offerTo(exporter, Adaptor.modIdentifier(getRecipeName(button)));
+                .offerTo(exporter, Adaptor.id(getRecipeName(button)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, pressurePlate)
                 .pattern("PP")
                 .input('P', element)
                 .criterion(hasItem(element), conditionsFromItem(element))
-                .offerTo(exporter, Adaptor.modIdentifier(getRecipeName(pressurePlate)));
+                .offerTo(exporter, Adaptor.id(getRecipeName(pressurePlate)));
     }
 }

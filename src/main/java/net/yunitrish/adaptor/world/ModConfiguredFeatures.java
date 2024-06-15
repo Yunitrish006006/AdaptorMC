@@ -53,7 +53,7 @@ public class ModConfiguredFeatures {
     }
 
     public static RegistryKey<ConfiguredFeature<?,?>> registryKey(String name) {
-        return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, Adaptor.modIdentifier(name));
+        return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, Adaptor.id(name));
     }
 
     private static <FC extends FeatureConfig, F extends Feature<FC>> void register (Registerable<ConfiguredFeature<?,?>> context, RegistryKey<ConfiguredFeature<?,?>> key, F feature, FC configuration) {

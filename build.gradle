@@ -3,7 +3,7 @@ plugins {
 	id 'maven-publish'
 }
 
-version = project.minecraft_version + "v" + project.mod_version
+version = project.mod_version + "+" + project.minecraft_version
 
 group = project.maven_group
 
@@ -38,8 +38,8 @@ dependencies {
 	modImplementation "com.github.glitchfiend:TerraBlender-fabric:${project.minecraft_version}-${project.terrablender_version}"
 	include "com.github.glitchfiend:TerraBlender-fabric:${project.minecraft_version}-${project.terrablender_version}"
 
-    modImplementation "net.kyrptonaught:customportalapi:${project.customportalapi_version}-${project.minecraft_version}"
-    include "net.kyrptonaught:customportalapi:${project.customportalapi_version}-${project.minecraft_version}"
+//    modImplementation "net.kyrptonaught:customportalapi:${project.customportalapi_version}"
+//    include "net.kyrptonaught:customportalapi:${project.customportalapi_version}"
 
 	implementation "net.dv8tion:JDA:${project.jda_version}"
 	include "net.dv8tion:JDA:${project.jda_version}"

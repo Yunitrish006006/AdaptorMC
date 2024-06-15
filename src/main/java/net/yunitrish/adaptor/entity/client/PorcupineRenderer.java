@@ -9,7 +9,7 @@ import net.yunitrish.adaptor.Adaptor;
 import net.yunitrish.adaptor.entity.creature.PorcupineEntity;
 
 public class PorcupineRenderer extends MobEntityRenderer<PorcupineEntity,PorcupineModel<PorcupineEntity>> {
-    private static final Identifier TEXTURE = Adaptor.modIdentifier("textures/entity/porcupine.png");
+    private static final Identifier TEXTURE = Adaptor.id("textures/entity/porcupine.png");
 
     public PorcupineRenderer(EntityRendererFactory.Context context) {
         super(context, new PorcupineModel<>(context.getPart(ModModelLayers.PORCUPINE)), 0.6f);

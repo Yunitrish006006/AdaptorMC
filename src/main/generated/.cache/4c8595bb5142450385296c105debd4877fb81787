@@ -1,4 +1,4 @@
-// 1.20.6	2024-06-05T13:03:03.7791472	Adaptor/Advancements
-6716fe43278c0ab3bb24101fc0eea4fce7cb86a1 data\minecraft\advancements\adaptor\as_hard_as_dirt.json
-56c743b73e8255280fabdb79ab456c46fe90092c data\minecraft\advancements\adaptor\ingenuity.json
-8c79d247bcf2552b560a957ce06751c6d48985c3 data\minecraft\advancements\adaptor\sharpen_tools_better_job.json
+// 1.21	2024-06-15T17:00:58.3941619	Adaptor/Advancements
+6716fe43278c0ab3bb24101fc0eea4fce7cb86a1 data\minecraft\advancement\adaptor\as_hard_as_dirt.json
+56c743b73e8255280fabdb79ab456c46fe90092c data\minecraft\advancement\adaptor\ingenuity.json
+8c79d247bcf2552b560a957ce06751c6d48985c3 data\minecraft\advancement\adaptor\sharpen_tools_better_job.json
