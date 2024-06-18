@@ -6,6 +6,7 @@ import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.block.ModBlockEntities;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.command.ModCommands;
+import net.yunitrish.adaptor.enchantment.EnchantAttributeHandler;
 import net.yunitrish.adaptor.entity.ModBoats;
 import net.yunitrish.adaptor.entity.ModEntities;
 import net.yunitrish.adaptor.entity.creature.PorcupineEntity;
@@ -38,7 +39,6 @@ public class Adaptor implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModBoats.registerBoats();
-//		ModEnchantments.registerModEnchantments();
 		ModTrunkPlacerTypes.register();
         ModFoliagePlacerTypes.register();
 		ModBlockEntities.registerBlockEntities();
@@ -51,7 +51,7 @@ public class Adaptor implements ModInitializer {
 		ModLootTableModifiers.modifyLootTables();
 		FabricDefaultAttributeRegistry.register(ModEntities.PORCUPINE, PorcupineEntity.createPorcupineAttributes());
 		ModWorldGeneration.generateModWorldGeneration();
-
+//		MinecraftClient.getInstance().world.getRegistryManager().re
 //        CustomPortalBuilder.beginPortal()
 //                .frameBlock(Blocks.MOSSY_COBBLESTONE)
 //                .lightWithFluid(Fluids.WATER)
@@ -59,6 +59,6 @@ public class Adaptor implements ModInitializer {
 //                .tintColor(0x575c3b)
 //                .onlyLightInOverworld()
 //                .registerPortal();
-//		EnchantAttributeHandler.registerEnchantmentAttributes();
+		EnchantAttributeHandler.registerEnchantmentAttributes();
 	}
 }

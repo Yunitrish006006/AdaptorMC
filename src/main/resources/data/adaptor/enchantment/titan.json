@@ -1,0 +1,96 @@
+{
+  "anvil_cost": 1,
+  "description": {
+    "translate": "enchantment.adaptor.titan"
+  },
+  "effects": {
+    "minecraft:attributes": [
+      {
+        "amount": {
+          "type": "minecraft:linear",
+          "base": 0.2,
+          "per_level_above_first": 0.05
+        },
+        "attribute": "minecraft:generic.scale",
+        "id": "adaptor:enchantment.titan",
+        "operation": "add_multiplied_total"
+      },
+      {
+        "amount": {
+          "type": "minecraft:linear",
+          "base": 0.2,
+          "per_level_above_first": 0.05
+        },
+        "attribute": "minecraft:generic.jump_strength",
+        "id": "adaptor:enchantment.titan",
+        "operation": "add_multiplied_total"
+      },
+      {
+        "amount": {
+          "type": "minecraft:linear",
+          "base": 0.2,
+          "per_level_above_first": 0.05
+        },
+        "attribute": "minecraft:player.entity_interaction_range",
+        "id": "adaptor:enchantment.titan",
+        "operation": "add_multiplied_total"
+      },
+      {
+        "amount": {
+          "type": "minecraft:linear",
+          "base": 0.2,
+          "per_level_above_first": 0.05
+        },
+        "attribute": "minecraft:player.block_interaction_range",
+        "id": "adaptor:enchantment.titan",
+        "operation": "add_multiplied_total"
+      },
+      {
+        "amount": {
+          "type": "minecraft:linear",
+          "base": 0.2,
+          "per_level_above_first": 0.05
+        },
+        "attribute": "minecraft:generic.movement_speed",
+        "id": "adaptor:enchantment.titan",
+        "operation": "add_multiplied_total"
+      },
+      {
+        "amount": {
+          "type": "minecraft:linear",
+          "base": 0.2,
+          "per_level_above_first": 0.05
+        },
+        "attribute": "minecraft:generic.gravity",
+        "id": "adaptor:enchantment.titan",
+        "operation": "add_multiplied_total"
+      },
+      {
+        "amount": {
+          "type": "minecraft:linear",
+          "base": 4.0,
+          "per_level_above_first": 2
+        },
+        "attribute": "minecraft:generic.max_health",
+        "id": "adaptor:enchantment.titan",
+        "operation": "add_value"
+      }
+    ]
+  },
+  "exclusive_set": "#minecraft:exclusive_set/armor",
+  "max_cost": {
+    "base": 21,
+    "per_level_above_first": 6
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 6
+  },
+  "primary_items": "#minecraft:enchantable/armor",
+  "slots": [
+    "armor"
+  ],
+  "supported_items": "#minecraft:enchantable/armor",
+  "weight": 6
+}

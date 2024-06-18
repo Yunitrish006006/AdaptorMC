@@ -1,5 +1,10 @@
 package net.yunitrish.adaptor.common;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.math.Vec3d;
+
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.UUID;
@@ -35,4 +40,17 @@ public class AdaptorApi {
         }
 
     }
+
+    public static void spawnParticlesFromEntity(Entity entity, ParticleEffect particleEffect, int count) {
+        if (entity.getWorld() instanceof ServerWorld serverWorld) {
+            Vec3d entityPos = entity.getPos();
+            for (int i = 0; i < count; i++) {
+                double offsetX = (serverWorld.random.nextDouble() - 0.5) * entity.getWidth();
+                double offsetY = serverWorld.random.nextDouble() * entity.getHeight();
+                double offsetZ = (serverWorld.random.nextDouble() - 0.5) * entity.getWidth();
+                serverWorld.spawnParticles(particleEffect, entityPos.x + offsetX, entityPos.y + offsetY, entityPos.z + offsetZ, 1, 0, 0, 0, 0);
+            }
+        }
+    }
+
 }

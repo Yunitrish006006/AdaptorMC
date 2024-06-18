@@ -85,6 +85,7 @@ public class ModItems {
 
     public static void addToItemGroup(String groupId, Item item) {
         try {
+            Adaptor.LOGGER.info("##-" + item.getName());
             ItemGroupEvents.modifyEntriesEvent(RegistryKey.of(RegistryKeys.ITEM_GROUP, Adaptor.id(groupId))).register(entries -> entries.add(item));
         } catch (Exception ignored) {
         }

@@ -3,6 +3,7 @@
   "package": "net.yunitrish.adaptor.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "EntityMixin",
     "FishingMixin",
     "FoliagePlacerTypeInvoker",
     "TrunkPlacerTypeInvoker",

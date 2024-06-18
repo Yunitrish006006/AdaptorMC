@@ -1,6 +1,7 @@
 package net.yunitrish.adaptor.datagen;
 
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
@@ -25,6 +26,17 @@ public class ModTags {
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, Adaptor.id(name));
+        }
+    }
+
+    public static class Enchantments {
+
+        public static final TagKey<Enchantment> WISDOM = createTag("wisdom");
+        public static final TagKey<Enchantment> LEACH = createTag("leach");
+        public static final TagKey<Enchantment> MANIC = createTag("manic");
+
+        private static TagKey<Enchantment> createTag(String name) {
+            return TagKey.of(RegistryKeys.ENCHANTMENT, Adaptor.id(name));
         }
     }
 }
