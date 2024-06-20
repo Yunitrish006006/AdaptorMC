@@ -12,7 +12,6 @@ import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.yunitrish.adaptor.Adaptor;
 import net.yunitrish.adaptor.block.ModBlocks;
-import net.yunitrish.adaptor.block.plant.ChestnutSeries;
 import net.yunitrish.adaptor.world.tree.custom.ChestnutFoliagePlacer;
 import net.yunitrish.adaptor.world.tree.custom.ChestnutTrunkPlacer;
 
@@ -43,9 +42,9 @@ public class ModConfiguredFeatures {
         register(context, NETHER_GRAVEL_IRON_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherGravelIronOres,12));
 
         register(context, CHESTNUT_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(ChestnutSeries.CHESTNUT_LOG),
+                BlockStateProvider.of(ModBlocks.Chestnut.CHESTNUT_LOG),
                 new ChestnutTrunkPlacer(5, 4, 3),
-                BlockStateProvider.of(ChestnutSeries.CHESTNUT_LEAVES),
+                BlockStateProvider.of(ModBlocks.Chestnut.CHESTNUT_LEAVES),
                 new ChestnutFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), ConstantIntProvider.create(1), 20),
                 new TwoLayersFeatureSize(1,0,2)
                 ).build()

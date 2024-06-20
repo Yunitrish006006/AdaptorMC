@@ -6,8 +6,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.yunitrish.adaptor.block.ModBlocks;
-import net.yunitrish.adaptor.block.building.DirtSeries;
-import net.yunitrish.adaptor.block.plant.ChestnutSeries;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -47,22 +45,22 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(ModBlocks.GRAVEL_IRON_ORE);
-        getOrCreateTagBuilder(BlockTags.FENCES).add(DirtSeries.DIRT_FENCE);
-        getOrCreateTagBuilder(BlockTags.FENCE_GATES).add(DirtSeries.DIRT_FENCE_GATE);
-        getOrCreateTagBuilder(BlockTags.WALLS).add(DirtSeries.DIRT_WALL);
+        getOrCreateTagBuilder(BlockTags.FENCES).add(ModBlocks.Dirt.DIRT_FENCE);
+        getOrCreateTagBuilder(BlockTags.FENCE_GATES).add(ModBlocks.Dirt.DIRT_FENCE_GATE);
+        getOrCreateTagBuilder(BlockTags.WALLS).add(ModBlocks.Dirt.DIRT_WALL);
         getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
                 .add(
-                        ChestnutSeries.CHESTNUT_LOG,
-                        ChestnutSeries.CHESTNUT_WOOD,
-                        ChestnutSeries.STRIPPED_CHESTNUT_LOG,
-                        ChestnutSeries.STRIPPED_CHESTNUT_WOOD
+                        ModBlocks.Chestnut.CHESTNUT_LOG,
+                        ModBlocks.Chestnut.CHESTNUT_WOOD,
+                        ModBlocks.Chestnut.STRIPPED_CHESTNUT_LOG,
+                        ModBlocks.Chestnut.STRIPPED_CHESTNUT_WOOD
                 );
-        getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).add(ChestnutSeries.CHESTNUT_STAIRS);
-        getOrCreateTagBuilder(BlockTags.WOODEN_SLABS).add(ChestnutSeries.CHESTNUT_SLAB);
-        getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS).add(ChestnutSeries.CHESTNUT_BUTTON);
-        getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES).add(ChestnutSeries.CHESTNUT_PRESSURE_PLATE);
-        getOrCreateTagBuilder(BlockTags.WOODEN_DOORS).add(ChestnutSeries.CHESTNUT_DOOR);
-        getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS).add(ChestnutSeries.CHESTNUT_TRAPDOOR);
-        getOrCreateTagBuilder(BlockTags.WOODEN_FENCES).add(ChestnutSeries.CHESTNUT_FENCE).add(ChestnutSeries.CHESTNUT_FENCE_GATE);
+        getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).add(ModBlocks.Chestnut.CHESTNUT_STAIRS);
+        getOrCreateTagBuilder(BlockTags.WOODEN_SLABS).add(ModBlocks.Chestnut.CHESTNUT_SLAB);
+        getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS).add(ModBlocks.Chestnut.CHESTNUT_BUTTON);
+        getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES).add(ModBlocks.Chestnut.CHESTNUT_PRESSURE_PLATE);
+        getOrCreateTagBuilder(BlockTags.WOODEN_DOORS).add(ModBlocks.Chestnut.CHESTNUT_DOOR);
+        getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS).add(ModBlocks.Chestnut.CHESTNUT_TRAPDOOR);
+        getOrCreateTagBuilder(BlockTags.WOODEN_FENCES).add(ModBlocks.Chestnut.CHESTNUT_FENCE).add(ModBlocks.Chestnut.CHESTNUT_FENCE_GATE);
     }
 }

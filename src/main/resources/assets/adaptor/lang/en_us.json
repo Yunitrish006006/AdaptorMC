@@ -7,6 +7,12 @@
   "advancements.as_hard_as_dirt.description": "get a dirt block",
   "advancements.leach.title": "Battle never Ends!!",
   "advancements.leach.description": "Enchant a weapon with Leach ",
+  "container.locked_container": "Container with lock",
+  "block.adaptor.locked_container": "Container with lock",
+  "adaptor.container.lock_set": "Locked installed!",
+  "adaptor.container.locked": "This Container belongs to: %s",
+  "adaptor.container.opened": "Opened Container successfully!",
+
   "tag.item.adaptor.hemmer": "hammer",
   "tag.item.adaptor.bake": "bake",
   "tag.block.adaptor.hammer": "hammer",
@@ -48,6 +54,7 @@
   "item.adaptor.copper_chestplate": "Copper Chestplate",
   "item.adaptor.copper_leggings": "Copper Leggings",
   "item.adaptor.copper_boots": "Copper Boots",
+  "item.adaptor.copper_key": "Copper Key",
 
   "block.adaptor.gravel_iron_ore": "Gravel Iron Ore",
 

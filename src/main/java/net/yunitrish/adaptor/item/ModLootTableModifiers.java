@@ -23,7 +23,7 @@ public class ModLootTableModifiers {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.7f))
-                        .with(ItemEntry.builder(ModItems.METAL_DETECTOR))
+                        .with(ItemEntry.builder(ModItems.Tools.METAL_DETECTOR))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f,1f)
                         ).build());
                 tableBuilder.pool(poolBuilder.build());

@@ -85,7 +85,7 @@ public class ModConfigFile {
     }
 
     public void addBindData(String discordId, String minecraftId) {
-        ServerPlayerEntity player = ModConfig.getPlayerFromMinecraftId(minecraftId);
+        ServerPlayerEntity player = ModConfig.getPlayer(minecraftId);
         UserData userData = new UserData();
         userData.minecraftId = minecraftId;
         userData.uuid = player.getUuid().toString();
@@ -95,7 +95,7 @@ public class ModConfigFile {
     }
 
     public void addBindData(String discordId, String minecraftId, String customName) {
-        ServerPlayerEntity player = ModConfig.getPlayerFromMinecraftId(minecraftId);
+        ServerPlayerEntity player = ModConfig.getPlayer(minecraftId);
         UserData userData = new UserData();
         userData.minecraftId = minecraftId;
         userData.uuid = player.getUuid().toString();
@@ -110,7 +110,7 @@ public class ModConfigFile {
 
     public void addBindData(String discordId, UserData userData) {
         config.bindData.put(discordId, userData);
-        ServerPlayerEntity player = ModConfig.getPlayerFromMinecraftId(userData.minecraftId);
+        ServerPlayerEntity player = ModConfig.getPlayer(userData.minecraftId);
         player.setCustomNameVisible(true);
         player.setCustomName(Text.of(userData.customName));
         write();

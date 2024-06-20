@@ -4,8 +4,19 @@
     "translate": "enchantment.adaptor.wisdom"
   },
   "effects": {
+    "minecraft:attributes": [
+      {
+        "amount": {
+          "type": "minecraft:linear",
+          "base": 0.2,
+          "per_level_above_first": 0.1
+        },
+        "attribute": "minecraft:player.block_interaction_range",
+        "id": "adaptor:enchantment.wisdom",
+        "operation": "add_multiplied_total"
+      }
+    ]
   },
-  "exclusive_set": "#minecraft:exclusive_set/damage",
   "max_cost": {
     "base": 21,
     "per_level_above_first": 6
@@ -15,7 +26,6 @@
     "base": 1,
     "per_level_above_first": 6
   },
-  "primary_items": "#minecraft:enchantable/sword",
   "slots": [
     "head"
   ],

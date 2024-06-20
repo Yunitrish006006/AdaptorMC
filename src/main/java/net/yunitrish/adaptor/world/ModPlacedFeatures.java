@@ -12,7 +12,7 @@ import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 import net.yunitrish.adaptor.Adaptor;
-import net.yunitrish.adaptor.block.plant.ChestnutSeries;
+import net.yunitrish.adaptor.block.ModBlocks;
 
 import java.util.List;
 
@@ -50,7 +50,7 @@ public class ModPlacedFeatures {
                 configuredFeatureRegistryLookup.getOrThrow(ModConfiguredFeatures.CHESTNUT_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
                         PlacedFeatures.createCountExtraModifier(1, 1f, 0),
-                        ChestnutSeries.CHESTNUT_SAPLING
+                        ModBlocks.Chestnut.CHESTNUT_SAPLING
                 )
         );
     }

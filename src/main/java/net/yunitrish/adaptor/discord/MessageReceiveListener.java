@@ -14,7 +14,7 @@ public class MessageReceiveListener extends ListenerAdapter {
         Text message;
         String discordId = event.getAuthor().getId();
         if (AdaptorServer.data.isBindPlayer(discordId)) {
-            message = Text.of("<" + ModConfig.getCustomNameFromDiscordId(discordId) + "> " + event.getMessage().getContentDisplay());
+            message = Text.of("<" + ModConfig.getCustomName(discordId) + "> " + event.getMessage().getContentDisplay());
         } else {
             message = Text.of(
                     "[" + event.getGuild().getName() + "#" + event.getChannel().getName() + "] " +

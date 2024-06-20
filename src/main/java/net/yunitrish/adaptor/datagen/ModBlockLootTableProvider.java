@@ -15,8 +15,6 @@ import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.yunitrish.adaptor.block.ModBlocks;
-import net.yunitrish.adaptor.block.building.DirtSeries;
-import net.yunitrish.adaptor.block.plant.ChestnutSeries;
 import net.yunitrish.adaptor.block.plant.MarijuanaCropBlock;
 import net.yunitrish.adaptor.block.plant.SoyBeanCropBlock;
 import net.yunitrish.adaptor.item.ModItems;
@@ -49,13 +47,13 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         );
 
         addDrop(
-                ModBlocks.SOYBEAN_CROP,
+                ModBlocks.Crops.SOYBEAN_CROP,
                 cropDrops(
-                        ModBlocks.SOYBEAN_CROP,
+                        ModBlocks.Crops.SOYBEAN_CROP,
                         ModItems.SOYBEAN,
                         ModItems.SOYBEAN,
                         BlockStatePropertyLootCondition
-                                .builder(ModBlocks.SOYBEAN_CROP)
+                                .builder(ModBlocks.Crops.SOYBEAN_CROP)
                                 .properties(
                                         StatePredicate
                                                 .Builder
@@ -65,13 +63,13 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                 )
         );
         addDrop(
-                ModBlocks.MARIJUANA_CROP,
+                ModBlocks.Crops.MARIJUANA_CROP,
                 cropDrops(
-                        ModBlocks.MARIJUANA_CROP,
+                        ModBlocks.Crops.MARIJUANA_CROP,
                         ModItems.MARIJUANA_LEAF,
                         ModItems.MARIJUANA_SEEDS,
                         BlockStatePropertyLootCondition
-                                .builder(ModBlocks.MARIJUANA_CROP)
+                                .builder(ModBlocks.Crops.MARIJUANA_CROP)
                                 .properties(
                                         StatePredicate
                                                 .Builder
@@ -82,33 +80,34 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         );
 
 
-        addDrop(DirtSeries.DIRT_STAIRS);
-        addDrop(DirtSeries.DIRT_SLAB, slabDrops(DirtSeries.DIRT_SLAB));
-        addDrop(DirtSeries.DIRT_BUTTON);
-        addDrop(DirtSeries.DIRT_PRESSURE_PLATE);
-        addDrop(DirtSeries.DIRT_FENCE);
-        addDrop(DirtSeries.DIRT_FENCE_GATE);
-        addDrop(DirtSeries.DIRT_WALL);
-        addDrop(DirtSeries.DIRT_DOOR, doorDrops(DirtSeries.DIRT_DOOR));
-        addDrop(DirtSeries.DIRT_TRAPDOOR);
+        addDrop(ModBlocks.Dirt.DIRT_STAIRS);
+        addDrop(ModBlocks.Dirt.DIRT_SLAB, slabDrops(ModBlocks.Dirt.DIRT_SLAB));
+        addDrop(ModBlocks.Dirt.DIRT_BUTTON);
+        addDrop(ModBlocks.Dirt.DIRT_PRESSURE_PLATE);
+        addDrop(ModBlocks.Dirt.DIRT_FENCE);
+        addDrop(ModBlocks.Dirt.DIRT_FENCE_GATE);
+        addDrop(ModBlocks.Dirt.DIRT_WALL);
+        addDrop(ModBlocks.Dirt.DIRT_DOOR, doorDrops(ModBlocks.Dirt.DIRT_DOOR));
+        addDrop(ModBlocks.Dirt.DIRT_TRAPDOOR);
 
-        addDrop(ChestnutSeries.CHESTNUT_LOG);
-        addDrop(ChestnutSeries.CHESTNUT_WOOD);
-        addDrop(ChestnutSeries.STRIPPED_CHESTNUT_LOG);
-        addDrop(ChestnutSeries.STRIPPED_CHESTNUT_LOG);
-        addDrop(ChestnutSeries.CHESTNUT_PLANKS);
-        addDrop(ChestnutSeries.CHESTNUT_SAPLING);
-        addDrop(ChestnutSeries.CHESTNUT_STAIRS);
-        addDrop(ChestnutSeries.CHESTNUT_SLAB, slabDrops(ChestnutSeries.CHESTNUT_SLAB));
-        addDrop(ChestnutSeries.CHESTNUT_BUTTON);
-        addDrop(ChestnutSeries.CHESTNUT_PRESSURE_PLATE);
-        addDrop(ChestnutSeries.CHESTNUT_FENCE);
-        addDrop(ChestnutSeries.CHESTNUT_FENCE_GATE);
-        addDrop(ChestnutSeries.CHESTNUT_DOOR, doorDrops(ChestnutSeries.CHESTNUT_DOOR));
-        addDrop(ChestnutSeries.CHESTNUT_TRAPDOOR);
+        addDrop(ModBlocks.Chestnut.CHESTNUT_LOG);
+        addDrop(ModBlocks.Chestnut.CHESTNUT_WOOD);
+        addDrop(ModBlocks.Chestnut.STRIPPED_CHESTNUT_LOG);
+        addDrop(ModBlocks.Chestnut.STRIPPED_CHESTNUT_LOG);
+        addDrop(ModBlocks.Chestnut.CHESTNUT_PLANKS);
+        addDrop(ModBlocks.Chestnut.CHESTNUT_SAPLING);
+        addDrop(ModBlocks.Chestnut.CHESTNUT_STAIRS);
+        addDrop(ModBlocks.Chestnut.CHESTNUT_SLAB, slabDrops(ModBlocks.Chestnut.CHESTNUT_SLAB));
+        addDrop(ModBlocks.Chestnut.CHESTNUT_BUTTON);
+        addDrop(ModBlocks.Chestnut.CHESTNUT_PRESSURE_PLATE);
+        addDrop(ModBlocks.Chestnut.CHESTNUT_FENCE);
+        addDrop(ModBlocks.Chestnut.CHESTNUT_FENCE_GATE);
+        addDrop(ModBlocks.Chestnut.CHESTNUT_DOOR, doorDrops(ModBlocks.Chestnut.CHESTNUT_DOOR));
+        addDrop(ModBlocks.Chestnut.CHESTNUT_TRAPDOOR);
 
-        addDrop(ChestnutSeries.CHESTNUT_LEAVES,leavesDrops(ChestnutSeries.CHESTNUT_LEAVES,ChestnutSeries.CHESTNUT_SAPLING,0.0025f));
+        addDrop(ModBlocks.Chestnut.CHESTNUT_LEAVES, leavesDrops(ModBlocks.Chestnut.CHESTNUT_LEAVES, ModBlocks.Chestnut.CHESTNUT_SAPLING, 0.0025f));
 
         addDrop(ModBlocks.GLASS_SLAB, slabDrops(ModBlocks.GLASS_SLAB));
+        addDrop(ModBlocks.LOCKED_CONTAINER);
     }
 }

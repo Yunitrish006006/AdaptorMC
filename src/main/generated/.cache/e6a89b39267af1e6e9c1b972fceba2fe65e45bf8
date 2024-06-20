@@ -1,4 +1,4 @@
-// 1.21	2024-06-15T17:00:58.391643	Adaptor/Block Loot Tables
+// 1.21	2024-06-20T14:51:09.4386734	Adaptor/Block Loot Tables
 331f5cd55842452e0a2dd739e5dd849107ed36d0 data\adaptor\loot_table\blocks\dirt_trapdoor.json
 79df4719e1447bb906d8c94d9ccd5bb617b73980 data\adaptor\loot_table\blocks\glass_slab.json
 b30691c0083435eab8f38f76a81cfbace1535f1d data\adaptor\loot_table\blocks\dirt_stairs.json
@@ -15,6 +15,7 @@ aedbcc1f30812b34c10d8289ab8e96d9f3594034 data\adaptor\loot_table\blocks\chestnut
 fdc7b2b332243e952111cc8c7b07b91bcef9f477 data\adaptor\loot_table\blocks\chestnut_leaves.json
 72c84fa570a30ef11394c10b5ab4c93a2e5ba402 data\adaptor\loot_table\blocks\chestnut_stairs.json
 a12039743418623600ff0c3e773d6152325f0fb3 data\adaptor\loot_table\blocks\chestnut_sapling.json
+06e0dc75faef355474350c8b1d8fa38dd22c260b data\adaptor\loot_table\blocks\locked_container.json
 cd914151b5cd8d588698cda714d267b7345671d4 data\adaptor\loot_table\blocks\gravel_iron_ore.json
 4c53db45889fc6efd96b1f82fa8cfe71c4db2002 data\adaptor\loot_table\blocks\chestnut_wood.json
 3b5bad975b3836d3b23f468b19190e127473b7c9 data\adaptor\loot_table\blocks\chestnut_button.json

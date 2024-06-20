@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
-import net.yunitrish.adaptor.block.plant.ChestnutSeries;
+import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.item.ModItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -17,64 +17,58 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(ItemTags.AXES)
-                .add(ModItems.COPPER_AXE)
-                .add(ModItems.WOODEN_HAMMER)
-                .add(ModItems.STONE_HAMMER)
-                .add(ModItems.COPPER_HAMMER)
-                .add(ModItems.IRON_HAMMER)
-                .add(ModItems.GOLDEN_HAMMER)
-                .add(ModItems.DIAMOND_HAMMER)
-                .add(ModItems.NETHERITE_HAMMER);
+                .add(ModItems.Tools.COPPER_AXE)
+                .add(ModItems.Tools.WOODEN_HAMMER)
+                .add(ModItems.Tools.STONE_HAMMER)
+                .add(ModItems.Tools.COPPER_HAMMER)
+                .add(ModItems.Tools.IRON_HAMMER)
+                .add(ModItems.Tools.GOLDEN_HAMMER)
+                .add(ModItems.Tools.DIAMOND_HAMMER)
+                .add(ModItems.Tools.NETHERITE_HAMMER);
         getOrCreateTagBuilder(ItemTags.PICKAXES)
-                .add(ModItems.COPPER_PICKAXE)
-                .add(ModItems.WOODEN_HAMMER)
-                .add(ModItems.STONE_HAMMER)
-                .add(ModItems.COPPER_HAMMER)
-                .add(ModItems.IRON_HAMMER)
-                .add(ModItems.GOLDEN_HAMMER)
-                .add(ModItems.DIAMOND_HAMMER)
-                .add(ModItems.NETHERITE_HAMMER);
+                .add(ModItems.Tools.COPPER_PICKAXE)
+                .add(ModItems.Tools.WOODEN_HAMMER)
+                .add(ModItems.Tools.STONE_HAMMER)
+                .add(ModItems.Tools.COPPER_HAMMER)
+                .add(ModItems.Tools.IRON_HAMMER)
+                .add(ModItems.Tools.GOLDEN_HAMMER)
+                .add(ModItems.Tools.DIAMOND_HAMMER)
+                .add(ModItems.Tools.NETHERITE_HAMMER);
         getOrCreateTagBuilder(ModTags.Items.HAMMER)
-                .add(ModItems.WOODEN_HAMMER)
-                .add(ModItems.STONE_HAMMER)
-                .add(ModItems.COPPER_HAMMER)
-                .add(ModItems.IRON_HAMMER)
-                .add(ModItems.GOLDEN_HAMMER)
-                .add(ModItems.DIAMOND_HAMMER)
-                .add(ModItems.NETHERITE_HAMMER);
+                .add(ModItems.Tools.WOODEN_HAMMER)
+                .add(ModItems.Tools.STONE_HAMMER)
+                .add(ModItems.Tools.COPPER_HAMMER)
+                .add(ModItems.Tools.IRON_HAMMER)
+                .add(ModItems.Tools.GOLDEN_HAMMER)
+                .add(ModItems.Tools.DIAMOND_HAMMER)
+                .add(ModItems.Tools.NETHERITE_HAMMER);
         getOrCreateTagBuilder(ModTags.Items.BAKE)
                 .add(ModItems.DOUGH);
-        getOrCreateTagBuilder(ItemTags.SHOVELS).add(ModItems.COPPER_SHOVEL);
-        getOrCreateTagBuilder(ItemTags.SWORDS).add(ModItems.COPPER_SWORD);
-        getOrCreateTagBuilder(ItemTags.HOES).add(ModItems.COPPER_HOE);
+        getOrCreateTagBuilder(ItemTags.SHOVELS).add(ModItems.Tools.COPPER_SHOVEL);
+        getOrCreateTagBuilder(ItemTags.SWORDS).add(ModItems.Tools.COPPER_SWORD);
+        getOrCreateTagBuilder(ItemTags.HOES).add(ModItems.Tools.COPPER_HOE);
         getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
                 .add(
-                        ModItems.COPPER_HELMET,
-                        ModItems.COPPER_CHESTPLATE,
-                        ModItems.COPPER_LEGGINGS,
-                        ModItems.COPPER_BOOTS
+                        ModItems.Tools.COPPER_HELMET,
+                        ModItems.Tools.COPPER_CHESTPLATE,
+                        ModItems.Tools.COPPER_LEGGINGS,
+                        ModItems.Tools.COPPER_BOOTS
                 );
         getOrCreateTagBuilder(ItemTags.CREEPER_DROP_MUSIC_DISCS)
                 .add(
-                        ModItems.SAKURA_VALLEY_MUSIC_DISC,
-                        ModItems.BAR_BRAWL_MUSIC_DISC
+                        ModItems.Tools.SAKURA_VALLEY_MUSIC_DISC,
+                        ModItems.Tools.BAR_BRAWL_MUSIC_DISC
                 );
-//        getOrCreateTagBuilder(ItemTags.MUSIC_DISCS)
-//                .add(
-//                        ModItems.SAKURA_VALLEY_MUSIC_DISC,
-//                        ModItems.BAR_BRAWL_MUSIC_DISC
-//                );
-
         getOrCreateTagBuilder(ItemTags.PLANKS)
                 .add(
-                        ChestnutSeries.CHESTNUT_PLANKS.asItem()
+                        ModBlocks.Chestnut.CHESTNUT_PLANKS.asItem()
                 );
         getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
                 .add(
-                        ChestnutSeries.CHESTNUT_LOG.asItem(),
-                        ChestnutSeries.CHESTNUT_WOOD.asItem(),
-                        ChestnutSeries.STRIPPED_CHESTNUT_LOG.asItem(),
-                        ChestnutSeries.STRIPPED_CHESTNUT_WOOD.asItem()
+                        ModBlocks.Chestnut.CHESTNUT_LOG.asItem(),
+                        ModBlocks.Chestnut.CHESTNUT_WOOD.asItem(),
+                        ModBlocks.Chestnut.STRIPPED_CHESTNUT_LOG.asItem(),
+                        ModBlocks.Chestnut.STRIPPED_CHESTNUT_WOOD.asItem()
                 );
     }
 }

@@ -46,7 +46,7 @@ public class SlashCommandListener extends ListenerAdapter {
                             .queue();
                     return;
                 }
-                if (ModConfig.getPlayerFromMinecraftId(minecraft_id) != null) {
+                if (ModConfig.getPlayer(minecraft_id) != null) {
                     if (event.getGuild() != null) {
                         event.getGuild().retrieveMember(event.getUser()).queue((member) -> {
                             AdaptorServer.data.addBindData(event.getUser().getId(), minecraft_id, member.getNickname());

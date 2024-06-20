@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "adaptor:manic"
+    "adaptor:manic",
+    "minecraft:mending"
   ]
 }

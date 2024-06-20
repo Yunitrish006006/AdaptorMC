@@ -26,11 +26,11 @@ public class ModConfig extends JsonElement {
         return AdaptorServer.data.config.bindData.get(discordId);
     }
 
-    public static String getCustomNameFromDiscordId(String discordId) {
+    public static String getCustomName(String discordId) {
         return getUserDataFromDiscordId(discordId).customName;
     }
 
-    public static ServerPlayerEntity getPlayerFromMinecraftId(String minecraftId) {
+    public static ServerPlayerEntity getPlayer(String minecraftId) {
         return AdaptorServer.modServer.getPlayerManager().getPlayer(minecraftId);
     }
 

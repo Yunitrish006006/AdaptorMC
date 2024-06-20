@@ -13,8 +13,6 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.block.ModBlocks;
-import net.yunitrish.adaptor.block.building.DirtSeries;
-import net.yunitrish.adaptor.block.plant.ChestnutSeries;
 import net.yunitrish.adaptor.item.ModItems;
 
 import java.util.Optional;
@@ -51,49 +49,51 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAVEL_IRON_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SOUND_BLOCK);
-        blockStateModelGenerator.registerCrop(ModBlocks.SOYBEAN_CROP, Properties.AGE_5, 0, 1, 2, 3, 4, 5);
-        blockStateModelGenerator.registerCrop(ModBlocks.MARIJUANA_CROP, Properties.AGE_5, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.registerCrop(ModBlocks.Crops.SOYBEAN_CROP, Properties.AGE_5, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.registerCrop(ModBlocks.Crops.MARIJUANA_CROP, Properties.AGE_5, 0, 1, 2, 3, 4, 5);
 
         BlockStateModelGenerator.BlockTexturePool dirtPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.DIRT);
-        dirtPool.stairs(DirtSeries.DIRT_STAIRS);
-        dirtPool.slab(DirtSeries.DIRT_SLAB);
-        dirtPool.button(DirtSeries.DIRT_BUTTON);
-        dirtPool.pressurePlate(DirtSeries.DIRT_PRESSURE_PLATE);
-        dirtPool.fence(DirtSeries.DIRT_FENCE);
-        dirtPool.fenceGate(DirtSeries.DIRT_FENCE_GATE);
-        dirtPool.wall(DirtSeries.DIRT_WALL);
-        blockStateModelGenerator.registerDoor(DirtSeries.DIRT_DOOR);
-        blockStateModelGenerator.registerTrapdoor(DirtSeries.DIRT_TRAPDOOR);
+        dirtPool.stairs(ModBlocks.Dirt.DIRT_STAIRS);
+        dirtPool.slab(ModBlocks.Dirt.DIRT_SLAB);
+        dirtPool.button(ModBlocks.Dirt.DIRT_BUTTON);
+        dirtPool.pressurePlate(ModBlocks.Dirt.DIRT_PRESSURE_PLATE);
+        dirtPool.fence(ModBlocks.Dirt.DIRT_FENCE);
+        dirtPool.fenceGate(ModBlocks.Dirt.DIRT_FENCE_GATE);
+        dirtPool.wall(ModBlocks.Dirt.DIRT_WALL);
+        blockStateModelGenerator.registerDoor(ModBlocks.Dirt.DIRT_DOOR);
+        blockStateModelGenerator.registerTrapdoor(ModBlocks.Dirt.DIRT_TRAPDOOR);
 
         BlockStateModelGenerator.BlockTexturePool glassPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.GLASS);
         glassPool.slab(ModBlocks.GLASS_SLAB);
 
+        blockStateModelGenerator.registerGeneric(ModBlocks.LOCKED_CONTAINER);
+
         registerWoodSeries(
                 blockStateModelGenerator,
-                ChestnutSeries.CHESTNUT_FAMILY,
-                ChestnutSeries.CHESTNUT_LOG,
-                ChestnutSeries.CHESTNUT_WOOD,
-                ChestnutSeries.STRIPPED_CHESTNUT_LOG,
-                ChestnutSeries.STRIPPED_CHESTNUT_WOOD,
-                ChestnutSeries.CHESTNUT_PLANKS,
-                ChestnutSeries.CHESTNUT_LEAVES,
-                ChestnutSeries.CHESTNUT_SAPLING,
-                ChestnutSeries.CHESTNUT_STAIRS,
-                ChestnutSeries.CHESTNUT_SLAB,
-                ChestnutSeries.CHESTNUT_BUTTON,
-                ChestnutSeries.CHESTNUT_PRESSURE_PLATE,
-                ChestnutSeries.CHESTNUT_FENCE,
-                ChestnutSeries.CHESTNUT_FENCE_GATE,
-                ChestnutSeries.CHESTNUT_DOOR,
-                ChestnutSeries.CHESTNUT_TRAPDOOR
+                ModBlocks.Chestnut.CHESTNUT_FAMILY,
+                ModBlocks.Chestnut.CHESTNUT_LOG,
+                ModBlocks.Chestnut.CHESTNUT_WOOD,
+                ModBlocks.Chestnut.STRIPPED_CHESTNUT_LOG,
+                ModBlocks.Chestnut.STRIPPED_CHESTNUT_WOOD,
+                ModBlocks.Chestnut.CHESTNUT_PLANKS,
+                ModBlocks.Chestnut.CHESTNUT_LEAVES,
+                ModBlocks.Chestnut.CHESTNUT_SAPLING,
+                ModBlocks.Chestnut.CHESTNUT_STAIRS,
+                ModBlocks.Chestnut.CHESTNUT_SLAB,
+                ModBlocks.Chestnut.CHESTNUT_BUTTON,
+                ModBlocks.Chestnut.CHESTNUT_PRESSURE_PLATE,
+                ModBlocks.Chestnut.CHESTNUT_FENCE,
+                ModBlocks.Chestnut.CHESTNUT_FENCE_GATE,
+                ModBlocks.Chestnut.CHESTNUT_DOOR,
+                ModBlocks.Chestnut.CHESTNUT_TRAPDOOR
                 );
 
-        blockStateModelGenerator.registerSimpleState(ModBlocks.STONE_MILL);
+//        blockStateModelGenerator.registerSimpleState(ModBlocks.STONE_MILL);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(ModItems.METAL_DETECTOR, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.Tools.METAL_DETECTOR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DOUGH, Models.GENERATED);
         itemModelGenerator.register(ModItems.MARIJUANA, Models.GENERATED);
         itemModelGenerator.register(ModItems.FLOUR, Models.GENERATED);
@@ -101,29 +101,31 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MARIJUANA_LEAF, Models.GENERATED);
         itemModelGenerator.register(ModItems.PORCUPINE_SPAWN_EGG, new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
 
-        itemModelGenerator.register(ModItems.COPPER_AXE,Models.HANDHELD);
-        itemModelGenerator.register(ModItems.COPPER_HOE,Models.HANDHELD);
-        itemModelGenerator.register(ModItems.COPPER_PICKAXE,Models.HANDHELD);
-        itemModelGenerator.register(ModItems.COPPER_SHOVEL,Models.HANDHELD);
-        itemModelGenerator.register(ModItems.COPPER_SWORD,Models.HANDHELD);
-        itemModelGenerator.register(ModItems.COPPER_HAMMER,Models.HANDHELD);
+        itemModelGenerator.register(ModItems.Tools.COPPER_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.Tools.COPPER_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.Tools.COPPER_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.Tools.COPPER_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.Tools.COPPER_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.Tools.COPPER_HAMMER, Models.HANDHELD);
 
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.COPPER_HELMET);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.COPPER_CHESTPLATE);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.COPPER_LEGGINGS);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.COPPER_BOOTS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.Tools.COPPER_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.Tools.COPPER_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.Tools.COPPER_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.Tools.COPPER_BOOTS);
 
-        itemModelGenerator.register(ModItems.WOODEN_HAMMER,Models.HANDHELD);
-        itemModelGenerator.register(ModItems.STONE_HAMMER,Models.HANDHELD);
-        itemModelGenerator.register(ModItems.IRON_HAMMER,Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GOLDEN_HAMMER,Models.HANDHELD);
-        itemModelGenerator.register(ModItems.DIAMOND_HAMMER,Models.HANDHELD);
-        itemModelGenerator.register(ModItems.NETHERITE_HAMMER,Models.HANDHELD);
+        itemModelGenerator.register(ModItems.Tools.COPPER_KEY, Models.GENERATED);
 
-        itemModelGenerator.register(ChestnutSeries.HANGING_CHESTNUT_SIGN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.Tools.WOODEN_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.Tools.STONE_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.Tools.IRON_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.Tools.GOLDEN_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.Tools.DIAMOND_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.Tools.NETHERITE_HAMMER, Models.HANDHELD);
 
-        itemModelGenerator.register(ModItems.BAR_BRAWL_MUSIC_DISC, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SAKURA_VALLEY_MUSIC_DISC, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.Chestnut.HANGING_CHESTNUT_SIGN, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.Tools.BAR_BRAWL_MUSIC_DISC, Models.GENERATED);
+        itemModelGenerator.register(ModItems.Tools.SAKURA_VALLEY_MUSIC_DISC, Models.GENERATED);
 
 //        itemModelGenerator.register(ChestnutSeries.CHESTNUT_BOAT, Models.GENERATED);
 //        itemModelGenerator.register(ChestnutSeries.CHESTNUT_CHEST_BOAT, Models.GENERATED);

@@ -16,7 +16,6 @@ import net.yunitrish.adaptor.event.ModEvents;
 import net.yunitrish.adaptor.item.ModItems;
 import net.yunitrish.adaptor.item.ModLootTableModifiers;
 import net.yunitrish.adaptor.recipe.ModRecipes;
-import net.yunitrish.adaptor.screen.ModScreenHandlers;
 import net.yunitrish.adaptor.sound.ModSounds;
 import net.yunitrish.adaptor.world.generation.ModWorldGeneration;
 import net.yunitrish.adaptor.world.tree.ModFoliagePlacerTypes;
@@ -36,13 +35,13 @@ public class Adaptor implements ModInitializer {
 	public void onInitialize() {
 		LOGGER.info("Initializing");
 		ModEvents.registerEvents();
-		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+		ModItems.registerModItems();
 		ModBoats.registerBoats();
 		ModTrunkPlacerTypes.register();
         ModFoliagePlacerTypes.register();
 		ModBlockEntities.registerBlockEntities();
-		ModScreenHandlers.registerScreenHandlers();
+//		ModScreenHandlers.registerScreenHandlers();
 		ModRecipes.registerRecipes();
 		ModSounds.registerSounds();
 		ModCommands.register();

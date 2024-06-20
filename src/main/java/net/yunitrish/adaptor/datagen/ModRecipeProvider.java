@@ -18,8 +18,6 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.Adaptor;
 import net.yunitrish.adaptor.block.ModBlocks;
-import net.yunitrish.adaptor.block.building.DirtSeries;
-import net.yunitrish.adaptor.block.plant.ChestnutSeries;
 import net.yunitrish.adaptor.item.ModItems;
 
 import java.util.List;
@@ -36,46 +34,46 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     private void createCopperTools(RecipeExporter exporter) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_AXE)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.Tools.COPPER_AXE)
                 .pattern("CC")
                 .pattern("CS")
                 .pattern(" S")
                 .input('S', Items.STICK)
                 .input('C',Items.COPPER_INGOT)
                 .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
-                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.COPPER_AXE)));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_HOE)
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.Tools.COPPER_AXE)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.Tools.COPPER_HOE)
                 .pattern("CC")
                 .pattern(" S")
                 .pattern(" S")
                 .input('S', Items.STICK)
                 .input('C',Items.COPPER_INGOT)
                 .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
-                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.COPPER_HOE)));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_PICKAXE)
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.Tools.COPPER_HOE)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.Tools.COPPER_PICKAXE)
                 .pattern("CCC")
                 .pattern(" S ")
                 .pattern(" S ")
                 .input('S', Items.STICK)
                 .input('C',Items.COPPER_INGOT)
                 .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
-                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.COPPER_PICKAXE)));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_SHOVEL)
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.Tools.COPPER_PICKAXE)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.Tools.COPPER_SHOVEL)
                 .pattern("C")
                 .pattern("S")
                 .pattern("S")
                 .input('S', Items.STICK)
                 .input('C',Items.COPPER_INGOT)
                 .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
-                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.COPPER_SHOVEL)));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS,ModItems.COPPER_SWORD)
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.Tools.COPPER_SHOVEL)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.Tools.COPPER_SWORD)
                 .pattern("C")
                 .pattern("C")
                 .pattern("S")
                 .input('S', Items.STICK)
                 .input('C',Items.COPPER_INGOT)
                 .criterion(hasItem(Items.COPPER_INGOT),conditionsFromItem(Items.COPPER_INGOT))
-                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.COPPER_SWORD)));
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.Tools.COPPER_SWORD)));
     }
 
     private void woodBuildingProducts(RecipeExporter exporter, Block log, Block planks, Block slab, Block stair, Block button, Block pressurePlate, Block door, Block trapdoor, Block fence, Block fenceGate) {
@@ -126,16 +124,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     private void hammerRecipe(RecipeExporter exporter) {
         Map<Item, Item> materialAndTool = Map.ofEntries(
-                Map.entry(ModItems.COPPER_HAMMER, Items.COPPER_INGOT),
-                Map.entry(ModItems.IRON_HAMMER, Items.IRON_INGOT),
-                Map.entry(ModItems.GOLDEN_HAMMER, Items.GOLD_INGOT),
-                Map.entry(ModItems.DIAMOND_HAMMER, Items.DIAMOND),
-                Map.entry(ModItems.NETHERITE_HAMMER, Items.NETHERITE_INGOT)
+                Map.entry(ModItems.Tools.COPPER_HAMMER, Items.COPPER_INGOT),
+                Map.entry(ModItems.Tools.IRON_HAMMER, Items.IRON_INGOT),
+                Map.entry(ModItems.Tools.GOLDEN_HAMMER, Items.GOLD_INGOT),
+                Map.entry(ModItems.Tools.DIAMOND_HAMMER, Items.DIAMOND),
+                Map.entry(ModItems.Tools.NETHERITE_HAMMER, Items.NETHERITE_INGOT)
         );
 
         Map<Item, TagKey<Item>> materialAndTool2 = Map.ofEntries(
-                Map.entry(ModItems.WOODEN_HAMMER, ItemTags.PLANKS),
-                Map.entry(ModItems.STONE_HAMMER, ItemTags.STONE_TOOL_MATERIALS)
+                Map.entry(ModItems.Tools.WOODEN_HAMMER, ItemTags.PLANKS),
+                Map.entry(ModItems.Tools.STONE_HAMMER, ItemTags.STONE_TOOL_MATERIALS)
         );
         for (Map.Entry<Item, TagKey<Item>> entry : materialAndTool2.entrySet()) {
             Item key = entry.getKey();
@@ -228,7 +226,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     public void generate(RecipeExporter exporter) {
         hammerRecipe(exporter);
         createCopperTools(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.METAL_DETECTOR)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.Tools.METAL_DETECTOR)
                 .pattern("S  ")
                 .pattern("IS ")
                 .pattern("R S")
@@ -236,14 +234,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('I',Items.COPPER_INGOT)
                 .input('R', Items.REDSTONE)
                 .criterion(hasItem(Items.COPPER_INGOT),VanillaRecipeProvider.conditionsFromItem(Items.COPPER_INGOT))
-                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.METAL_DETECTOR)));
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.Tools.METAL_DETECTOR)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLASS_SLAB, 6)
                 .pattern("GGG")
                 .input('G', Items.GLASS)
                 .criterion(hasItem(Items.GLASS), VanillaRecipeProvider.conditionsFromItem(Items.GLASS))
                 .offerTo(exporter, Identifier.of(getRecipeName(ModBlocks.GLASS_SLAB)));
-        dirtBuildingProducts(exporter, Blocks.DIRT, DirtSeries.DIRT_SLAB, DirtSeries.DIRT_STAIRS, DirtSeries.DIRT_BUTTON, DirtSeries.DIRT_PRESSURE_PLATE, DirtSeries.DIRT_WALL, DirtSeries.DIRT_DOOR, DirtSeries.DIRT_TRAPDOOR, DirtSeries.DIRT_FENCE, DirtSeries.DIRT_FENCE_GATE);
-        woodBuildingProducts(exporter, ChestnutSeries.CHESTNUT_LOG, ChestnutSeries.CHESTNUT_PLANKS, ChestnutSeries.CHESTNUT_SLAB, ChestnutSeries.CHESTNUT_STAIRS, ChestnutSeries.CHESTNUT_BUTTON, ChestnutSeries.CHESTNUT_PRESSURE_PLATE, ChestnutSeries.CHESTNUT_DOOR, ChestnutSeries.CHESTNUT_TRAPDOOR, ChestnutSeries.CHESTNUT_FENCE, ChestnutSeries.CHESTNUT_FENCE_GATE);
+        dirtBuildingProducts(exporter, Blocks.DIRT, ModBlocks.Dirt.DIRT_SLAB, ModBlocks.Dirt.DIRT_STAIRS, ModBlocks.Dirt.DIRT_BUTTON, ModBlocks.Dirt.DIRT_PRESSURE_PLATE, ModBlocks.Dirt.DIRT_WALL, ModBlocks.Dirt.DIRT_DOOR, ModBlocks.Dirt.DIRT_TRAPDOOR, ModBlocks.Dirt.DIRT_FENCE, ModBlocks.Dirt.DIRT_FENCE_GATE);
+        woodBuildingProducts(exporter, ModBlocks.Chestnut.CHESTNUT_LOG, ModBlocks.Chestnut.CHESTNUT_PLANKS, ModBlocks.Chestnut.CHESTNUT_SLAB, ModBlocks.Chestnut.CHESTNUT_STAIRS, ModBlocks.Chestnut.CHESTNUT_BUTTON, ModBlocks.Chestnut.CHESTNUT_PRESSURE_PLATE, ModBlocks.Chestnut.CHESTNUT_DOOR, ModBlocks.Chestnut.CHESTNUT_TRAPDOOR, ModBlocks.Chestnut.CHESTNUT_FENCE, ModBlocks.Chestnut.CHESTNUT_FENCE_GATE);
         createBreads(exporter);
     }
 
