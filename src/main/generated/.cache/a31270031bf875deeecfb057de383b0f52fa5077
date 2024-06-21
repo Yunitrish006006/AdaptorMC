@@ -1,4 +1,4 @@
-// 1.21	2024-06-20T14:51:09.4306335	Adaptor/Model Definitions
+// 1.21	2024-06-22T04:10:21.2170066	Adaptor/Model Definitions
 11c252da9987d886959bbbdc572c87aa8cece6ef assets\adaptor\models\item\copper_helmet_gold_trim.json
 04efda3cda92aeda84c791deb527aabc2cea5ec5 assets\adaptor\models\item\copper_helmet_diamond_trim.json
 ebc14ba153f887c99f6d3ac9e857ccec59ea82ad assets\adaptor\blockstates\chestnut_sapling.json
@@ -62,6 +62,7 @@ cc240ff6e87fa4ae9aa9d1a9575be433580766ea assets\adaptor\models\item\bar_brawl_mu
 8c91dfea5e73e80a8c8c47d6e3410f22e9ee41a1 assets\adaptor\models\block\chestnut_button_pressed.json
 6303fc3146cf6f6d6d64c9f34f674fe98760a47e assets\adaptor\models\block\marijuana_crop_stage5.json
 5da3dbb3780fa5a6b1c5331c99b82534a0c7d15c assets\adaptor\models\item\copper_helmet_lapis_trim.json
+d41c5344434e9495760555a2c2a095fcdf163734 assets\adaptor\models\item\lockable_chest.json
 63092afea2b070a29733231b2244001df755d557 assets\adaptor\models\item\dirt_door.json
 7c424efd40ddd88bc1bdd13a43aeb64cd99c2150 assets\adaptor\models\block\sound_block.json
 ac2754cca5caeae3dafd377097029928f7600952 assets\adaptor\models\block\soybean_crop_stage3.json
@@ -88,6 +89,7 @@ d861ecb3a6218fb93c9778d4a7ed76e60b1dd4db assets\adaptor\models\item\netherite_ha
 56cbc097cced37de5406a9f574a20124de498753 assets\adaptor\models\item\copper_chestplate_copper_trim.json
 f775939c4e663a845d5ee8168ec95e7507aff8de assets\adaptor\blockstates\chestnut_slab.json
 4f1fa7eba2ce2f2345bcc4c1ff60db640e60cf4e assets\adaptor\models\item\copper_helmet_quartz_trim.json
+93e6bea12d1fd0aceddeff7c7b7819fb48bb9c00 assets\adaptor\blockstates\lockable_chest.json
 6f53fb92e869440feb8fc2aae90270f87fb6da16 assets\adaptor\models\block\dirt_pressure_plate_down.json
 4492968a3958958a1b16012be66a5fea2fb32de8 assets\adaptor\models\block\soybean_crop_stage4.json
 6bba2c6a14a652f37e59e45f276edbe695a56d1d assets\adaptor\models\item\copper_chestplate_amethyst_trim.json
@@ -143,6 +145,7 @@ b4185555bcaf5589414cc3a5d21db29150708255 assets\adaptor\blockstates\dirt_trapdoo
 44d9df7236b114ae0c3a23c782f295d0b09a7e4e assets\adaptor\models\item\chestnut_fence.json
 40401079396b84363d16c71b5633976c54508f2e assets\adaptor\models\item\copper_boots_iron_trim.json
 d2fff31e90ffb3231350a72cb0d0c37b60ac93cb assets\adaptor\models\block\dirt_wall_inventory.json
+5126991898013c4c28a5d276921a7d4b4bd338c5 assets\adaptor\models\block\lockable_chest.json
 4b67bff7cb599303d1d545bf46b30ff35aa8f2db assets\adaptor\models\item\copper_helmet_iron_trim.json
 30f14bba3314dda5aecdfc72f1b5ac63cab76d19 assets\adaptor\models\block\marijuana_crop_stage0.json
 1a120f923d1611490fe2582535cbc833cda6ac8c assets\adaptor\models\item\stripped_chestnut_wood.json

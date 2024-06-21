@@ -1,7 +1,10 @@
-package net.yunitrish.adaptor.ChestLockSystem;
+package net.yunitrish.adaptor.ChestLockSystem.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.mob.PiglinBrain;
 import net.minecraft.entity.player.PlayerEntity;
@@ -13,7 +16,6 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
@@ -23,23 +25,21 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
-import net.yunitrish.adaptor.Adaptor;
 import net.yunitrish.adaptor.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.UUID;
-
-public class LockedContainerBlock extends BlockWithEntity {
+public class LockableChestBlock
+        extends BlockWithEntity {
     public static final DirectionProperty FACING = Properties.FACING;
     public static final BooleanProperty OPEN = Properties.OPEN;
-    public static final MapCodec<LockedContainerBlock> CODEC = LockedContainerBlock.createCodec(LockedContainerBlock::new);
+    public static final MapCodec<LockableChestBlock> CODEC = LockableChestBlock.createCodec(LockableChestBlock::new);
 
-    public LockedContainerBlock(AbstractBlock.Settings settings) {
+    public LockableChestBlock(Settings settings) {
         super(settings);
         this.setDefaultState(((this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)).with(OPEN, false));
     }
 
-    public MapCodec<LockedContainerBlock> getCodec() {
+    public MapCodec<LockableChestBlock> getCodec() {
         return CODEC;
     }
 
@@ -48,42 +48,13 @@ public class LockedContainerBlock extends BlockWithEntity {
         if (world.isClient) {
             return ActionResult.SUCCESS;
         }
-        BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof LockedContainerEntity lockedContainerEntity) {
-
-            String ownerName = "Stranger";
-
-            if (!lockedContainerEntity.owner.equals("none")) {
-                Adaptor.LOGGER.info("##-" + lockedContainerEntity.owner);
-                if (world.getPlayerByUuid(UUID.fromString(lockedContainerEntity.owner)) != null) {
-                    assert world.getPlayerByUuid(UUID.fromString(lockedContainerEntity.owner)) != null;
-                    ownerName = world.getPlayerByUuid(UUID.fromString(lockedContainerEntity.owner)).getName().getString();
-                }
-            }
-
-            if (player.getInventory().getMainHandStack().getItem().equals(ModItems.Tools.COPPER_KEY)) {
-                if (lockedContainerEntity.owner.equals("none")) {
-                    lockedContainerEntity.owner = player.getUuidAsString();
-                    player.sendMessage(Text.translatable("adaptor.container.lock_set"), true);
-                } else if (lockedContainerEntity.owner.equals(player.getUuidAsString())) {
-                    player.openHandledScreen(lockedContainerEntity);
-                    player.incrementStat(Stats.OPEN_BARREL);
-                    PiglinBrain.onGuardedBlockInteracted(player, true);
-                    player.sendMessage(Text.translatable("adaptor.container.opened"), true);
-                } else {
-                    player.sendMessage(Text.translatable("adaptor.container.locked", ownerName), true);
-                }
-            } else if (lockedContainerEntity.owner.equals("none")) {
-                player.openHandledScreen(lockedContainerEntity);
-                player.incrementStat(Stats.OPEN_BARREL);
-                PiglinBrain.onGuardedBlockInteracted(player, true);
-            } else if (lockedContainerEntity.owner.equals(player.getUuidAsString())) {
-                player.openHandledScreen(lockedContainerEntity);
-                player.incrementStat(Stats.OPEN_BARREL);
-                PiglinBrain.onGuardedBlockInteracted(player, true);
-                player.sendMessage(Text.translatable("adaptor.container.opened"), true);
+        if (world.getBlockEntity(pos) instanceof LockableChestBlockEntity blockEntity) {
+            if (player.getMainHandStack().getItem().equals(ModItems.Tools.COPPER_KEY)) {
+                blockEntity.installLock(player);
             } else {
-                player.sendMessage(Text.translatable("adaptor.container.locked", ownerName), true);
+                player.openHandledScreen(blockEntity);
+                player.incrementStat(Stats.OPEN_CHEST);
+                PiglinBrain.onGuardedBlockInteracted(player, true);
             }
         }
         return ActionResult.CONSUME;
@@ -97,16 +68,15 @@ public class LockedContainerBlock extends BlockWithEntity {
 
     @Override
     protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof LockedContainerEntity) {
-            ((LockedContainerEntity) blockEntity).tick();
+        if (world.getBlockEntity(pos) instanceof LockableChestBlockEntity blockEntity) {
+            (blockEntity).tick();
         }
     }
 
     @Override
     @Nullable
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new LockedContainerEntity(pos, state);
+        return new LockableChestBlockEntity(pos, state);
     }
 
     @Override

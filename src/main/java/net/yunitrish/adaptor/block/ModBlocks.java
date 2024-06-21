@@ -20,7 +20,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ColorCode;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.Adaptor;
-import net.yunitrish.adaptor.ChestLockSystem.LockedContainerBlock;
+import net.yunitrish.adaptor.ChestLockSystem.custom.LockableChestBlock;
 import net.yunitrish.adaptor.block.functional.SoundBlock;
 import net.yunitrish.adaptor.block.plant.MarijuanaCropBlock;
 import net.yunitrish.adaptor.block.plant.SoyBeanCropBlock;
@@ -30,9 +30,9 @@ import net.yunitrish.adaptor.world.tree.ModSaplingGenerators;
 
 
 public class ModBlocks {
-    public static final Block LOCKED_CONTAINER = registerBlock(
-            "locked_container",
-            new LockedContainerBlock(
+    public static final Block LOCKABLE_CHEST = registerBlock(
+            "lockable_chest",
+            new LockableChestBlock(
                     AbstractBlock.Settings.create()
                             .mapColor(MapColor.OAK_TAN)
                             .instrument(NoteBlockInstrument.BASS)

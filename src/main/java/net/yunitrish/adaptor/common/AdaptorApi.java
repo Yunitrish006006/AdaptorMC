@@ -1,15 +1,29 @@
 package net.yunitrish.adaptor.common;
 
+import net.minecraft.component.ComponentType;
 import net.minecraft.entity.Entity;
 import net.minecraft.particle.ParticleEffect;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
+import net.yunitrish.adaptor.Adaptor;
+import net.yunitrish.adaptor.ChestLockSystem.utils.GenericContainerLock;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.UUID;
+import java.util.function.UnaryOperator;
 
 public class AdaptorApi {
+
+    public static final ComponentType<GenericContainerLock> GENERIC_LOCK = register("generic_lock", builder -> builder.codec(GenericContainerLock.CODEC));
+    public static UUID uuidNone = uuidV5("none");
+
+    private static <T> ComponentType<T> register(String id, UnaryOperator<ComponentType.Builder<T>> builderOperator) {
+        return Registry.register(Registries.DATA_COMPONENT_TYPE, Adaptor.id(id), ((ComponentType.Builder) builderOperator.apply(ComponentType.builder())).build());
+    }
+
     public static UUID uuidV5(String name) {
 
         try {
@@ -53,4 +67,6 @@ public class AdaptorApi {
         }
     }
 
+    public static void initialize() {
+    }
 }

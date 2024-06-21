@@ -1,8 +1,9 @@
-// 1.21	2024-06-20T14:51:09.4386734	Adaptor/Block Loot Tables
+// 1.21	2024-06-22T04:10:21.224006	Adaptor/Block Loot Tables
 331f5cd55842452e0a2dd739e5dd849107ed36d0 data\adaptor\loot_table\blocks\dirt_trapdoor.json
 79df4719e1447bb906d8c94d9ccd5bb617b73980 data\adaptor\loot_table\blocks\glass_slab.json
 b30691c0083435eab8f38f76a81cfbace1535f1d data\adaptor\loot_table\blocks\dirt_stairs.json
 fb7bf4c546f5050715ba54995ba9d8ad1e366195 data\adaptor\loot_table\blocks\soybean_crop.json
+0cc4f5761c9b48bffb57d124adede24caaacfd4b data\adaptor\loot_table\blocks\lockable_chest.json
 7fed8d2021d1604f48d5428cbe6cf58331f4dfaf data\adaptor\loot_table\blocks\chestnut_fence_gate.json
 c73a8a00c0e8d19fc839ec5841a18f0a6e641b39 data\adaptor\loot_table\blocks\stripped_chestnut_log.json
 32b218b9848d741426852ee1fbe5eccc9e4b998c data\adaptor\loot_table\blocks\dirt_button.json

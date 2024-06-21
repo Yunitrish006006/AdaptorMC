@@ -66,7 +66,7 @@ public class ModModelProvider extends FabricModelProvider {
         BlockStateModelGenerator.BlockTexturePool glassPool = blockStateModelGenerator.registerCubeAllModelTexturePool(Blocks.GLASS);
         glassPool.slab(ModBlocks.GLASS_SLAB);
 
-        blockStateModelGenerator.registerGeneric(ModBlocks.LOCKED_CONTAINER);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LOCKABLE_CHEST);
 
         registerWoodSeries(
                 blockStateModelGenerator,

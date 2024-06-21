@@ -6,6 +6,7 @@ import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.block.ModBlockEntities;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.command.ModCommands;
+import net.yunitrish.adaptor.common.AdaptorApi;
 import net.yunitrish.adaptor.enchantment.EnchantAttributeHandler;
 import net.yunitrish.adaptor.entity.ModBoats;
 import net.yunitrish.adaptor.entity.ModEntities;
@@ -34,6 +35,7 @@ public class Adaptor implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Initializing");
+		AdaptorApi.initialize();
 		ModEvents.registerEvents();
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
