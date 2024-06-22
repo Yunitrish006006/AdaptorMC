@@ -1,4 +1,4 @@
-package net.yunitrish.adaptor.ChestLockSystem.custom;
+package net.yunitrish.adaptor.block.LockableContainer.barrel;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.Block;
@@ -28,18 +28,17 @@ import net.minecraft.world.World;
 import net.yunitrish.adaptor.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
-public class LockableChestBlock
-        extends BlockWithEntity {
+public class LockableBarrelBlock extends BlockWithEntity {
     public static final DirectionProperty FACING = Properties.FACING;
     public static final BooleanProperty OPEN = Properties.OPEN;
-    public static final MapCodec<LockableChestBlock> CODEC = LockableChestBlock.createCodec(LockableChestBlock::new);
+    public static final MapCodec<LockableBarrelBlock> CODEC = LockableBarrelBlock.createCodec(LockableBarrelBlock::new);
 
-    public LockableChestBlock(Settings settings) {
+    public LockableBarrelBlock(Settings settings) {
         super(settings);
         this.setDefaultState(((this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)).with(OPEN, false));
     }
 
-    public MapCodec<LockableChestBlock> getCodec() {
+    public MapCodec<LockableBarrelBlock> getCodec() {
         return CODEC;
     }
 
@@ -48,7 +47,7 @@ public class LockableChestBlock
         if (world.isClient) {
             return ActionResult.SUCCESS;
         }
-        if (world.getBlockEntity(pos) instanceof LockableChestBlockEntity blockEntity) {
+        if (world.getBlockEntity(pos) instanceof LockableBarrelBlockEntity blockEntity) {
             if (player.getMainHandStack().getItem().equals(ModItems.Tools.COPPER_KEY)) {
                 blockEntity.installLock(player);
             } else {
@@ -68,7 +67,7 @@ public class LockableChestBlock
 
     @Override
     protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (world.getBlockEntity(pos) instanceof LockableChestBlockEntity blockEntity) {
+        if (world.getBlockEntity(pos) instanceof LockableBarrelBlockEntity blockEntity) {
             (blockEntity).tick();
         }
     }
@@ -76,7 +75,7 @@ public class LockableChestBlock
     @Override
     @Nullable
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new LockableChestBlockEntity(pos, state);
+        return new LockableBarrelBlockEntity(pos, state);
     }
 
     @Override

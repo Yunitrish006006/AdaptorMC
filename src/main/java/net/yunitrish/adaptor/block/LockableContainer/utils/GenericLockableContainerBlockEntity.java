@@ -1,4 +1,4 @@
-package net.yunitrish.adaptor.ChestLockSystem.utils;
+package net.yunitrish.adaptor.block.LockableContainer.utils;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -44,7 +44,7 @@ public abstract class GenericLockableContainerBlockEntity
         if (player.isSpectator() || lock.canOpen(player.getUuid())) {
             return true;
         }
-        player.sendMessage(Text.translatable("container.isLocked", containerName), true);
+        player.sendMessage(Text.translatable("adaptor.container.is_locked", containerName), true);
         player.playSoundToPlayer(SoundEvents.BLOCK_CHEST_LOCKED, SoundCategory.BLOCKS, 1.0f, 1.0f);
         return false;
     }
@@ -95,18 +95,18 @@ public abstract class GenericLockableContainerBlockEntity
     public void installLock(PlayerEntity player) {
         if (this.lock.owner() == null) {
             this.lock = new GenericContainerLock(player.getUuid(), new ArrayList<>());
-            player.sendMessage(Text.translatable("container.lockInstalled"), true);
+            player.sendMessage(Text.translatable("adaptor.container.lock_installed"), true);
         } else {
-            player.sendMessage(Text.translatable("container.isLocked", getContainerName()), true);
+            player.sendMessage(Text.translatable("adaptor.container.is_locked", getContainerName()), true);
         }
     }
 
     public void addToLock(PlayerEntity owner, PlayerEntity player) {
         if (this.lock.owner() == null) {
-            player.sendMessage(Text.translatable("container.noOwner", getContainerName()), true);
+            player.sendMessage(Text.translatable("adaptor.container.no_owner"), true);
         } else if (this.lock.owner().equals(owner.getUuid())) {
             this.lock.members().add(player.getUuid());
-            player.sendMessage(Text.translatable("container.memberAdded"), true);
+            player.sendMessage(Text.translatable("adaptor.container.member_added"), true);
         } else {
             player.sendMessage(Text.translatable("container.isLocked", getContainerName()), true);
         }

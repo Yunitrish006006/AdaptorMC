@@ -9,7 +9,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.yunitrish.adaptor.ChestLockSystem.utils.GenericLockableContainerBlockEntity;
+import net.yunitrish.adaptor.block.LockableContainer.utils.GenericLockableContainerBlockEntity;
 
 import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;

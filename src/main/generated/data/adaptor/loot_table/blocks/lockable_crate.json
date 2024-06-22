@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "adaptor:lockable_chest"
+          "name": "adaptor:lockable_crate"
         }
       ],
       "rolls": 1.0

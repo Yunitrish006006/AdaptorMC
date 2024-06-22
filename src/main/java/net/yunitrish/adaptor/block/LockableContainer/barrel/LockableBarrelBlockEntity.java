@@ -1,4 +1,4 @@
-package net.yunitrish.adaptor.ChestLockSystem.custom;
+package net.yunitrish.adaptor.block.LockableContainer.barrel;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -20,10 +20,10 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
-import net.yunitrish.adaptor.ChestLockSystem.utils.GenericLootableContainerBlockEntity;
+import net.yunitrish.adaptor.block.LockableContainer.utils.GenericLootableContainerBlockEntity;
 import net.yunitrish.adaptor.block.ModBlockEntities;
 
-public class LockableChestBlockEntity
+public class LockableBarrelBlockEntity
         extends GenericLootableContainerBlockEntity {
     private final ViewerCountManager stateManager = new ViewerCountManager() {
 
@@ -47,15 +47,15 @@ public class LockableChestBlockEntity
         protected boolean isPlayerViewing(PlayerEntity player) {
             if (player.currentScreenHandler instanceof GenericContainerScreenHandler) {
                 Inventory inventory = ((GenericContainerScreenHandler) player.currentScreenHandler).getInventory();
-                return inventory == LockableChestBlockEntity.this;
+                return inventory == LockableBarrelBlockEntity.this;
             }
             return false;
         }
     };
     private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(27, ItemStack.EMPTY);
 
-    public LockableChestBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlockEntities.LOCKABLE_CHEST_BLOCK_ENTITY_BLOCK_ENTITY_TYPE, blockPos, blockState);
+    public LockableBarrelBlockEntity(BlockPos blockPos, BlockState blockState) {
+        super(ModBlockEntities.LOCKABLE_BARREL_BLOCK_ENTITY_BLOCK_ENTITY_TYPE, blockPos, blockState);
     }
 
     @Override
@@ -92,7 +92,7 @@ public class LockableChestBlockEntity
 
     @Override
     protected Text getContainerName() {
-        return Text.translatable("block.adaptor.locked_container");
+        return Text.translatable("block.adaptor.lockable_barrel");
     }
 
     @Override
@@ -121,11 +121,11 @@ public class LockableChestBlockEntity
     }
 
     void setOpen(BlockState state, boolean open) {
-        this.world.setBlockState(this.getPos(), state.with(LockableChestBlock.OPEN, open), Block.NOTIFY_ALL);
+        this.world.setBlockState(this.getPos(), state.with(LockableBarrelBlock.OPEN, open), Block.NOTIFY_ALL);
     }
 
     void playSound(BlockState state, SoundEvent soundEvent) {
-        Vec3i vec3i = state.get(LockableChestBlock.FACING).getVector();
+        Vec3i vec3i = state.get(LockableBarrelBlock.FACING).getVector();
         double d = (double) this.pos.getX() + 0.5 + (double) vec3i.getX() / 2.0;
         double e = (double) this.pos.getY() + 0.5 + (double) vec3i.getY() / 2.0;
         double f = (double) this.pos.getZ() + 0.5 + (double) vec3i.getZ() / 2.0;

@@ -1,9 +1,9 @@
-// 1.21	2024-06-22T04:10:21.224006	Adaptor/Block Loot Tables
+// 1.21	2024-06-22T16:34:19.999069	Adaptor/Block Loot Tables
 331f5cd55842452e0a2dd739e5dd849107ed36d0 data\adaptor\loot_table\blocks\dirt_trapdoor.json
 79df4719e1447bb906d8c94d9ccd5bb617b73980 data\adaptor\loot_table\blocks\glass_slab.json
 b30691c0083435eab8f38f76a81cfbace1535f1d data\adaptor\loot_table\blocks\dirt_stairs.json
 fb7bf4c546f5050715ba54995ba9d8ad1e366195 data\adaptor\loot_table\blocks\soybean_crop.json
-0cc4f5761c9b48bffb57d124adede24caaacfd4b data\adaptor\loot_table\blocks\lockable_chest.json
+c59368be4cab9de5ca39ed916f8ef6bb89f03005 data\adaptor\loot_table\blocks\lockable_crate.json
 7fed8d2021d1604f48d5428cbe6cf58331f4dfaf data\adaptor\loot_table\blocks\chestnut_fence_gate.json
 c73a8a00c0e8d19fc839ec5841a18f0a6e641b39 data\adaptor\loot_table\blocks\stripped_chestnut_log.json
 32b218b9848d741426852ee1fbe5eccc9e4b998c data\adaptor\loot_table\blocks\dirt_button.json
@@ -14,9 +14,9 @@ aedbcc1f30812b34c10d8289ab8e96d9f3594034 data\adaptor\loot_table\blocks\chestnut
 82197aa4bfd991c024cc9f7eda3eea3173fae410 data\adaptor\loot_table\blocks\dirt_fence.json
 579c79f65a661297a751b032aa7bae51bcca1398 data\adaptor\loot_table\blocks\chestnut_door.json
 fdc7b2b332243e952111cc8c7b07b91bcef9f477 data\adaptor\loot_table\blocks\chestnut_leaves.json
+c2defb15b7b31cff0277e2861cd56f9f50e70254 data\adaptor\loot_table\blocks\lockable_barrel.json
 72c84fa570a30ef11394c10b5ab4c93a2e5ba402 data\adaptor\loot_table\blocks\chestnut_stairs.json
 a12039743418623600ff0c3e773d6152325f0fb3 data\adaptor\loot_table\blocks\chestnut_sapling.json
-06e0dc75faef355474350c8b1d8fa38dd22c260b data\adaptor\loot_table\blocks\locked_container.json
 cd914151b5cd8d588698cda714d267b7345671d4 data\adaptor\loot_table\blocks\gravel_iron_ore.json
 4c53db45889fc6efd96b1f82fa8cfe71c4db2002 data\adaptor\loot_table\blocks\chestnut_wood.json
 3b5bad975b3836d3b23f468b19190e127473b7c9 data\adaptor\loot_table\blocks\chestnut_button.json

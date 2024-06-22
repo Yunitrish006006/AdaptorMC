@@ -106,8 +106,8 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.Chestnut.CHESTNUT_TRAPDOOR);
 
         addDrop(ModBlocks.Chestnut.CHESTNUT_LEAVES, leavesDrops(ModBlocks.Chestnut.CHESTNUT_LEAVES, ModBlocks.Chestnut.CHESTNUT_SAPLING, 0.0025f));
-
         addDrop(ModBlocks.GLASS_SLAB, slabDrops(ModBlocks.GLASS_SLAB));
-        addDrop(ModBlocks.LOCKABLE_CHEST);
+        addDrop(ModBlocks.Container.LOCKABLE_CRATE);
+        addDrop(ModBlocks.Container.LOCKABLE_BARREL);
     }
 }

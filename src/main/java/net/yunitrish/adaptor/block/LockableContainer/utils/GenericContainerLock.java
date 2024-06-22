@@ -1,4 +1,4 @@
-package net.yunitrish.adaptor.ChestLockSystem.utils;
+package net.yunitrish.adaptor.block.LockableContainer.utils;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
@@ -7,14 +7,13 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.nbt.NbtString;
-import net.yunitrish.adaptor.common.AdaptorApi;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 public record GenericContainerLock(UUID owner, List<UUID> members) {
-    public static final GenericContainerLock EMPTY = new GenericContainerLock(AdaptorApi.uuidNone, new ArrayList<>());
+    public static final GenericContainerLock EMPTY = new GenericContainerLock(null, new ArrayList<>());
 
 
     public static final Codec<UUID> uuid = Codec.STRING.comapFlatMap(
@@ -39,7 +38,7 @@ public record GenericContainerLock(UUID owner, List<UUID> members) {
     public static final String LOCK_MEMBERS_KEY = "Members";
 
     public static GenericContainerLock fromNbt(NbtCompound nbt) {
-        UUID owner = nbt.containsUuid(LOCK_OWNER_KEY) ? nbt.getUuid(LOCK_OWNER_KEY) : AdaptorApi.uuidNone;
+        UUID owner = nbt.containsUuid(LOCK_OWNER_KEY) ? nbt.getUuid(LOCK_OWNER_KEY) : null;
         List<UUID> members = new ArrayList<>();
         if (nbt.contains(LOCK_MEMBERS_KEY, NbtElement.LIST_TYPE)) {
             NbtList memberList = nbt.getList(LOCK_MEMBERS_KEY, NbtElement.STRING_TYPE);

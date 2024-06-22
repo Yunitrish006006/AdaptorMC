@@ -8,7 +8,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 import net.yunitrish.adaptor.Adaptor;
-import net.yunitrish.adaptor.ChestLockSystem.utils.GenericContainerLock;
+import net.yunitrish.adaptor.block.LockableContainer.utils.GenericContainerLock;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

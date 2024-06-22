@@ -20,7 +20,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ColorCode;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.Adaptor;
-import net.yunitrish.adaptor.ChestLockSystem.custom.LockableChestBlock;
+import net.yunitrish.adaptor.block.LockableContainer.crate.LockableCrateBlock;
 import net.yunitrish.adaptor.block.functional.SoundBlock;
 import net.yunitrish.adaptor.block.plant.MarijuanaCropBlock;
 import net.yunitrish.adaptor.block.plant.SoyBeanCropBlock;
@@ -30,17 +30,6 @@ import net.yunitrish.adaptor.world.tree.ModSaplingGenerators;
 
 
 public class ModBlocks {
-    public static final Block LOCKABLE_CHEST = registerBlock(
-            "lockable_chest",
-            new LockableChestBlock(
-                    AbstractBlock.Settings.create()
-                            .mapColor(MapColor.OAK_TAN)
-                            .instrument(NoteBlockInstrument.BASS)
-                            .strength(2.5f)
-                            .sounds(BlockSoundGroup.WOOD)
-                            .burnable()
-            )
-    );
     public static Block GLASS_SLAB = registerBlock(
             "glass_slab",
             new SlabBlock(
@@ -92,6 +81,35 @@ public class ModBlocks {
         Chestnut.register();
         Crops.register();
         Dirt.register();
+        Container.register();
+    }
+
+    public static class Container {
+        public static final Block LOCKABLE_CRATE = registerBlock(
+                "lockable_crate",
+                new LockableCrateBlock(
+                        AbstractBlock.Settings.create()
+                                .mapColor(MapColor.OAK_TAN)
+                                .instrument(NoteBlockInstrument.BASS)
+                                .strength(2.5f)
+                                .sounds(BlockSoundGroup.WOOD)
+                                .burnable()
+                )
+        );
+        public static final Block LOCKABLE_BARREL = registerBlock(
+                "lockable_barrel",
+                new LockableCrateBlock(
+                        AbstractBlock.Settings.create()
+                                .mapColor(MapColor.OAK_TAN)
+                                .instrument(NoteBlockInstrument.BASS)
+                                .strength(2.5f)
+                                .sounds(BlockSoundGroup.WOOD)
+                                .burnable()
+                )
+        );
+
+        public static void register() {
+        }
     }
 
     public static class Crops {

@@ -1,4 +1,4 @@
-package net.yunitrish.adaptor.ChestLockSystem.utils;
+package net.yunitrish.adaptor.block.LockableContainer.utils;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;

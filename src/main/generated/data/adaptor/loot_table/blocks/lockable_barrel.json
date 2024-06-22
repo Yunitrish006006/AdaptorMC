@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "adaptor:locked_container"
+          "name": "adaptor:lockable_barrel"
         }
       ],
       "rolls": 1.0

@@ -4,20 +4,21 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.yunitrish.adaptor.Adaptor;
-import net.yunitrish.adaptor.ChestLockSystem.custom.LockableChestBlockEntity;
+import net.yunitrish.adaptor.block.LockableContainer.barrel.LockableBarrelBlockEntity;
+import net.yunitrish.adaptor.block.LockableContainer.crate.LockableCrateBlockEntity;
 
 public class ModBlockEntities {
-//    public static final BlockEntityType<StoneMillBlockEntity> STONE_MILL_BLOCK_ENTITY_BLOCK_ENTITY_TYPE = Registry
-//            .register(
-//                    Registries.BLOCK_ENTITY_TYPE,
-//                    Adaptor.id("stone_mill_be"),
-//                    BlockEntityType.Builder.create(StoneMillBlockEntity::new,ModBlocks.STONE_MILL).build()
-//            );
-public static final BlockEntityType<LockableChestBlockEntity> LOCKABLE_CHEST_BLOCK_ENTITY_BLOCK_ENTITY_TYPE = Registry
+    public static final BlockEntityType<LockableCrateBlockEntity> LOCKABLE_CRATE_BLOCK_ENTITY_BLOCK_ENTITY_TYPE = Registry
             .register(
                     Registries.BLOCK_ENTITY_TYPE,
-                    Adaptor.id("locked_container"),
-                    BlockEntityType.Builder.create(LockableChestBlockEntity::new, ModBlocks.LOCKABLE_CHEST).build()
+                    Adaptor.id("locked_crate"),
+                    BlockEntityType.Builder.create(LockableCrateBlockEntity::new, ModBlocks.Container.LOCKABLE_CRATE).build()
+            );
+    public static final BlockEntityType<LockableBarrelBlockEntity> LOCKABLE_BARREL_BLOCK_ENTITY_BLOCK_ENTITY_TYPE = Registry
+            .register(
+                    Registries.BLOCK_ENTITY_TYPE,
+                    Adaptor.id("locked_barrel"),
+                    BlockEntityType.Builder.create(LockableBarrelBlockEntity::new, ModBlocks.Container.LOCKABLE_BARREL).build()
             );
 
     public static void registerBlockEntities() {
