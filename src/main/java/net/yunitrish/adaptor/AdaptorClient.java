@@ -53,7 +53,7 @@ public class AdaptorClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.PORCUPINE, PorcupineRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PORCUPINE, PorcupineModel::getTexturedModelData);
 
-//        HandledScreens.register(ModScreenHandlers.STONE_MILL_SCREEN_HANDLER, StoneMillScreen::new);
+//        HandledScreens.register(ModScreenHandlers.STONE_MILL_HANDLER_TYPE, LockableStoneMillScreen::new);
 
 //        TerraformBoatClientHelper.registerModelLayers(ModBoats.CHESTNUT_BOAT_ID,false);
     }

@@ -61,6 +61,7 @@ public class ModItems {
     public static final Item MARIJUANA_LEAF = registerItem("marijuana_leaf",new Item(new Item.Settings()));
     public static final Item MARIJUANA = registerItem("marijuana",new Item(new Item.Settings().food(ModFoodComponents.MARIJUANA)));
     public static final Item DOUGH = registerItem("dough", new Item(new Item.Settings().food(ModFoodComponents.DOUGH)));
+//    public static final Item SAKURA_POTION = registerItem("sakura_potion", new PotionItem(new Item.Settings().component(DataComponentTypes.POTION_CONTENTS, ModFoodComponents.SAKURA_POTION_COMPONENT)));
 
     public static class Tools {
         public static final Item METAL_DETECTOR = registerItem("metal_detector", new DetectorItem(new Item.Settings()));

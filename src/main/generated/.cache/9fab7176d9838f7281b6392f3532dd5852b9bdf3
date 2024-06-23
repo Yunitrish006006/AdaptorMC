@@ -1,8 +1,8 @@
-// 1.21	2024-06-22T16:34:19.9980684	Adaptor/Tags for minecraft:block
+// 1.21	2024-06-23T02:05:55.0788257	Adaptor/Tags for minecraft:block
 e389ed609674606605b95431a756006186904b93 data\minecraft\tags\block\fences.json
 88228d33a4ba7ee807c233bdf98deafc32669671 data\minecraft\tags\block\wooden_buttons.json
-7c26eee7d13dad156056c95adbaf94ac4b1d3699 data\minecraft\tags\block\wooden_slabs.json
 3a98cd98d640c0f2effe07441a1ca0dedc73a8d4 data\minecraft\tags\block\wooden_doors.json
+7c26eee7d13dad156056c95adbaf94ac4b1d3699 data\minecraft\tags\block\wooden_slabs.json
 47e6ce6957a77113a50c49638f4ffac162f8a5ad data\adaptor\tags\block\hammer_efficient.json
 306645a7c8975c4bd8fd13d4645dbe869920afd1 data\minecraft\tags\block\wooden_fences.json
 ba7300e55af9d2931cc37684ad308b7245a060fc data\minecraft\tags\block\wooden_trapdoors.json

@@ -1,4 +1,4 @@
-package net.yunitrish.adaptor.block.LockableContainer.barrel;
+package net.yunitrish.adaptor.block.LockableContainer.Crate;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.Block;
@@ -28,17 +28,18 @@ import net.minecraft.world.World;
 import net.yunitrish.adaptor.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
-public class LockableBarrelBlock extends BlockWithEntity {
+public class LockableCrateBlock
+        extends BlockWithEntity {
     public static final DirectionProperty FACING = Properties.FACING;
     public static final BooleanProperty OPEN = Properties.OPEN;
-    public static final MapCodec<LockableBarrelBlock> CODEC = LockableBarrelBlock.createCodec(LockableBarrelBlock::new);
+    public static final MapCodec<LockableCrateBlock> CODEC = LockableCrateBlock.createCodec(LockableCrateBlock::new);
 
-    public LockableBarrelBlock(Settings settings) {
+    public LockableCrateBlock(Settings settings) {
         super(settings);
         this.setDefaultState(((this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)).with(OPEN, false));
     }
 
-    public MapCodec<LockableBarrelBlock> getCodec() {
+    public MapCodec<LockableCrateBlock> getCodec() {
         return CODEC;
     }
 
@@ -47,7 +48,7 @@ public class LockableBarrelBlock extends BlockWithEntity {
         if (world.isClient) {
             return ActionResult.SUCCESS;
         }
-        if (world.getBlockEntity(pos) instanceof LockableBarrelBlockEntity blockEntity) {
+        if (world.getBlockEntity(pos) instanceof LockableCrateBlockEntity blockEntity) {
             if (player.getMainHandStack().getItem().equals(ModItems.Tools.COPPER_KEY)) {
                 blockEntity.installLock(player);
             } else {
@@ -67,7 +68,7 @@ public class LockableBarrelBlock extends BlockWithEntity {
 
     @Override
     protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (world.getBlockEntity(pos) instanceof LockableBarrelBlockEntity blockEntity) {
+        if (world.getBlockEntity(pos) instanceof LockableCrateBlockEntity blockEntity) {
             (blockEntity).tick();
         }
     }
@@ -75,7 +76,7 @@ public class LockableBarrelBlock extends BlockWithEntity {
     @Override
     @Nullable
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new LockableBarrelBlockEntity(pos, state);
+        return new LockableCrateBlockEntity(pos, state);
     }
 
     @Override

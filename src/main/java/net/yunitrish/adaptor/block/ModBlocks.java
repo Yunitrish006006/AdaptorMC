@@ -20,7 +20,9 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ColorCode;
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.Adaptor;
-import net.yunitrish.adaptor.block.LockableContainer.crate.LockableCrateBlock;
+import net.yunitrish.adaptor.block.LockableContainer.Barrel.LockableBarrelBlock;
+import net.yunitrish.adaptor.block.LockableContainer.Crate.LockableCrateBlock;
+import net.yunitrish.adaptor.block.LockableContainer.StoneMill.LockableStoneMillBlock;
 import net.yunitrish.adaptor.block.functional.SoundBlock;
 import net.yunitrish.adaptor.block.plant.MarijuanaCropBlock;
 import net.yunitrish.adaptor.block.plant.SoyBeanCropBlock;
@@ -96,9 +98,20 @@ public class ModBlocks {
                                 .burnable()
                 )
         );
+        public static final Block LOCKABLE_STONE_MILL = registerBlock(
+                "lockable_stone_mill",
+                new LockableStoneMillBlock(
+                        AbstractBlock.Settings.create()
+                                .nonOpaque()
+                                .mapColor(MapColor.STONE_GRAY)
+                                .instrument(NoteBlockInstrument.BASEDRUM)
+                                .requiresTool()
+                                .strength(3.5f)
+                )
+        );
         public static final Block LOCKABLE_BARREL = registerBlock(
                 "lockable_barrel",
-                new LockableCrateBlock(
+                new LockableBarrelBlock(
                         AbstractBlock.Settings.create()
                                 .mapColor(MapColor.OAK_TAN)
                                 .instrument(NoteBlockInstrument.BASS)

@@ -1,4 +1,4 @@
-package net.yunitrish.adaptor.block.LockableContainer.crate;
+package net.yunitrish.adaptor.block.LockableContainer.Barrel;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 import net.yunitrish.adaptor.block.LockableContainer.utils.GenericLootableContainerBlockEntity;
 import net.yunitrish.adaptor.block.ModBlockEntities;
 
-public class LockableCrateBlockEntity
+public class LockableBarrelBlockEntity
         extends GenericLootableContainerBlockEntity {
     private final ViewerCountManager stateManager = new ViewerCountManager() {
 
@@ -47,15 +47,15 @@ public class LockableCrateBlockEntity
         protected boolean isPlayerViewing(PlayerEntity player) {
             if (player.currentScreenHandler instanceof GenericContainerScreenHandler) {
                 Inventory inventory = ((GenericContainerScreenHandler) player.currentScreenHandler).getInventory();
-                return inventory == LockableCrateBlockEntity.this;
+                return inventory == LockableBarrelBlockEntity.this;
             }
             return false;
         }
     };
     private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(27, ItemStack.EMPTY);
 
-    public LockableCrateBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlockEntities.LOCKABLE_CRATE_BLOCK_ENTITY_BLOCK_ENTITY_TYPE, blockPos, blockState);
+    public LockableBarrelBlockEntity(BlockPos blockPos, BlockState blockState) {
+        super(ModBlockEntities.LOCKABLE_BARREL_BLOCK_ENTITY_BLOCK_ENTITY_TYPE, blockPos, blockState);
     }
 
     @Override
@@ -92,7 +92,7 @@ public class LockableCrateBlockEntity
 
     @Override
     protected Text getContainerName() {
-        return Text.translatable("block.adaptor.lockable_crate");
+        return Text.translatable("block.adaptor.lockable_barrel");
     }
 
     @Override
@@ -121,11 +121,11 @@ public class LockableCrateBlockEntity
     }
 
     void setOpen(BlockState state, boolean open) {
-        this.world.setBlockState(this.getPos(), state.with(LockableCrateBlock.OPEN, open), Block.NOTIFY_ALL);
+        this.world.setBlockState(this.getPos(), state.with(LockableBarrelBlock.OPEN, open), Block.NOTIFY_ALL);
     }
 
     void playSound(BlockState state, SoundEvent soundEvent) {
-        Vec3i vec3i = state.get(LockableCrateBlock.FACING).getVector();
+        Vec3i vec3i = state.get(LockableBarrelBlock.FACING).getVector();
         double d = (double) this.pos.getX() + 0.5 + (double) vec3i.getX() / 2.0;
         double e = (double) this.pos.getY() + 0.5 + (double) vec3i.getY() / 2.0;
         double f = (double) this.pos.getZ() + 0.5 + (double) vec3i.getZ() / 2.0;

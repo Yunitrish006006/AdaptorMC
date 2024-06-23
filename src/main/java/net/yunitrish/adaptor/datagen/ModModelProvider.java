@@ -88,7 +88,7 @@ public class ModModelProvider extends FabricModelProvider {
                 ModBlocks.Chestnut.CHESTNUT_TRAPDOOR
                 );
 
-//        blockStateModelGenerator.registerSimpleState(ModBlocks.STONE_MILL);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.Container.LOCKABLE_STONE_MILL);
     }
 
     @Override

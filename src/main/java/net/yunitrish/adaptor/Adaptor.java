@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 import net.minecraft.util.Identifier;
 import net.yunitrish.adaptor.block.ModBlockEntities;
 import net.yunitrish.adaptor.block.ModBlocks;
+import net.yunitrish.adaptor.block.ModScreenHandlers;
 import net.yunitrish.adaptor.command.ModCommands;
 import net.yunitrish.adaptor.common.AdaptorApi;
 import net.yunitrish.adaptor.enchantment.EnchantAttributeHandler;
@@ -43,7 +44,7 @@ public class Adaptor implements ModInitializer {
 		ModTrunkPlacerTypes.register();
         ModFoliagePlacerTypes.register();
 		ModBlockEntities.registerBlockEntities();
-//		ModScreenHandlers.registerScreenHandlers();
+		ModScreenHandlers.initialize();
 		ModRecipes.registerRecipes();
 		ModSounds.registerSounds();
 		ModCommands.register();

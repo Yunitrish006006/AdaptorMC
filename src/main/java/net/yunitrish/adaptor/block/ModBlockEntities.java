@@ -4,10 +4,17 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.yunitrish.adaptor.Adaptor;
-import net.yunitrish.adaptor.block.LockableContainer.barrel.LockableBarrelBlockEntity;
-import net.yunitrish.adaptor.block.LockableContainer.crate.LockableCrateBlockEntity;
+import net.yunitrish.adaptor.block.LockableContainer.Barrel.LockableBarrelBlockEntity;
+import net.yunitrish.adaptor.block.LockableContainer.Crate.LockableCrateBlockEntity;
+import net.yunitrish.adaptor.block.LockableContainer.StoneMill.LockableStoneMillBlockEntity;
 
 public class ModBlockEntities {
+    public static final BlockEntityType<LockableStoneMillBlockEntity> LOCKABLE_STONE_MILL_BLOCK_ENTITY_BLOCK_ENTITY_TYPE = Registry
+            .register(
+                    Registries.BLOCK_ENTITY_TYPE,
+                    Adaptor.id("locked_stone_mill"),
+                    BlockEntityType.Builder.create(LockableStoneMillBlockEntity::new, ModBlocks.Container.LOCKABLE_STONE_MILL).build()
+            );
     public static final BlockEntityType<LockableCrateBlockEntity> LOCKABLE_CRATE_BLOCK_ENTITY_BLOCK_ENTITY_TYPE = Registry
             .register(
                     Registries.BLOCK_ENTITY_TYPE,
