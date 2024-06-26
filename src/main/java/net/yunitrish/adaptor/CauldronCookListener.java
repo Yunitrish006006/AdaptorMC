@@ -1,16 +1,16 @@
 package net.yunitrish.adaptor;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.mob.HuskEntity;
+import net.minecraft.entity.mob.ZombieEntity;
+import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -21,81 +21,69 @@ import net.minecraft.world.World;
 import java.util.*;
 
 public class CauldronCookListener {
-
-    public static List<CauldronRecipe> recipes = new ArrayList<>();
-
-    public static int lastTick = -1;
-
-    public static void initialize() {
-        CauldronRecipe gravel = CauldronRecipe
-                .NormalBuilder
-                .setRecipeItem(Items.GRAVEL.getDefaultStack())
-                .setResultItem(Items.SAND.getDefaultStack(), Items.FLINT.getDefaultStack());
-        recipes.add(gravel);
-    }
-
     public static ActionResult run(PlayerEntity player, World world, Hand hand, BlockHitResult hitResult) {
-        if (!(lastTick == -1 || Math.abs(player.age - lastTick) > 20)) {
-            return ActionResult.PASS;
-        } else {
-            lastTick = player.age;
-        }
         if (hand != Hand.MAIN_HAND) return ActionResult.PASS;
         if (!player.getMainHandStack().isEmpty()) return ActionResult.PASS;
 
-        for (CauldronRecipe recipe : recipes) {
-            if (recipe.set(world, hitResult.getBlockPos()).run(player)) {
-                BlockPos core = hitResult.getBlockPos();
-                player.sendMessage(Text.of("o"), true);
-                world.playSound(core.getX(), core.getY(), core.getZ(), recipe.sound, SoundCategory.PLAYERS, 0.8f, 0.5f, true);
-                return ActionResult.SUCCESS;
-            }
-            player.sendMessage(Text.of("x"), true);
-        }
+        CauldronRecipe gravel = new CauldronRecipe()
+                .setName("gravel")
+                .set(world, hitResult.getBlockPos())
+                .setRecipeItem(Items.GRAVEL.getDefaultStack())
+                .setResultItem(Items.SAND.getDefaultStack(), Items.FLINT.getDefaultStack())
+                .setDeviceReady(!world.isClient && world.getBlockState(hitResult.getBlockPos()).getBlock().equals(Blocks.WATER_CAULDRON));
+        if (gravel.run(player)) return ActionResult.SUCCESS;
+        CauldronRecipe sand = new CauldronRecipe()
+                .setName("sand")
+                .set(world, hitResult.getBlockPos())
+                .setRecipeItem(Items.SAND.getDefaultStack())
+                .setResultItem(Items.CLAY.getDefaultStack())
+                .setDeviceReady(!world.isClient && world.getBlockState(hitResult.getBlockPos()).getBlock().equals(Blocks.WATER_CAULDRON));
+        if (sand.run(player)) return ActionResult.SUCCESS;
         return ActionResult.PASS;
     }
 
-    public static void spawn(World world, BlockPos pos, ItemStack itemStack, int count) {
-        itemStack.setCount(count);
-        world.spawnEntity(new ItemEntity(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, itemStack));
+    public static void spawnItem(World world, BlockPos pos, ItemStack itemStack, int count) {
+        ItemStack spawned = itemStack.copy();
+        spawned.setCount(count);
+        world.spawnEntity(new ItemEntity(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, spawned));
+    }
+
+    public static void spawnEntity(World world, BlockPos pos, String entity) {
+        LivingEntity result;
+
+        switch (entity) {
+            case "minecraft.entity.zombie": {
+                result = new ZombieEntity(world);
+                result.getType().getTranslationKey();
+                break;
+            }
+            case "minecraft.entity.husk": {
+                result = new HuskEntity(EntityType.HUSK, world);
+                break;
+            }
+            default: {
+                result = new PigEntity(EntityType.PIG, world);
+                break;
+            }
+        }
+        result.setPos(pos.getX(), pos.getY(), pos.getZ());
+        world.spawnEntity(result);
     }
 
     public static class CauldronRecipe {
-        public static CauldronRecipe NormalBuilder = new CauldronRecipe() {
-            @Override
-            public boolean deviceReady() {
-                return !world.isClient() && world.getBlockState(core).getBlock() == Blocks.WATER_CAULDRON;
-            }
-        };
-        public static CauldronRecipe BoiledBuilder = new CauldronRecipe() {
-            @Override
-            public boolean deviceReady() {
-                return !world.isClient() && world.getBlockState(core).getBlock() == Blocks.WATER_CAULDRON && world.getBlockState(core.add(0, -1, 0)).getBlock() == Blocks.CAMPFIRE;
-            }
-        };
-        public static CauldronRecipe LavaBuilder = new CauldronRecipe() {
-            @Override
-            public boolean deviceReady() {
-                return !world.isClient() && world.getBlockState(core).getBlock() == Blocks.LAVA_CAULDRON;
-            }
-        };
-        public static CauldronRecipe FreezeBuilder = new CauldronRecipe() {
-            @Override
-            public boolean deviceReady() {
-                return !world.isClient() && world.getBlockState(core).getBlock() == Blocks.POWDER_SNOW_CAULDRON;
-            }
-        };
+        private final Map<String, Integer> recipeEntity = new HashMap<>();
         private final List<ItemStack> recipeItem = new ArrayList<>();
-        private final List<LivingEntity> recipeEntity = new ArrayList<>();
+        private final Map<String, Integer> entityResults = new HashMap<>();
         private final List<ItemStack> itemResults = new ArrayList<>();
-        private final List<LivingEntity> entityResults = new ArrayList<>();
-        SoundEvent sound = SoundEvents.AMBIENT_UNDERWATER_ENTER;
+        public String id;
         BlockPos core;
         World world;
         Box box;
+        boolean deviceReady;
 
-        public boolean deviceReady() {
-            return false;
+        public CauldronRecipe setDeviceReady(boolean deviceReady) {
+            this.deviceReady = deviceReady;
+            return this;
         }
 
         public CauldronRecipe setRecipeItem(ItemStack... items) {
@@ -109,12 +97,24 @@ public class CauldronCookListener {
         }
 
         public CauldronRecipe setRecipeEntity(LivingEntity... entities) {
-            recipeEntity.addAll(Arrays.asList(entities));
+            for (LivingEntity entity : entities) {
+                if (recipeEntity.containsKey(entity.getType().getTranslationKey())) {
+                    recipeEntity.replace(entity.getType().getTranslationKey(), recipeEntity.get(entity.getType().getTranslationKey()) + 1);
+                } else {
+                    recipeEntity.put(entity.getType().getTranslationKey(), 1);
+                }
+            }
             return this;
         }
 
         public CauldronRecipe setResultEntity(LivingEntity... entities) {
-            entityResults.addAll(Arrays.asList(entities));
+            for (LivingEntity entity : entities) {
+                if (entityResults.containsKey(entity.getType().getTranslationKey())) {
+                    entityResults.replace(entity.getType().getTranslationKey(), entityResults.get(entity.getType().getTranslationKey()) + 1);
+                } else {
+                    entityResults.put(entity.getType().getTranslationKey(), 1);
+                }
+            }
             return this;
         }
 
@@ -125,10 +125,17 @@ public class CauldronCookListener {
             return this;
         }
 
+        public CauldronRecipe setName(String name) {
+            this.id = name;
+            return this;
+        }
+
         public boolean run(PlayerEntity player) {
-            if (!deviceReady()) return false;
-            Map<Item, ItemEntity> itemIngredient = new HashMap<>();
+            Adaptor.LOGGER.info(id + "# entered");
+            if (!deviceReady) return false;
+            Adaptor.LOGGER.info(id + "# device checked");
             //list item in cauldron
+            Map<Item, ItemEntity> itemIngredient = new HashMap<>();
             for (ItemEntity itemEntity : world.getEntitiesByClass(ItemEntity.class, box, itemEntity -> {
                 for (ItemStack recipe : recipeItem) {
                     if (recipe.getItem() == itemEntity.getStack().getItem()) {
@@ -137,16 +144,36 @@ public class CauldronCookListener {
                 }
                 return false;
             })) {
-                Item type = itemEntity.getStack().getItem();
-                if (itemIngredient.containsKey(type)) {
-                    itemIngredient.get(type).getStack().increment(itemEntity.getStack().getCount());
+                Item itemType = itemEntity.getStack().getItem();
+                if (itemIngredient.containsKey(itemType)) {
+                    itemIngredient.get(itemType).getStack().increment(itemEntity.getStack().getCount());
                     itemEntity.setDespawnImmediately();
                 } else {
                     itemIngredient.put(itemEntity.getStack().getItem(), itemEntity);
                 }
             }
+            Adaptor.LOGGER.info(id + "# item ingredient searched");
+            //list entity in cauldron
+            Map<String, List<LivingEntity>> entityIngredient = new HashMap<>();
+            for (LivingEntity entity : world.getEntitiesByClass(LivingEntity.class, box, entity -> {
+                for (Map.Entry<String, Integer> recipe : recipeEntity.entrySet()) {
+                    if (recipe.getKey().equals(entity.getType().getTranslationKey())) {
+                        return true;
+                    }
+                }
+                return false;
+            })) {
+                EntityType<?> entityType = entity.getType();
+
+                if (entityIngredient.containsKey(entityType.getTranslationKey())) {
+                    entityIngredient.get(entityType.getTranslationKey()).add(entity);
+                } else {
+                    entityIngredient.put(entityType.getTranslationKey(), List.of(entity));
+                }
+            }
+            Adaptor.LOGGER.info(id + "# entity ingredient searched");
             int maxCount = Integer.MAX_VALUE;
-            //check recipe
+            //check item recipe
             for (ItemStack recipe : recipeItem) {
                 Item type = recipe.getItem();
                 if (itemIngredient.containsKey(type)) {
@@ -158,25 +185,53 @@ public class CauldronCookListener {
                     return false;
                 }
             }
+            Adaptor.LOGGER.info(id + "# item recipe checked");
+            //check entity recipe
+            for (Map.Entry<String, Integer> recipe : recipeEntity.entrySet()) {
+                String type = recipe.getKey();
+                if (entityIngredient.containsKey(type)) {
+                    int temp = entityIngredient.get(type).size() / recipe.getValue();
+                    if (temp < maxCount) {
+                        maxCount = temp;
+                    }
+                } else {
+                    return false;
+                }
+            }
+            Adaptor.LOGGER.info(id + "# entity recipe checked");
             //cook
             if (player.isSneaking()) {
-                for (ItemStack recipe : recipeItem) {
-                    Item type = recipe.getItem();
-                    itemIngredient.get(type).getStack().decrement(maxCount);
-                }
-                for (ItemStack result : itemResults) {
-                    spawn(world, core, result, maxCount);
-                }
-                return true;
+                cook(maxCount, world, core, recipeItem, recipeEntity, itemIngredient, entityIngredient, itemResults, entityResults);
             } else {
-                for (ItemStack recipe : recipeItem) {
-                    Item type = recipe.getItem();
-                    itemIngredient.get(type).getStack().decrement(1);
+                cook(1, world, core, recipeItem, recipeEntity, itemIngredient, entityIngredient, itemResults, entityResults);
+            }
+            Adaptor.LOGGER.info(id + "# cooked");
+            return true;
+        }
+
+        public void cook(
+                int maxCount, World world, BlockPos core,
+                List<ItemStack> recipeItem, Map<String, Integer> recipeEntity,
+                Map<Item, ItemEntity> itemIngredient, Map<String, List<LivingEntity>> entityIngredient,
+                List<ItemStack> itemResults, Map<String, Integer> entityResults
+        ) {
+            for (ItemStack recipe : recipeItem) {
+                Item type = recipe.getItem();
+                itemIngredient.get(type).getStack().decrement(maxCount);
+            }
+            for (Map.Entry<String, Integer> recipe : recipeEntity.entrySet()) {
+                String type = recipe.getKey();
+                for (int i = 0; i < maxCount; i++) {
+                    entityIngredient.get(type).getLast().kill();
                 }
-                for (ItemStack result : itemResults) {
-                    spawn(world, core, result, 1);
+            }
+            for (ItemStack result : itemResults) {
+                spawnItem(world, core, result, maxCount);
+            }
+            for (Map.Entry<String, Integer> result : entityResults.entrySet()) {
+                for (int i = 0; i < maxCount; i++) {
+                    spawnEntity(world, core, result.getKey());
                 }
-                return true;
             }
         }
     }
