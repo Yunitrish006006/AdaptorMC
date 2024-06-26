@@ -1,7 +1,0 @@
-{
-	"parent": "adaptor:item/pickaxe/pickaxe_3d",
-	"textures": {
-		"material": "minecraft:block/gold_block",
-		"stick": "minecraft:block/oak_log"
-	}
-}

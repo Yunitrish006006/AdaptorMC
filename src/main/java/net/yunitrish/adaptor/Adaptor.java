@@ -1,29 +1,8 @@
 package net.yunitrish.adaptor;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.util.Identifier;
-import net.yunitrish.adaptor.block.ModBlockEntities;
-import net.yunitrish.adaptor.block.ModBlocks;
-import net.yunitrish.adaptor.block.ModScreenHandlers;
-import net.yunitrish.adaptor.command.ModCommands;
-import net.yunitrish.adaptor.common.Api;
-import net.yunitrish.adaptor.common.VersionChecker;
-import net.yunitrish.adaptor.enchantment.EnchantAttributeHandler;
-import net.yunitrish.adaptor.entity.ModBoats;
-import net.yunitrish.adaptor.entity.ModEntities;
-import net.yunitrish.adaptor.entity.creature.PorcupineEntity;
-import net.yunitrish.adaptor.entity.creature.villager.ModCustomTrades;
-import net.yunitrish.adaptor.entity.creature.villager.ModVillagers;
-import net.yunitrish.adaptor.event.CauldronCookListener;
-import net.yunitrish.adaptor.event.ModEvents;
-import net.yunitrish.adaptor.item.ModItems;
-import net.yunitrish.adaptor.item.ModLootTableModifiers;
-import net.yunitrish.adaptor.recipe.ModRecipes;
-import net.yunitrish.adaptor.sound.ModSounds;
-import net.yunitrish.adaptor.world.generation.ModWorldGeneration;
-import net.yunitrish.adaptor.world.tree.ModFoliagePlacerTypes;
-import net.yunitrish.adaptor.world.tree.ModTrunkPlacerTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,34 +15,7 @@ public class Adaptor implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		VersionChecker.registerMain();
 		LOGGER.info("Initializing");
-		Api.initialize();
-		ModEvents.registerEvents();
-		ModBlocks.registerModBlocks();
-		ModItems.registerModItems();
-		ModBoats.registerBoats();
-		ModTrunkPlacerTypes.register();
-        ModFoliagePlacerTypes.register();
-		ModBlockEntities.registerBlockEntities();
-		ModScreenHandlers.initialize();
-		ModRecipes.registerRecipes();
-		ModSounds.registerSounds();
-		ModCommands.register();
-		ModVillagers.registerVillagers();
-		ModCustomTrades.registerCustomTrades();
-		ModLootTableModifiers.modifyLootTables();
-		FabricDefaultAttributeRegistry.register(ModEntities.PORCUPINE, PorcupineEntity.createPorcupineAttributes());
-		ModWorldGeneration.generateModWorldGeneration();
-//		MinecraftClient.getInstance().world.getRegistryManager().re
-//        CustomPortalBuilder.beginPortal()
-//                .frameBlock(Blocks.MOSSY_COBBLESTONE)
-//                .lightWithFluid(Fluids.WATER)
-//                .destDimID(modIdentifier("pre_era_dimension"))
-//                .tintColor(0x575c3b)
-//                .onlyLightInOverworld()
-//                .registerPortal();
-		EnchantAttributeHandler.registerEnchantmentAttributes();
-		CauldronCookListener.initialize();
+		UseBlockCallback.EVENT.register(CauldronCookListener::run);
 	}
 }

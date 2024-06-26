@@ -1,7 +1,0 @@
-{
-	"parent": "adaptor:item/sword/sword_3d",
-	"textures": {
-		"material": "minecraft:block/netherite_block",
-		"stick": "minecraft:block/oak_log"
-	}
-}

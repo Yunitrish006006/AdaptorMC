@@ -1,7 +1,0 @@
-{
-	"parent": "adaptor:item/sword/sword_3d",
-	"textures": {
-		"material": "minecraft:block/cobblestone",
-		"stick": "minecraft:block/oak_log"
-	}
-}

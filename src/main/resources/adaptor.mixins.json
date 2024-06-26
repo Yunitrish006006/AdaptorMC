@@ -3,16 +3,10 @@
   "package": "net.yunitrish.adaptor.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "FishingMixin",
-    "FoliagePlacerTypeInvoker",
-    "TrunkPlacerTypeInvoker",
-    "ZombieMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
-    "ItemRendererAccessor",
-    "ItemRendererMixin"
   ]
 }

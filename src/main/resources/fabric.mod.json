@@ -12,26 +12,10 @@
       "sources": "https://github.com/Yunitrish006006/AdaptorMC"
 	},
 	"license": "MIT",
-	"icon": "assets/adaptor/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
 			"net.yunitrish.adaptor.Adaptor"
-		],
-		"client": [
-			"net.yunitrish.adaptor.AdaptorClient"
-		],
-		"server": [
-			"net.yunitrish.adaptor.AdaptorServer"
-		],
-		"fabric-datagen": [
-			"net.yunitrish.adaptor.datagen.DataGenerator"
-		],
-		"terrablender": [
-			"net.yunitrish.adaptor.world.biome.ModTerrablenderAPI"
-		],
-		"//rei_client": [
-			"net.yunitrish.adaptor.compatibility.AdaptorREIClientPlugin"
 		]
 	},
 	"mixins": [
