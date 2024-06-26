@@ -11,7 +11,8 @@ package net.yunitrish.adaptor.api;
  * public class YourModInit implements CauldronRecipeProvider {
  *     @Override
  *     public void addCauldronRecipes() {
- *         CauldronRecipe gravelRecipe = CauldronRecipe.NORMALRECIPE
+ *         CauldronRecipe gravelRecipe = CauldronRecipe.NORMAL_RECIPE
+ *             .setName("gravelRecipe")
  *             .setRecipeItem(Items.GRAVEL.getDefaultStack())
  *             .setResultItem(Items.SAND.getDefaultStack(), Items.FLINT.getDefaultStack());
  *         CauldronCookEvent.registerRecipe(gravelRecipe);
