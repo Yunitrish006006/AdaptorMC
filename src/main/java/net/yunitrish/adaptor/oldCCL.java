@@ -1,5 +1,6 @@
 package net.yunitrish.adaptor;
 
+
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
@@ -20,7 +21,7 @@ import net.minecraft.world.World;
 
 import java.util.*;
 
-public class CauldronCookListener {
+public class oldCCL {
     public static ActionResult run(PlayerEntity player, World world, Hand hand, BlockHitResult hitResult) {
         if (hand != Hand.MAIN_HAND) return ActionResult.PASS;
         if (!player.getMainHandStack().isEmpty()) return ActionResult.PASS;
