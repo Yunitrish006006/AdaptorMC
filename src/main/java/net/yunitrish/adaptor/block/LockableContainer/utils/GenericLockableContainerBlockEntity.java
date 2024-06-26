@@ -22,7 +22,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Nameable;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
-import net.yunitrish.adaptor.common.AdaptorApi;
+import net.yunitrish.adaptor.common.Api;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -176,7 +176,7 @@ public abstract class GenericLockableContainerBlockEntity
     protected void readComponents(BlockEntity.ComponentsAccess components) {
         super.readComponents(components);
         this.customName = components.get(DataComponentTypes.CUSTOM_NAME);
-        this.lock = components.getOrDefault(AdaptorApi.GENERIC_LOCK, GenericContainerLock.EMPTY);
+        this.lock = components.getOrDefault(Api.GENERIC_LOCK, GenericContainerLock.EMPTY);
         components.getOrDefault(DataComponentTypes.CONTAINER, ContainerComponent.DEFAULT).copyTo(this.getHeldStacks());
     }
 
@@ -185,7 +185,7 @@ public abstract class GenericLockableContainerBlockEntity
         super.addComponents(componentMapBuilder);
         componentMapBuilder.add(DataComponentTypes.CUSTOM_NAME, this.customName);
         if (!this.lock.equals(GenericContainerLock.EMPTY)) {
-            componentMapBuilder.add(AdaptorApi.GENERIC_LOCK, this.lock);
+            componentMapBuilder.add(Api.GENERIC_LOCK, this.lock);
         }
         componentMapBuilder.add(DataComponentTypes.CONTAINER, ContainerComponent.fromStacks(this.getHeldStacks()));
     }

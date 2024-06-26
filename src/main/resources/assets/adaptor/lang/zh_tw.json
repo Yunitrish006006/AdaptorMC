@@ -6,6 +6,7 @@
   "adaptor.container.member_added": "成員 %s 已可使用該容器",
   "adaptor.container.no_owner": "此容器並無所有者",
   "adaptor.container.opened": "成功打開容器",
+  "adaptor.server.version_not_match": "伺服器端與客戶端模組版本不符: %s\n伺服器端版本: %s\n客戶端版本: %s",
   "advancements.as_hard_as_dirt.description": "取得一個泥土方塊",
   "advancements.as_hard_as_dirt.title": "遁地!",
   "advancements.ingenuity.description": "做出一把鐵鎚",

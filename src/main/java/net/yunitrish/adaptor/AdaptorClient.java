@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.yunitrish.adaptor.block.ModBlocks;
+import net.yunitrish.adaptor.common.VersionChecker;
 import net.yunitrish.adaptor.entity.ModEntities;
 import net.yunitrish.adaptor.entity.client.ModModelLayers;
 import net.yunitrish.adaptor.entity.client.PorcupineModel;
@@ -18,6 +19,13 @@ public class AdaptorClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+
+//        ClientPlayNetworking.registerGlobalReceiver(VersionChecker.ID, (versionChecker, context) -> {
+//            if (!versionChecker.modVersion().equals(Adaptor.MOD_VERSION))
+//                ClientPlayNetworking.send(new VersionChecker(Adaptor.MOD_VERSION));
+//        });
+
+        VersionChecker.registerClient();
 
         ModelLoadingPlugin.register(pluginContext -> {
             List<String> materials = List.of("", "wooden_", "stone_", "copper_", "iron_", "golden_", "diamond_", "netherite_");

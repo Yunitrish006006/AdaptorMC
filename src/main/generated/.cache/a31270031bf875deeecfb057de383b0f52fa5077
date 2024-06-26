@@ -1,10 +1,10 @@
-// 1.21	2024-06-23T02:05:55.0738209	Adaptor/Model Definitions
+// 1.21	2024-06-24T12:33:17.789076	Adaptor/Model Definitions
 11c252da9987d886959bbbdc572c87aa8cece6ef assets\adaptor\models\item\copper_helmet_gold_trim.json
 04efda3cda92aeda84c791deb527aabc2cea5ec5 assets\adaptor\models\item\copper_helmet_diamond_trim.json
 ebc14ba153f887c99f6d3ac9e857ccec59ea82ad assets\adaptor\blockstates\chestnut_sapling.json
 a6bd7dbe494d7e6a039a2be779f52658b4d1e021 assets\adaptor\models\block\chestnut_pressure_plate_down.json
-a52f5af47d2748d44c01a411ce8fec18625d95a6 assets\adaptor\models\block\stripped_chestnut_log_horizontal.json
 516c7e283da1e473b7b93d493ec4c43433111ed7 assets\adaptor\models\item\copper_boots_gold_trim.json
+a52f5af47d2748d44c01a411ce8fec18625d95a6 assets\adaptor\models\block\stripped_chestnut_log_horizontal.json
 6fd15ce4f2f6e2fefd7a101f3a424b423a813a1b assets\adaptor\models\block\chestnut_log.json
 7c6bd0a22f8c8fc02597aad843d7f49cac0dc90f assets\adaptor\models\item\chestnut_trapdoor.json
 7baa831eeae6b4e3e340195a646eec308468c8d4 assets\adaptor\models\block\dirt_stairs.json

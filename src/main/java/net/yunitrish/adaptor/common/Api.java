@@ -15,10 +15,8 @@ import java.security.MessageDigest;
 import java.util.UUID;
 import java.util.function.UnaryOperator;
 
-public class AdaptorApi {
-
+public class Api {
     public static final ComponentType<GenericContainerLock> GENERIC_LOCK = register("generic_lock", builder -> builder.codec(GenericContainerLock.CODEC));
-    public static UUID uuidNone = uuidV5("none");
 
     private static <T> ComponentType<T> register(String id, UnaryOperator<ComponentType.Builder<T>> builderOperator) {
         return Registry.register(Registries.DATA_COMPONENT_TYPE, Adaptor.id(id), ((ComponentType.Builder) builderOperator.apply(ComponentType.builder())).build());

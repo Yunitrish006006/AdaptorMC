@@ -22,6 +22,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.yunitrish.adaptor.common.ModConfig;
 import net.yunitrish.adaptor.common.ModConfigFile;
+import net.yunitrish.adaptor.common.VersionChecker;
 import net.yunitrish.adaptor.discord.MessageReceiveListener;
 import net.yunitrish.adaptor.discord.SlashCommandListener;
 
@@ -77,12 +78,12 @@ public class AdaptorServer implements DedicatedServerModInitializer {
 
     @Override
     public void onInitializeServer() {
+        VersionChecker.registerServer();
         try {
             run();
         } catch (Exception ignore) {
         }
     }
-
     public void run() {
         try {
             data = new ModConfigFile("adaptor.json");
@@ -129,7 +130,6 @@ public class AdaptorServer implements DedicatedServerModInitializer {
             });
             ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
                 sendEmbedMessage("進入伺服器", handler.player.getName().getLiteralString());
-
             });
             ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> sendEmbedMessage("離開伺服器", handler.player.getName().getLiteralString()));
             ServerLivingEntityEvents.AFTER_DEATH.register((entity, damageSource) -> {

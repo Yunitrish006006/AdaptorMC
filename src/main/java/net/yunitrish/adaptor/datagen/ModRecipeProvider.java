@@ -226,6 +226,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     public void generate(RecipeExporter exporter) {
         hammerRecipe(exporter);
         createCopperTools(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.Tools.COPPER_KEY)
+                .pattern("I")
+                .pattern("I")
+                .input('I', Items.COPPER_INGOT)
+                .criterion(hasItem(Items.COPPER_INGOT), VanillaRecipeProvider.conditionsFromItem(Items.COPPER_INGOT))
+                .showNotification(true)
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.Tools.COPPER_KEY)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.Tools.METAL_DETECTOR)
                 .pattern("S  ")
                 .pattern("IS ")
@@ -233,6 +240,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('S', Items.STICK)
                 .input('I',Items.COPPER_INGOT)
                 .input('R', Items.REDSTONE)
+                .showNotification(true)
                 .criterion(hasItem(Items.COPPER_INGOT),VanillaRecipeProvider.conditionsFromItem(Items.COPPER_INGOT))
                 .offerTo(exporter, Identifier.of(getRecipeName(ModItems.Tools.METAL_DETECTOR)));
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLASS_SLAB, 6)

@@ -1,4 +1,4 @@
-// 1.21	2024-06-23T02:05:55.0788257	Adaptor/Recipes
+// 1.21	2024-06-24T12:33:17.7960304	Adaptor/Recipes
 b34fd39203b591c993181de4cee2ddd20c128bb8 data\adaptor\advancement\recipes\tools\netherite_hammer.json
 b805dba4135a0f5382672dcdaf7ac5e316723a30 data\adaptor\recipe\chestnut_stairs.json
 b89485c04723d6373015c8c736d71b50b7436ab0 data\adaptor\recipe\6_flour_dough_with_bucket.json
@@ -36,6 +36,7 @@ d50ac7abe79c854e676f14eeb7d39a9bbc6a28e5 data\adaptor\advancement\recipes\buildi
 492d1644ea9b21e3fb4a0ccc6e481334bb996c2d data\adaptor\advancement\recipes\food\3_flour_dough_with_bucket.json
 9bb8a064213cf018b2e4dc52510ec31e1821b2e1 data\adaptor\advancement\recipes\tools\copper_axe.json
 f1360d8f67beb935fc8c64bc658211c1e7dd0057 data\adaptor\recipe\3_flour_dough_with_bucket.json
+70454575af228c9c8f6c4e73fc7793819a09c55f data\adaptor\recipe\copper_key.json
 88bb0b048ea0a0152f2fd5fcb4ad4795c40da026 data\adaptor\recipe\chestnut_button.json
 a79ffa7d2adfabebf782731c6ce8cafbc14d7524 data\adaptor\recipe\8_flour_dough_with_bucket.json
 98e081a76582360d6ec91b63b82809bf987f3809 data\adaptor\advancement\recipes\building_blocks\chestnut_slab.json
@@ -58,6 +59,7 @@ e48605c31a5e28e0b8583049d9fce3391873e9d9 data\adaptor\advancement\recipes\tools\
 2aebfe88d8e88c7d1fdf8c1591cc487325b16c38 data\adaptor\recipe\copper_axe.json
 cf48d93fe4dfe2289751b24eae7797ce574283b6 data\adaptor\recipe\flour.json
 b17d23c043366b9ea96feaf9234a00c026f0368f data\adaptor\advancement\recipes\food\1_flour_dough_with_bucket.json
+5285d14baf96ed060fe7ced7a0103e14177d218d data\adaptor\advancement\recipes\tools\copper_key.json
 03277de7a6ee364c4ad41d8fe79c09fd4a761ff8 data\adaptor\advancement\recipes\food\4_flour_dough_with_bucket.json
 85fd9a72de5adba58b9a3819e929c86bbb6905c2 data\adaptor\recipe\dirt_fence.json
 52545a6af5d8afeea40b464d847aae9d2f58f22a data\adaptor\advancement\recipes\building_blocks\dirt_fence_gate.json
@@ -80,6 +82,6 @@ b1ad4e2d4ac7ec2f0f79e96a938b19a0f6b4a656 data\adaptor\recipe\dirt_button.json
 912d31ff0eff515171acf26533b187e410160413 data\adaptor\recipe\2_flour_dough_with_bucket.json
 ce874364b522b476f807e36d42d69d11050e22ba data\adaptor\recipe\copper_hoe.json
 8d9551c72b464746ae0547b3411cabcf0a13908a data\adaptor\advancement\recipes\building_blocks\dirt_slab.json
-fcd205d2c5fabaa6e77d4f491d7541a2cad0b1ed data\adaptor\advancement\recipes\building_blocks\chestnut_fence_gate.json
 1c10aa1296dd6e5fb92f4663b93ffccb1c752909 data\adaptor\recipe\chestnut_slab.json
+fcd205d2c5fabaa6e77d4f491d7541a2cad0b1ed data\adaptor\advancement\recipes\building_blocks\chestnut_fence_gate.json
 1dada05a5a2f480d25b1a4dd176640d624a1664e data\adaptor\recipe\chestnut_planks.json

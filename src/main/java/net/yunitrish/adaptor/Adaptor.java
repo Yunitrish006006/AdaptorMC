@@ -7,13 +7,15 @@ import net.yunitrish.adaptor.block.ModBlockEntities;
 import net.yunitrish.adaptor.block.ModBlocks;
 import net.yunitrish.adaptor.block.ModScreenHandlers;
 import net.yunitrish.adaptor.command.ModCommands;
-import net.yunitrish.adaptor.common.AdaptorApi;
+import net.yunitrish.adaptor.common.Api;
+import net.yunitrish.adaptor.common.VersionChecker;
 import net.yunitrish.adaptor.enchantment.EnchantAttributeHandler;
 import net.yunitrish.adaptor.entity.ModBoats;
 import net.yunitrish.adaptor.entity.ModEntities;
 import net.yunitrish.adaptor.entity.creature.PorcupineEntity;
 import net.yunitrish.adaptor.entity.creature.villager.ModCustomTrades;
 import net.yunitrish.adaptor.entity.creature.villager.ModVillagers;
+import net.yunitrish.adaptor.event.CauldronCookListener;
 import net.yunitrish.adaptor.event.ModEvents;
 import net.yunitrish.adaptor.item.ModItems;
 import net.yunitrish.adaptor.item.ModLootTableModifiers;
@@ -26,17 +28,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Adaptor implements ModInitializer {
-    public static final Logger LOGGER = LoggerFactory.getLogger("adaptor");
 	public static final String MOD_ID = "adaptor";
-
+	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static Identifier id(String name) {
 		return Identifier.of(Adaptor.MOD_ID, name);
 	}
 
 	@Override
 	public void onInitialize() {
+		VersionChecker.registerMain();
 		LOGGER.info("Initializing");
-		AdaptorApi.initialize();
+		Api.initialize();
 		ModEvents.registerEvents();
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
@@ -62,5 +64,6 @@ public class Adaptor implements ModInitializer {
 //                .onlyLightInOverworld()
 //                .registerPortal();
 		EnchantAttributeHandler.registerEnchantmentAttributes();
+		CauldronCookListener.initialize();
 	}
 }

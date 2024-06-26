@@ -97,11 +97,10 @@ public abstract class FishingMixin extends ProjectileEntity {
             ObjectArrayList<ItemStack> list = lootTable.generateLoot(lootContextParameterSet);
 //            Criteria.FISHING_ROD_HOOKED.trigger((ServerPlayerEntity)playerEntity, usedItem, this, list);
             for (ItemStack itemStack : list) {
-
-                int rn = Math.abs(random.nextBetween(0, (luckBonus * waitTimeReductionTicks + 1) / 3) + 1);
                 if (itemStack.isIn(ItemTags.FISHES)) {
                     playerEntity.getWorld().spawnEntity(new ExperienceOrbEntity(playerEntity.getWorld(), playerEntity.getX(), playerEntity.getY() + 0.5, playerEntity.getZ() + 0.5, this.random.nextInt(6) + 1));
-                    for (int t=0;t<rn;t++) this.getWorld().spawnEntity(getFishEntity(playerEntity,itemStack));
+                    for (int t = 0; t < random.nextBetween(1, 3); t++)
+                        this.getWorld().spawnEntity(getFishEntity(playerEntity, itemStack));
                     playerEntity.increaseStat(Stats.FISH_CAUGHT, 1);
                 }
                 else {

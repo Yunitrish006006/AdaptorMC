@@ -13,7 +13,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.yunitrish.adaptor.Adaptor;
-import net.yunitrish.adaptor.common.AdaptorApi;
+import net.yunitrish.adaptor.common.Api;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -31,7 +31,7 @@ public abstract class ZombieMixin extends HostileEntity {
         if (!this.getWorld().isClient && this.isAlive() && !this.isAiDisabled()) {
             if (Math.round(getHealth()) < Math.round(getMaxHealth()) && random.nextFloat() < 0.05 && this.getTarget() != null) {
                 setHealth(getHealth() + 2f);
-                AdaptorApi.spawnParticlesFromEntity(this, ParticleTypes.HEART, 2);
+                Api.spawnParticlesFromEntity(this, ParticleTypes.HEART, 2);
             }
         }
     }
