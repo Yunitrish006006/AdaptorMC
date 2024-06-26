@@ -1,4 +1,5 @@
 package net.yunitrish.adaptor.api;
+
 /**
  * Interface for providing cauldron recipes.
  * <p>

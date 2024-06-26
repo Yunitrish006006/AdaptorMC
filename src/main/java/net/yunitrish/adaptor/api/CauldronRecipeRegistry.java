@@ -25,6 +25,8 @@ public class CauldronRecipeRegistry {
      */
     private static final List<CauldronRecipe> recipes = new ArrayList<>();
     private static final List<CauldronRecipeProvider> providers = new ArrayList<>();
+    //TODO: this providers are not never queried
+
     /**
      * Registers a new cauldron recipe.
      * <p>
@@ -45,6 +47,7 @@ public class CauldronRecipeRegistry {
     public static void registerRecipe(CauldronRecipe recipe) {
         recipes.add(recipe);
     }
+
     /**
      * Registers a new cauldron recipe provider.
      * <p>
@@ -61,7 +64,8 @@ public class CauldronRecipeRegistry {
      *     }
      * }
      * }
-     *</pre>
+     * </pre>
+     *
      * @param provider the {@link CauldronRecipeProvider} to register.
      */
 
