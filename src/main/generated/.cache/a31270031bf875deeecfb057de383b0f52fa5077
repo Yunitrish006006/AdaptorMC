@@ -1,10 +1,10 @@
-// 1.21	2024-06-24T12:33:17.789076	Adaptor/Model Definitions
+// 1.21	2024-06-26T22:45:00.1117126	Adaptor/Model Definitions
 11c252da9987d886959bbbdc572c87aa8cece6ef assets\adaptor\models\item\copper_helmet_gold_trim.json
 04efda3cda92aeda84c791deb527aabc2cea5ec5 assets\adaptor\models\item\copper_helmet_diamond_trim.json
 ebc14ba153f887c99f6d3ac9e857ccec59ea82ad assets\adaptor\blockstates\chestnut_sapling.json
 a6bd7dbe494d7e6a039a2be779f52658b4d1e021 assets\adaptor\models\block\chestnut_pressure_plate_down.json
-516c7e283da1e473b7b93d493ec4c43433111ed7 assets\adaptor\models\item\copper_boots_gold_trim.json
 a52f5af47d2748d44c01a411ce8fec18625d95a6 assets\adaptor\models\block\stripped_chestnut_log_horizontal.json
+516c7e283da1e473b7b93d493ec4c43433111ed7 assets\adaptor\models\item\copper_boots_gold_trim.json
 6fd15ce4f2f6e2fefd7a101f3a424b423a813a1b assets\adaptor\models\block\chestnut_log.json
 7c6bd0a22f8c8fc02597aad843d7f49cac0dc90f assets\adaptor\models\item\chestnut_trapdoor.json
 7baa831eeae6b4e3e340195a646eec308468c8d4 assets\adaptor\models\block\dirt_stairs.json
@@ -213,8 +213,8 @@ d65ac6142af5f481f673e9108fb27066a6bfee7c assets\adaptor\models\item\copper_boots
 b4cd09fb66071e84943458be84bcc52c9cce1fad assets\adaptor\blockstates\lockable_crate.json
 bbc8ced544d07d56cec97acccf44f7d9d06865ec assets\adaptor\models\block\chestnut_log_horizontal.json
 2a1fd12b8a831e1dbfcaafa0e4e508724ace6297 assets\adaptor\models\item\dough.json
-e831a6f78a631376be8707d458bb806fc0952920 assets\adaptor\models\item\copper_helmet_emerald_trim.json
 3bae044628a196bdef668d7b27668e044c5f73cc assets\adaptor\models\block\dirt_fence_gate_open.json
+e831a6f78a631376be8707d458bb806fc0952920 assets\adaptor\models\item\copper_helmet_emerald_trim.json
 e64df62c4a020f81a810f71a5834b159d54810f0 assets\adaptor\models\item\copper_leggings_redstone_trim.json
 5a4a24b023973852be05d4f8b7176c2fb536b345 assets\adaptor\models\item\copper_shovel.json
 8098b8080cdc97be57e735f961b7dd2bfd3cc919 assets\adaptor\models\item\marijuana_seeds.json
