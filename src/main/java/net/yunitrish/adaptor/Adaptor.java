@@ -19,7 +19,7 @@ public class Adaptor implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Initializing Testing API");
-		UseBlockCallback.EVENT.register(new CauldronCookEvent());
 		CauldronRecipeRegistry.registerRecipeProvider(new ModCauldronRecipeInit());
+		UseBlockCallback.EVENT.register(new CauldronCookEvent());
 	}
 }

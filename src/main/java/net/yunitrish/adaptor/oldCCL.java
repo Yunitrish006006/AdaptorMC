@@ -21,6 +21,9 @@ import net.minecraft.world.World;
 
 import java.util.*;
 
+/*
+ * this works fine currently
+ * */
 public class oldCCL {
     public static ActionResult run(PlayerEntity player, World world, Hand hand, BlockHitResult hitResult) {
         if (hand != Hand.MAIN_HAND) return ActionResult.PASS;
@@ -76,6 +79,7 @@ public class oldCCL {
         private final List<ItemStack> recipeItem = new ArrayList<>();
         private final Map<String, Integer> entityResults = new HashMap<>();
         private final List<ItemStack> itemResults = new ArrayList<>();
+        private final List<ItemStack> Structure = new ArrayList<>();
         public String id;
         BlockPos core;
         World world;

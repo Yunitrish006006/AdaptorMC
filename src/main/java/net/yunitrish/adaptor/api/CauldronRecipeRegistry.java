@@ -25,6 +25,7 @@ public class CauldronRecipeRegistry {
      */
     private static final List<CauldronRecipe> recipes = new ArrayList<>();
     private static final List<CauldronRecipeProvider> providers = new ArrayList<>();
+    //TODO: this providers are not never queried
 
     /**
      * Registers a new cauldron recipe.
